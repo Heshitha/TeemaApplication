@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BE96246-B0CF-423D-86DB-69F2435234E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TeemaApplication</RootNamespace>
+    <AssemblyName>TeemaApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddLeaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLeaves.designer.cs">
+      <DependentUpon>AddLeaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewEmployee.Designer.cs">
+      <DependentUpon>AddNewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceManagement.designer.cs">
+      <DependentUpon>AttendanceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicSalary.designer.cs">
+      <DependentUpon>BasicSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ShowMessageBox.cs" />
+    <Compile Include="Classes\NewFixedIncentive.cs" />
+    <Compile Include="DataSets\TeemaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeemaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DayOffApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayOffApply.designer.cs">
+      <DependentUpon>DayOffApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DayWages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayWages.designer.cs">
+      <DependentUpon>DayWages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deduction.designer.cs">
+      <DependentUpon>Deduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Attendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Attendance.designer.cs">
+      <DependentUpon>Employee Attendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fixed Incentive Allowance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fixed Incentive Allowance.designer.cs">
+      <DependentUpon>Fixed Incentive Allowance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeaveApply.designer.cs">
+      <DependentUpon>LeaveApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OverTimeApprove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverTimeApprove.designer.cs">
+      <DependentUpon>OverTimeApprove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OverTimeRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverTimeRequest.designer.cs">
+      <DependentUpon>OverTimeRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaryAdvance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryAdvance.designer.cs">
+      <DependentUpon>SalaryAdvance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryLoan.designer.cs">
+      <DependentUpon>SalaryLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeemaDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeemaDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="VariableIncentiveAllowance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VariableIncentiveAllowance.designer.cs">
+      <DependentUpon>VariableIncentiveAllowance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmployeeDetails.Designer.cs">
+      <DependentUpon>ViewEmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmployeeList.Designer.cs">
+      <DependentUpon>ViewEmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkInOtherLocationApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkInOtherLocationApply.designer.cs">
+      <DependentUpon>WorkInOtherLocationApply.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddLeaves.resx">
+      <DependentUpon>AddLeaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewEmployee.resx">
+      <DependentUpon>AddNewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceManagement.resx">
+      <DependentUpon>AttendanceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicSalary.resx">
+      <DependentUpon>BasicSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DayOffApply.resx">
+      <DependentUpon>DayOffApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DayWages.resx">
+      <DependentUpon>DayWages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deduction.resx">
+      <DependentUpon>Deduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Attendance.resx">
+      <DependentUpon>Employee Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fixed Incentive Allowance.resx">
+      <DependentUpon>Fixed Incentive Allowance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeaveApply.resx">
+      <DependentUpon>LeaveApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverTimeApprove.resx">
+      <DependentUpon>OverTimeApprove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverTimeRequest.resx">
+      <DependentUpon>OverTimeRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SalaryAdvance.resx">
+      <DependentUpon>SalaryAdvance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryLoan.resx">
+      <DependentUpon>SalaryLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VariableIncentiveAllowance.resx">
+      <DependentUpon>VariableIncentiveAllowance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmployeeDetails.resx">
+      <DependentUpon>ViewEmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmployeeList.resx">
+      <DependentUpon>ViewEmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkInOtherLocationApply.resx">
+      <DependentUpon>WorkInOtherLocationApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DataSets\TeemaDataSet.xsc">
+      <DependentUpon>TeemaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\TeemaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeemaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\TeemaDataSet.xss">
+      <DependentUpon>TeemaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\TeemaApplication.Classes.NewFixedIncentive.datasource" />
+    <None Include="TeemaDB.dbml.layout">
+      <DependentUpon>TeemaDB.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TeemaDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TeemaDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
