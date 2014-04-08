@@ -279,9 +279,10 @@ namespace TeemaApplication
             db.FixedIncentives.InsertOnSubmit(travelingIncentive);
             db.SubmitChanges();
 
-            foreach (var x in dataset.NewFixedIncentive.Rows)
+            foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
             {
-                
+                string fixedIncentiveValue = x.Cells[0].Value.ToString();
+                double fixedIncentiveName = (double)x.Cells[1].Value;
             }
 
 
