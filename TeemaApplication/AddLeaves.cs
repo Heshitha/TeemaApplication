@@ -144,20 +144,34 @@ namespace TeemaApplication
                               where emp.TokenNo == tokenid
                               select emp.EmployeeID).SingleOrDefault();
 
-          
-            // insert to  granted leaves
-            GrantedLeave GLeaves = new GrantedLeave();
- 
-            GLeaves.EmployeeID = varempID;
-            GLeaves.year = year;
-            GLeaves.Annual = annual;
-            GLeaves.Casual = casual;
+            
+               var checkleave = (from grntdlvs in db.GrantedLeaves
+                              where grntdlvs.EmployeeID == varempID
+                              select grntdlvs);
 
-            db.GrantedLeaves.InsertOnSubmit(GLeaves);
-            db.SubmitChanges();
+               
 
-            //reload grid view
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+               if (checkleave == null)
+               {
+                   // insert to  granted leaves
+                   GrantedLeave GLeaves = new GrantedLeave();    
+
+                   GLeaves.EmployeeID = varempID;
+                   GLeaves.year = year;
+                   GLeaves.Annual = annual;
+                   GLeaves.Casual = casual;
+
+                   db.GrantedLeaves.InsertOnSubmit(GLeaves);
+                   db.SubmitChanges();
+
+                   //reload grid view
+                   fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+               }
+               else
+               {
+                   // enter else part for updating granted leaves
+                    //var existingleaverecord = from grntlvs in db.GrantedLeaves
+               }
            
         }
 
@@ -180,8 +194,10 @@ namespace TeemaApplication
             {
                 String errortext = null;
 
+                errortext += getIntNumaricValue("*For the year",cmbLeaveYear.Text);
                 errortext += getIntNumaricValue("*Annual Leaves", txtAnnual.Text);
                 errortext += getIntNumaricValue("*Casual Leaves", txtAnnual.Text);
+                
 
                 if (errortext == "")
                 {

@@ -38,13 +38,11 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblTokenNumber = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbLeaveYear = new System.Windows.Forms.ComboBox();
             this.btnClearAddLeaves = new System.Windows.Forms.Button();
             this.btnAddLeaves = new System.Windows.Forms.Button();
             this.txtCasual = new System.Windows.Forms.TextBox();
             this.txtAnnual = new System.Windows.Forms.TextBox();
             this.lblCasual = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblAnnual = new System.Windows.Forms.Label();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
             this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +69,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.cmbLeaveYear = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -89,6 +89,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbLeaveYear);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbDepartment);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.cmbBranch);
@@ -98,7 +100,7 @@
             this.groupBox1.Controls.Add(this.lblTokenNumber);
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 145);
+            this.groupBox1.Size = new System.Drawing.Size(287, 160);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Department Search";
@@ -107,7 +109,7 @@
             // 
             this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(108, 56);
+            this.cmbDepartment.Location = new System.Drawing.Point(108, 73);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(173, 21);
             this.cmbDepartment.TabIndex = 2;
@@ -115,7 +117,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(206, 108);
+            this.btnSearch.Location = new System.Drawing.Point(206, 127);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -127,7 +129,7 @@
             // 
             this.cmbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBranch.FormattingEnabled = true;
-            this.cmbBranch.Location = new System.Drawing.Point(108, 29);
+            this.cmbBranch.Location = new System.Drawing.Point(108, 46);
             this.cmbBranch.Name = "cmbBranch";
             this.cmbBranch.Size = new System.Drawing.Size(173, 21);
             this.cmbBranch.TabIndex = 2;
@@ -137,7 +139,7 @@
             // 
             this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubDepartment.FormattingEnabled = true;
-            this.cmbSubDepartment.Location = new System.Drawing.Point(108, 81);
+            this.cmbSubDepartment.Location = new System.Drawing.Point(108, 100);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
             this.cmbSubDepartment.Size = new System.Drawing.Size(173, 21);
             this.cmbSubDepartment.TabIndex = 2;
@@ -146,7 +148,7 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(6, 84);
+            this.lblDepartment.Location = new System.Drawing.Point(6, 101);
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(84, 13);
             this.lblDepartment.TabIndex = 0;
@@ -155,7 +157,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(6, 58);
+            this.lblName.Location = new System.Drawing.Point(6, 75);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(62, 13);
             this.lblName.TabIndex = 0;
@@ -164,7 +166,7 @@
             // lblTokenNumber
             // 
             this.lblTokenNumber.AutoSize = true;
-            this.lblTokenNumber.Location = new System.Drawing.Point(6, 32);
+            this.lblTokenNumber.Location = new System.Drawing.Point(6, 49);
             this.lblTokenNumber.Name = "lblTokenNumber";
             this.lblTokenNumber.Size = new System.Drawing.Size(41, 13);
             this.lblTokenNumber.TabIndex = 0;
@@ -172,46 +174,24 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmbLeaveYear);
             this.groupBox2.Controls.Add(this.btnClearAddLeaves);
             this.groupBox2.Controls.Add(this.btnAddLeaves);
             this.groupBox2.Controls.Add(this.txtCasual);
             this.groupBox2.Controls.Add(this.txtAnnual);
             this.groupBox2.Controls.Add(this.lblCasual);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblAnnual);
             this.groupBox2.Controls.Add(this.dgvLeaves);
             this.groupBox2.Controls.Add(this.btnClearGrid);
             this.groupBox2.Location = new System.Drawing.Point(312, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(624, 414);
+            this.groupBox2.Size = new System.Drawing.Size(624, 428);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add Leaves";
             // 
-            // cmbLeaveYear
-            // 
-            this.cmbLeaveYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLeaveYear.FormattingEnabled = true;
-            this.cmbLeaveYear.Items.AddRange(new object[] {
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023"});
-            this.cmbLeaveYear.Location = new System.Drawing.Point(84, 23);
-            this.cmbLeaveYear.Name = "cmbLeaveYear";
-            this.cmbLeaveYear.Size = new System.Drawing.Size(173, 21);
-            this.cmbLeaveYear.TabIndex = 3;
-            // 
             // btnClearAddLeaves
             // 
-            this.btnClearAddLeaves.Location = new System.Drawing.Point(209, 103);
+            this.btnClearAddLeaves.Location = new System.Drawing.Point(182, 72);
             this.btnClearAddLeaves.Name = "btnClearAddLeaves";
             this.btnClearAddLeaves.Size = new System.Drawing.Size(75, 23);
             this.btnClearAddLeaves.TabIndex = 10;
@@ -221,7 +201,7 @@
             // 
             // btnAddLeaves
             // 
-            this.btnAddLeaves.Location = new System.Drawing.Point(128, 103);
+            this.btnAddLeaves.Location = new System.Drawing.Point(98, 72);
             this.btnAddLeaves.Name = "btnAddLeaves";
             this.btnAddLeaves.Size = new System.Drawing.Size(75, 23);
             this.btnAddLeaves.TabIndex = 11;
@@ -231,14 +211,14 @@
             // 
             // txtCasual
             // 
-            this.txtCasual.Location = new System.Drawing.Point(84, 76);
+            this.txtCasual.Location = new System.Drawing.Point(84, 45);
             this.txtCasual.Name = "txtCasual";
             this.txtCasual.Size = new System.Drawing.Size(173, 20);
-            this.txtCasual.TabIndex = 8;
+            this.txtCasual.TabIndex = 10;
             // 
             // txtAnnual
             // 
-            this.txtAnnual.Location = new System.Drawing.Point(84, 50);
+            this.txtAnnual.Location = new System.Drawing.Point(84, 19);
             this.txtAnnual.Name = "txtAnnual";
             this.txtAnnual.Size = new System.Drawing.Size(173, 20);
             this.txtAnnual.TabIndex = 9;
@@ -246,25 +226,16 @@
             // lblCasual
             // 
             this.lblCasual.AutoSize = true;
-            this.lblCasual.Location = new System.Drawing.Point(15, 79);
+            this.lblCasual.Location = new System.Drawing.Point(15, 48);
             this.lblCasual.Name = "lblCasual";
             this.lblCasual.Size = new System.Drawing.Size(39, 13);
             this.lblCasual.TabIndex = 5;
             this.lblCasual.Text = "Casual";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "For the year";
-            // 
             // lblAnnual
             // 
             this.lblAnnual.AutoSize = true;
-            this.lblAnnual.Location = new System.Drawing.Point(15, 53);
+            this.lblAnnual.Location = new System.Drawing.Point(15, 22);
             this.lblAnnual.Name = "lblAnnual";
             this.lblAnnual.Size = new System.Drawing.Size(40, 13);
             this.lblAnnual.TabIndex = 7;
@@ -279,12 +250,12 @@
             this.clmnTokenID,
             this.clmnEmpName,
             this.clmnEPFNO});
-            this.dgvLeaves.Location = new System.Drawing.Point(6, 132);
+            this.dgvLeaves.Location = new System.Drawing.Point(6, 101);
             this.dgvLeaves.Name = "dgvLeaves";
             this.dgvLeaves.ReadOnly = true;
             this.dgvLeaves.RowHeadersVisible = false;
             this.dgvLeaves.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeaves.Size = new System.Drawing.Size(612, 239);
+            this.dgvLeaves.Size = new System.Drawing.Size(612, 282);
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
             // 
@@ -311,7 +282,7 @@
             // 
             // btnClearGrid
             // 
-            this.btnClearGrid.Location = new System.Drawing.Point(537, 374);
+            this.btnClearGrid.Location = new System.Drawing.Point(543, 389);
             this.btnClearGrid.Name = "btnClearGrid";
             this.btnClearGrid.Size = new System.Drawing.Size(75, 28);
             this.btnClearGrid.TabIndex = 2;
@@ -339,7 +310,7 @@
             this.grpEmployeeDetails.Controls.Add(this.label5);
             this.grpEmployeeDetails.Controls.Add(this.label26);
             this.grpEmployeeDetails.Controls.Add(this.label27);
-            this.grpEmployeeDetails.Location = new System.Drawing.Point(12, 194);
+            this.grpEmployeeDetails.Location = new System.Drawing.Point(12, 209);
             this.grpEmployeeDetails.Name = "grpEmployeeDetails";
             this.grpEmployeeDetails.Size = new System.Drawing.Size(287, 265);
             this.grpEmployeeDetails.TabIndex = 2;
@@ -498,11 +469,40 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
+            // cmbLeaveYear
+            // 
+            this.cmbLeaveYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLeaveYear.FormattingEnabled = true;
+            this.cmbLeaveYear.Items.AddRange(new object[] {
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"});
+            this.cmbLeaveYear.Location = new System.Drawing.Point(108, 19);
+            this.cmbLeaveYear.Name = "cmbLeaveYear";
+            this.cmbLeaveYear.Size = new System.Drawing.Size(173, 21);
+            this.cmbLeaveYear.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "For the year";
+            // 
             // frmAddLeaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 469);
+            this.ClientSize = new System.Drawing.Size(947, 484);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpEmployeeDetails);
@@ -561,13 +561,13 @@
         private System.Windows.Forms.TextBox txtCasual;
         private System.Windows.Forms.TextBox txtAnnual;
         private System.Windows.Forms.Label lblCasual;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblAnnual;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox cmbLeaveYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPFNO;
+        private System.Windows.Forms.ComboBox cmbLeaveYear;
+        private System.Windows.Forms.Label label2;
     }
 }
 
