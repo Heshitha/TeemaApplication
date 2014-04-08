@@ -298,7 +298,42 @@ namespace TeemaApplication
                 db.SubmitChanges();
             }
 
+
+
             MessageBox.Show("Done");
+        }
+
+        private void calculateVaribleIncentiveValues()
+        {
+            double ProductionSalesPerformanceTotal = getVariableIncentiveValue(txtProductionSalesPerformanceTotalValue);
+            double performPrecentage = getVariableIncentiveValue(txtPerformancePrecentage) / 100.0;
+            double salesPrecentage = getVariableIncentiveValue(txtSalesPrecentage) / 100.0;
+            double productPrecentage = getVariableIncentiveValue(txtProductPrecentage) / 100.0;
+
+            double performValue = ProductionSalesPerformanceTotal * performPrecentage;
+            double salesValue = ProductionSalesPerformanceTotal * salesPrecentage;
+            double productValue = ProductionSalesPerformanceTotal * productPrecentage;
+
+            txtPerformValue.Text = performValue.ToString("0");
+            txtSalesValue.Text = salesValue.ToString("0");
+            txtProductValue.Text = productValue.ToString("0");
+        }
+
+        private double getVariableIncentiveValue(TextBox textBox)
+        {
+            double value;
+            if (double.TryParse(textBox.Text, out value))
+            {
+                return value;
+            }
+            else
+            {
+                if (!textBox.Focused)
+                {
+                    textBox.Text = "0";
+                }
+                return value;
+            }
         }
 
         private bool isBranchExist()
@@ -417,6 +452,149 @@ namespace TeemaApplication
         }
 
         private void chbEPFEntitled_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProductionSalesPerformanceTotalValue_TextChanged(object sender, EventArgs e)
+        {
+            calculateVaribleIncentiveValues();
+        }
+
+        private void txtProductPrecentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtProductPrecentage);
+        }
+
+        private void checkIfEmpty(TextBox textBox)
+        {
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                textBox.Text = "0";
+            }
+        }
+
+        private void txtDayWagesDayRate_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtDayWagesDayRate);
+        }
+
+        private void txtDayWagesTotalEPFSalary_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtBasicSalary_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtBudgetAllowance_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtRecrumentTotalEPF_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDayWagesTotalEPFSalary_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtDayWagesTotalEPFSalary);
+        }
+
+        private void txtBasicSalary_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtBasicSalary);
+        }
+
+        private void txtBudgetAllowance_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtBudgetAllowance);
+        }
+
+        private void txtRecrumentTotalEPF_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtRecrumentTotalEPF);
+        }
+
+        private void txtTravellingAttendance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTravellingAttendance_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtTravellingAttendance);
+        }
+
+        private void txtFixedIncentiveValue_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtFixedIncentiveValue);
+        }
+
+        private void txtProductionSalesPerformanceTotalValue_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtProductionSalesPerformanceTotalValue);
+        }
+
+        private void txtPerformancePrecentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtPerformancePrecentage);
+        }
+
+        private void txtSalesPrecentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtSalesPrecentage);
+        }
+
+        private void txtWorkshopIncentivePresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtWorkshopIncentivePresentage);
+        }
+
+        private void txtDownTimeMatchineBreakDownPresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtDownTimeMatchineBreakDownPresentage);
+        }
+
+        private void txtMachievingMaintenancePresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtMachievingMaintenancePresentage);
+        }
+
+        private void txtAchievingProductionTargetsPresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtAchievingProductionTargetsPresentage);
+        }
+
+        private void txtMillSectionTargetsPresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtMillSectionTargetsPresentage);
+        }
+
+        private void txtHawailSectionProductionPresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtHawailSectionProductionPresentage);
+        }
+
+        private void txtAchievingSalesTargetsPresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtAchievingSalesTargetsPresentage);
+        }
+
+        private void txtSecurityPerformanceIncentivePresentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtSecurityPerformanceIncentivePresentage);
+        }
+
+        private void txtVariableIncentivePrecentage_Leave(object sender, EventArgs e)
+        {
+            checkIfEmpty(txtVariableIncentivePrecentage);
+        }
+
+        private void txtHawailSectionProductionPresentage_TextChanged(object sender, EventArgs e)
         {
 
         }

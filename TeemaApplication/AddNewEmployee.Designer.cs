@@ -74,7 +74,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.txtSecurityPerformanceIncentivePresentage = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.txtAchievingSalesTargetsPresentage = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtHawailSectionProductionPresentage = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -129,6 +128,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtAchievingSalesTargetsPresentage = new System.Windows.Forms.TextBox();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxBasicDetails.SuspendLayout();
             this.gbxSalaryDetails.SuspendLayout();
@@ -599,6 +599,9 @@
             this.txtVariableIncentivePrecentage.Name = "txtVariableIncentivePrecentage";
             this.txtVariableIncentivePrecentage.Size = new System.Drawing.Size(130, 20);
             this.txtVariableIncentivePrecentage.TabIndex = 35;
+            this.txtVariableIncentivePrecentage.Text = "0";
+            this.txtVariableIncentivePrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVariableIncentivePrecentage.Leave += new System.EventHandler(this.txtVariableIncentivePrecentage_Leave);
             // 
             // label35
             // 
@@ -631,6 +634,9 @@
             this.txtSecurityPerformanceIncentivePresentage.Name = "txtSecurityPerformanceIncentivePresentage";
             this.txtSecurityPerformanceIncentivePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtSecurityPerformanceIncentivePresentage.TabIndex = 56;
+            this.txtSecurityPerformanceIncentivePresentage.Text = "0";
+            this.txtSecurityPerformanceIncentivePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSecurityPerformanceIncentivePresentage.Leave += new System.EventHandler(this.txtSecurityPerformanceIncentivePresentage_Leave);
             // 
             // label34
             // 
@@ -640,13 +646,6 @@
             this.label34.Size = new System.Drawing.Size(155, 13);
             this.label34.TabIndex = 55;
             this.label34.Text = "Security Performance Incentive";
-            // 
-            // txtAchievingSalesTargetsPresentage
-            // 
-            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(202, 279);
-            this.txtAchievingSalesTargetsPresentage.Name = "txtAchievingSalesTargetsPresentage";
-            this.txtAchievingSalesTargetsPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtAchievingSalesTargetsPresentage.TabIndex = 54;
             // 
             // label33
             // 
@@ -663,6 +662,10 @@
             this.txtHawailSectionProductionPresentage.Name = "txtHawailSectionProductionPresentage";
             this.txtHawailSectionProductionPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtHawailSectionProductionPresentage.TabIndex = 52;
+            this.txtHawailSectionProductionPresentage.Text = "0";
+            this.txtHawailSectionProductionPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtHawailSectionProductionPresentage.TextChanged += new System.EventHandler(this.txtHawailSectionProductionPresentage_TextChanged);
+            this.txtHawailSectionProductionPresentage.Leave += new System.EventHandler(this.txtHawailSectionProductionPresentage_Leave);
             // 
             // label24
             // 
@@ -679,6 +682,9 @@
             this.txtMillSectionTargetsPresentage.Name = "txtMillSectionTargetsPresentage";
             this.txtMillSectionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtMillSectionTargetsPresentage.TabIndex = 50;
+            this.txtMillSectionTargetsPresentage.Text = "0";
+            this.txtMillSectionTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMillSectionTargetsPresentage.Leave += new System.EventHandler(this.txtMillSectionTargetsPresentage_Leave);
             // 
             // label23
             // 
@@ -695,6 +701,9 @@
             this.txtAchievingProductionTargetsPresentage.Name = "txtAchievingProductionTargetsPresentage";
             this.txtAchievingProductionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtAchievingProductionTargetsPresentage.TabIndex = 48;
+            this.txtAchievingProductionTargetsPresentage.Text = "0";
+            this.txtAchievingProductionTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAchievingProductionTargetsPresentage.Leave += new System.EventHandler(this.txtAchievingProductionTargetsPresentage_Leave);
             // 
             // label32
             // 
@@ -711,6 +720,9 @@
             this.txtMachievingMaintenancePresentage.Name = "txtMachievingMaintenancePresentage";
             this.txtMachievingMaintenancePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtMachievingMaintenancePresentage.TabIndex = 46;
+            this.txtMachievingMaintenancePresentage.Text = "0";
+            this.txtMachievingMaintenancePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMachievingMaintenancePresentage.Leave += new System.EventHandler(this.txtMachievingMaintenancePresentage_Leave);
             // 
             // label31
             // 
@@ -727,6 +739,9 @@
             this.txtDownTimeMatchineBreakDownPresentage.Name = "txtDownTimeMatchineBreakDownPresentage";
             this.txtDownTimeMatchineBreakDownPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtDownTimeMatchineBreakDownPresentage.TabIndex = 44;
+            this.txtDownTimeMatchineBreakDownPresentage.Text = "0";
+            this.txtDownTimeMatchineBreakDownPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDownTimeMatchineBreakDownPresentage.Leave += new System.EventHandler(this.txtDownTimeMatchineBreakDownPresentage_Leave);
             // 
             // label30
             // 
@@ -743,6 +758,9 @@
             this.txtWorkshopIncentivePresentage.Name = "txtWorkshopIncentivePresentage";
             this.txtWorkshopIncentivePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtWorkshopIncentivePresentage.TabIndex = 42;
+            this.txtWorkshopIncentivePresentage.Text = "0";
+            this.txtWorkshopIncentivePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtWorkshopIncentivePresentage.Leave += new System.EventHandler(this.txtWorkshopIncentivePresentage_Leave);
             // 
             // label29
             // 
@@ -759,13 +777,20 @@
             this.txtProductPrecentage.Name = "txtProductPrecentage";
             this.txtProductPrecentage.Size = new System.Drawing.Size(56, 20);
             this.txtProductPrecentage.TabIndex = 39;
+            this.txtProductPrecentage.Text = "0";
+            this.txtProductPrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtProductPrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
+            this.txtProductPrecentage.Leave += new System.EventHandler(this.txtProductPrecentage_Leave);
             // 
             // txtProductValue
             // 
             this.txtProductValue.Location = new System.Drawing.Point(202, 97);
             this.txtProductValue.Name = "txtProductValue";
+            this.txtProductValue.ReadOnly = true;
             this.txtProductValue.Size = new System.Drawing.Size(56, 20);
             this.txtProductValue.TabIndex = 40;
+            this.txtProductValue.Text = "0";
+            this.txtProductValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label28
             // 
@@ -782,13 +807,20 @@
             this.txtSalesPrecentage.Name = "txtSalesPrecentage";
             this.txtSalesPrecentage.Size = new System.Drawing.Size(56, 20);
             this.txtSalesPrecentage.TabIndex = 36;
+            this.txtSalesPrecentage.Text = "0";
+            this.txtSalesPrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSalesPrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
+            this.txtSalesPrecentage.Leave += new System.EventHandler(this.txtSalesPrecentage_Leave);
             // 
             // txtSalesValue
             // 
             this.txtSalesValue.Location = new System.Drawing.Point(202, 71);
             this.txtSalesValue.Name = "txtSalesValue";
+            this.txtSalesValue.ReadOnly = true;
             this.txtSalesValue.Size = new System.Drawing.Size(56, 20);
             this.txtSalesValue.TabIndex = 37;
+            this.txtSalesValue.Text = "0";
+            this.txtSalesValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label27
             // 
@@ -805,13 +837,20 @@
             this.txtPerformancePrecentage.Name = "txtPerformancePrecentage";
             this.txtPerformancePrecentage.Size = new System.Drawing.Size(56, 20);
             this.txtPerformancePrecentage.TabIndex = 33;
+            this.txtPerformancePrecentage.Text = "0";
+            this.txtPerformancePrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPerformancePrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
+            this.txtPerformancePrecentage.Leave += new System.EventHandler(this.txtPerformancePrecentage_Leave);
             // 
             // txtPerformValue
             // 
             this.txtPerformValue.Location = new System.Drawing.Point(202, 45);
             this.txtPerformValue.Name = "txtPerformValue";
+            this.txtPerformValue.ReadOnly = true;
             this.txtPerformValue.Size = new System.Drawing.Size(56, 20);
             this.txtPerformValue.TabIndex = 34;
+            this.txtPerformValue.Text = "0";
+            this.txtPerformValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label26
             // 
@@ -828,6 +867,10 @@
             this.txtProductionSalesPerformanceTotalValue.Name = "txtProductionSalesPerformanceTotalValue";
             this.txtProductionSalesPerformanceTotalValue.Size = new System.Drawing.Size(56, 20);
             this.txtProductionSalesPerformanceTotalValue.TabIndex = 30;
+            this.txtProductionSalesPerformanceTotalValue.Text = "0";
+            this.txtProductionSalesPerformanceTotalValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtProductionSalesPerformanceTotalValue.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
+            this.txtProductionSalesPerformanceTotalValue.Leave += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_Leave);
             // 
             // label25
             // 
@@ -924,6 +967,9 @@
             this.txtFixedIncentiveValue.Name = "txtFixedIncentiveValue";
             this.txtFixedIncentiveValue.Size = new System.Drawing.Size(130, 20);
             this.txtFixedIncentiveValue.TabIndex = 35;
+            this.txtFixedIncentiveValue.Text = "0";
+            this.txtFixedIncentiveValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFixedIncentiveValue.Leave += new System.EventHandler(this.txtFixedIncentiveValue_Leave);
             // 
             // label21
             // 
@@ -956,6 +1002,10 @@
             this.txtTravellingAttendance.Name = "txtTravellingAttendance";
             this.txtTravellingAttendance.Size = new System.Drawing.Size(137, 20);
             this.txtTravellingAttendance.TabIndex = 30;
+            this.txtTravellingAttendance.Text = "0";
+            this.txtTravellingAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTravellingAttendance.TextChanged += new System.EventHandler(this.txtTravellingAttendance_TextChanged);
+            this.txtTravellingAttendance.Leave += new System.EventHandler(this.txtTravellingAttendance_Leave);
             // 
             // label22
             // 
@@ -987,6 +1037,10 @@
             this.txtRecrumentTotalEPF.Name = "txtRecrumentTotalEPF";
             this.txtRecrumentTotalEPF.Size = new System.Drawing.Size(137, 20);
             this.txtRecrumentTotalEPF.TabIndex = 34;
+            this.txtRecrumentTotalEPF.Text = "0";
+            this.txtRecrumentTotalEPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRecrumentTotalEPF.TextChanged += new System.EventHandler(this.txtRecrumentTotalEPF_TextChanged);
+            this.txtRecrumentTotalEPF.Leave += new System.EventHandler(this.txtRecrumentTotalEPF_Leave);
             // 
             // label19
             // 
@@ -1003,6 +1057,10 @@
             this.txtBudgetAllowance.Name = "txtBudgetAllowance";
             this.txtBudgetAllowance.Size = new System.Drawing.Size(137, 20);
             this.txtBudgetAllowance.TabIndex = 32;
+            this.txtBudgetAllowance.Text = "0";
+            this.txtBudgetAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBudgetAllowance.TextChanged += new System.EventHandler(this.txtBudgetAllowance_TextChanged);
+            this.txtBudgetAllowance.Leave += new System.EventHandler(this.txtBudgetAllowance_Leave);
             // 
             // label17
             // 
@@ -1019,6 +1077,10 @@
             this.txtBasicSalary.Name = "txtBasicSalary";
             this.txtBasicSalary.Size = new System.Drawing.Size(137, 20);
             this.txtBasicSalary.TabIndex = 30;
+            this.txtBasicSalary.Text = "0";
+            this.txtBasicSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBasicSalary.TextChanged += new System.EventHandler(this.txtBasicSalary_TextChanged);
+            this.txtBasicSalary.Leave += new System.EventHandler(this.txtBasicSalary_Leave);
             // 
             // label18
             // 
@@ -1048,6 +1110,10 @@
             this.txtDayWagesTotalEPFSalary.Name = "txtDayWagesTotalEPFSalary";
             this.txtDayWagesTotalEPFSalary.Size = new System.Drawing.Size(137, 20);
             this.txtDayWagesTotalEPFSalary.TabIndex = 32;
+            this.txtDayWagesTotalEPFSalary.Text = "0";
+            this.txtDayWagesTotalEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDayWagesTotalEPFSalary.TextChanged += new System.EventHandler(this.txtDayWagesTotalEPFSalary_TextChanged);
+            this.txtDayWagesTotalEPFSalary.Leave += new System.EventHandler(this.txtDayWagesTotalEPFSalary_Leave);
             // 
             // label15
             // 
@@ -1064,6 +1130,9 @@
             this.txtDayWagesDayRate.Name = "txtDayWagesDayRate";
             this.txtDayWagesDayRate.Size = new System.Drawing.Size(137, 20);
             this.txtDayWagesDayRate.TabIndex = 30;
+            this.txtDayWagesDayRate.Text = "0";
+            this.txtDayWagesDayRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDayWagesDayRate.Leave += new System.EventHandler(this.txtDayWagesDayRate_Leave);
             // 
             // label14
             // 
@@ -1122,6 +1191,16 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // txtAchievingSalesTargetsPresentage
+            // 
+            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(202, 279);
+            this.txtAchievingSalesTargetsPresentage.Name = "txtAchievingSalesTargetsPresentage";
+            this.txtAchievingSalesTargetsPresentage.Size = new System.Drawing.Size(56, 20);
+            this.txtAchievingSalesTargetsPresentage.TabIndex = 54;
+            this.txtAchievingSalesTargetsPresentage.Text = "0";
+            this.txtAchievingSalesTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAchievingSalesTargetsPresentage.Leave += new System.EventHandler(this.txtAchievingSalesTargetsPresentage_Leave);
             // 
             // frmAddNewEmployee
             // 
@@ -1246,7 +1325,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtSecurityPerformanceIncentivePresentage;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox txtAchievingSalesTargetsPresentage;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtHawailSectionProductionPresentage;
         private System.Windows.Forms.Label label24;
@@ -1269,5 +1347,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveValue;
+        private System.Windows.Forms.TextBox txtAchievingSalesTargetsPresentage;
     }
 }
