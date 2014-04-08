@@ -39,5 +39,20 @@ namespace TeemaApplication
             frmAddLeaves frm = new frmAddLeaves();
             frm.ShowDialog();
         }
+
+     
+        private void btnOverTimeRequest_Click(object sender, EventArgs e)
+        {
+            frmOver_Time_Request frm = new frmOver_Time_Request();
+            frm.ShowDialog();
+        }
+
+        private void btnOverTimeApproved_Click(object sender, EventArgs e)
+        {
+            frmOver_Time_Approve frm = new frmOver_Time_Approve();
+            frm.ShowDialog();
+        }
+
+        
     }
 }

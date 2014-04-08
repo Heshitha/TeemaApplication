@@ -30,13 +30,13 @@
         {
             this.lblFormTopic = new System.Windows.Forms.Label();
             this.gbxDepartmentDetails = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSubDepartment = new System.Windows.Forms.Label();
             this.cmbSubDepartment = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.gbxEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtBranch = new System.Windows.Forms.TextBox();
@@ -56,32 +56,32 @@
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbxOver_Time_Details = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtOver_Time_Hours = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.TextBox();
+            this.dtpOver_Time_Date = new System.Windows.Forms.DateTimePicker();
+            this.gbxOver_Time_Type = new System.Windows.Forms.GroupBox();
+            this.rdbTreble = new System.Windows.Forms.RadioButton();
+            this.rdbDouble = new System.Windows.Forms.RadioButton();
+            this.rdbSingle = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.gbxTime = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.gbxOver_Time_Type = new System.Windows.Forms.GroupBox();
-            this.rdbSingle = new System.Windows.Forms.RadioButton();
-            this.rdbDouble = new System.Windows.Forms.RadioButton();
-            this.rdbTreble = new System.Windows.Forms.RadioButton();
-            this.dtpOver_Time_Date = new System.Windows.Forms.DateTimePicker();
-            this.txtReason = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtOver_Time_Hours = new System.Windows.Forms.TextBox();
-            this.txtFrom = new System.Windows.Forms.TextBox();
-            this.txtTo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.gdvOver_Time_Request = new System.Windows.Forms.DataGridView();
             this.clmnEntitled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmnToken_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.dudFrom = new System.Windows.Forms.DomainUpDown();
+            this.dudTo = new System.Windows.Forms.DomainUpDown();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxOver_Time_Details.SuspendLayout();
-            this.gbxTime.SuspendLayout();
             this.gbxOver_Time_Type.SuspendLayout();
+            this.gbxTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvOver_Time_Request)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,6 +112,15 @@
             this.gbxDepartmentDetails.TabStop = false;
             this.gbxDepartmentDetails.Text = "Department Details";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(198, 100);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // lblSubDepartment
             // 
             this.lblSubDepartment.AutoSize = true;
@@ -123,6 +132,7 @@
             // 
             // cmbSubDepartment
             // 
+            this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubDepartment.FormattingEnabled = true;
             this.cmbSubDepartment.Location = new System.Drawing.Point(96, 73);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
@@ -140,19 +150,23 @@
             // 
             // cmbDepartment
             // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(96, 46);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(177, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
+            this.cmbWorkingBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkingBranch.FormattingEnabled = true;
             this.cmbWorkingBranch.Location = new System.Drawing.Point(96, 19);
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(177, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -162,15 +176,6 @@
             this.lblWorkingBranch.Size = new System.Drawing.Size(84, 13);
             this.lblWorkingBranch.TabIndex = 0;
             this.lblWorkingBranch.Text = "Working Branch";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(198, 100);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // gbxEmployeeDetails
             // 
@@ -337,7 +342,6 @@
             // 
             // gbxOver_Time_Details
             // 
-            this.gbxOver_Time_Details.Controls.Add(this.btnSave);
             this.gbxOver_Time_Details.Controls.Add(this.txtOver_Time_Hours);
             this.gbxOver_Time_Details.Controls.Add(this.label8);
             this.gbxOver_Time_Details.Controls.Add(this.txtReason);
@@ -348,10 +352,135 @@
             this.gbxOver_Time_Details.Controls.Add(this.label1);
             this.gbxOver_Time_Details.Location = new System.Drawing.Point(303, 48);
             this.gbxOver_Time_Details.Name = "gbxOver_Time_Details";
-            this.gbxOver_Time_Details.Size = new System.Drawing.Size(440, 255);
+            this.gbxOver_Time_Details.Size = new System.Drawing.Size(561, 144);
             this.gbxOver_Time_Details.TabIndex = 6;
             this.gbxOver_Time_Details.TabStop = false;
             this.gbxOver_Time_Details.Text = "Over Time Details";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(789, 198);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 28;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // txtOver_Time_Hours
+            // 
+            this.txtOver_Time_Hours.Location = new System.Drawing.Point(377, 19);
+            this.txtOver_Time_Hours.Name = "txtOver_Time_Hours";
+            this.txtOver_Time_Hours.Size = new System.Drawing.Size(178, 20);
+            this.txtOver_Time_Hours.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(283, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Over Time Hours";
+            // 
+            // txtReason
+            // 
+            this.txtReason.Location = new System.Drawing.Point(377, 45);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(178, 93);
+            this.txtReason.TabIndex = 10;
+            // 
+            // dtpOver_Time_Date
+            // 
+            this.dtpOver_Time_Date.Location = new System.Drawing.Point(104, 19);
+            this.dtpOver_Time_Date.Name = "dtpOver_Time_Date";
+            this.dtpOver_Time_Date.Size = new System.Drawing.Size(173, 20);
+            this.dtpOver_Time_Date.TabIndex = 5;
+            // 
+            // gbxOver_Time_Type
+            // 
+            this.gbxOver_Time_Type.Controls.Add(this.rdbTreble);
+            this.gbxOver_Time_Type.Controls.Add(this.rdbDouble);
+            this.gbxOver_Time_Type.Controls.Add(this.rdbSingle);
+            this.gbxOver_Time_Type.Location = new System.Drawing.Point(153, 45);
+            this.gbxOver_Time_Type.Name = "gbxOver_Time_Type";
+            this.gbxOver_Time_Type.Size = new System.Drawing.Size(124, 93);
+            this.gbxOver_Time_Type.TabIndex = 4;
+            this.gbxOver_Time_Type.TabStop = false;
+            this.gbxOver_Time_Type.Text = "Over Time Type";
+            // 
+            // rdbTreble
+            // 
+            this.rdbTreble.AutoSize = true;
+            this.rdbTreble.Location = new System.Drawing.Point(6, 65);
+            this.rdbTreble.Name = "rdbTreble";
+            this.rdbTreble.Size = new System.Drawing.Size(55, 17);
+            this.rdbTreble.TabIndex = 2;
+            this.rdbTreble.TabStop = true;
+            this.rdbTreble.Text = "Treble";
+            this.rdbTreble.UseVisualStyleBackColor = true;
+            // 
+            // rdbDouble
+            // 
+            this.rdbDouble.AutoSize = true;
+            this.rdbDouble.Location = new System.Drawing.Point(6, 42);
+            this.rdbDouble.Name = "rdbDouble";
+            this.rdbDouble.Size = new System.Drawing.Size(59, 17);
+            this.rdbDouble.TabIndex = 1;
+            this.rdbDouble.TabStop = true;
+            this.rdbDouble.Text = "Double";
+            this.rdbDouble.UseVisualStyleBackColor = true;
+            // 
+            // rdbSingle
+            // 
+            this.rdbSingle.AutoSize = true;
+            this.rdbSingle.Location = new System.Drawing.Point(6, 19);
+            this.rdbSingle.Name = "rdbSingle";
+            this.rdbSingle.Size = new System.Drawing.Size(54, 17);
+            this.rdbSingle.TabIndex = 0;
+            this.rdbSingle.TabStop = true;
+            this.rdbSingle.Text = "Single";
+            this.rdbSingle.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(283, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Reason";
+            // 
+            // gbxTime
+            // 
+            this.gbxTime.Controls.Add(this.dudTo);
+            this.gbxTime.Controls.Add(this.dudFrom);
+            this.gbxTime.Controls.Add(this.label4);
+            this.gbxTime.Controls.Add(this.label2);
+            this.gbxTime.Location = new System.Drawing.Point(6, 45);
+            this.gbxTime.Name = "gbxTime";
+            this.gbxTime.Size = new System.Drawing.Size(141, 93);
+            this.gbxTime.TabIndex = 2;
+            this.gbxTime.TabStop = false;
+            this.gbxTime.Text = "Time";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "To";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "From";
             // 
             // label1
             // 
@@ -361,136 +490,6 @@
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "OverTime Date";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "From";
-            // 
-            // gbxTime
-            // 
-            this.gbxTime.Controls.Add(this.txtTo);
-            this.gbxTime.Controls.Add(this.txtFrom);
-            this.gbxTime.Controls.Add(this.label4);
-            this.gbxTime.Controls.Add(this.label2);
-            this.gbxTime.Location = new System.Drawing.Point(6, 45);
-            this.gbxTime.Name = "gbxTime";
-            this.gbxTime.Size = new System.Drawing.Size(298, 86);
-            this.gbxTime.TabIndex = 2;
-            this.gbxTime.TabStop = false;
-            this.gbxTime.Text = "Time";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "To";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 166);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Reason";
-            // 
-            // gbxOver_Time_Type
-            // 
-            this.gbxOver_Time_Type.Controls.Add(this.rdbTreble);
-            this.gbxOver_Time_Type.Controls.Add(this.rdbDouble);
-            this.gbxOver_Time_Type.Controls.Add(this.rdbSingle);
-            this.gbxOver_Time_Type.Location = new System.Drawing.Point(310, 19);
-            this.gbxOver_Time_Type.Name = "gbxOver_Time_Type";
-            this.gbxOver_Time_Type.Size = new System.Drawing.Size(124, 112);
-            this.gbxOver_Time_Type.TabIndex = 4;
-            this.gbxOver_Time_Type.TabStop = false;
-            this.gbxOver_Time_Type.Text = "Over Time Type";
-            // 
-            // rdbSingle
-            // 
-            this.rdbSingle.AutoSize = true;
-            this.rdbSingle.Location = new System.Drawing.Point(18, 28);
-            this.rdbSingle.Name = "rdbSingle";
-            this.rdbSingle.Size = new System.Drawing.Size(54, 17);
-            this.rdbSingle.TabIndex = 0;
-            this.rdbSingle.TabStop = true;
-            this.rdbSingle.Text = "Single";
-            this.rdbSingle.UseVisualStyleBackColor = true;
-            // 
-            // rdbDouble
-            // 
-            this.rdbDouble.AutoSize = true;
-            this.rdbDouble.Location = new System.Drawing.Point(18, 51);
-            this.rdbDouble.Name = "rdbDouble";
-            this.rdbDouble.Size = new System.Drawing.Size(59, 17);
-            this.rdbDouble.TabIndex = 1;
-            this.rdbDouble.TabStop = true;
-            this.rdbDouble.Text = "Double";
-            this.rdbDouble.UseVisualStyleBackColor = true;
-            // 
-            // rdbTreble
-            // 
-            this.rdbTreble.AutoSize = true;
-            this.rdbTreble.Location = new System.Drawing.Point(18, 74);
-            this.rdbTreble.Name = "rdbTreble";
-            this.rdbTreble.Size = new System.Drawing.Size(55, 17);
-            this.rdbTreble.TabIndex = 2;
-            this.rdbTreble.TabStop = true;
-            this.rdbTreble.Text = "Treble";
-            this.rdbTreble.UseVisualStyleBackColor = true;
-            // 
-            // dtpOver_Time_Date
-            // 
-            this.dtpOver_Time_Date.Location = new System.Drawing.Point(104, 19);
-            this.dtpOver_Time_Date.Name = "dtpOver_Time_Date";
-            this.dtpOver_Time_Date.Size = new System.Drawing.Size(200, 20);
-            this.dtpOver_Time_Date.TabIndex = 5;
-            // 
-            // txtReason
-            // 
-            this.txtReason.Location = new System.Drawing.Point(122, 163);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(176, 75);
-            this.txtReason.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 140);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Over Time Hours";
-            // 
-            // txtOver_Time_Hours
-            // 
-            this.txtOver_Time_Hours.Location = new System.Drawing.Point(122, 137);
-            this.txtOver_Time_Hours.Name = "txtOver_Time_Hours";
-            this.txtOver_Time_Hours.Size = new System.Drawing.Size(176, 20);
-            this.txtOver_Time_Hours.TabIndex = 27;
-            // 
-            // txtFrom
-            // 
-            this.txtFrom.Location = new System.Drawing.Point(116, 19);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(176, 20);
-            this.txtFrom.TabIndex = 28;
-            // 
-            // txtTo
-            // 
-            this.txtTo.Location = new System.Drawing.Point(116, 45);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(176, 20);
-            this.txtTo.TabIndex = 29;
             // 
             // gdvOver_Time_Request
             // 
@@ -502,10 +501,10 @@
             this.clmnToken_no,
             this.clmnEPF_No,
             this.clmnEmployee_Name});
-            this.gdvOver_Time_Request.Location = new System.Drawing.Point(303, 309);
+            this.gdvOver_Time_Request.Location = new System.Drawing.Point(303, 227);
             this.gdvOver_Time_Request.Name = "gdvOver_Time_Request";
             this.gdvOver_Time_Request.RowHeadersVisible = false;
-            this.gdvOver_Time_Request.Size = new System.Drawing.Size(440, 150);
+            this.gdvOver_Time_Request.Size = new System.Drawing.Size(561, 232);
             this.gdvOver_Time_Request.TabIndex = 7;
             // 
             // clmnEntitled
@@ -528,20 +527,28 @@
             this.clmnEmployee_Name.HeaderText = "Employee Name";
             this.clmnEmployee_Name.Name = "clmnEmployee_Name";
             // 
-            // btnSave
+            // dudFrom
             // 
-            this.btnSave.Location = new System.Drawing.Point(359, 226);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 28;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.dudFrom.Location = new System.Drawing.Point(42, 19);
+            this.dudFrom.Name = "dudFrom";
+            this.dudFrom.Size = new System.Drawing.Size(73, 20);
+            this.dudFrom.TabIndex = 3;
+            this.dudFrom.Text = "dudFrom";
+            // 
+            // dudTo
+            // 
+            this.dudTo.Location = new System.Drawing.Point(42, 45);
+            this.dudTo.Name = "dudTo";
+            this.dudTo.Size = new System.Drawing.Size(73, 20);
+            this.dudTo.TabIndex = 4;
+            this.dudTo.Text = "dudTo";
             // 
             // frmOver_Time_Request
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 471);
+            this.ClientSize = new System.Drawing.Size(876, 471);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gdvOver_Time_Request);
             this.Controls.Add(this.gbxOver_Time_Details);
             this.Controls.Add(this.gbxEmployeeDetails);
@@ -550,16 +557,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmOver_Time_Request";
             this.Text = "Over Time Request";
+            this.Load += new System.EventHandler(this.frmOver_Time_Request_Load);
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxEmployeeDetails.ResumeLayout(false);
             this.gbxEmployeeDetails.PerformLayout();
             this.gbxOver_Time_Details.ResumeLayout(false);
             this.gbxOver_Time_Details.PerformLayout();
-            this.gbxTime.ResumeLayout(false);
-            this.gbxTime.PerformLayout();
             this.gbxOver_Time_Type.ResumeLayout(false);
             this.gbxOver_Time_Type.PerformLayout();
+            this.gbxTime.ResumeLayout(false);
+            this.gbxTime.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvOver_Time_Request)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -609,13 +617,13 @@
         private System.Windows.Forms.TextBox txtOver_Time_Hours;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtReason;
-        private System.Windows.Forms.TextBox txtTo;
-        private System.Windows.Forms.TextBox txtFrom;
         private System.Windows.Forms.DataGridView gdvOver_Time_Request;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmnEntitled;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmployee_Name;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DomainUpDown dudTo;
+        private System.Windows.Forms.DomainUpDown dudFrom;
     }
 }
