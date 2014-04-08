@@ -133,6 +133,7 @@ namespace TeemaApplication
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Something");
             Branch branch = null;
             if (!isBranchExist())
             {
