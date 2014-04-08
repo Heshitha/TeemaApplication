@@ -141,8 +141,8 @@ namespace TeemaApplication
 
             //Get Employee id using token number
             var varempID = (from emp in db.Employees 
-                        where emp.TokenNo == tokenid
-                        select emp.EmployeeID).SingleOrDefault();
+                              where emp.TokenNo == tokenid
+                              select emp.EmployeeID).SingleOrDefault();
 
           
             // insert to  granted leaves
@@ -162,7 +162,6 @@ namespace TeemaApplication
         }
 
         // check text boxes for proper values
-
         private String getIntNumaricValue(string title, string text)
         {
             int value = 0;
@@ -173,7 +172,7 @@ namespace TeemaApplication
             }
             else
             {
-                return title + ", ";
+                return title + " ";
             }
         }
             
@@ -181,9 +180,10 @@ namespace TeemaApplication
             {
                 String errortext = null;
 
-                errortext = getIntNumaricValue("Annual Leaves", txtAnnual.Text);
-               
-                if (errortext == null)
+                errortext += getIntNumaricValue("*Annual Leaves", txtAnnual.Text);
+                errortext += getIntNumaricValue("*Casual Leaves", txtAnnual.Text);
+
+                if (errortext == "")
                 {
                     addLeaves();
                     return true;
@@ -191,7 +191,7 @@ namespace TeemaApplication
                 }
                 else
                 {
-                    MessageBox.Show("Please add correct values to" + errortext+"..!");
+                    MessageBox.Show("Please add correct values to " + errortext+"..!");
                     return false;
                 }
 
