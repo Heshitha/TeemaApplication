@@ -281,10 +281,22 @@ namespace TeemaApplication
 
             foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
             {
-                string fixedIncentiveValue = x.Cells[0].Value.ToString();
-                double fixedIncentiveName = (double)x.Cells[1].Value;
-            }
+                string fixedIncentiveType = x.Cells[0].Value.ToString();
+                double fixedIncentiveValue = (double)x.Cells[1].Value;
 
+                FixedIncentive addedIncentive = new FixedIncentive
+                {
+                    IncentiveType = fixedIncentiveType,
+                    InventiveValue = fixedIncentiveValue,
+                    CreatedBy = 1,
+                    CreatedDate = DateTime.Now,
+                    ModifiedBy = 1,
+                    ModifiedDate = DateTime.Now
+                };
+
+                db.FixedIncentives.InsertOnSubmit(addedIncentive);
+                db.SubmitChanges();
+            }
 
             MessageBox.Show("Done");
         }

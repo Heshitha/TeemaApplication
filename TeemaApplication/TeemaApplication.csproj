@@ -114,6 +114,12 @@
     <Compile Include="LeaveApply.designer.cs">
       <DependentUpon>LeaveApply.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="OverTimeApprove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LeaveApply.resx">
       <DependentUpon>LeaveApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OverTimeApprove.resx">
       <DependentUpon>OverTimeApprove.cs</DependentUpon>
