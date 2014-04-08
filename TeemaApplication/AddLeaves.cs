@@ -10,11 +10,11 @@ using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
-    public partial class AddLeaves : Form
+    public partial class frmAddLeaves : Form
     {
 
         TeemaDBDataContext db = new TeemaDBDataContext();
-        public AddLeaves()
+        public frmAddLeaves()
         {
             InitializeComponent();
         }

@@ -32,6 +32,7 @@
             this.btnViewEmplyeeList = new System.Windows.Forms.Button();
             this.btnViewEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddLeaves = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +69,25 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAddNewEmployee);
+            this.groupBox1.Controls.Add(this.btnAddLeaves);
             this.groupBox1.Controls.Add(this.btnViewEmployee);
             this.groupBox1.Controls.Add(this.btnViewEmplyeeList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 109);
+            this.groupBox1.Size = new System.Drawing.Size(125, 142);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Functions";
+            // 
+            // btnAddLeaves
+            // 
+            this.btnAddLeaves.Location = new System.Drawing.Point(6, 108);
+            this.btnAddLeaves.Name = "btnAddLeaves";
+            this.btnAddLeaves.Size = new System.Drawing.Size(112, 23);
+            this.btnAddLeaves.TabIndex = 2;
+            this.btnAddLeaves.Text = "Add Leaves";
+            this.btnAddLeaves.UseVisualStyleBackColor = true;
+            this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
             // 
             // frmMain
             // 
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button btnViewEmplyeeList;
         private System.Windows.Forms.Button btnViewEmployee;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAddLeaves;
     }
 }

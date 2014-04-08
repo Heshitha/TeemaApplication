@@ -33,5 +33,11 @@ namespace TeemaApplication
             frmViewEmployeeDetails frm = new frmViewEmployeeDetails();
             frm.ShowDialog();
         }
+
+        private void btnAddLeaves_Click(object sender, EventArgs e)
+        {
+            frmAddLeaves frm = new frmAddLeaves();
+            frm.ShowDialog();
+        }
     }
 }

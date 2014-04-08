@@ -1,6 +1,6 @@
 ﻿namespace TeemaApplication
 {
-    partial class AddLeaves
+    partial class frmAddLeaves
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblAnnual = new System.Windows.Forms.Label();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClearGrid = new System.Windows.Forms.Button();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.txtSubDepartment = new System.Windows.Forms.TextBox();
@@ -68,9 +71,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -288,6 +288,27 @@
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
             // 
+            // clmnTokenID
+            // 
+            this.clmnTokenID.DataPropertyName = "TokenNo";
+            this.clmnTokenID.HeaderText = "Token ID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            this.clmnTokenID.ReadOnly = true;
+            // 
+            // clmnEmpName
+            // 
+            this.clmnEmpName.DataPropertyName = "Name";
+            this.clmnEmpName.HeaderText = "Name";
+            this.clmnEmpName.Name = "clmnEmpName";
+            this.clmnEmpName.ReadOnly = true;
+            // 
+            // clmnEPFNO
+            // 
+            this.clmnEPFNO.DataPropertyName = "EPFNo";
+            this.clmnEPFNO.HeaderText = "EPF No";
+            this.clmnEPFNO.Name = "clmnEPFNO";
+            this.clmnEPFNO.ReadOnly = true;
+            // 
             // btnClearGrid
             // 
             this.btnClearGrid.Location = new System.Drawing.Point(537, 374);
@@ -477,28 +498,7 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "TokenNo";
-            this.clmnTokenID.HeaderText = "Token ID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
-            // 
-            // clmnEmpName
-            // 
-            this.clmnEmpName.DataPropertyName = "Name";
-            this.clmnEmpName.HeaderText = "Name";
-            this.clmnEmpName.Name = "clmnEmpName";
-            this.clmnEmpName.ReadOnly = true;
-            // 
-            // clmnEPFNO
-            // 
-            this.clmnEPFNO.DataPropertyName = "EPFNo";
-            this.clmnEPFNO.HeaderText = "EPF No";
-            this.clmnEPFNO.Name = "clmnEPFNO";
-            this.clmnEPFNO.ReadOnly = true;
-            // 
-            // AddLeaves
+            // frmAddLeaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -508,7 +508,7 @@
             this.Controls.Add(this.grpEmployeeDetails);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "AddLeaves";
+            this.Name = "frmAddLeaves";
             this.Text = "Add Leaves";
             this.Load += new System.EventHandler(this.AddLeaves_Load);
             this.groupBox1.ResumeLayout(false);
