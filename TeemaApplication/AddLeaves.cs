@@ -182,9 +182,7 @@ namespace TeemaApplication
                 String errortext = null;
 
                 errortext = getIntNumaricValue("Annual Leaves", txtAnnual.Text);
-                errortext = getIntNumaricValue("Casual leaves", txtCasual.Text);
-
-
+               
                 if (errortext == null)
                 {
                     addLeaves();
