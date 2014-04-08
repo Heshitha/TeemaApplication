@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
@@ -55,13 +56,15 @@ namespace TeemaApplication
             //dgvLeaves.DataSource = subdepartment.Employees;
             //dgvLeaves.DataSource = subdepartment.Employees.Select(c => new { c.TokenNo,c.Name,c.EPFNo});
 
-            var gridata = (from emp in db.Employees 
+            var empdata = (from emp in db.Employees 
                           // from grntlvs in db.GrantedLeaves
                            join subd in db.SubDepartments on emp.SubDepartmentID equals subd.SubDepartmentID
                          //  join grndlvs in db.GrantedLeaves on emp.EmployeeID equals grndlvs.EmployeeID
                            where subd.SubDepartmentID == subdepartment.SubDepartmentID 
                            select new { emp.TokenNo, emp.Name, emp.EPFNo });
-            dgvLeaves.DataSource = gridata;
+
+            dgvLeaves.DataSource = empdata;
+           
     
         }
 
@@ -127,7 +130,7 @@ namespace TeemaApplication
         {
             fillEmployeeDetailsgrpbox();
         }
-
+        //add to granted leaves tables
         private void addLeaves()
         {
             int year = Convert.ToInt32(cmbLeaveYear.Text);
@@ -139,23 +142,17 @@ namespace TeemaApplication
             //Get Employee id using token number
             var varempID = (from emp in db.Employees 
                         where emp.TokenNo == tokenid
-                        select new {emp.EmployeeID});
+                        select emp.EmployeeID).SingleOrDefault();
 
           
             // insert to  granted leaves
             GrantedLeave GLeaves = new GrantedLeave();
-
-            int empID;
-
-            foreach (var e in varempID)
-            {
-                empID = Convert.ToInt32(e.EmployeeID);
-                GLeaves.EmployeeID = empID;
-                GLeaves.year = year;
-                GLeaves.Annual = annual;
-                GLeaves.Casual = casual;
-            }
  
+            GLeaves.EmployeeID = varempID;
+            GLeaves.year = year;
+            GLeaves.Annual = annual;
+            GLeaves.Casual = casual;
+
             db.GrantedLeaves.InsertOnSubmit(GLeaves);
             db.SubmitChanges();
 
@@ -164,9 +161,56 @@ namespace TeemaApplication
            
         }
 
+        // check text boxes for proper values
+
+        private String getIntNumaricValue(string title, string text)
+        {
+            int value = 0;
+
+            if (int.TryParse(text, out value))
+            {
+                return "";
+            }
+            else
+            {
+                return title + ", ";
+            }
+        }
+            
+            private bool checkforValues()
+            {
+                String errortext = null;
+
+                errortext = getIntNumaricValue("Annual Leaves", txtAnnual.Text);
+                errortext = getIntNumaricValue("Casual leaves", txtCasual.Text);
+
+
+                if (errortext == null)
+                {
+                    addLeaves();
+                    return true;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Please add correct values to" + errortext+"..!");
+                    return false;
+                }
+
+            }
+            
+        
+
         private void btnAddLeaves_Click(object sender, EventArgs e)
         {
-            addLeaves();
+            checkforValues();
+
+            
+        }
+
+        private void btnClearAddLeaves_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

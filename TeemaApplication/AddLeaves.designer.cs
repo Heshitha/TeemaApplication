@@ -68,11 +68,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Annual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Casual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -219,6 +217,7 @@
             this.btnClearAddLeaves.TabIndex = 10;
             this.btnClearAddLeaves.Text = "Clear";
             this.btnClearAddLeaves.UseVisualStyleBackColor = true;
+            this.btnClearAddLeaves.Click += new System.EventHandler(this.btnClearAddLeaves_Click);
             // 
             // btnAddLeaves
             // 
@@ -277,11 +276,9 @@
             this.dgvLeaves.AllowUserToDeleteRows = false;
             this.dgvLeaves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLeaves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmnEmpName,
-            this.clmnEPFNO,
             this.clmnTokenID,
-            this.Annual,
-            this.Casual});
+            this.clmnEmpName,
+            this.clmnEPFNO});
             this.dgvLeaves.Location = new System.Drawing.Point(6, 132);
             this.dgvLeaves.Name = "dgvLeaves";
             this.dgvLeaves.ReadOnly = true;
@@ -480,6 +477,13 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
+            // clmnTokenID
+            // 
+            this.clmnTokenID.DataPropertyName = "TokenNo";
+            this.clmnTokenID.HeaderText = "Token ID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            this.clmnTokenID.ReadOnly = true;
+            // 
             // clmnEmpName
             // 
             this.clmnEmpName.DataPropertyName = "Name";
@@ -493,27 +497,6 @@
             this.clmnEPFNO.HeaderText = "EPF No";
             this.clmnEPFNO.Name = "clmnEPFNO";
             this.clmnEPFNO.ReadOnly = true;
-            // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "TokenNo";
-            this.clmnTokenID.HeaderText = "Token ID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
-            // 
-            // Annual
-            // 
-            this.Annual.DataPropertyName = "Annual";
-            this.Annual.HeaderText = "Annual";
-            this.Annual.Name = "Annual";
-            this.Annual.ReadOnly = true;
-            // 
-            // Casual
-            // 
-            this.Casual.DataPropertyName = "Casual";
-            this.Casual.HeaderText = "Casual";
-            this.Casual.Name = "Casual";
-            this.Casual.ReadOnly = true;
             // 
             // AddLeaves
             // 
@@ -582,11 +565,9 @@
         private System.Windows.Forms.Label lblAnnual;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cmbLeaveYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPFNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Annual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Casual;
     }
 }
 

@@ -316,6 +316,7 @@ namespace TeemaApplication
             }
         }
 
+       
         private int getIntNumaricValue(string title, string text)
         {
             int value = 0;
@@ -325,9 +326,39 @@ namespace TeemaApplication
             }
             else
             {
-                ShowMessageBox.ShowError("Please put a numaric value for " + title);
+                ShowMessageBox.ShowError("Please put a numeric value for " + title);
                 return value;
             }
+        }
+
+        // check text boxes filled and are with correct values (numeric or string)
+        private string getIntNumaricValue(string title, string text, bool flag)
+        {
+            int value = 0;
+            if (int.TryParse(text, out value))
+            {
+                return "";
+            }
+            else
+            {
+               return title+", ";
+            }
+        }
+
+        private bool checkForValues()
+        {
+            string EmptyTextBoxes = "";
+            EmptyTextBoxes += getIntNumaricValue("EPF No", txtEPFNo.Text, true);
+
+            if(EmptyTextBoxes == "")
+            {
+                return true;
+            }
+            else
+            {
+
+            }
+            return true;
         }
 
         private bool isDepartmentExist(Branch branch)
