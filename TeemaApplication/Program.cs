@@ -15,7 +15,7 @@ namespace TeemaApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddLeaves());
+            Application.Run(new frmMain());
             //Application.Run(new frmAddNewEmployee());
         }
     }
