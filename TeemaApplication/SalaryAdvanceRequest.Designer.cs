@@ -155,6 +155,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(183, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
@@ -164,6 +165,7 @@
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(183, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -602,6 +604,7 @@
             this.btnUpsate.TabIndex = 28;
             this.btnUpsate.Text = "Update";
             this.btnUpsate.UseVisualStyleBackColor = true;
+            this.btnUpsate.Click += new System.EventHandler(this.btnUpsate_Click);
             // 
             // frmSalaryAdvanceRequest
             // 
@@ -621,6 +624,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSalaryAdvanceRequest";
             this.Text = "Salary Advance Request";
+            this.Load += new System.EventHandler(this.frmSalaryAdvanceRequest_Load);
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxSalaryMonth.ResumeLayout(false);

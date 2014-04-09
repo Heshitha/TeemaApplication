@@ -98,6 +98,7 @@ namespace TeemaApplication
                 erroetext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
                 erroetext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
             }
+            
             if (erroetext == "")
             {
                 MessageBox.Show("done");
