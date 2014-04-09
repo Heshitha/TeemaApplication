@@ -46,7 +46,7 @@ namespace TeemaApplication
             fillcmbBranch();
             fillcmbDepartment((Branch)cmbBranch.SelectedItem);
             fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
-            fillLeavesGrid((SubDepartment)cmbSubDepartment.SelectedItem);
+            //fillLeavesGrid((SubDepartment)cmbSubDepartment.SelectedItem);
         }
 
 
@@ -64,8 +64,31 @@ namespace TeemaApplication
                            select new { emp.TokenNo, emp.Name, emp.EPFNo });
 
             dgvLeaves.DataSource = empdata;
-           
-    
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("EmployeeID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("AnnualLeaves");
+            dt.Columns.Add("CasualLeaves");
+
+            foreach (Employee emp in db.Employees)
+            {
+                //GrantedLeave grnLeave = emp.GrantedLeaves.Where(l => l.year == Convert.ToInt32(cmbLeaveYear.Text)).SingleOrDefault();
+
+                GrantedLeave grnLeave = (from x in emp.GrantedLeaves
+                                         where x.year == Convert.ToInt32(cmbLeaveYear.Text)
+                                         select x).SingleOrDefault();
+                if (grnLeave != null)
+                {
+                    dt.Rows.Add(emp.EmployeeID, emp.Name, grnLeave.Annual, grnLeave.Casual);
+                }
+                else
+                {
+                    dt.Rows.Add(emp.EmployeeID, emp.Name, "0", "0");
+                }
+            }
+
+            dgvLeaves.DataSource = dt;
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,10 +167,10 @@ namespace TeemaApplication
                               where emp.TokenNo == tokenid
                               select emp.EmployeeID).SingleOrDefault();
 
-            
-               var checkleave = (from grntdlvs in db.GrantedLeaves
-                              where grntdlvs.EmployeeID == varempID
-                              select grntdlvs);
+
+            var checkleave = (from grntdlvs in db.GrantedLeaves
+                              where grntdlvs.EmployeeID == varempID && grntdlvs.year == Convert.ToInt32(cmbLeaveYear.Text)
+                              select grntdlvs).SingleOrDefault();
 
                
 
@@ -171,6 +194,7 @@ namespace TeemaApplication
                {
                    // enter else part for updating granted leaves
                     //var existingleaverecord = from grntlvs in db.GrantedLeaves
+
                }
            
         }

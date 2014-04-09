@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbLeaveYear = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbBranch = new System.Windows.Forms.ComboBox();
@@ -45,9 +47,6 @@
             this.lblCasual = new System.Windows.Forms.Label();
             this.lblAnnual = new System.Windows.Forms.Label();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClearGrid = new System.Windows.Forms.Button();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.txtSubDepartment = new System.Windows.Forms.TextBox();
@@ -69,8 +68,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.cmbLeaveYear = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnAnnual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnCasual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -104,6 +106,35 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Department Search";
+            // 
+            // cmbLeaveYear
+            // 
+            this.cmbLeaveYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLeaveYear.FormattingEnabled = true;
+            this.cmbLeaveYear.Items.AddRange(new object[] {
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"});
+            this.cmbLeaveYear.Location = new System.Drawing.Point(108, 19);
+            this.cmbLeaveYear.Name = "cmbLeaveYear";
+            this.cmbLeaveYear.Size = new System.Drawing.Size(173, 21);
+            this.cmbLeaveYear.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "For the year";
             // 
             // cmbDepartment
             // 
@@ -249,7 +280,9 @@
             this.dgvLeaves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnTokenID,
             this.clmnEmpName,
-            this.clmnEPFNO});
+            this.clmnEPFNO,
+            this.clmnAnnual,
+            this.clmnCasual});
             this.dgvLeaves.Location = new System.Drawing.Point(6, 101);
             this.dgvLeaves.Name = "dgvLeaves";
             this.dgvLeaves.ReadOnly = true;
@@ -258,27 +291,6 @@
             this.dgvLeaves.Size = new System.Drawing.Size(612, 282);
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
-            // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "TokenNo";
-            this.clmnTokenID.HeaderText = "Token ID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
-            // 
-            // clmnEmpName
-            // 
-            this.clmnEmpName.DataPropertyName = "Name";
-            this.clmnEmpName.HeaderText = "Name";
-            this.clmnEmpName.Name = "clmnEmpName";
-            this.clmnEmpName.ReadOnly = true;
-            // 
-            // clmnEPFNO
-            // 
-            this.clmnEPFNO.DataPropertyName = "EPFNo";
-            this.clmnEPFNO.HeaderText = "EPF No";
-            this.clmnEPFNO.Name = "clmnEPFNO";
-            this.clmnEPFNO.ReadOnly = true;
             // 
             // btnClearGrid
             // 
@@ -469,34 +481,40 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
-            // cmbLeaveYear
+            // clmnTokenID
             // 
-            this.cmbLeaveYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLeaveYear.FormattingEnabled = true;
-            this.cmbLeaveYear.Items.AddRange(new object[] {
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023"});
-            this.cmbLeaveYear.Location = new System.Drawing.Point(108, 19);
-            this.cmbLeaveYear.Name = "cmbLeaveYear";
-            this.cmbLeaveYear.Size = new System.Drawing.Size(173, 21);
-            this.cmbLeaveYear.TabIndex = 7;
+            this.clmnTokenID.DataPropertyName = "EmployeeID";
+            this.clmnTokenID.HeaderText = "Token ID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            this.clmnTokenID.ReadOnly = true;
             // 
-            // label2
+            // clmnEmpName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "For the year";
+            this.clmnEmpName.DataPropertyName = "Name";
+            this.clmnEmpName.HeaderText = "Name";
+            this.clmnEmpName.Name = "clmnEmpName";
+            this.clmnEmpName.ReadOnly = true;
+            // 
+            // clmnEPFNO
+            // 
+            this.clmnEPFNO.DataPropertyName = "EPFNo";
+            this.clmnEPFNO.HeaderText = "EPF No";
+            this.clmnEPFNO.Name = "clmnEPFNO";
+            this.clmnEPFNO.ReadOnly = true;
+            // 
+            // clmnAnnual
+            // 
+            this.clmnAnnual.DataPropertyName = "AnnualLeaves";
+            this.clmnAnnual.HeaderText = "Annual";
+            this.clmnAnnual.Name = "clmnAnnual";
+            this.clmnAnnual.ReadOnly = true;
+            // 
+            // clmnCasual
+            // 
+            this.clmnCasual.DataPropertyName = "CasualLeaves";
+            this.clmnCasual.HeaderText = "Casual";
+            this.clmnCasual.Name = "clmnCasual";
+            this.clmnCasual.ReadOnly = true;
             // 
             // frmAddLeaves
             // 
@@ -563,11 +581,13 @@
         private System.Windows.Forms.Label lblCasual;
         private System.Windows.Forms.Label lblAnnual;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cmbLeaveYear;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPFNO;
-        private System.Windows.Forms.ComboBox cmbLeaveYear;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnAnnual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnCasual;
     }
 }
 
