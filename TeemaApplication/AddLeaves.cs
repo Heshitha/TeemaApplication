@@ -119,10 +119,10 @@ namespace TeemaApplication
         {
             cleartextbox(grpEmployeeDetails);
 
-            String empid = Convert.ToString(dgvLeaves.SelectedRows[0].Cells[0].Value);
+            int empid = Convert.ToInt32(dgvLeaves.SelectedRows[0].Cells[0].Value);
 
             var data = (from emp in db.Employees
-                             where emp.TokenNo == empid
+                             where emp.EmployeeID == empid
                              select new { emp.EmployeeID, emp.Name, emp.NICNo,emp.EPFNo, emp.Designation.Designation1, emp.TokenNo, emp.SubDepartment.SubDepartmentName,emp.SubDepartment.Department.DepartmentName,emp.SubDepartment.Department.Branch.BranchName });
 
            foreach (var e in data)
