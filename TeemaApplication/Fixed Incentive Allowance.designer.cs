@@ -151,7 +151,7 @@
             // lblSubDepartment
             // 
             this.lblSubDepartment.AutoSize = true;
-            this.lblSubDepartment.Location = new System.Drawing.Point(6, 76);
+            this.lblSubDepartment.Location = new System.Drawing.Point(6, 79);
             this.lblSubDepartment.Name = "lblSubDepartment";
             this.lblSubDepartment.Size = new System.Drawing.Size(84, 13);
             this.lblSubDepartment.TabIndex = 5;
@@ -159,8 +159,9 @@
             // 
             // cmbSubDepartment
             // 
+            this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubDepartment.FormattingEnabled = true;
-            this.cmbSubDepartment.Location = new System.Drawing.Point(96, 73);
+            this.cmbSubDepartment.Location = new System.Drawing.Point(102, 73);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
             this.cmbSubDepartment.Size = new System.Drawing.Size(177, 21);
             this.cmbSubDepartment.TabIndex = 4;
@@ -168,7 +169,7 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(6, 50);
+            this.lblDepartment.Location = new System.Drawing.Point(6, 49);
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(62, 13);
             this.lblDepartment.TabIndex = 3;
@@ -176,19 +177,23 @@
             // 
             // cmbDepartment
             // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(96, 46);
+            this.cmbDepartment.Location = new System.Drawing.Point(102, 46);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(177, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
+            this.cmbWorkingBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkingBranch.FormattingEnabled = true;
-            this.cmbWorkingBranch.Location = new System.Drawing.Point(96, 19);
+            this.cmbWorkingBranch.Location = new System.Drawing.Point(102, 19);
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(177, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -214,16 +219,18 @@
             // 
             // cmbMonth
             // 
+            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(90, 46);
+            this.cmbMonth.Location = new System.Drawing.Point(102, 46);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(177, 21);
             this.cmbMonth.TabIndex = 8;
             // 
             // cmbYear
             // 
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(90, 19);
+            this.cmbYear.Location = new System.Drawing.Point(102, 19);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(177, 21);
             this.cmbYear.TabIndex = 7;
@@ -269,9 +276,9 @@
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label8);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txt_Employee_Grade);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label5);
-            this.gbxFixedIncentiveAllowence.Location = new System.Drawing.Point(303, 48);
+            this.gbxFixedIncentiveAllowence.Location = new System.Drawing.Point(303, 43);
             this.gbxFixedIncentiveAllowence.Name = "gbxFixedIncentiveAllowence";
-            this.gbxFixedIncentiveAllowence.Size = new System.Drawing.Size(626, 288);
+            this.gbxFixedIncentiveAllowence.Size = new System.Drawing.Size(617, 288);
             this.gbxFixedIncentiveAllowence.TabIndex = 6;
             this.gbxFixedIncentiveAllowence.TabStop = false;
             this.gbxFixedIncentiveAllowence.Text = "Fixed Incentive Allowence";
@@ -296,30 +303,31 @@
             // 
             // txtTotal_Payable
             // 
-            this.txtTotal_Payable.Location = new System.Drawing.Point(434, 151);
+            this.txtTotal_Payable.Location = new System.Drawing.Point(428, 151);
             this.txtTotal_Payable.Name = "txtTotal_Payable";
             this.txtTotal_Payable.Size = new System.Drawing.Size(176, 20);
             this.txtTotal_Payable.TabIndex = 29;
             // 
             // txtTotal_Deduction
             // 
-            this.txtTotal_Deduction.Location = new System.Drawing.Point(434, 125);
+            this.txtTotal_Deduction.Location = new System.Drawing.Point(428, 125);
             this.txtTotal_Deduction.Name = "txtTotal_Deduction";
             this.txtTotal_Deduction.Size = new System.Drawing.Size(176, 20);
             this.txtTotal_Deduction.TabIndex = 28;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(383, 259);
+            this.btnUpdate.Location = new System.Drawing.Point(374, 259);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+           
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(464, 259);
+            this.btnReset.Location = new System.Drawing.Point(455, 259);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 19;
@@ -328,7 +336,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(545, 259);
+            this.btnCancel.Location = new System.Drawing.Point(536, 259);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 20;
@@ -343,9 +351,9 @@
             this.groupBox2.Controls.Add(this.txt_Other);
             this.groupBox2.Controls.Add(this.txtSalary_Loan);
             this.groupBox2.Controls.Add(this.txtSalary_Advance);
-            this.groupBox2.Location = new System.Drawing.Point(314, 19);
+            this.groupBox2.Location = new System.Drawing.Point(308, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(306, 100);
+            this.groupBox2.Size = new System.Drawing.Size(303, 100);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Other Deduction";
@@ -358,7 +366,6 @@
             this.label21.Size = new System.Drawing.Size(33, 13);
             this.label21.TabIndex = 36;
             this.label21.Text = "Other";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label20
             // 
@@ -473,14 +480,14 @@
             // 
             // txtLate_Attendance_Days
             // 
-            this.txtLate_Attendance_Days.Location = new System.Drawing.Point(132, 149);
+            this.txtLate_Attendance_Days.Location = new System.Drawing.Point(126, 149);
             this.txtLate_Attendance_Days.Name = "txtLate_Attendance_Days";
             this.txtLate_Attendance_Days.Size = new System.Drawing.Size(176, 20);
             this.txtLate_Attendance_Days.TabIndex = 23;
             // 
             // txtEmployee_Category
             // 
-            this.txtEmployee_Category.Location = new System.Drawing.Point(132, 19);
+            this.txtEmployee_Category.Location = new System.Drawing.Point(126, 19);
             this.txtEmployee_Category.Name = "txtEmployee_Category";
             this.txtEmployee_Category.Size = new System.Drawing.Size(176, 20);
             this.txtEmployee_Category.TabIndex = 19;
@@ -505,14 +512,14 @@
             // 
             // txtNo_Pay_Days
             // 
-            this.txtNo_Pay_Days.Location = new System.Drawing.Point(132, 123);
+            this.txtNo_Pay_Days.Location = new System.Drawing.Point(126, 123);
             this.txtNo_Pay_Days.Name = "txtNo_Pay_Days";
             this.txtNo_Pay_Days.Size = new System.Drawing.Size(176, 20);
             this.txtNo_Pay_Days.TabIndex = 21;
             // 
             // txtLeave_Days
             // 
-            this.txtLeave_Days.Location = new System.Drawing.Point(132, 97);
+            this.txtLeave_Days.Location = new System.Drawing.Point(126, 97);
             this.txtLeave_Days.Name = "txtLeave_Days";
             this.txtLeave_Days.Size = new System.Drawing.Size(176, 20);
             this.txtLeave_Days.TabIndex = 17;
@@ -528,7 +535,7 @@
             // 
             // txtFixed_Amount
             // 
-            this.txtFixed_Amount.Location = new System.Drawing.Point(132, 71);
+            this.txtFixed_Amount.Location = new System.Drawing.Point(126, 71);
             this.txtFixed_Amount.Name = "txtFixed_Amount";
             this.txtFixed_Amount.Size = new System.Drawing.Size(176, 20);
             this.txtFixed_Amount.TabIndex = 15;
@@ -544,7 +551,7 @@
             // 
             // txt_Employee_Grade
             // 
-            this.txt_Employee_Grade.Location = new System.Drawing.Point(132, 45);
+            this.txt_Employee_Grade.Location = new System.Drawing.Point(126, 45);
             this.txt_Employee_Grade.Name = "txt_Employee_Grade";
             this.txt_Employee_Grade.Size = new System.Drawing.Size(176, 20);
             this.txt_Employee_Grade.TabIndex = 13;
@@ -582,10 +589,10 @@
             this.clmnOther,
             this.clmnTotal_Deduction,
             this.clmnTotalPayable});
-            this.gdvFixed_Incentive_Allowance.Location = new System.Drawing.Point(303, 342);
+            this.gdvFixed_Incentive_Allowance.Location = new System.Drawing.Point(303, 337);
             this.gdvFixed_Incentive_Allowance.Name = "gdvFixed_Incentive_Allowance";
             this.gdvFixed_Incentive_Allowance.RowHeadersVisible = false;
-            this.gdvFixed_Incentive_Allowance.Size = new System.Drawing.Size(626, 203);
+            this.gdvFixed_Incentive_Allowance.Size = new System.Drawing.Size(617, 208);
             this.gdvFixed_Incentive_Allowance.TabIndex = 21;
             // 
             // clmnToken_No
@@ -854,7 +861,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 557);
+            this.ClientSize = new System.Drawing.Size(932, 557);
             this.Controls.Add(this.gbxEmployeeDetails);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gbxSalary_Period);
@@ -865,6 +872,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmFixed_Incentive_Allowance";
             this.Text = "Fixed Incentive Allowance";
+            this.Load += new System.EventHandler(this.FrmFixed_Incentive_Allowance_Load);
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxSalary_Period.ResumeLayout(false);

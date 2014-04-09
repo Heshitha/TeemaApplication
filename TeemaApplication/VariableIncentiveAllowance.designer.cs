@@ -205,25 +205,27 @@
             this.gbxSalary_Period.Controls.Add(this.label1);
             this.gbxSalary_Period.Location = new System.Drawing.Point(12, 162);
             this.gbxSalary_Period.Name = "gbxSalary_Period";
-            this.gbxSalary_Period.Size = new System.Drawing.Size(287, 76);
+            this.gbxSalary_Period.Size = new System.Drawing.Size(281, 76);
             this.gbxSalary_Period.TabIndex = 6;
             this.gbxSalary_Period.TabStop = false;
             this.gbxSalary_Period.Text = "Salary Period";
             // 
             // cmbMonth
             // 
+            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(90, 46);
+            this.cmbMonth.Location = new System.Drawing.Point(97, 46);
             this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(177, 21);
+            this.cmbMonth.Size = new System.Drawing.Size(176, 21);
             this.cmbMonth.TabIndex = 8;
             // 
             // cmbYear
             // 
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(90, 19);
+            this.cmbYear.Location = new System.Drawing.Point(97, 15);
             this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(177, 21);
+            this.cmbYear.Size = new System.Drawing.Size(176, 21);
             this.cmbYear.TabIndex = 7;
             // 
             // label2
@@ -281,9 +283,9 @@
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label8);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txt_Employee_Greade);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label5);
-            this.gbxFixedIncentiveAllowence.Location = new System.Drawing.Point(305, 43);
+            this.gbxFixedIncentiveAllowence.Location = new System.Drawing.Point(299, 43);
             this.gbxFixedIncentiveAllowence.Name = "gbxFixedIncentiveAllowence";
-            this.gbxFixedIncentiveAllowence.Size = new System.Drawing.Size(901, 334);
+            this.gbxFixedIncentiveAllowence.Size = new System.Drawing.Size(898, 334);
             this.gbxFixedIncentiveAllowence.TabIndex = 8;
             this.gbxFixedIncentiveAllowence.TabStop = false;
             this.gbxFixedIncentiveAllowence.Text = "Fixed Incentive Allowence";
@@ -294,7 +296,7 @@
             this.gbxNet_Payable.Controls.Add(this.txtNet_Payable);
             this.gbxNet_Payable.Location = new System.Drawing.Point(608, 224);
             this.gbxNet_Payable.Name = "gbxNet_Payable";
-            this.gbxNet_Payable.Size = new System.Drawing.Size(287, 49);
+            this.gbxNet_Payable.Size = new System.Drawing.Size(281, 49);
             this.gbxNet_Payable.TabIndex = 46;
             this.gbxNet_Payable.TabStop = false;
             // 
@@ -320,7 +322,7 @@
             this.gbxTotal_Payable.Controls.Add(this.label32);
             this.gbxTotal_Payable.Location = new System.Drawing.Point(609, 19);
             this.gbxTotal_Payable.Name = "gbxTotal_Payable";
-            this.gbxTotal_Payable.Size = new System.Drawing.Size(286, 43);
+            this.gbxTotal_Payable.Size = new System.Drawing.Size(280, 43);
             this.gbxTotal_Payable.TabIndex = 45;
             this.gbxTotal_Payable.TabStop = false;
             // 
@@ -367,7 +369,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(820, 305);
+            this.btnCancel.Location = new System.Drawing.Point(814, 305);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 14;
@@ -376,7 +378,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(739, 305);
+            this.btnReset.Location = new System.Drawing.Point(733, 305);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 13;
@@ -392,7 +394,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(658, 305);
+            this.btnUpdate.Location = new System.Drawing.Point(652, 305);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 12;
@@ -806,7 +808,7 @@
             this.gbxDeduction.Controls.Add(this.label13);
             this.gbxDeduction.Location = new System.Drawing.Point(608, 68);
             this.gbxDeduction.Name = "gbxDeduction";
-            this.gbxDeduction.Size = new System.Drawing.Size(287, 150);
+            this.gbxDeduction.Size = new System.Drawing.Size(281, 150);
             this.gbxDeduction.TabIndex = 24;
             this.gbxDeduction.TabStop = false;
             this.gbxDeduction.Text = "Deduction";
@@ -1028,10 +1030,10 @@
             this.clmnOther,
             this.clmnTotal_Deduction,
             this.clmnNet_payable});
-            this.gdvVariable_Incentive_Allowance.Location = new System.Drawing.Point(305, 383);
+            this.gdvVariable_Incentive_Allowance.Location = new System.Drawing.Point(299, 383);
             this.gdvVariable_Incentive_Allowance.Name = "gdvVariable_Incentive_Allowance";
             this.gdvVariable_Incentive_Allowance.RowHeadersVisible = false;
-            this.gdvVariable_Incentive_Allowance.Size = new System.Drawing.Size(901, 197);
+            this.gdvVariable_Incentive_Allowance.Size = new System.Drawing.Size(898, 197);
             this.gdvVariable_Incentive_Allowance.TabIndex = 15;
             // 
             // clmnToken_No
@@ -1210,7 +1212,7 @@
             this.gbxDepartmentDetails.Controls.Add(this.lblWorkingBranch);
             this.gbxDepartmentDetails.Location = new System.Drawing.Point(12, 43);
             this.gbxDepartmentDetails.Name = "gbxDepartmentDetails";
-            this.gbxDepartmentDetails.Size = new System.Drawing.Size(287, 113);
+            this.gbxDepartmentDetails.Size = new System.Drawing.Size(281, 113);
             this.gbxDepartmentDetails.TabIndex = 9;
             this.gbxDepartmentDetails.TabStop = false;
             this.gbxDepartmentDetails.Text = "Department Details";
@@ -1226,6 +1228,7 @@
             // 
             // cmbSubDepartment
             // 
+            this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubDepartment.FormattingEnabled = true;
             this.cmbSubDepartment.Location = new System.Drawing.Point(97, 76);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
@@ -1243,19 +1246,23 @@
             // 
             // cmbDepartment
             // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(97, 46);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(176, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
+            this.cmbWorkingBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkingBranch.FormattingEnabled = true;
             this.cmbWorkingBranch.Location = new System.Drawing.Point(97, 19);
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(176, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -1268,7 +1275,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(224, 244);
+            this.btnSearch.Location = new System.Drawing.Point(218, 244);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 6;
@@ -1296,7 +1303,7 @@
             this.gbxEmployeeDetails.Controls.Add(this.label48);
             this.gbxEmployeeDetails.Location = new System.Drawing.Point(12, 273);
             this.gbxEmployeeDetails.Name = "gbxEmployeeDetails";
-            this.gbxEmployeeDetails.Size = new System.Drawing.Size(287, 265);
+            this.gbxEmployeeDetails.Size = new System.Drawing.Size(281, 265);
             this.gbxEmployeeDetails.TabIndex = 7;
             this.gbxEmployeeDetails.TabStop = false;
             this.gbxEmployeeDetails.Text = "Employee Details";
@@ -1442,7 +1449,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1218, 592);
+            this.ClientSize = new System.Drawing.Size(1209, 592);
             this.Controls.Add(this.gbxSalary_Period);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gbxEmployeeDetails);
@@ -1453,6 +1460,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmVariable_Incentive_Allowance";
             this.Text = "Variable Incentive Allowance";
+            this.Load += new System.EventHandler(this.frmVariable_Incentive_Allowance_Load);
             this.gbxSalary_Period.ResumeLayout(false);
             this.gbxSalary_Period.PerformLayout();
             this.gbxFixedIncentiveAllowence.ResumeLayout(false);
