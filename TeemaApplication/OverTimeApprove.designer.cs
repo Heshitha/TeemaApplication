@@ -56,7 +56,6 @@
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
             this.gbxOver_Time_Details = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtOver_Time_Hours = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtReason = new System.Windows.Forms.TextBox();
@@ -67,17 +66,18 @@
             this.rdbSingle = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxTime = new System.Windows.Forms.GroupBox();
+            this.dudTo = new System.Windows.Forms.DomainUpDown();
+            this.dudFrom = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.gdvOver_Time_Request = new System.Windows.Forms.DataGridView();
             this.clmnApprove = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmnToken_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnNo_Of_Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dudTo = new System.Windows.Forms.DomainUpDown();
-            this.dudFrom = new System.Windows.Forms.DomainUpDown();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxOver_Time_Details.SuspendLayout();
@@ -320,6 +320,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(177, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
@@ -329,6 +330,7 @@
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(177, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -355,15 +357,6 @@
             this.gbxOver_Time_Details.TabIndex = 8;
             this.gbxOver_Time_Details.TabStop = false;
             this.gbxOver_Time_Details.Text = "Over Time Details";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(789, 198);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 28;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // txtOver_Time_Hours
             // 
@@ -463,6 +456,22 @@
             this.gbxTime.TabStop = false;
             this.gbxTime.Text = "Time";
             // 
+            // dudTo
+            // 
+            this.dudTo.Location = new System.Drawing.Point(42, 45);
+            this.dudTo.Name = "dudTo";
+            this.dudTo.Size = new System.Drawing.Size(73, 20);
+            this.dudTo.TabIndex = 6;
+            this.dudTo.Text = "dudTo";
+            // 
+            // dudFrom
+            // 
+            this.dudFrom.Location = new System.Drawing.Point(42, 19);
+            this.dudFrom.Name = "dudFrom";
+            this.dudFrom.Size = new System.Drawing.Size(73, 20);
+            this.dudFrom.TabIndex = 5;
+            this.dudFrom.Text = "dudFrom";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -489,6 +498,15 @@
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "OverTime Date";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(789, 198);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 28;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // gdvOver_Time_Request
             // 
@@ -532,22 +550,6 @@
             this.clmnNo_Of_Employee.HeaderText = "No Of Employee";
             this.clmnNo_Of_Employee.Name = "clmnNo_Of_Employee";
             // 
-            // dudTo
-            // 
-            this.dudTo.Location = new System.Drawing.Point(42, 45);
-            this.dudTo.Name = "dudTo";
-            this.dudTo.Size = new System.Drawing.Size(73, 20);
-            this.dudTo.TabIndex = 6;
-            this.dudTo.Text = "dudTo";
-            // 
-            // dudFrom
-            // 
-            this.dudFrom.Location = new System.Drawing.Point(42, 19);
-            this.dudFrom.Name = "dudFrom";
-            this.dudFrom.Size = new System.Drawing.Size(73, 20);
-            this.dudFrom.TabIndex = 5;
-            this.dudFrom.Text = "dudFrom";
-            // 
             // frmOver_Time_Approve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,6 +564,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmOver_Time_Approve";
             this.Text = "Over Time Approve";
+            this.Load += new System.EventHandler(this.frmOver_Time_Approve_Load);
             this.gbxEmployeeDetails.ResumeLayout(false);
             this.gbxEmployeeDetails.PerformLayout();
             this.gbxDepartmentDetails.ResumeLayout(false);
