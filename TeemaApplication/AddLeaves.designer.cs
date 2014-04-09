@@ -47,6 +47,11 @@
             this.lblCasual = new System.Windows.Forms.Label();
             this.lblAnnual = new System.Windows.Forms.Label();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnAnnual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnCasual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClearGrid = new System.Windows.Forms.Button();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.txtSubDepartment = new System.Windows.Forms.TextBox();
@@ -68,11 +73,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnAnnual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnCasual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -126,6 +126,7 @@
             this.cmbLeaveYear.Name = "cmbLeaveYear";
             this.cmbLeaveYear.Size = new System.Drawing.Size(173, 21);
             this.cmbLeaveYear.TabIndex = 7;
+            this.cmbLeaveYear.SelectedIndexChanged += new System.EventHandler(this.cmbLeaveYear_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -291,6 +292,41 @@
             this.dgvLeaves.Size = new System.Drawing.Size(612, 282);
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
+            // 
+            // clmnTokenID
+            // 
+            this.clmnTokenID.DataPropertyName = "EmployeeID";
+            this.clmnTokenID.HeaderText = "Token ID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            this.clmnTokenID.ReadOnly = true;
+            // 
+            // clmnEmpName
+            // 
+            this.clmnEmpName.DataPropertyName = "Name";
+            this.clmnEmpName.HeaderText = "Name";
+            this.clmnEmpName.Name = "clmnEmpName";
+            this.clmnEmpName.ReadOnly = true;
+            // 
+            // clmnEPFNO
+            // 
+            this.clmnEPFNO.DataPropertyName = "EPFNo";
+            this.clmnEPFNO.HeaderText = "EPF No";
+            this.clmnEPFNO.Name = "clmnEPFNO";
+            this.clmnEPFNO.ReadOnly = true;
+            // 
+            // clmnAnnual
+            // 
+            this.clmnAnnual.DataPropertyName = "AnnualLeaves";
+            this.clmnAnnual.HeaderText = "Annual";
+            this.clmnAnnual.Name = "clmnAnnual";
+            this.clmnAnnual.ReadOnly = true;
+            // 
+            // clmnCasual
+            // 
+            this.clmnCasual.DataPropertyName = "CasualLeaves";
+            this.clmnCasual.HeaderText = "Casual";
+            this.clmnCasual.Name = "clmnCasual";
+            this.clmnCasual.ReadOnly = true;
             // 
             // btnClearGrid
             // 
@@ -480,41 +516,6 @@
             this.label27.Size = new System.Drawing.Size(42, 13);
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
-            // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "EmployeeID";
-            this.clmnTokenID.HeaderText = "Token ID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
-            // 
-            // clmnEmpName
-            // 
-            this.clmnEmpName.DataPropertyName = "Name";
-            this.clmnEmpName.HeaderText = "Name";
-            this.clmnEmpName.Name = "clmnEmpName";
-            this.clmnEmpName.ReadOnly = true;
-            // 
-            // clmnEPFNO
-            // 
-            this.clmnEPFNO.DataPropertyName = "EPFNo";
-            this.clmnEPFNO.HeaderText = "EPF No";
-            this.clmnEPFNO.Name = "clmnEPFNO";
-            this.clmnEPFNO.ReadOnly = true;
-            // 
-            // clmnAnnual
-            // 
-            this.clmnAnnual.DataPropertyName = "AnnualLeaves";
-            this.clmnAnnual.HeaderText = "Annual";
-            this.clmnAnnual.Name = "clmnAnnual";
-            this.clmnAnnual.ReadOnly = true;
-            // 
-            // clmnCasual
-            // 
-            this.clmnCasual.DataPropertyName = "CasualLeaves";
-            this.clmnCasual.HeaderText = "Casual";
-            this.clmnCasual.Name = "clmnCasual";
-            this.clmnCasual.ReadOnly = true;
             // 
             // frmAddLeaves
             // 

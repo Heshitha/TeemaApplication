@@ -165,6 +165,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(176, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
@@ -174,6 +175,7 @@
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(176, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -398,7 +400,6 @@
             this.label11.Size = new System.Drawing.Size(121, 13);
             this.label11.TabIndex = 24;
             this.label11.Text = "Deduction Salary Period";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtNumber_of_Month
             // 
@@ -453,7 +454,6 @@
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
             this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(176, 20);
             this.txtFixedIncentiveAllowance.TabIndex = 17;
-            this.txtFixedIncentiveAllowance.TextChanged += new System.EventHandler(this.txtFixedIncentiveAllowance_TextChanged);
             // 
             // label8
             // 
@@ -511,7 +511,6 @@
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Requested Amount";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnCancel
             // 
@@ -539,6 +538,7 @@
             this.btnUpsate.TabIndex = 15;
             this.btnUpsate.Text = "Update";
             this.btnUpsate.UseVisualStyleBackColor = true;
+            this.btnUpsate.Click += new System.EventHandler(this.btnUpsate_Click);
             // 
             // dataGridView1
             // 
@@ -628,6 +628,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSalary_Loan_Request";
             this.Text = "Salary Loan Request";
+            this.Load += new System.EventHandler(this.frmSalary_Loan_Request_Load);
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxEmployeeDetails.ResumeLayout(false);

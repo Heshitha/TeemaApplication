@@ -166,6 +166,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(176, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
@@ -175,6 +176,7 @@
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(176, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -537,6 +539,7 @@
             this.btnApproved.TabIndex = 18;
             this.btnApproved.Text = "Approved";
             this.btnApproved.UseVisualStyleBackColor = true;
+            this.btnApproved.Click += new System.EventHandler(this.btnApproved_Click);
             // 
             // chbApprovedOnly
             // 
@@ -638,6 +641,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSalaryLoanApproved";
             this.Text = "SalaryLoanApproved";
+            this.Load += new System.EventHandler(this.frmSalaryLoanApproved_Load);
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxEmployeeDetails.ResumeLayout(false);
