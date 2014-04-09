@@ -30,22 +30,25 @@
         {
             this.lblFormTopic = new System.Windows.Forms.Label();
             this.gbxDepartmentDetails = new System.Windows.Forms.GroupBox();
-            this.gbxSalary_Period = new System.Windows.Forms.GroupBox();
-            this.cmbMonth = new System.Windows.Forms.ComboBox();
-            this.cmbYear = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblSubDepartment = new System.Windows.Forms.Label();
             this.cmbSubDepartment = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
+            this.gbxSalary_Period = new System.Windows.Forms.GroupBox();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbxFixedIncentiveAllowence = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtTotal_Payable = new System.Windows.Forms.TextBox();
             this.txtTotal_Deduction = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -72,9 +75,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Employee_Grade = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnUpsate = new System.Windows.Forms.Button();
             this.gdvFixed_Incentive_Allowance = new System.Windows.Forms.DataGridView();
             this.clmnToken_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,53 +148,6 @@
             this.gbxDepartmentDetails.TabStop = false;
             this.gbxDepartmentDetails.Text = "Department Details";
             // 
-            // gbxSalary_Period
-            // 
-            this.gbxSalary_Period.Controls.Add(this.cmbMonth);
-            this.gbxSalary_Period.Controls.Add(this.cmbYear);
-            this.gbxSalary_Period.Controls.Add(this.label2);
-            this.gbxSalary_Period.Controls.Add(this.label1);
-            this.gbxSalary_Period.Location = new System.Drawing.Point(12, 160);
-            this.gbxSalary_Period.Name = "gbxSalary_Period";
-            this.gbxSalary_Period.Size = new System.Drawing.Size(285, 76);
-            this.gbxSalary_Period.TabIndex = 6;
-            this.gbxSalary_Period.TabStop = false;
-            this.gbxSalary_Period.Text = "Salary Period";
-            // 
-            // cmbMonth
-            // 
-            this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(90, 46);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(177, 21);
-            this.cmbMonth.TabIndex = 8;
-            // 
-            // cmbYear
-            // 
-            this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(90, 19);
-            this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(177, 21);
-            this.cmbYear.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Month";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Year";
-            // 
             // lblSubDepartment
             // 
             this.lblSubDepartment.AutoSize = true;
@@ -246,13 +199,60 @@
             this.lblWorkingBranch.TabIndex = 0;
             this.lblWorkingBranch.Text = "Working Branch";
             // 
+            // gbxSalary_Period
+            // 
+            this.gbxSalary_Period.Controls.Add(this.cmbMonth);
+            this.gbxSalary_Period.Controls.Add(this.cmbYear);
+            this.gbxSalary_Period.Controls.Add(this.label2);
+            this.gbxSalary_Period.Controls.Add(this.label1);
+            this.gbxSalary_Period.Location = new System.Drawing.Point(12, 160);
+            this.gbxSalary_Period.Name = "gbxSalary_Period";
+            this.gbxSalary_Period.Size = new System.Drawing.Size(285, 76);
+            this.gbxSalary_Period.TabIndex = 6;
+            this.gbxSalary_Period.TabStop = false;
+            this.gbxSalary_Period.Text = "Salary Period";
+            // 
+            // cmbMonth
+            // 
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Location = new System.Drawing.Point(90, 46);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(177, 21);
+            this.cmbMonth.TabIndex = 8;
+            // 
+            // cmbYear
+            // 
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Location = new System.Drawing.Point(90, 19);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(177, 21);
+            this.cmbYear.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Month";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Year";
+            // 
             // gbxFixedIncentiveAllowence
             // 
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label17);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label16);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txtTotal_Payable);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txtTotal_Deduction);
-            this.gbxFixedIncentiveAllowence.Controls.Add(this.btnUpsate);
+            this.gbxFixedIncentiveAllowence.Controls.Add(this.btnUpdate);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.btnReset);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.btnCancel);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.groupBox2);
@@ -307,6 +307,33 @@
             this.txtTotal_Deduction.Name = "txtTotal_Deduction";
             this.txtTotal_Deduction.Size = new System.Drawing.Size(176, 20);
             this.txtTotal_Deduction.TabIndex = 28;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(383, 259);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(464, 259);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 19;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(545, 259);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -530,33 +557,6 @@
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Employee Grade";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(545, 259);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(464, 259);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 19;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnUpsate
-            // 
-            this.btnUpsate.Location = new System.Drawing.Point(383, 259);
-            this.btnUpsate.Name = "btnUpsate";
-            this.btnUpsate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpsate.TabIndex = 18;
-            this.btnUpsate.Text = "Upsate";
-            this.btnUpsate.UseVisualStyleBackColor = true;
             // 
             // gdvFixed_Incentive_Allowance
             // 
@@ -931,7 +931,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnUpsate;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView gdvFixed_Incentive_Allowance;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;

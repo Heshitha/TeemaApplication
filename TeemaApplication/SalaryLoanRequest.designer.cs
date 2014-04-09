@@ -1,6 +1,6 @@
 ﻿namespace TeemaApplication
 {
-    partial class frmSalary_Loan
+    partial class frmSalary_Loan_Request
     {
         /// <summary>
         /// Required designer variable.
@@ -100,9 +100,9 @@
             this.lblFormTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormTopic.Location = new System.Drawing.Point(12, 9);
             this.lblFormTopic.Name = "lblFormTopic";
-            this.lblFormTopic.Size = new System.Drawing.Size(158, 31);
+            this.lblFormTopic.Size = new System.Drawing.Size(267, 31);
             this.lblFormTopic.TabIndex = 2;
-            this.lblFormTopic.Text = "Salary Loan";
+            this.lblFormTopic.Text = "Salary Loan Request";
             // 
             // gbxDepartmentDetails
             // 
@@ -141,6 +141,7 @@
             // 
             // cmbSubDepartment
             // 
+            this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubDepartment.FormattingEnabled = true;
             this.cmbSubDepartment.Location = new System.Drawing.Point(105, 73);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
@@ -158,6 +159,7 @@
             // 
             // cmbDepartment
             // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(105, 46);
             this.cmbDepartment.Name = "cmbDepartment";
@@ -166,6 +168,7 @@
             // 
             // cmbWorkingBranch
             // 
+            this.cmbWorkingBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkingBranch.FormattingEnabled = true;
             this.cmbWorkingBranch.Location = new System.Drawing.Point(105, 19);
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
@@ -609,7 +612,7 @@
             this.clmnFixed_Incentive_Allowance.HeaderText = "Fixed Incentive Allowance";
             this.clmnFixed_Incentive_Allowance.Name = "clmnFixed_Incentive_Allowance";
             // 
-            // frmSalary_Loan
+            // frmSalary_Loan_Request
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -623,8 +626,8 @@
             this.Controls.Add(this.gbxDepartmentDetails);
             this.Controls.Add(this.lblFormTopic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmSalary_Loan";
-            this.Text = "Salary Loan";
+            this.Name = "frmSalary_Loan_Request";
+            this.Text = "Salary Loan Request";
             this.gbxDepartmentDetails.ResumeLayout(false);
             this.gbxDepartmentDetails.PerformLayout();
             this.gbxEmployeeDetails.ResumeLayout(false);

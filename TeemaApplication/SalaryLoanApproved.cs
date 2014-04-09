@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace TeemaApplication
 {
-    public partial class frmSalary_Advance : Form
+    public partial class frmSalaryLoanApproved : Form
     {
-        public frmSalary_Advance()
+        public frmSalaryLoanApproved()
         {
             InitializeComponent();
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmSalary_Advance_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

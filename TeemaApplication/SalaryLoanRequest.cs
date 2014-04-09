@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TeemaApplication
 {
-    public partial class frmSalary_Loan : Form
+    public partial class frmSalary_Loan_Request : Form
     {
-        public frmSalary_Loan()
+        public frmSalary_Loan_Request()
         {
             InitializeComponent();
         }

@@ -134,17 +134,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalaryAdvance.cs">
+    <Compile Include="SalaryAdvanceApprove.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalaryAdvance.designer.cs">
-      <DependentUpon>SalaryAdvance.cs</DependentUpon>
+    <Compile Include="SalaryAdvanceApprove.designer.cs">
+      <DependentUpon>SalaryAdvanceApprove.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalaryLoan.cs">
+    <Compile Include="SalaryAdvanceRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalaryLoan.designer.cs">
-      <DependentUpon>SalaryLoan.cs</DependentUpon>
+    <Compile Include="SalaryAdvanceRequest.Designer.cs">
+      <DependentUpon>SalaryAdvanceRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryLoanApproved.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryLoanApproved.Designer.cs">
+      <DependentUpon>SalaryLoanApproved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryLoanRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryLoanRequest.designer.cs">
+      <DependentUpon>SalaryLoanRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="TeemaDB.designer.cs">
       <AutoGen>True</AutoGen>
@@ -223,11 +235,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SalaryAdvance.resx">
-      <DependentUpon>SalaryAdvance.cs</DependentUpon>
+    <EmbeddedResource Include="SalaryAdvanceApprove.resx">
+      <DependentUpon>SalaryAdvanceApprove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalaryLoan.resx">
-      <DependentUpon>SalaryLoan.cs</DependentUpon>
+    <EmbeddedResource Include="SalaryAdvanceRequest.resx">
+      <DependentUpon>SalaryAdvanceRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryLoanApproved.resx">
+      <DependentUpon>SalaryLoanApproved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryLoanRequest.resx">
+      <DependentUpon>SalaryLoanRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VariableIncentiveAllowance.resx">
       <DependentUpon>VariableIncentiveAllowance.cs</DependentUpon>

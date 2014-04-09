@@ -44,7 +44,10 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtPer_Ins_Markes = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.txtLeave_Days = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.gbxAfter_No_Pay_Deduction = new System.Windows.Forms.GroupBox();
             this.txtSales_Target_Percentage = new System.Windows.Forms.TextBox();
             this.txtHawail_Sec_Precentage = new System.Windows.Forms.TextBox();
@@ -113,9 +116,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Employee_Greade = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnUpsate = new System.Windows.Forms.Button();
             this.gdvVariable_Incentive_Allowance = new System.Windows.Forms.DataGridView();
             this.clmnToken_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,13 +151,13 @@
             this.clmnTotal_Deduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnNet_payable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDepartmentDetails = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSubDepartment = new System.Windows.Forms.Label();
             this.cmbSubDepartment = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.gbxEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtBranch = new System.Windows.Forms.TextBox();
@@ -254,7 +254,7 @@
             this.gbxFixedIncentiveAllowence.Controls.Add(this.btnCancel);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.btnReset);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txtLeave_Days);
-            this.gbxFixedIncentiveAllowence.Controls.Add(this.btnUpsate);
+            this.gbxFixedIncentiveAllowence.Controls.Add(this.btnUpdate);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.gbxAfter_No_Pay_Deduction);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.label24);
             this.gbxFixedIncentiveAllowence.Controls.Add(this.txtLate_attendance_Days);
@@ -365,12 +365,39 @@
             this.label25.TabIndex = 42;
             this.label25.Text = "Leave Days";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(820, 305);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 14;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(739, 305);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 13;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
             // txtLeave_Days
             // 
             this.txtLeave_Days.Location = new System.Drawing.Point(408, 19);
             this.txtLeave_Days.Name = "txtLeave_Days";
             this.txtLeave_Days.Size = new System.Drawing.Size(194, 20);
             this.txtLeave_Days.TabIndex = 41;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(658, 305);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // gbxAfter_No_Pay_Deduction
             // 
@@ -960,39 +987,12 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Employee Grade";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(820, 305);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(739, 305);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 13;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnUpsate
-            // 
-            this.btnUpsate.Location = new System.Drawing.Point(658, 305);
-            this.btnUpsate.Name = "btnUpsate";
-            this.btnUpsate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpsate.TabIndex = 12;
-            this.btnUpsate.Text = "Upsate";
-            this.btnUpsate.UseVisualStyleBackColor = true;
-            // 
             // gdvVariable_Incentive_Allowance
             // 
             this.gdvVariable_Incentive_Allowance.AllowUserToAddRows = false;
             this.gdvVariable_Incentive_Allowance.AllowUserToDeleteRows = false;
-            this.gdvVariable_Incentive_Allowance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.gdvVariable_Incentive_Allowance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.gdvVariable_Incentive_Allowance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdvVariable_Incentive_Allowance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnToken_No,
@@ -1215,15 +1215,6 @@
             this.gbxDepartmentDetails.TabStop = false;
             this.gbxDepartmentDetails.Text = "Department Details";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(224, 244);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // lblSubDepartment
             // 
             this.lblSubDepartment.AutoSize = true;
@@ -1274,6 +1265,15 @@
             this.lblWorkingBranch.Size = new System.Drawing.Size(84, 13);
             this.lblWorkingBranch.TabIndex = 0;
             this.lblWorkingBranch.Text = "Working Branch";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(224, 244);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // gbxEmployeeDetails
             // 
@@ -1564,7 +1564,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnUpsate;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView gdvVariable_Incentive_Allowance;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;
