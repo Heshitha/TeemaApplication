@@ -63,6 +63,8 @@
             this.clmnYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxSalaryMonth = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -85,8 +87,6 @@
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.chbApprovedOnly = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxSalaryAdvance.SuspendLayout();
             this.gdvDeductionFrom.SuspendLayout();
@@ -156,6 +156,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(183, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbWorkingBranch
             // 
@@ -165,6 +166,7 @@
             this.cmbWorkingBranch.Name = "cmbWorkingBranch";
             this.cmbWorkingBranch.Size = new System.Drawing.Size(183, 21);
             this.cmbWorkingBranch.TabIndex = 1;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // lblWorkingBranch
             // 
@@ -235,7 +237,6 @@
             this.label8.Size = new System.Drawing.Size(131, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Fixed Incentive Allowance";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtDayWages
             // 
@@ -311,6 +312,7 @@
             this.btnApprove.TabIndex = 12;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = true;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // gdvSalaryAdvance
             // 
@@ -396,6 +398,24 @@
             this.gbxSalaryMonth.TabIndex = 20;
             this.gbxSalaryMonth.TabStop = false;
             this.gbxSalaryMonth.Text = "Salary Month";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(96, 46);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(183, 21);
+            this.comboBox2.TabIndex = 24;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(96, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(183, 21);
+            this.comboBox1.TabIndex = 23;
             // 
             // label10
             // 
@@ -597,24 +617,6 @@
             this.chbApprovedOnly.TabIndex = 33;
             this.chbApprovedOnly.Text = "Approved Only";
             this.chbApprovedOnly.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(96, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 23;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(96, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 21);
-            this.comboBox2.TabIndex = 24;
             // 
             // frmSalary_Advance_Approve
             // 
