@@ -51,40 +51,42 @@ namespace TeemaApplication
 
 
         // Fill leaves grid
-        private void fillLeavesGrid(SubDepartment subdepartment)
+        private void fillLeavesGrid()
         {
+            
             //dgvLeaves.DataSource = subdepartment.Employees;
             //dgvLeaves.DataSource = subdepartment.Employees.Select(c => new { c.TokenNo,c.Name,c.EPFNo});
 
-            var empdata = (from emp in db.Employees 
-                          // from grntlvs in db.GrantedLeaves
-                           join subd in db.SubDepartments on emp.SubDepartmentID equals subd.SubDepartmentID
-                         //  join grndlvs in db.GrantedLeaves on emp.EmployeeID equals grndlvs.EmployeeID
-                           where subd.SubDepartmentID == subdepartment.SubDepartmentID 
-                           select new { emp.TokenNo, emp.Name, emp.EPFNo });
-
-            dgvLeaves.DataSource = empdata;
+            //var empdata = (from emp in db.Employees 
+            //              // from grntlvs in db.GrantedLeaves
+            //               join subd in db.SubDepartments on emp.SubDepartmentID equals subd.SubDepartmentID
+            //             //  join grndlvs in db.GrantedLeaves on emp.EmployeeID equals grndlvs.EmployeeID
+            //               where subd.SubDepartmentID == subdepartment.SubDepartmentID 
+            //               select new { emp.TokenNo, emp.Name, emp.EPFNo });
+ 
+           // dgvLeaves.DataSource = empdata;
+            SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("EmployeeID");
+            dt.Columns.Add("TokenID");
             dt.Columns.Add("Name");
+            dt.Columns.Add("EPFNo");
             dt.Columns.Add("AnnualLeaves");
             dt.Columns.Add("CasualLeaves");
 
-            foreach (Employee emp in db.Employees)
+            foreach (Employee emp in subdept.Employees)
             {
-                //GrantedLeave grnLeave = emp.GrantedLeaves.Where(l => l.year == Convert.ToInt32(cmbLeaveYear.Text)).SingleOrDefault();
-
+                  
                 GrantedLeave grnLeave = (from x in emp.GrantedLeaves
                                          where x.year == Convert.ToInt32(cmbLeaveYear.Text)
                                          select x).SingleOrDefault();
                 if (grnLeave != null)
                 {
-                    dt.Rows.Add(emp.EmployeeID, emp.Name, grnLeave.Annual, grnLeave.Casual);
+                    dt.Rows.Add(emp.TokenNo, emp.Name,emp.EPFNo, grnLeave.Annual, grnLeave.Casual);
                 }
                 else
                 {
-                    dt.Rows.Add(emp.EmployeeID, emp.Name, "0", "0");
+                    dt.Rows.Add(emp.TokenNo, emp.Name, emp.EPFNo,"0", "0");
                 }
             }
 
@@ -111,18 +113,27 @@ namespace TeemaApplication
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            fillLeavesGrid((SubDepartment)cmbSubDepartment.SelectedItem);
+            if (cmbLeaveYear.Text != "")
+            {
+                fillLeavesGrid();
+            }
+            else
+            {
+                MessageBox.Show("Please select a year");
+            }
         }
 
         // fill emplyee details text boxes from selected item in grid
         private void fillEmployeeDetailsgrpbox()
         {
             cleartextbox(grpEmployeeDetails);
+            txtAnnual.Text = "";
+            txtCasual.Text = "";
 
-            int empid = Convert.ToInt32(dgvLeaves.SelectedRows[0].Cells[0].Value);
+            String tokenid = Convert.ToString(dgvLeaves.SelectedRows[0].Cells[0].Value);
 
             var data = (from emp in db.Employees
-                             where emp.EmployeeID == empid
+                             where emp.TokenNo == tokenid
                              select new { emp.EmployeeID, emp.Name, emp.NICNo,emp.EPFNo, emp.Designation.Designation1, emp.TokenNo, emp.SubDepartment.SubDepartmentName,emp.SubDepartment.Department.DepartmentName,emp.SubDepartment.Department.Branch.BranchName });
 
            foreach (var e in data)
@@ -188,12 +199,20 @@ namespace TeemaApplication
                    db.SubmitChanges();
 
                    //reload grid view
-                   fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+                 //  fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+                   fillLeavesGrid();
                }
                else
                {
                    // enter else part for updating granted leaves
-                    //var existingleaverecord = from grntlvs in db.GrantedLeaves
+                   GrantedLeave existingleaverecord = (from grntlvs in db.GrantedLeaves
+                                              where grntlvs.EmployeeID == varempID && grntlvs.year == Convert.ToInt32(cmbLeaveYear.Text)
+                                              select grntlvs).SingleOrDefault();
+
+                   existingleaverecord.Annual = Convert.ToInt32(txtAnnual.Text);
+                   existingleaverecord.Casual = Convert.ToInt32(txtCasual.Text);
+                    
+                   db.SubmitChanges();
 
                }
            
