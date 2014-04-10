@@ -67,13 +67,37 @@ namespace TeemaApplication
             {
                 return title + " ";
             }
-
         }
+
+            private bool checkforsalarymonth()
+            {
+                String errortext = null;
+                errortext += getIntNumaricValue(" *Year ", cmbYear.Text);
+
+                if (cmbMonth.Text.Equals(string.Empty))
+                {
+                    errortext +=" *Month";
+                }
+
+
+                if (errortext == "")
+                {
+                    MessageBox.Show("done");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Correct Value To " + errortext + "..!");
+                    return false;
+                }
+
+            }
 
         private bool checkforValues()
         {
             String errortext = null;
             errortext += getIntNumaricValue(" *Requested Amount", txtRequested_Amount.Text);
+           
 
             // check text boxes Deduction From
 
@@ -120,6 +144,11 @@ namespace TeemaApplication
         private void btnUpsate_Click(object sender, EventArgs e)
         {
             checkforValues();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            checkforsalarymonth();
         }
     }
 }

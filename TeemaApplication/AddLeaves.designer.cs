@@ -290,6 +290,7 @@
             this.dgvLeaves.Size = new System.Drawing.Size(506, 321);
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
+            this.dgvLeaves.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellContentClick);
             // 
             // clmnTokenID
             // 

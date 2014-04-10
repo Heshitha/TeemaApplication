@@ -313,6 +313,7 @@
             // 
             this.txtNet_Payable.Location = new System.Drawing.Point(95, 18);
             this.txtNet_Payable.Name = "txtNet_Payable";
+            this.txtNet_Payable.ReadOnly = true;
             this.txtNet_Payable.Size = new System.Drawing.Size(178, 20);
             this.txtNet_Payable.TabIndex = 30;
             // 
@@ -330,6 +331,7 @@
             // 
             this.txtTotal_Payable.Location = new System.Drawing.Point(95, 13);
             this.txtTotal_Payable.Name = "txtTotal_Payable";
+            this.txtTotal_Payable.ReadOnly = true;
             this.txtTotal_Payable.Size = new System.Drawing.Size(178, 20);
             this.txtTotal_Payable.TabIndex = 43;
             // 
@@ -389,6 +391,7 @@
             // 
             this.txtLeave_Days.Location = new System.Drawing.Point(408, 19);
             this.txtLeave_Days.Name = "txtLeave_Days";
+            this.txtLeave_Days.ReadOnly = true;
             this.txtLeave_Days.Size = new System.Drawing.Size(194, 20);
             this.txtLeave_Days.TabIndex = 41;
             // 
@@ -446,6 +449,7 @@
             // 
             this.txtSales_Target_Percentage.Location = new System.Drawing.Point(101, 201);
             this.txtSales_Target_Percentage.Name = "txtSales_Target_Percentage";
+            this.txtSales_Target_Percentage.ReadOnly = true;
             this.txtSales_Target_Percentage.Size = new System.Drawing.Size(73, 20);
             this.txtSales_Target_Percentage.TabIndex = 70;
             // 
@@ -453,6 +457,7 @@
             // 
             this.txtHawail_Sec_Precentage.Location = new System.Drawing.Point(101, 175);
             this.txtHawail_Sec_Precentage.Name = "txtHawail_Sec_Precentage";
+            this.txtHawail_Sec_Precentage.ReadOnly = true;
             this.txtHawail_Sec_Precentage.Size = new System.Drawing.Size(73, 20);
             this.txtHawail_Sec_Precentage.TabIndex = 69;
             // 
@@ -460,6 +465,7 @@
             // 
             this.txtMill_Sec_Percentage.Location = new System.Drawing.Point(101, 149);
             this.txtMill_Sec_Percentage.Name = "txtMill_Sec_Percentage";
+            this.txtMill_Sec_Percentage.ReadOnly = true;
             this.txtMill_Sec_Percentage.Size = new System.Drawing.Size(73, 20);
             this.txtMill_Sec_Percentage.TabIndex = 68;
             // 
@@ -467,6 +473,7 @@
             // 
             this.txtM_Main_A_P_T_percentage.Location = new System.Drawing.Point(101, 123);
             this.txtM_Main_A_P_T_percentage.Name = "txtM_Main_A_P_T_percentage";
+            this.txtM_Main_A_P_T_percentage.ReadOnly = true;
             this.txtM_Main_A_P_T_percentage.Size = new System.Drawing.Size(73, 20);
             this.txtM_Main_A_P_T_percentage.TabIndex = 67;
             // 
@@ -474,6 +481,7 @@
             // 
             this.txtM_Break_D_Percentage.Location = new System.Drawing.Point(101, 97);
             this.txtM_Break_D_Percentage.Name = "txtM_Break_D_Percentage";
+            this.txtM_Break_D_Percentage.ReadOnly = true;
             this.txtM_Break_D_Percentage.Size = new System.Drawing.Size(73, 20);
             this.txtM_Break_D_Percentage.TabIndex = 66;
             // 
@@ -481,6 +489,7 @@
             // 
             this.txtProduct_Percentage.Location = new System.Drawing.Point(101, 71);
             this.txtProduct_Percentage.Name = "txtProduct_Percentage";
+            this.txtProduct_Percentage.ReadOnly = true;
             this.txtProduct_Percentage.Size = new System.Drawing.Size(73, 20);
             this.txtProduct_Percentage.TabIndex = 65;
             // 
@@ -488,6 +497,7 @@
             // 
             this.txtSales_percentage.Location = new System.Drawing.Point(101, 45);
             this.txtSales_percentage.Name = "txtSales_percentage";
+            this.txtSales_percentage.ReadOnly = true;
             this.txtSales_percentage.Size = new System.Drawing.Size(73, 20);
             this.txtSales_percentage.TabIndex = 64;
             // 
@@ -495,6 +505,7 @@
             // 
             this.txtPerform_In_Percentage.Location = new System.Drawing.Point(101, 19);
             this.txtPerform_In_Percentage.Name = "txtPerform_In_Percentage";
+            this.txtPerform_In_Percentage.ReadOnly = true;
             this.txtPerform_In_Percentage.Size = new System.Drawing.Size(73, 20);
             this.txtPerform_In_Percentage.TabIndex = 63;
             // 
@@ -574,6 +585,7 @@
             // 
             this.txtSales_Target_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 201);
             this.txtSales_Target_after_No_Pay_Deduction.Name = "txtSales_Target_after_No_Pay_Deduction";
+            this.txtSales_Target_after_No_Pay_Deduction.ReadOnly = true;
             this.txtSales_Target_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtSales_Target_after_No_Pay_Deduction.TabIndex = 54;
             // 
@@ -581,6 +593,7 @@
             // 
             this.txtHawail_Sec_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 175);
             this.txtHawail_Sec_after_No_Pay_Deduction.Name = "txtHawail_Sec_after_No_Pay_Deduction";
+            this.txtHawail_Sec_after_No_Pay_Deduction.ReadOnly = true;
             this.txtHawail_Sec_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtHawail_Sec_after_No_Pay_Deduction.TabIndex = 53;
             // 
@@ -588,6 +601,7 @@
             // 
             this.txtMill_Sec_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 149);
             this.txtMill_Sec_after_No_Pay_Deduction.Name = "txtMill_Sec_after_No_Pay_Deduction";
+            this.txtMill_Sec_after_No_Pay_Deduction.ReadOnly = true;
             this.txtMill_Sec_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtMill_Sec_after_No_Pay_Deduction.TabIndex = 52;
             // 
@@ -595,6 +609,7 @@
             // 
             this.txtM_Main_A_P_T_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 123);
             this.txtM_Main_A_P_T_after_No_Pay_Deduction.Name = "txtM_Main_A_P_T_after_No_Pay_Deduction";
+            this.txtM_Main_A_P_T_after_No_Pay_Deduction.ReadOnly = true;
             this.txtM_Main_A_P_T_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtM_Main_A_P_T_after_No_Pay_Deduction.TabIndex = 51;
             // 
@@ -602,6 +617,7 @@
             // 
             this.txt_M_Break_D_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 97);
             this.txt_M_Break_D_after_No_Pay_Deduction.Name = "txt_M_Break_D_after_No_Pay_Deduction";
+            this.txt_M_Break_D_after_No_Pay_Deduction.ReadOnly = true;
             this.txt_M_Break_D_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txt_M_Break_D_after_No_Pay_Deduction.TabIndex = 50;
             // 
@@ -609,6 +625,7 @@
             // 
             this.txtProduct_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 71);
             this.txtProduct_after_No_Pay_Deduction.Name = "txtProduct_after_No_Pay_Deduction";
+            this.txtProduct_after_No_Pay_Deduction.ReadOnly = true;
             this.txtProduct_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtProduct_after_No_Pay_Deduction.TabIndex = 49;
             // 
@@ -616,6 +633,7 @@
             // 
             this.txt_Sales_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 45);
             this.txt_Sales_after_No_Pay_Deduction.Name = "txt_Sales_after_No_Pay_Deduction";
+            this.txt_Sales_after_No_Pay_Deduction.ReadOnly = true;
             this.txt_Sales_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txt_Sales_after_No_Pay_Deduction.TabIndex = 48;
             // 
@@ -623,6 +641,7 @@
             // 
             this.txtPerform_In_after_No_Pay_Deduction.Location = new System.Drawing.Point(206, 19);
             this.txtPerform_In_after_No_Pay_Deduction.Name = "txtPerform_In_after_No_Pay_Deduction";
+            this.txtPerform_In_after_No_Pay_Deduction.ReadOnly = true;
             this.txtPerform_In_after_No_Pay_Deduction.Size = new System.Drawing.Size(73, 20);
             this.txtPerform_In_after_No_Pay_Deduction.TabIndex = 47;
             // 
@@ -711,6 +730,7 @@
             // 
             this.txtLate_attendance_Days.Location = new System.Drawing.Point(125, 305);
             this.txtLate_attendance_Days.Name = "txtLate_attendance_Days";
+            this.txtLate_attendance_Days.ReadOnly = true;
             this.txtLate_attendance_Days.Size = new System.Drawing.Size(176, 20);
             this.txtLate_attendance_Days.TabIndex = 39;
             // 
@@ -727,6 +747,7 @@
             // 
             this.txtNo_Pay_Date.Location = new System.Drawing.Point(125, 279);
             this.txtNo_Pay_Date.Name = "txtNo_Pay_Date";
+            this.txtNo_Pay_Date.ReadOnly = true;
             this.txtNo_Pay_Date.Size = new System.Drawing.Size(176, 20);
             this.txtNo_Pay_Date.TabIndex = 37;
             // 
@@ -826,6 +847,7 @@
             // 
             this.txtTotal_Deduction.Location = new System.Drawing.Point(95, 123);
             this.txtTotal_Deduction.Name = "txtTotal_Deduction";
+            this.txtTotal_Deduction.ReadOnly = true;
             this.txtTotal_Deduction.Size = new System.Drawing.Size(178, 20);
             this.txtTotal_Deduction.TabIndex = 32;
             // 
@@ -842,6 +864,7 @@
             // 
             this.txtOther.Location = new System.Drawing.Point(95, 97);
             this.txtOther.Name = "txtOther";
+            this.txtOther.ReadOnly = true;
             this.txtOther.Size = new System.Drawing.Size(178, 20);
             this.txtOther.TabIndex = 30;
             // 
@@ -867,6 +890,7 @@
             // 
             this.txtSalary_Loan.Location = new System.Drawing.Point(95, 71);
             this.txtSalary_Loan.Name = "txtSalary_Loan";
+            this.txtSalary_Loan.ReadOnly = true;
             this.txtSalary_Loan.Size = new System.Drawing.Size(178, 20);
             this.txtSalary_Loan.TabIndex = 27;
             // 
@@ -874,6 +898,7 @@
             // 
             this.txtSalary_Advance.Location = new System.Drawing.Point(95, 45);
             this.txtSalary_Advance.Name = "txtSalary_Advance";
+            this.txtSalary_Advance.ReadOnly = true;
             this.txtSalary_Advance.Size = new System.Drawing.Size(178, 20);
             this.txtSalary_Advance.TabIndex = 26;
             // 
@@ -881,6 +906,7 @@
             // 
             this.txt_Late_Comming.Location = new System.Drawing.Point(95, 19);
             this.txt_Late_Comming.Name = "txt_Late_Comming";
+            this.txt_Late_Comming.ReadOnly = true;
             this.txt_Late_Comming.Size = new System.Drawing.Size(178, 20);
             this.txt_Late_Comming.TabIndex = 25;
             // 
@@ -913,6 +939,7 @@
             // 
             this.txtEmployee_Category.Location = new System.Drawing.Point(125, 19);
             this.txtEmployee_Category.Name = "txtEmployee_Category";
+            this.txtEmployee_Category.ReadOnly = true;
             this.txtEmployee_Category.Size = new System.Drawing.Size(176, 20);
             this.txtEmployee_Category.TabIndex = 19;
             // 
@@ -938,6 +965,7 @@
             // 
             this.txtProduct.Location = new System.Drawing.Point(125, 123);
             this.txtProduct.Name = "txtProduct";
+            this.txtProduct.ReadOnly = true;
             this.txtProduct.Size = new System.Drawing.Size(176, 20);
             this.txtProduct.TabIndex = 21;
             // 
@@ -945,6 +973,7 @@
             // 
             this.txtSales.Location = new System.Drawing.Point(125, 97);
             this.txtSales.Name = "txtSales";
+            this.txtSales.ReadOnly = true;
             this.txtSales.Size = new System.Drawing.Size(176, 20);
             this.txtSales.TabIndex = 17;
             // 
@@ -961,6 +990,7 @@
             // 
             this.txtPerform.Location = new System.Drawing.Point(125, 71);
             this.txtPerform.Name = "txtPerform";
+            this.txtPerform.ReadOnly = true;
             this.txtPerform.Size = new System.Drawing.Size(176, 20);
             this.txtPerform.TabIndex = 15;
             // 
@@ -977,6 +1007,7 @@
             // 
             this.txt_Employee_Greade.Location = new System.Drawing.Point(125, 45);
             this.txt_Employee_Greade.Name = "txt_Employee_Greade";
+            this.txt_Employee_Greade.ReadOnly = true;
             this.txt_Employee_Greade.Size = new System.Drawing.Size(176, 20);
             this.txt_Employee_Greade.TabIndex = 13;
             // 

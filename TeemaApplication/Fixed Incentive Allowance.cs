@@ -57,6 +57,50 @@ namespace TeemaApplication
             fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
         }
 
+        //check salary period combox
+        private String getIntNumaricValue(string title, string text)
+        {
+            int Value = 0;
+            if (int.TryParse(text, out Value))
+            {
+                return "";
+            }
+            else
+            {
+                return title + " ";
+            }
+        }
+
+        private bool checkforsalarymonth()
+        {
+            String errortext = null;
+            errortext += getIntNumaricValue(" *Year", cmbYear.Text);
+
+            if (cmbMonth.Text.Equals(string.Empty))
+            {
+                errortext += " *Month";
+            }
+
+            if (errortext == "")
+            {
+                MessageBox.Show("Done");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Please Select "+errortext+"..!");
+                return false;
+            }
+ 
+        }               
+
+      
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            checkforsalarymonth();
+        }
+
        
      
         

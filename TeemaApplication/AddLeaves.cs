@@ -280,6 +280,11 @@ namespace TeemaApplication
         {
 
         }
+
+        private void dgvLeaves_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

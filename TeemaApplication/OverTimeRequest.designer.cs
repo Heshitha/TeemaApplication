@@ -56,7 +56,6 @@
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbxOver_Time_Details = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtOver_Time_Hours = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtReason = new System.Windows.Forms.TextBox();
@@ -67,16 +66,17 @@
             this.rdbSingle = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxTime = new System.Windows.Forms.GroupBox();
+            this.dudTo = new System.Windows.Forms.DomainUpDown();
+            this.dudFrom = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.gdvOver_Time_Request = new System.Windows.Forms.DataGridView();
             this.clmnEntitled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmnToken_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dudFrom = new System.Windows.Forms.DomainUpDown();
-            this.dudTo = new System.Windows.Forms.DomainUpDown();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxOver_Time_Details.SuspendLayout();
@@ -357,15 +357,6 @@
             this.gbxOver_Time_Details.TabStop = false;
             this.gbxOver_Time_Details.Text = "Over Time Details";
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(789, 198);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 28;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // txtOver_Time_Hours
             // 
             this.txtOver_Time_Hours.Location = new System.Drawing.Point(377, 19);
@@ -416,7 +407,6 @@
             this.rdbTreble.Name = "rdbTreble";
             this.rdbTreble.Size = new System.Drawing.Size(55, 17);
             this.rdbTreble.TabIndex = 2;
-            this.rdbTreble.TabStop = true;
             this.rdbTreble.Text = "Treble";
             this.rdbTreble.UseVisualStyleBackColor = true;
             // 
@@ -427,13 +417,13 @@
             this.rdbDouble.Name = "rdbDouble";
             this.rdbDouble.Size = new System.Drawing.Size(59, 17);
             this.rdbDouble.TabIndex = 1;
-            this.rdbDouble.TabStop = true;
             this.rdbDouble.Text = "Double";
             this.rdbDouble.UseVisualStyleBackColor = true;
             // 
             // rdbSingle
             // 
             this.rdbSingle.AutoSize = true;
+            this.rdbSingle.Checked = true;
             this.rdbSingle.Location = new System.Drawing.Point(6, 19);
             this.rdbSingle.Name = "rdbSingle";
             this.rdbSingle.Size = new System.Drawing.Size(54, 17);
@@ -464,6 +454,22 @@
             this.gbxTime.TabStop = false;
             this.gbxTime.Text = "Time";
             // 
+            // dudTo
+            // 
+            this.dudTo.Location = new System.Drawing.Point(42, 45);
+            this.dudTo.Name = "dudTo";
+            this.dudTo.Size = new System.Drawing.Size(73, 20);
+            this.dudTo.TabIndex = 4;
+            this.dudTo.Text = "dudTo";
+            // 
+            // dudFrom
+            // 
+            this.dudFrom.Location = new System.Drawing.Point(42, 19);
+            this.dudFrom.Name = "dudFrom";
+            this.dudFrom.Size = new System.Drawing.Size(73, 20);
+            this.dudFrom.TabIndex = 3;
+            this.dudFrom.Text = "dudFrom";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -490,6 +496,16 @@
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "OverTime Date";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(789, 198);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 28;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // gdvOver_Time_Request
             // 
@@ -526,22 +542,6 @@
             // 
             this.clmnEmployee_Name.HeaderText = "Employee Name";
             this.clmnEmployee_Name.Name = "clmnEmployee_Name";
-            // 
-            // dudFrom
-            // 
-            this.dudFrom.Location = new System.Drawing.Point(42, 19);
-            this.dudFrom.Name = "dudFrom";
-            this.dudFrom.Size = new System.Drawing.Size(73, 20);
-            this.dudFrom.TabIndex = 3;
-            this.dudFrom.Text = "dudFrom";
-            // 
-            // dudTo
-            // 
-            this.dudTo.Location = new System.Drawing.Point(42, 45);
-            this.dudTo.Name = "dudTo";
-            this.dudTo.Size = new System.Drawing.Size(73, 20);
-            this.dudTo.TabIndex = 4;
-            this.dudTo.Text = "dudTo";
             // 
             // frmOver_Time_Request
             // 

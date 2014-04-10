@@ -408,7 +408,6 @@
             this.rdbTreble.Name = "rdbTreble";
             this.rdbTreble.Size = new System.Drawing.Size(55, 17);
             this.rdbTreble.TabIndex = 2;
-            this.rdbTreble.TabStop = true;
             this.rdbTreble.Text = "Treble";
             this.rdbTreble.UseVisualStyleBackColor = true;
             // 
@@ -419,13 +418,13 @@
             this.rdbDouble.Name = "rdbDouble";
             this.rdbDouble.Size = new System.Drawing.Size(59, 17);
             this.rdbDouble.TabIndex = 1;
-            this.rdbDouble.TabStop = true;
             this.rdbDouble.Text = "Double";
             this.rdbDouble.UseVisualStyleBackColor = true;
             // 
             // rdbSingle
             // 
             this.rdbSingle.AutoSize = true;
+            this.rdbSingle.Checked = true;
             this.rdbSingle.Location = new System.Drawing.Point(6, 19);
             this.rdbSingle.Name = "rdbSingle";
             this.rdbSingle.Size = new System.Drawing.Size(54, 17);
@@ -507,6 +506,7 @@
             this.btnSave.TabIndex = 28;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // gdvOver_Time_Request
             // 

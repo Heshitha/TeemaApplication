@@ -58,6 +58,45 @@ namespace TeemaApplication
             fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
         }
 
+        private String getIntNumaricValue(string title, string text)
+        {
+            int Value = 0;
+            if (int.TryParse(text, out Value))
+            {
+                return "";
+            }
+            else
+            {
+                return title + " ";
+            }
+        }
+        private bool checkforvalues()
+        {
+            String errortext = null;
+
+            errortext += getIntNumaricValue(" *Over Time Hours ",txtOver_Time_Hours.Text);
+
+            if (txtReason.Text.Equals(string.Empty))
+            {
+                errortext += " *Reason";
+            }
+
+            if (errortext == "")
+            {
+                MessageBox.Show("Done");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Please Add Correct Value To "+errortext+"..!");
+                return false;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            checkforvalues();
+        }
        
     }
 }
