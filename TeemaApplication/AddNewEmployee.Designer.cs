@@ -65,6 +65,8 @@
             this.gbxCreateAddVariableIncentiveAll = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvVariableIncentive = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddVari_Incentive = new System.Windows.Forms.Button();
             this.txtVariableIncentivePrecentage = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -127,8 +129,6 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxBasicDetails.SuspendLayout();
             this.gbxSalaryDetails.SuspendLayout();
@@ -182,6 +182,7 @@
             // cmbSubDepartment
             // 
             this.cmbSubDepartment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSubDepartment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubDepartment.FormattingEnabled = true;
             this.cmbSubDepartment.Location = new System.Drawing.Point(96, 75);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
@@ -201,6 +202,7 @@
             // cmbDepartment
             // 
             this.cmbDepartment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDepartment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(96, 47);
             this.cmbDepartment.Name = "cmbDepartment";
@@ -431,6 +433,8 @@
             // 
             // cmbDesignation
             // 
+            this.cmbDesignation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDesignation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDesignation.FormattingEnabled = true;
             this.cmbDesignation.Location = new System.Drawing.Point(96, 70);
             this.cmbDesignation.Name = "cmbDesignation";
@@ -571,6 +575,18 @@
             this.dgvVariableIncentive.TabIndex = 0;
             this.dgvVariableIncentive.TabStop = false;
             this.dgvVariableIncentive.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvVariableIncentive_DataError);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "incentiveType";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "IncentivePrecentage";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // btnAddVari_Incentive
             // 
@@ -1196,18 +1212,7 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "incentiveType";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "IncentivePrecentage";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmAddNewEmployee
             // 

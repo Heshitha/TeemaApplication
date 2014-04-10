@@ -71,6 +71,7 @@
     <Compile Include="BasicSalary.designer.cs">
       <DependentUpon>BasicSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\EmployeeUtils.cs" />
     <Compile Include="Classes\ShowMessageBox.cs" />
     <Compile Include="Classes\NewFixedIncentive.cs" />
     <Compile Include="DataSets\TeemaDataSet.Designer.cs">

@@ -25,10 +25,10 @@ namespace TeemaApplication
         {
             dgvFixedIncentives.DataSource = dataset.NewFixedIncentive;
             dgvVariableIncentive.DataSource = dataset.NewVariableIncentive;
-            fillcmbWorkingBranch();
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
-            fillcmbDesignation();
+            EmployeeUtils.fillcmbWorkingBranch(db, cmbWorkingBranch);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
+            EmployeeUtils.fillcmbDesignation(db, cmbDesignation);
         }
 
         private void btnAddFixedIncentive_Click(object sender, EventArgs e)
@@ -92,37 +92,9 @@ namespace TeemaApplication
             ShowMessageBox.ShowError("Please enter numaric value for Incentive Precentage.");
         }
 
-        private void fillcmbWorkingBranch()
-        {
-            cmbWorkingBranch.DisplayMember = "BranchName";
-            cmbWorkingBranch.ValueMember = "BranchID";
-            cmbWorkingBranch.DataSource = db.Branches;
-        }
-
-        private void fillcmbDepartment(Branch branch)
-        {
-            cmbDepartment.DisplayMember = "DepartmentName";
-            cmbDepartment.ValueMember = "DepartmentID";
-            cmbDepartment.DataSource = branch.Departments;
-        }
-
-        private void fillcmbSubDepartment(Department department)
-        {
-            cmbSubDepartment.DisplayMember = "SubDepartmentName";
-            cmbSubDepartment.ValueMember = "SubDepartmentID";
-            cmbSubDepartment.DataSource = department.SubDepartments;
-        }
-
-        private void fillcmbDesignation()
-        {
-            cmbDesignation.DisplayMember = "Designation1";
-            cmbDesignation.ValueMember = "Designation1";
-            cmbDesignation.DataSource = db.Designations;
-        }
-
         private void cmbWorkingBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
         }
 
         private void cmbSubDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,29 +104,24 @@ namespace TeemaApplication
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
-        }
-
-        private bool checkIfContainText(Control control)
-        {
-            return !string.IsNullOrEmpty(control.Text);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
 
         private string getEmptyInputsBeforeSubmit()
         {
             string EmptyTextBoxNames = string.Empty;
 
-            EmptyTextBoxNames += checkIfContainText(cmbWorkingBranch) ? string.Empty : "Working Branch, ";
-            EmptyTextBoxNames += checkIfContainText(cmbDepartment) ? string.Empty : "Department, ";
-            EmptyTextBoxNames += checkIfContainText(cmbSubDepartment) ? string.Empty : "Sub Branch, ";
-            EmptyTextBoxNames += checkIfContainText(txtEmployeeName) ? string.Empty : "Employee Name, ";
-            EmptyTextBoxNames += checkIfContainText(cmbDesignation) ? string.Empty : "Designation, ";
-            EmptyTextBoxNames += checkIfContainText(txtTokenNo) ? string.Empty : "Token No, ";
-            EmptyTextBoxNames += checkIfContainText(txtEPFNo) ? string.Empty : "EPF No, ";
-            EmptyTextBoxNames += checkIfContainText(txtNICNo) ? string.Empty : "NIC No, ";
-            EmptyTextBoxNames += checkIfContainText(cmbEmployeeCatagory) ? string.Empty : "Employee Catagory, ";
-            EmptyTextBoxNames += checkIfContainText(cmbEmployeeGrade) ? string.Empty : "Employee Grade, ";
-            EmptyTextBoxNames += checkIfContainText(cmbDateRateOfSalary) ? string.Empty : "Date Rate Of Salary, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbWorkingBranch) ? string.Empty : "Working Branch, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbDepartment) ? string.Empty : "Department, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbSubDepartment) ? string.Empty : "Sub Branch, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(txtEmployeeName) ? string.Empty : "Employee Name, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbDesignation) ? string.Empty : "Designation, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(txtTokenNo) ? string.Empty : "Token No, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(txtEPFNo) ? string.Empty : "EPF No, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(txtNICNo) ? string.Empty : "NIC No, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbEmployeeCatagory) ? string.Empty : "Employee Catagory, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbEmployeeGrade) ? string.Empty : "Employee Grade, ";
+            EmptyTextBoxNames += EmployeeUtils.checkIfContainText(cmbDateRateOfSalary) ? string.Empty : "Date Rate Of Salary, ";
 
             return EmptyTextBoxNames;
         }
@@ -170,226 +137,217 @@ namespace TeemaApplication
             }
             else
             {
-                Branch branch = null;
-                if (!isBranchExist())
+                try
                 {
-                    branch = new Branch
+                    Branch branch = null;
+                    if (!EmployeeUtils.isBranchExist(db, cmbWorkingBranch))
                     {
-                        BranchName = cmbWorkingBranch.Text,
+                        branch = new Branch
+                        {
+                            BranchName = cmbWorkingBranch.Text,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now
+                        };
+
+                        db.Branches.InsertOnSubmit(branch);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        branch = (Branch)cmbWorkingBranch.SelectedItem;
+                    }
+
+                    Department department = null;
+                    if (!EmployeeUtils.isDepartmentExist(branch, cmbDepartment))
+                    {
+                        department = new Department
+                        {
+                            DepartmentName = cmbDepartment.Text,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now,
+                            Branch = branch
+                        };
+                        db.Departments.InsertOnSubmit(department);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        department = (Department)cmbDepartment.SelectedItem;
+                    }
+                    SubDepartment subDepartment = null;
+                    if (!EmployeeUtils.isSubDepartmentExist(department, cmbSubDepartment))
+                    {
+                        subDepartment = new SubDepartment
+                        {
+                            SubDepartmentName = cmbSubDepartment.Text,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now,
+                            Department = department,
+                        };
+                        db.SubDepartments.InsertOnSubmit(subDepartment);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        subDepartment = (SubDepartment)cmbSubDepartment.SelectedItem;
+                    }
+
+                    Designation designation = null;
+                    if (!EmployeeUtils.isDesignationExist(db, cmbDesignation))
+                    {
+                        designation = new Designation
+                        {
+                            Designation1 = cmbDesignation.Text,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now
+                        };
+                        db.Designations.InsertOnSubmit(designation);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        designation = (Designation)cmbDesignation.SelectedItem;
+                    }
+
+                    string Gender = "";
+                    if (rdbGenderMale.Checked)
+                    {
+                        Gender = "Male";
+                    }
+                    else
+                    {
+                        Gender = "Female";
+                    }
+
+                    Employee employee = new Employee
+                    {
+                        TokenNo = txtTokenNo.Text,
+                        EnrolmentID = EmployeeUtils.getIntNumaricValue("Token No", txtTokenNo.Text),
+                        Name = txtEmployeeName.Text,
+                        Gender = Gender,
+                        DateOfAppointment = dtpDateOfAppointment.Value,
+                        EPFNo = txtEPFNo.Text,
+                        NICNo = txtNICNo.Text,
+                        EmployeeCatagory = cmbEmployeeCatagory.Text,
+                        EmployeeGrade = cmbEmployeeGrade.Text,
+                        NoPayCalculataionDate = EmployeeUtils.getIntNumaricValue("No Pay Calculation Date", cmbDateRateOfSalary.Text),
+                        PieceRateEntitled = chbPieceRate.Checked,
+                        EPFEntitled = chbEPFEntitled.Checked,
+                        Designation = designation,
+                        SubDepartment = subDepartment,
                         CreatedBy = 1,
                         CreatedDate = DateTime.Now,
                         ModifiedBy = 1,
                         ModifiedDate = DateTime.Now
                     };
 
-                    db.Branches.InsertOnSubmit(branch);
+                    db.Employees.InsertOnSubmit(employee);
                     db.SubmitChanges();
-                }
-                else
-                {
-                    branch = (Branch)cmbWorkingBranch.SelectedItem;
-                }
 
-                Department department = null;
-                if (!isDepartmentExist(branch))
-                {
-                    department = new Department
+                    double EPFValue = 0;
+                    if (cmbEmployeeCatagory.Text.Trim().Equals("Day Wages"))
                     {
-                        DepartmentName = cmbDepartment.Text,
-                        CreatedBy = 1,
-                        CreatedDate = DateTime.Now,
-                        ModifiedBy = 1,
-                        ModifiedDate = DateTime.Now,
-                        Branch = branch
-                    };
-                    db.Departments.InsertOnSubmit(department);
-                    db.SubmitChanges();
-                }
-                else
-                {
-                    department = (Department)cmbDepartment.SelectedItem;
-                }
-                SubDepartment subDepartment = null;
-                if (!isSubDepartmentExist(department))
-                {
-                    subDepartment = new SubDepartment
+                        EPFValue = EmployeeUtils.getDoubleNumaricValue("EPF ETF Total Salary", txtDayWagesTotalEPFSalary.Text);
+                    }
+                    else
                     {
-                        SubDepartmentName = cmbSubDepartment.Text,
-                        CreatedBy = 1,
-                        CreatedDate = DateTime.Now,
-                        ModifiedBy = 1,
-                        ModifiedDate = DateTime.Now,
-                        Department = department,
-                    };
-                    db.SubDepartments.InsertOnSubmit(subDepartment);
-                    db.SubmitChanges();
-                }
-                else
-                {
-                    subDepartment = (SubDepartment)cmbSubDepartment.SelectedItem;
-                }
+                        EPFValue = EmployeeUtils.getDoubleNumaricValue("Total For EPF ETF", txtRecrumentTotalEPF.Text);
+                    }
 
-                Designation designation = null;
-                if (!isDesignationExist())
-                {
-                    designation = new Designation
+                    EmployeeSalaryDetail sal = new EmployeeSalaryDetail
                     {
-                        Designation1 = cmbDesignation.Text,
+                        Employee = employee,
+                        BudgetAllowance = EmployeeUtils.getDoubleNumaricValue("Budget Allowance", txtBudgetAllowance.Text),
+                        DayWagesAmount = EmployeeUtils.getDoubleNumaricValue("Day Wages Amount", txtDayWagesDayRate.Text),
+                        TotalValueForEPF = EPFValue,
+                        BasicSalary = EmployeeUtils.getDoubleNumaricValue("Basic Salary", txtBasicSalary.Text),
                         CreatedBy = 1,
                         CreatedDate = DateTime.Now,
                         ModifiedBy = 1,
                         ModifiedDate = DateTime.Now
                     };
-                    db.Designations.InsertOnSubmit(designation);
+                    db.EmployeeSalaryDetails.InsertOnSubmit(sal);
                     db.SubmitChanges();
-                }
-                else
-                {
-                    designation = (Designation)cmbDesignation.SelectedItem;
-                }
 
-                string Gender = "";
-                if (rdbGenderMale.Checked)
-                {
-                    Gender = "Male";
-                }
-                else
-                {
-                    Gender = "Female";
-                }
-
-                Employee employee = new Employee
-                {
-                    TokenNo = txtTokenNo.Text,
-                    EnrolmentID = getIntNumaricValue("Token No", txtTokenNo.Text),
-                    Name = txtEmployeeName.Text,
-                    Gender = Gender,
-                    DateOfAppointment = dtpDateOfAppointment.Value,
-                    EPFNo = txtEPFNo.Text,
-                    NICNo = txtNICNo.Text,
-                    EmployeeCatagory = cmbEmployeeCatagory.Text,
-                    EmployeeGrade = cmbEmployeeGrade.Text,
-                    NoPayCalculataionDate = getIntNumaricValue("No Pay Calculation Date", cmbDateRateOfSalary.Text),
-                    PieceRateEntitled = chbPieceRate.Checked,
-                    EPFEntitled = chbEPFEntitled.Checked,
-                    Designation = designation,
-                    SubDepartment = subDepartment,
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now
-                };
-
-                db.Employees.InsertOnSubmit(employee);
-                db.SubmitChanges();
-
-                double EPFValue = 0;
-                if (cmbEmployeeCatagory.Text.Trim().Equals("Day Wages"))
-                {
-                    EPFValue = getDoubleNumaricValue("EPF ETF Total Salary", txtDayWagesTotalEPFSalary.Text);
-                }
-                else
-                {
-                    EPFValue = getDoubleNumaricValue("Total For EPF ETF", txtRecrumentTotalEPF.Text);
-                }
-
-                EmployeeSalaryDetail sal = new EmployeeSalaryDetail
-                {
-                    Employee = employee,
-                    BudgetAllowance = getDoubleNumaricValue("Budget Allowance", txtBudgetAllowance.Text),
-                    DayWagesAmount = getDoubleNumaricValue("Day Wages Amount", txtDayWagesDayRate.Text),
-                    TotalValueForEPF = EPFValue,
-                    BasicSalary = getDoubleNumaricValue("Basic Salary", txtBasicSalary.Text),
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now
-                };
-                db.EmployeeSalaryDetails.InsertOnSubmit(sal);
-                db.SubmitChanges();
-
-                FixedIncentive travelingIncentive = new FixedIncentive
-                {
-                    IncentiveType = "Traveling Attendance",
-                    InventiveValue = getDoubleNumaricValue("Traveling And Attendance Incentive", txtTravellingAttendance.Text),
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now,
-                    Employee = employee
-                };
-                db.FixedIncentives.InsertOnSubmit(travelingIncentive);
-                db.SubmitChanges();
-
-                foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
-                {
-                    string fixedIncentiveType = x.Cells[0].Value.ToString();
-                    double fixedIncentiveValue = (double)x.Cells[1].Value;
-
-                    FixedIncentive addedIncentive = new FixedIncentive
+                    FixedIncentive travelingIncentive = new FixedIncentive
                     {
-                        IncentiveType = fixedIncentiveType,
-                        InventiveValue = fixedIncentiveValue,
+                        IncentiveType = "Traveling Attendance",
+                        InventiveValue = EmployeeUtils.getDoubleNumaricValue("Traveling And Attendance Incentive", txtTravellingAttendance.Text),
                         CreatedBy = 1,
                         CreatedDate = DateTime.Now,
                         ModifiedBy = 1,
                         ModifiedDate = DateTime.Now,
                         Employee = employee
                     };
-
-                    db.FixedIncentives.InsertOnSubmit(addedIncentive);
+                    db.FixedIncentives.InsertOnSubmit(travelingIncentive);
                     db.SubmitChanges();
+
+                    foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
+                    {
+                        string fixedIncentiveType = x.Cells[0].Value.ToString();
+                        double fixedIncentiveValue = (double)x.Cells[1].Value;
+
+                        FixedIncentive addedIncentive = new FixedIncentive
+                        {
+                            IncentiveType = fixedIncentiveType,
+                            InventiveValue = fixedIncentiveValue,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now,
+                            Employee = employee
+                        };
+
+                        db.FixedIncentives.InsertOnSubmit(addedIncentive);
+                        db.SubmitChanges();
+                    }
+
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Performance", txtPerformancePrecentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Sales", txtSalesPrecentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Product", txtProductPrecentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Workshop", txtWorkshopIncentivePresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Down Time Machine Break Down", txtDownTimeMatchineBreakDownPresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Machieving Maintenance", txtMachievingMaintenancePresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Achieving Production Targets", txtAchievingProductionTargetsPresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Mill Section Targets", txtMillSectionTargetsPresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Hawail Section Production", txtHawailSectionProductionPresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Achieving Sales Targets", txtAchievingSalesTargetsPresentage.Text, employee));
+                    db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive("Security Performance Targets", txtSecurityPerformanceIncentivePresentage.Text, employee));
+
+                    foreach (DataGridViewRow x in dgvVariableIncentive.Rows)
+                    {
+                        string variableIncentiveType = x.Cells[0].Value.ToString();
+                        string variableIncentivePrecentage = x.Cells[1].Value.ToString();
+
+                        db.VariableIncentives.InsertOnSubmit(EmployeeUtils.getVariableIncentive(variableIncentiveType, variableIncentivePrecentage, employee));
+                    }
+
+                    db.SubmitChanges();
+
+                    ShowMessageBox.ShowSuccess("Successfully inserted employee details to the database.");
+                    resetForm();
                 }
-
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Performance", txtPerformancePrecentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Sales", txtSalesPrecentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Product", txtProductPrecentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Workshop", txtWorkshopIncentivePresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Down Time Machine Break Down", txtDownTimeMatchineBreakDownPresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Machieving Maintenance", txtMachievingMaintenancePresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Achieving Production Targets", txtAchievingProductionTargetsPresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Mill Section Targets", txtMillSectionTargetsPresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Hawail Section Production", txtHawailSectionProductionPresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Achieving Sales Targets", txtAchievingSalesTargetsPresentage.Text, employee));
-                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Security Performance Targets", txtSecurityPerformanceIncentivePresentage.Text, employee));
-
-                foreach (DataGridViewRow x in dgvVariableIncentive.Rows)
+                catch (Exception ex)
                 {
-                    string variableIncentiveType = x.Cells[0].Value.ToString();
-                    string variableIncentivePrecentage = x.Cells[1].Value.ToString();
-
-                    db.VariableIncentives.InsertOnSubmit(getVariableIncentive(variableIncentiveType, variableIncentivePrecentage, employee));
+                    ShowMessageBox.ShowError("Something went wrong while saving details in to the database. " + ex.Message);
                 }
-
-                db.SubmitChanges();
-
-                ShowMessageBox.ShowSuccess("Successfully inserted employee details to the database.");
-                resetForm();
             }
-        }
-
-        private VariableIncentive getVariableIncentive(string variableIncentiveType, string textBoxValue, Employee employee)
-        {
-            VariableIncentive variableIncentive = new VariableIncentive
-            {
-                IncentiveType = variableIncentiveType,
-                IncentivePrecentage = getDoubleNumaricValue(variableIncentiveType, textBoxValue),
-                CreatedBy = 1,
-                CreatedDate = DateTime.Now,
-                ModifiedBy = 1,
-                ModifiedDate = DateTime.Now,
-                Employee = employee
-            };
-
-            return variableIncentive;
         }
 
         private void calculateVaribleIncentiveValues()
         {
-            double ProductionSalesPerformanceTotal = getVariableIncentiveValue(txtProductionSalesPerformanceTotalValue);
-            double performPrecentage = getVariableIncentiveValue(txtPerformancePrecentage) / 100.0;
-            double salesPrecentage = getVariableIncentiveValue(txtSalesPrecentage) / 100.0;
-            double productPrecentage = getVariableIncentiveValue(txtProductPrecentage) / 100.0;
+            double ProductionSalesPerformanceTotal = EmployeeUtils.getVariableIncentiveValue(txtProductionSalesPerformanceTotalValue);
+            double performPrecentage = EmployeeUtils.getVariableIncentiveValue(txtPerformancePrecentage) / 100.0;
+            double salesPrecentage = EmployeeUtils.getVariableIncentiveValue(txtSalesPrecentage) / 100.0;
+            double productPrecentage = EmployeeUtils.getVariableIncentiveValue(txtProductPrecentage) / 100.0;
 
             double performValue = ProductionSalesPerformanceTotal * performPrecentage;
             double salesValue = ProductionSalesPerformanceTotal * salesPrecentage;
@@ -398,122 +356,6 @@ namespace TeemaApplication
             txtPerformValue.Text = performValue.ToString("0");
             txtSalesValue.Text = salesValue.ToString("0");
             txtProductValue.Text = productValue.ToString("0");
-        }
-
-        private double getVariableIncentiveValue(TextBox textBox)
-        {
-            double value;
-            if (double.TryParse(textBox.Text, out value))
-            {
-                return value;
-            }
-            else
-            {
-                if (!textBox.Focused)
-                {
-                    textBox.Text = "0";
-                }
-                return value;
-            }
-        }
-
-        private bool isBranchExist()
-        {
-            string BranchName = cmbWorkingBranch.Text;
-            bool isExist = false;
-            foreach (Branch b in db.Branches)
-            {
-                if (b.BranchName.ToUpper().Equals(BranchName.ToUpper()))
-                {
-                    isExist = true;
-                }
-            }
-            return isExist;
-        }
-
-        private double getDoubleNumaricValue(string title, string text)
-        {
-            double value = 0;
-            if (double.TryParse(text, out value))
-            {
-                return value;
-            }
-            else
-            {
-                ShowMessageBox.ShowError("Please put a numaric value for "+title);
-                return value;
-            }
-        }
-
-       
-        private int getIntNumaricValue(string title, string text)
-        {
-            int value = 0;
-            if (int.TryParse(text, out value))
-            {
-                return value;
-            }
-            else
-            {
-                ShowMessageBox.ShowError("Please put a numeric value for " + title);
-                return value;
-            }
-        }
-
-        // check text boxes filled and are with correct values (numeric or string)
-        private string getIntNumaricValue(string title, string text, bool flag)
-        {
-            int value = 0;
-            if (int.TryParse(text, out value))
-            {
-                return "";
-            }
-            else
-            {
-               return title+", ";
-            }
-        }
-
-        private bool isDepartmentExist(Branch branch)
-        {
-            string DepartmentName = cmbDepartment.Text;
-            bool isExist = false;
-            foreach (Department d in branch.Departments)
-            {
-                if (d.DepartmentName.ToUpper().Equals(DepartmentName.ToUpper()))
-                {
-                    isExist = true;
-                }
-            }
-            return isExist;
-        }
-
-        private bool isSubDepartmentExist(Department department)
-        {
-            string SubDepartmentName = cmbSubDepartment.Text;
-            bool isExist = false;
-            foreach (SubDepartment s in department.SubDepartments)
-            {
-                if (s.SubDepartmentName.ToUpper().Equals(SubDepartmentName.ToUpper()))
-                {
-                    isExist = true;
-                }
-            }
-            return isExist;
-        }
-
-        private bool isDesignationExist()
-        {
-            string designation = cmbDesignation.Text;
-            bool isExist = false;
-            foreach (Designation d in db.Designations)
-            {
-                if (d.Designation1.ToUpper().Equals(designation.ToUpper()))
-                {
-                    isExist = true;
-                }
-            }
-            return isExist;
         }
 
         private void chbEPFEntitled_CheckedChanged(object sender, EventArgs e)
@@ -528,21 +370,12 @@ namespace TeemaApplication
 
         private void txtProductPrecentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtProductPrecentage);
-        }
-
-        private void checkIfEmpty(TextBox textBox)
-        {
-            double value = 0;
-            if (string.IsNullOrEmpty(textBox.Text) || !double.TryParse(textBox.Text, out value))
-            {
-                textBox.Text = "0";
-            }
+            EmployeeUtils.checkIfEmpty(txtProductPrecentage);
         }
 
         private void txtDayWagesDayRate_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtDayWagesDayRate);
+            EmployeeUtils.checkIfEmpty(txtDayWagesDayRate);
         }
 
         private void txtDayWagesTotalEPFSalary_TextChanged(object sender, EventArgs e)
@@ -567,22 +400,22 @@ namespace TeemaApplication
 
         private void txtDayWagesTotalEPFSalary_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtDayWagesTotalEPFSalary);
+            EmployeeUtils.checkIfEmpty(txtDayWagesTotalEPFSalary);
         }
 
         private void txtBasicSalary_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtBasicSalary);
+            EmployeeUtils.checkIfEmpty(txtBasicSalary);
         }
 
         private void txtBudgetAllowance_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtBudgetAllowance);
+            EmployeeUtils.checkIfEmpty(txtBudgetAllowance);
         }
 
         private void txtRecrumentTotalEPF_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtRecrumentTotalEPF);
+            EmployeeUtils.checkIfEmpty(txtRecrumentTotalEPF);
         }
 
         private void txtTravellingAttendance_TextChanged(object sender, EventArgs e)
@@ -592,72 +425,72 @@ namespace TeemaApplication
 
         private void txtTravellingAttendance_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtTravellingAttendance);
+            EmployeeUtils.checkIfEmpty(txtTravellingAttendance);
         }
 
         private void txtFixedIncentiveValue_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtFixedIncentiveValue);
+            EmployeeUtils.checkIfEmpty(txtFixedIncentiveValue);
         }
 
         private void txtProductionSalesPerformanceTotalValue_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtProductionSalesPerformanceTotalValue);
+            EmployeeUtils.checkIfEmpty(txtProductionSalesPerformanceTotalValue);
         }
 
         private void txtPerformancePrecentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtPerformancePrecentage);
+            EmployeeUtils.checkIfEmpty(txtPerformancePrecentage);
         }
 
         private void txtSalesPrecentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtSalesPrecentage);
+            EmployeeUtils.checkIfEmpty(txtSalesPrecentage);
         }
 
         private void txtWorkshopIncentivePresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtWorkshopIncentivePresentage);
+            EmployeeUtils.checkIfEmpty(txtWorkshopIncentivePresentage);
         }
 
         private void txtDownTimeMatchineBreakDownPresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtDownTimeMatchineBreakDownPresentage);
+            EmployeeUtils.checkIfEmpty(txtDownTimeMatchineBreakDownPresentage);
         }
 
         private void txtMachievingMaintenancePresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtMachievingMaintenancePresentage);
+            EmployeeUtils.checkIfEmpty(txtMachievingMaintenancePresentage);
         }
 
         private void txtAchievingProductionTargetsPresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtAchievingProductionTargetsPresentage);
+            EmployeeUtils.checkIfEmpty(txtAchievingProductionTargetsPresentage);
         }
 
         private void txtMillSectionTargetsPresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtMillSectionTargetsPresentage);
+            EmployeeUtils.checkIfEmpty(txtMillSectionTargetsPresentage);
         }
 
         private void txtHawailSectionProductionPresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtHawailSectionProductionPresentage);
+            EmployeeUtils.checkIfEmpty(txtHawailSectionProductionPresentage);
         }
 
         private void txtAchievingSalesTargetsPresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtAchievingSalesTargetsPresentage);
+            EmployeeUtils.checkIfEmpty(txtAchievingSalesTargetsPresentage);
         }
 
         private void txtSecurityPerformanceIncentivePresentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtSecurityPerformanceIncentivePresentage);
+            EmployeeUtils.checkIfEmpty(txtSecurityPerformanceIncentivePresentage);
         }
 
         private void txtVariableIncentivePrecentage_Leave(object sender, EventArgs e)
         {
-            checkIfEmpty(txtVariableIncentivePrecentage);
+            EmployeeUtils.checkIfEmpty(txtVariableIncentivePrecentage);
         }
 
         private void txtHawailSectionProductionPresentage_TextChanged(object sender, EventArgs e)
@@ -705,10 +538,15 @@ namespace TeemaApplication
             txtHawailSectionProductionPresentage.Text = "0";
             txtAchievingSalesTargetsPresentage.Text = "0";
             txtSecurityPerformanceIncentivePresentage.Text = "0";
-            txtVariableIncentivePrecentage.Text = string.Empty;
+            txtVariableIncentiveType.Text = string.Empty;
             txtVariableIncentivePrecentage.Text = "0";
             dataset.NewVariableIncentive.Rows.Clear();
             dataset.NewFixedIncentive.Rows.Clear();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
