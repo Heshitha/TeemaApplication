@@ -60,17 +60,34 @@ namespace TeemaApplication
 
         private void viewEmployeeDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            DataGridViewRow row = dgvFoundEmployees.SelectedRows[0];
+            string TokenID = row.Cells[0].Value.ToString();
+
+            Employee emp = db.Employees.Where(em => em.TokenNo == TokenID).SingleOrDefault();
+            frmViewEmployeeDetails frm = new frmViewEmployeeDetails(emp);
+            frm.ShowDialog();
+            this.Close();
+
         }
 
         private void dgvFoundEmployees_ContextMenuStripChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cmsEmployeeProperties_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void dgvFoundEmployees_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                var Loc = dgvFoundEmployees.HitTest(e.X, e.Y);
+                dgvFoundEmployees.ClearSelection();
+                dgvFoundEmployees.Rows[Loc.RowIndex].Selected = true;
+            }
         }
 
     }

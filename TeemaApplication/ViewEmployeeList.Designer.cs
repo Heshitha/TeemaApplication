@@ -171,6 +171,7 @@
             this.dgvFoundEmployees.Size = new System.Drawing.Size(718, 378);
             this.dgvFoundEmployees.TabIndex = 0;
             this.dgvFoundEmployees.ContextMenuStripChanged += new System.EventHandler(this.dgvFoundEmployees_ContextMenuStripChanged);
+            this.dgvFoundEmployees.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvFoundEmployees_MouseDown);
             // 
             // cmsEmployeeProperties
             // 
@@ -181,7 +182,7 @@
             this.cmsEmployeeProperties.Name = "cmsEmployeeProperties";
             this.cmsEmployeeProperties.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsEmployeeProperties.ShowImageMargin = false;
-            this.cmsEmployeeProperties.Size = new System.Drawing.Size(168, 92);
+            this.cmsEmployeeProperties.Size = new System.Drawing.Size(168, 70);
             this.cmsEmployeeProperties.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEmployeeProperties_Opening);
             // 
             // viewEmployeeDetailsToolStripMenuItem
