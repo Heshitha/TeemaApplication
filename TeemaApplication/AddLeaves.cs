@@ -65,6 +65,7 @@ namespace TeemaApplication
             //               select new { emp.TokenNo, emp.Name, emp.EPFNo });
  
            // dgvLeaves.DataSource = empdata;
+
             SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
 
             DataTable dt = new DataTable();
@@ -76,7 +77,6 @@ namespace TeemaApplication
 
             foreach (Employee emp in subdept.Employees)
             {
-                  
                 GrantedLeave grnLeave = (from x in emp.GrantedLeaves
                                          where x.year == Convert.ToInt32(cmbLeaveYear.Text)
                                          select x).SingleOrDefault();
@@ -174,48 +174,34 @@ namespace TeemaApplication
             String tokenid = Convert.ToString(dgvLeaves.SelectedRows[0].Cells[0].Value);
 
             //Get Employee id using token number
-            var varempID = (from emp in db.Employees 
-                              where emp.TokenNo == tokenid
-                              select emp.EmployeeID).SingleOrDefault();
+            Employee employee = db.Employees.Where(emp => emp.TokenNo.ToUpper().Equals(tokenid)).SingleOrDefault();
 
 
-            var checkleave = (from grntdlvs in db.GrantedLeaves
-                              where grntdlvs.EmployeeID == varempID && grntdlvs.year == Convert.ToInt32(cmbLeaveYear.Text)
-                              select grntdlvs).SingleOrDefault();
+            GrantedLeave grantedLeave = employee.GrantedLeaves.Where(grl => grl.year == Convert.ToInt32(cmbLeaveYear.Text)).SingleOrDefault();
 
-               
 
-               if (checkleave == null)
-               {
-                   // insert to  granted leaves
-                   GrantedLeave GLeaves = new GrantedLeave();    
 
-                   GLeaves.EmployeeID = varempID;
-                   GLeaves.year = year;
-                   GLeaves.Annual = annual;
-                   GLeaves.Casual = casual;
+            if (grantedLeave == null)
+            {
+                // insert to  granted leaves
+                grantedLeave = new GrantedLeave
+                {
+                    Employee = employee,
+                    year = year,
+                    Annual = annual,
+                    Casual = casual
+                };
 
-                   db.GrantedLeaves.InsertOnSubmit(GLeaves);
-                   db.SubmitChanges();
-
-                   //reload grid view
-                 //  fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
-                   fillLeavesGrid();
-               }
-               else
-               {
-                   // enter else part for updating granted leaves
-                   GrantedLeave existingleaverecord = (from grntlvs in db.GrantedLeaves
-                                              where grntlvs.EmployeeID == varempID && grntlvs.year == Convert.ToInt32(cmbLeaveYear.Text)
-                                              select grntlvs).SingleOrDefault();
-
-                   existingleaverecord.Annual = Convert.ToInt32(txtAnnual.Text);
-                   existingleaverecord.Casual = Convert.ToInt32(txtCasual.Text);
-                    
-                   db.SubmitChanges();
-
-               }
-           
+                db.GrantedLeaves.InsertOnSubmit(grantedLeave);
+                //reload grid view
+                //  fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+            }
+            else
+            {
+                grantedLeave.Annual = Convert.ToInt32(txtAnnual.Text);
+                grantedLeave.Casual = Convert.ToInt32(txtCasual.Text);
+            }
+            db.SubmitChanges();
         }
 
         // check text boxes for proper values
@@ -261,6 +247,7 @@ namespace TeemaApplication
         private void btnAddLeaves_Click(object sender, EventArgs e)
         {
             checkforValues();
+            fillLeavesGrid();
 
             
         }
