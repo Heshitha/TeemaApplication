@@ -12,5 +12,9 @@ namespace TeemaApplication.Classes
         {
             MessageBox.Show(Message, "Error Occured!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        public static void ShowSuccess(string Message)
+        {
+            MessageBox.Show(Message, "Successfully Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

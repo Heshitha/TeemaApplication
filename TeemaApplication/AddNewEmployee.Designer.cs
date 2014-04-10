@@ -65,8 +65,6 @@
             this.gbxCreateAddVariableIncentiveAll = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvVariableIncentive = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddVari_Incentive = new System.Windows.Forms.Button();
             this.txtVariableIncentivePrecentage = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -74,6 +72,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.txtSecurityPerformanceIncentivePresentage = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
+            this.txtAchievingSalesTargetsPresentage = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtHawailSectionProductionPresentage = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -128,7 +127,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtAchievingSalesTargetsPresentage = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxBasicDetails.SuspendLayout();
             this.gbxSalaryDetails.SuspendLayout();
@@ -186,7 +186,7 @@
             this.cmbSubDepartment.Location = new System.Drawing.Point(96, 75);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
             this.cmbSubDepartment.Size = new System.Drawing.Size(177, 21);
-            this.cmbSubDepartment.TabIndex = 4;
+            this.cmbSubDepartment.TabIndex = 3;
             this.cmbSubDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbSubDepartment_SelectedIndexChanged);
             // 
             // lblDepartment
@@ -275,7 +275,7 @@
             this.chbPieceRate.Location = new System.Drawing.Point(97, 279);
             this.chbPieceRate.Name = "chbPieceRate";
             this.chbPieceRate.Size = new System.Drawing.Size(52, 17);
-            this.chbPieceRate.TabIndex = 27;
+            this.chbPieceRate.TabIndex = 16;
             this.chbPieceRate.Text = "Apply";
             this.chbPieceRate.UseVisualStyleBackColor = true;
             // 
@@ -294,7 +294,7 @@
             this.chbEPFEntitled.Location = new System.Drawing.Point(97, 256);
             this.chbEPFEntitled.Name = "chbEPFEntitled";
             this.chbEPFEntitled.Size = new System.Drawing.Size(52, 17);
-            this.chbEPFEntitled.TabIndex = 25;
+            this.chbEPFEntitled.TabIndex = 15;
             this.chbEPFEntitled.Text = "Apply";
             this.chbEPFEntitled.UseVisualStyleBackColor = true;
             this.chbEPFEntitled.CheckedChanged += new System.EventHandler(this.chbEPFEntitled_CheckedChanged);
@@ -311,7 +311,7 @@
             this.cmbEmployeeGrade.Location = new System.Drawing.Point(96, 229);
             this.cmbEmployeeGrade.Name = "cmbEmployeeGrade";
             this.cmbEmployeeGrade.Size = new System.Drawing.Size(176, 21);
-            this.cmbEmployeeGrade.TabIndex = 24;
+            this.cmbEmployeeGrade.TabIndex = 14;
             // 
             // label11
             // 
@@ -336,7 +336,7 @@
             this.cmbEmployeeCatagory.Location = new System.Drawing.Point(96, 202);
             this.cmbEmployeeCatagory.Name = "cmbEmployeeCatagory";
             this.cmbEmployeeCatagory.Size = new System.Drawing.Size(176, 21);
-            this.cmbEmployeeCatagory.TabIndex = 22;
+            this.cmbEmployeeCatagory.TabIndex = 13;
             // 
             // label10
             // 
@@ -361,14 +361,14 @@
             this.dtpDateOfAppointment.Location = new System.Drawing.Point(96, 176);
             this.dtpDateOfAppointment.Name = "dtpDateOfAppointment";
             this.dtpDateOfAppointment.Size = new System.Drawing.Size(176, 20);
-            this.dtpDateOfAppointment.TabIndex = 17;
+            this.dtpDateOfAppointment.TabIndex = 12;
             // 
             // txtNICNo
             // 
             this.txtNICNo.Location = new System.Drawing.Point(96, 149);
             this.txtNICNo.Name = "txtNICNo";
             this.txtNICNo.Size = new System.Drawing.Size(176, 20);
-            this.txtNICNo.TabIndex = 16;
+            this.txtNICNo.TabIndex = 11;
             // 
             // label8
             // 
@@ -384,7 +384,7 @@
             this.txtEPFNo.Location = new System.Drawing.Point(96, 123);
             this.txtEPFNo.Name = "txtEPFNo";
             this.txtEPFNo.Size = new System.Drawing.Size(176, 20);
-            this.txtEPFNo.TabIndex = 14;
+            this.txtEPFNo.TabIndex = 10;
             // 
             // label7
             // 
@@ -400,7 +400,7 @@
             this.txtTokenNo.Location = new System.Drawing.Point(96, 97);
             this.txtTokenNo.Name = "txtTokenNo";
             this.txtTokenNo.Size = new System.Drawing.Size(176, 20);
-            this.txtTokenNo.TabIndex = 12;
+            this.txtTokenNo.TabIndex = 9;
             // 
             // label6
             // 
@@ -435,7 +435,7 @@
             this.cmbDesignation.Location = new System.Drawing.Point(96, 70);
             this.cmbDesignation.Name = "cmbDesignation";
             this.cmbDesignation.Size = new System.Drawing.Size(176, 21);
-            this.cmbDesignation.TabIndex = 6;
+            this.cmbDesignation.TabIndex = 8;
             // 
             // rdbGenderFemale
             // 
@@ -443,7 +443,7 @@
             this.rdbGenderFemale.Location = new System.Drawing.Point(150, 47);
             this.rdbGenderFemale.Name = "rdbGenderFemale";
             this.rdbGenderFemale.Size = new System.Drawing.Size(59, 17);
-            this.rdbGenderFemale.TabIndex = 9;
+            this.rdbGenderFemale.TabIndex = 7;
             this.rdbGenderFemale.TabStop = true;
             this.rdbGenderFemale.Text = "Female";
             this.rdbGenderFemale.UseVisualStyleBackColor = true;
@@ -455,7 +455,7 @@
             this.rdbGenderMale.Location = new System.Drawing.Point(96, 47);
             this.rdbGenderMale.Name = "rdbGenderMale";
             this.rdbGenderMale.Size = new System.Drawing.Size(48, 17);
-            this.rdbGenderMale.TabIndex = 8;
+            this.rdbGenderMale.TabIndex = 6;
             this.rdbGenderMale.TabStop = true;
             this.rdbGenderMale.Text = "Male";
             this.rdbGenderMale.UseVisualStyleBackColor = true;
@@ -465,7 +465,7 @@
             this.txtEmployeeName.Location = new System.Drawing.Point(96, 20);
             this.txtEmployeeName.Name = "txtEmployeeName";
             this.txtEmployeeName.Size = new System.Drawing.Size(176, 20);
-            this.txtEmployeeName.TabIndex = 7;
+            this.txtEmployeeName.TabIndex = 5;
             // 
             // label3
             // 
@@ -569,26 +569,15 @@
             this.dgvVariableIncentive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVariableIncentive.Size = new System.Drawing.Size(236, 100);
             this.dgvVariableIncentive.TabIndex = 0;
+            this.dgvVariableIncentive.TabStop = false;
             this.dgvVariableIncentive.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvVariableIncentive_DataError);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "incentiveType";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "precentage";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // btnAddVari_Incentive
             // 
             this.btnAddVari_Incentive.Location = new System.Drawing.Point(115, 71);
             this.btnAddVari_Incentive.Name = "btnAddVari_Incentive";
             this.btnAddVari_Incentive.Size = new System.Drawing.Size(130, 23);
-            this.btnAddVari_Incentive.TabIndex = 36;
+            this.btnAddVari_Incentive.TabIndex = 41;
             this.btnAddVari_Incentive.Text = "Add Vari. Incentive";
             this.btnAddVari_Incentive.UseVisualStyleBackColor = true;
             this.btnAddVari_Incentive.Click += new System.EventHandler(this.btnAddVari_Incentive_Click);
@@ -598,7 +587,7 @@
             this.txtVariableIncentivePrecentage.Location = new System.Drawing.Point(115, 45);
             this.txtVariableIncentivePrecentage.Name = "txtVariableIncentivePrecentage";
             this.txtVariableIncentivePrecentage.Size = new System.Drawing.Size(130, 20);
-            this.txtVariableIncentivePrecentage.TabIndex = 35;
+            this.txtVariableIncentivePrecentage.TabIndex = 40;
             this.txtVariableIncentivePrecentage.Text = "0";
             this.txtVariableIncentivePrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVariableIncentivePrecentage.Leave += new System.EventHandler(this.txtVariableIncentivePrecentage_Leave);
@@ -617,7 +606,7 @@
             this.txtVariableIncentiveType.Location = new System.Drawing.Point(115, 19);
             this.txtVariableIncentiveType.Name = "txtVariableIncentiveType";
             this.txtVariableIncentiveType.Size = new System.Drawing.Size(130, 20);
-            this.txtVariableIncentiveType.TabIndex = 33;
+            this.txtVariableIncentiveType.TabIndex = 39;
             // 
             // label36
             // 
@@ -633,7 +622,7 @@
             this.txtSecurityPerformanceIncentivePresentage.Location = new System.Drawing.Point(202, 305);
             this.txtSecurityPerformanceIncentivePresentage.Name = "txtSecurityPerformanceIncentivePresentage";
             this.txtSecurityPerformanceIncentivePresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtSecurityPerformanceIncentivePresentage.TabIndex = 56;
+            this.txtSecurityPerformanceIncentivePresentage.TabIndex = 38;
             this.txtSecurityPerformanceIncentivePresentage.Text = "0";
             this.txtSecurityPerformanceIncentivePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtSecurityPerformanceIncentivePresentage.Leave += new System.EventHandler(this.txtSecurityPerformanceIncentivePresentage_Leave);
@@ -646,6 +635,16 @@
             this.label34.Size = new System.Drawing.Size(155, 13);
             this.label34.TabIndex = 55;
             this.label34.Text = "Security Performance Incentive";
+            // 
+            // txtAchievingSalesTargetsPresentage
+            // 
+            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(202, 279);
+            this.txtAchievingSalesTargetsPresentage.Name = "txtAchievingSalesTargetsPresentage";
+            this.txtAchievingSalesTargetsPresentage.Size = new System.Drawing.Size(56, 20);
+            this.txtAchievingSalesTargetsPresentage.TabIndex = 37;
+            this.txtAchievingSalesTargetsPresentage.Text = "0";
+            this.txtAchievingSalesTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAchievingSalesTargetsPresentage.Leave += new System.EventHandler(this.txtAchievingSalesTargetsPresentage_Leave);
             // 
             // label33
             // 
@@ -661,7 +660,7 @@
             this.txtHawailSectionProductionPresentage.Location = new System.Drawing.Point(202, 253);
             this.txtHawailSectionProductionPresentage.Name = "txtHawailSectionProductionPresentage";
             this.txtHawailSectionProductionPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtHawailSectionProductionPresentage.TabIndex = 52;
+            this.txtHawailSectionProductionPresentage.TabIndex = 36;
             this.txtHawailSectionProductionPresentage.Text = "0";
             this.txtHawailSectionProductionPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtHawailSectionProductionPresentage.TextChanged += new System.EventHandler(this.txtHawailSectionProductionPresentage_TextChanged);
@@ -681,7 +680,7 @@
             this.txtMillSectionTargetsPresentage.Location = new System.Drawing.Point(202, 227);
             this.txtMillSectionTargetsPresentage.Name = "txtMillSectionTargetsPresentage";
             this.txtMillSectionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtMillSectionTargetsPresentage.TabIndex = 50;
+            this.txtMillSectionTargetsPresentage.TabIndex = 35;
             this.txtMillSectionTargetsPresentage.Text = "0";
             this.txtMillSectionTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMillSectionTargetsPresentage.Leave += new System.EventHandler(this.txtMillSectionTargetsPresentage_Leave);
@@ -700,7 +699,7 @@
             this.txtAchievingProductionTargetsPresentage.Location = new System.Drawing.Point(202, 201);
             this.txtAchievingProductionTargetsPresentage.Name = "txtAchievingProductionTargetsPresentage";
             this.txtAchievingProductionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtAchievingProductionTargetsPresentage.TabIndex = 48;
+            this.txtAchievingProductionTargetsPresentage.TabIndex = 34;
             this.txtAchievingProductionTargetsPresentage.Text = "0";
             this.txtAchievingProductionTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAchievingProductionTargetsPresentage.Leave += new System.EventHandler(this.txtAchievingProductionTargetsPresentage_Leave);
@@ -719,7 +718,7 @@
             this.txtMachievingMaintenancePresentage.Location = new System.Drawing.Point(202, 175);
             this.txtMachievingMaintenancePresentage.Name = "txtMachievingMaintenancePresentage";
             this.txtMachievingMaintenancePresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtMachievingMaintenancePresentage.TabIndex = 46;
+            this.txtMachievingMaintenancePresentage.TabIndex = 33;
             this.txtMachievingMaintenancePresentage.Text = "0";
             this.txtMachievingMaintenancePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMachievingMaintenancePresentage.Leave += new System.EventHandler(this.txtMachievingMaintenancePresentage_Leave);
@@ -738,7 +737,7 @@
             this.txtDownTimeMatchineBreakDownPresentage.Location = new System.Drawing.Point(202, 149);
             this.txtDownTimeMatchineBreakDownPresentage.Name = "txtDownTimeMatchineBreakDownPresentage";
             this.txtDownTimeMatchineBreakDownPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtDownTimeMatchineBreakDownPresentage.TabIndex = 44;
+            this.txtDownTimeMatchineBreakDownPresentage.TabIndex = 32;
             this.txtDownTimeMatchineBreakDownPresentage.Text = "0";
             this.txtDownTimeMatchineBreakDownPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDownTimeMatchineBreakDownPresentage.Leave += new System.EventHandler(this.txtDownTimeMatchineBreakDownPresentage_Leave);
@@ -757,7 +756,7 @@
             this.txtWorkshopIncentivePresentage.Location = new System.Drawing.Point(202, 123);
             this.txtWorkshopIncentivePresentage.Name = "txtWorkshopIncentivePresentage";
             this.txtWorkshopIncentivePresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtWorkshopIncentivePresentage.TabIndex = 42;
+            this.txtWorkshopIncentivePresentage.TabIndex = 31;
             this.txtWorkshopIncentivePresentage.Text = "0";
             this.txtWorkshopIncentivePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtWorkshopIncentivePresentage.Leave += new System.EventHandler(this.txtWorkshopIncentivePresentage_Leave);
@@ -776,7 +775,7 @@
             this.txtProductPrecentage.Location = new System.Drawing.Point(140, 97);
             this.txtProductPrecentage.Name = "txtProductPrecentage";
             this.txtProductPrecentage.Size = new System.Drawing.Size(56, 20);
-            this.txtProductPrecentage.TabIndex = 39;
+            this.txtProductPrecentage.TabIndex = 30;
             this.txtProductPrecentage.Text = "0";
             this.txtProductPrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtProductPrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
@@ -789,6 +788,7 @@
             this.txtProductValue.ReadOnly = true;
             this.txtProductValue.Size = new System.Drawing.Size(56, 20);
             this.txtProductValue.TabIndex = 40;
+            this.txtProductValue.TabStop = false;
             this.txtProductValue.Text = "0";
             this.txtProductValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -806,7 +806,7 @@
             this.txtSalesPrecentage.Location = new System.Drawing.Point(140, 71);
             this.txtSalesPrecentage.Name = "txtSalesPrecentage";
             this.txtSalesPrecentage.Size = new System.Drawing.Size(56, 20);
-            this.txtSalesPrecentage.TabIndex = 36;
+            this.txtSalesPrecentage.TabIndex = 29;
             this.txtSalesPrecentage.Text = "0";
             this.txtSalesPrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtSalesPrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
@@ -819,6 +819,7 @@
             this.txtSalesValue.ReadOnly = true;
             this.txtSalesValue.Size = new System.Drawing.Size(56, 20);
             this.txtSalesValue.TabIndex = 37;
+            this.txtSalesValue.TabStop = false;
             this.txtSalesValue.Text = "0";
             this.txtSalesValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -836,7 +837,7 @@
             this.txtPerformancePrecentage.Location = new System.Drawing.Point(140, 45);
             this.txtPerformancePrecentage.Name = "txtPerformancePrecentage";
             this.txtPerformancePrecentage.Size = new System.Drawing.Size(56, 20);
-            this.txtPerformancePrecentage.TabIndex = 33;
+            this.txtPerformancePrecentage.TabIndex = 28;
             this.txtPerformancePrecentage.Text = "0";
             this.txtPerformancePrecentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPerformancePrecentage.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
@@ -849,6 +850,7 @@
             this.txtPerformValue.ReadOnly = true;
             this.txtPerformValue.Size = new System.Drawing.Size(56, 20);
             this.txtPerformValue.TabIndex = 34;
+            this.txtPerformValue.TabStop = false;
             this.txtPerformValue.Text = "0";
             this.txtPerformValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -866,7 +868,7 @@
             this.txtProductionSalesPerformanceTotalValue.Location = new System.Drawing.Point(140, 19);
             this.txtProductionSalesPerformanceTotalValue.Name = "txtProductionSalesPerformanceTotalValue";
             this.txtProductionSalesPerformanceTotalValue.Size = new System.Drawing.Size(56, 20);
-            this.txtProductionSalesPerformanceTotalValue.TabIndex = 30;
+            this.txtProductionSalesPerformanceTotalValue.TabIndex = 27;
             this.txtProductionSalesPerformanceTotalValue.Text = "0";
             this.txtProductionSalesPerformanceTotalValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtProductionSalesPerformanceTotalValue.TextChanged += new System.EventHandler(this.txtProductionSalesPerformanceTotalValue_TextChanged);
@@ -933,6 +935,7 @@
             this.dgvFixedIncentives.RowHeadersWidth = 20;
             this.dgvFixedIncentives.Size = new System.Drawing.Size(236, 176);
             this.dgvFixedIncentives.TabIndex = 0;
+            this.dgvFixedIncentives.TabStop = false;
             this.dgvFixedIncentives.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFixedIncentives_CellClick);
             this.dgvFixedIncentives.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFixedIncentives_CellContentClick);
             this.dgvFixedIncentives.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvFixedIncentives_DataError);
@@ -956,7 +959,7 @@
             this.btnAddFixedIncentive.Location = new System.Drawing.Point(114, 71);
             this.btnAddFixedIncentive.Name = "btnAddFixedIncentive";
             this.btnAddFixedIncentive.Size = new System.Drawing.Size(130, 23);
-            this.btnAddFixedIncentive.TabIndex = 36;
+            this.btnAddFixedIncentive.TabIndex = 26;
             this.btnAddFixedIncentive.Text = "Add Fixed Incentive";
             this.btnAddFixedIncentive.UseVisualStyleBackColor = true;
             this.btnAddFixedIncentive.Click += new System.EventHandler(this.btnAddFixedIncentive_Click);
@@ -966,7 +969,7 @@
             this.txtFixedIncentiveValue.Location = new System.Drawing.Point(115, 45);
             this.txtFixedIncentiveValue.Name = "txtFixedIncentiveValue";
             this.txtFixedIncentiveValue.Size = new System.Drawing.Size(130, 20);
-            this.txtFixedIncentiveValue.TabIndex = 35;
+            this.txtFixedIncentiveValue.TabIndex = 25;
             this.txtFixedIncentiveValue.Text = "0";
             this.txtFixedIncentiveValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFixedIncentiveValue.Leave += new System.EventHandler(this.txtFixedIncentiveValue_Leave);
@@ -985,7 +988,7 @@
             this.txtFixedIncentiveType.Location = new System.Drawing.Point(115, 19);
             this.txtFixedIncentiveType.Name = "txtFixedIncentiveType";
             this.txtFixedIncentiveType.Size = new System.Drawing.Size(130, 20);
-            this.txtFixedIncentiveType.TabIndex = 33;
+            this.txtFixedIncentiveType.TabIndex = 24;
             // 
             // label20
             // 
@@ -1001,7 +1004,7 @@
             this.txtTravellingAttendance.Location = new System.Drawing.Point(121, 19);
             this.txtTravellingAttendance.Name = "txtTravellingAttendance";
             this.txtTravellingAttendance.Size = new System.Drawing.Size(137, 20);
-            this.txtTravellingAttendance.TabIndex = 30;
+            this.txtTravellingAttendance.TabIndex = 23;
             this.txtTravellingAttendance.Text = "0";
             this.txtTravellingAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTravellingAttendance.TextChanged += new System.EventHandler(this.txtTravellingAttendance_TextChanged);
@@ -1036,7 +1039,7 @@
             this.txtRecrumentTotalEPF.Location = new System.Drawing.Point(121, 71);
             this.txtRecrumentTotalEPF.Name = "txtRecrumentTotalEPF";
             this.txtRecrumentTotalEPF.Size = new System.Drawing.Size(137, 20);
-            this.txtRecrumentTotalEPF.TabIndex = 34;
+            this.txtRecrumentTotalEPF.TabIndex = 22;
             this.txtRecrumentTotalEPF.Text = "0";
             this.txtRecrumentTotalEPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtRecrumentTotalEPF.TextChanged += new System.EventHandler(this.txtRecrumentTotalEPF_TextChanged);
@@ -1056,7 +1059,7 @@
             this.txtBudgetAllowance.Location = new System.Drawing.Point(121, 45);
             this.txtBudgetAllowance.Name = "txtBudgetAllowance";
             this.txtBudgetAllowance.Size = new System.Drawing.Size(137, 20);
-            this.txtBudgetAllowance.TabIndex = 32;
+            this.txtBudgetAllowance.TabIndex = 21;
             this.txtBudgetAllowance.Text = "0";
             this.txtBudgetAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBudgetAllowance.TextChanged += new System.EventHandler(this.txtBudgetAllowance_TextChanged);
@@ -1076,7 +1079,7 @@
             this.txtBasicSalary.Location = new System.Drawing.Point(121, 19);
             this.txtBasicSalary.Name = "txtBasicSalary";
             this.txtBasicSalary.Size = new System.Drawing.Size(137, 20);
-            this.txtBasicSalary.TabIndex = 30;
+            this.txtBasicSalary.TabIndex = 20;
             this.txtBasicSalary.Text = "0";
             this.txtBasicSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBasicSalary.TextChanged += new System.EventHandler(this.txtBasicSalary_TextChanged);
@@ -1100,7 +1103,7 @@
             this.gbxDayWages.Location = new System.Drawing.Point(9, 46);
             this.gbxDayWages.Name = "gbxDayWages";
             this.gbxDayWages.Size = new System.Drawing.Size(264, 72);
-            this.gbxDayWages.TabIndex = 2;
+            this.gbxDayWages.TabIndex = 18;
             this.gbxDayWages.TabStop = false;
             this.gbxDayWages.Text = "Day Wages";
             // 
@@ -1109,7 +1112,7 @@
             this.txtDayWagesTotalEPFSalary.Location = new System.Drawing.Point(121, 45);
             this.txtDayWagesTotalEPFSalary.Name = "txtDayWagesTotalEPFSalary";
             this.txtDayWagesTotalEPFSalary.Size = new System.Drawing.Size(137, 20);
-            this.txtDayWagesTotalEPFSalary.TabIndex = 32;
+            this.txtDayWagesTotalEPFSalary.TabIndex = 19;
             this.txtDayWagesTotalEPFSalary.Text = "0";
             this.txtDayWagesTotalEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDayWagesTotalEPFSalary.TextChanged += new System.EventHandler(this.txtDayWagesTotalEPFSalary_TextChanged);
@@ -1129,7 +1132,7 @@
             this.txtDayWagesDayRate.Location = new System.Drawing.Point(121, 19);
             this.txtDayWagesDayRate.Name = "txtDayWagesDayRate";
             this.txtDayWagesDayRate.Size = new System.Drawing.Size(137, 20);
-            this.txtDayWagesDayRate.TabIndex = 30;
+            this.txtDayWagesDayRate.TabIndex = 18;
             this.txtDayWagesDayRate.Text = "0";
             this.txtDayWagesDayRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDayWagesDayRate.Leave += new System.EventHandler(this.txtDayWagesDayRate_Leave);
@@ -1148,12 +1151,13 @@
             this.cmbDateRateOfSalary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDateRateOfSalary.FormattingEnabled = true;
             this.cmbDateRateOfSalary.Items.AddRange(new object[] {
+            "0",
             "25",
             "30"});
             this.cmbDateRateOfSalary.Location = new System.Drawing.Point(96, 19);
             this.cmbDateRateOfSalary.Name = "cmbDateRateOfSalary";
             this.cmbDateRateOfSalary.Size = new System.Drawing.Size(177, 21);
-            this.cmbDateRateOfSalary.TabIndex = 1;
+            this.cmbDateRateOfSalary.TabIndex = 17;
             // 
             // label16
             // 
@@ -1182,6 +1186,7 @@
             this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCancel
             // 
@@ -1192,15 +1197,17 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // txtAchievingSalesTargetsPresentage
+            // dataGridViewTextBoxColumn1
             // 
-            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(202, 279);
-            this.txtAchievingSalesTargetsPresentage.Name = "txtAchievingSalesTargetsPresentage";
-            this.txtAchievingSalesTargetsPresentage.Size = new System.Drawing.Size(56, 20);
-            this.txtAchievingSalesTargetsPresentage.TabIndex = 54;
-            this.txtAchievingSalesTargetsPresentage.Text = "0";
-            this.txtAchievingSalesTargetsPresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAchievingSalesTargetsPresentage.Leave += new System.EventHandler(this.txtAchievingSalesTargetsPresentage_Leave);
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "incentiveType";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "IncentivePrecentage";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // frmAddNewEmployee
             // 
@@ -1340,13 +1347,13 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvFixedIncentives;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveValue;
         private System.Windows.Forms.TextBox txtAchievingSalesTargetsPresentage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

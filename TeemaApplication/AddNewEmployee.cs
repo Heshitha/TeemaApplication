@@ -37,10 +37,12 @@ namespace TeemaApplication
             if (double.TryParse(txtFixedIncentiveValue.Text, out incentiveValue))
             {
                 dataset.NewFixedIncentive.AddNewFixedIncentiveRow(txtFixedIncentiveType.Text, incentiveValue);
+                txtFixedIncentiveType.Focus();
             }
             else
             {
                 ShowMessageBox.ShowError("Please enter numaric value for Incentive Value.");
+                txtFixedIncentiveValue.Focus();
             }
         }
 
@@ -71,10 +73,12 @@ namespace TeemaApplication
             if (double.TryParse(txtVariableIncentivePrecentage.Text, out incentivePrecentage))
             {
                 dataset.NewVariableIncentive.AddNewVariableIncentiveRow(txtVariableIncentiveType.Text, incentivePrecentage);
+                txtVariableIncentiveType.Focus();
             }
             else
             {
                 ShowMessageBox.ShowError("Please enter numaric value for Incentive Precentage.");
+                txtWorkshopIncentivePresentage.Focus();
             }
         }
 
@@ -131,176 +135,253 @@ namespace TeemaApplication
             fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
         }
 
+        private bool checkIfContainText(Control control)
+        {
+            return !string.IsNullOrEmpty(control.Text);
+        }
+
+        private string getEmptyInputsBeforeSubmit()
+        {
+            string EmptyTextBoxNames = string.Empty;
+
+            EmptyTextBoxNames += checkIfContainText(cmbWorkingBranch) ? string.Empty : "Working Branch, ";
+            EmptyTextBoxNames += checkIfContainText(cmbDepartment) ? string.Empty : "Department, ";
+            EmptyTextBoxNames += checkIfContainText(cmbSubDepartment) ? string.Empty : "Sub Branch, ";
+            EmptyTextBoxNames += checkIfContainText(txtEmployeeName) ? string.Empty : "Employee Name, ";
+            EmptyTextBoxNames += checkIfContainText(cmbDesignation) ? string.Empty : "Designation, ";
+            EmptyTextBoxNames += checkIfContainText(txtTokenNo) ? string.Empty : "Token No, ";
+            EmptyTextBoxNames += checkIfContainText(txtEPFNo) ? string.Empty : "EPF No, ";
+            EmptyTextBoxNames += checkIfContainText(txtNICNo) ? string.Empty : "NIC No, ";
+            EmptyTextBoxNames += checkIfContainText(cmbEmployeeCatagory) ? string.Empty : "Employee Catagory, ";
+            EmptyTextBoxNames += checkIfContainText(cmbEmployeeGrade) ? string.Empty : "Employee Grade, ";
+            EmptyTextBoxNames += checkIfContainText(cmbDateRateOfSalary) ? string.Empty : "Date Rate Of Salary, ";
+
+            return EmptyTextBoxNames;
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Branch branch = null;
-            if (!isBranchExist())
+            string emptyInputs = getEmptyInputsBeforeSubmit();
+            
+            if (emptyInputs != string.Empty)
             {
-                branch = new Branch
+                emptyInputs = emptyInputs.Remove(emptyInputs.Length - 2, 2);
+                ShowMessageBox.ShowError("Please provide following values before submiting. " + emptyInputs + ".");
+            }
+            else
+            {
+                Branch branch = null;
+                if (!isBranchExist())
                 {
-                    BranchName = cmbWorkingBranch.Text,
+                    branch = new Branch
+                    {
+                        BranchName = cmbWorkingBranch.Text,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now
+                    };
+
+                    db.Branches.InsertOnSubmit(branch);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    branch = (Branch)cmbWorkingBranch.SelectedItem;
+                }
+
+                Department department = null;
+                if (!isDepartmentExist(branch))
+                {
+                    department = new Department
+                    {
+                        DepartmentName = cmbDepartment.Text,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now,
+                        Branch = branch
+                    };
+                    db.Departments.InsertOnSubmit(department);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    department = (Department)cmbDepartment.SelectedItem;
+                }
+                SubDepartment subDepartment = null;
+                if (!isSubDepartmentExist(department))
+                {
+                    subDepartment = new SubDepartment
+                    {
+                        SubDepartmentName = cmbSubDepartment.Text,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now,
+                        Department = department,
+                    };
+                    db.SubDepartments.InsertOnSubmit(subDepartment);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    subDepartment = (SubDepartment)cmbSubDepartment.SelectedItem;
+                }
+
+                Designation designation = null;
+                if (!isDesignationExist())
+                {
+                    designation = new Designation
+                    {
+                        Designation1 = cmbDesignation.Text,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now
+                    };
+                    db.Designations.InsertOnSubmit(designation);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    designation = (Designation)cmbDesignation.SelectedItem;
+                }
+
+                string Gender = "";
+                if (rdbGenderMale.Checked)
+                {
+                    Gender = "Male";
+                }
+                else
+                {
+                    Gender = "Female";
+                }
+
+                Employee employee = new Employee
+                {
+                    TokenNo = txtTokenNo.Text,
+                    EnrolmentID = getIntNumaricValue("Token No", txtTokenNo.Text),
+                    Name = txtEmployeeName.Text,
+                    Gender = Gender,
+                    DateOfAppointment = dtpDateOfAppointment.Value,
+                    EPFNo = txtEPFNo.Text,
+                    NICNo = txtNICNo.Text,
+                    EmployeeCatagory = cmbEmployeeCatagory.Text,
+                    EmployeeGrade = cmbEmployeeGrade.Text,
+                    NoPayCalculataionDate = getIntNumaricValue("No Pay Calculation Date", cmbDateRateOfSalary.Text),
+                    PieceRateEntitled = chbPieceRate.Checked,
+                    EPFEntitled = chbEPFEntitled.Checked,
+                    Designation = designation,
+                    SubDepartment = subDepartment,
                     CreatedBy = 1,
                     CreatedDate = DateTime.Now,
                     ModifiedBy = 1,
                     ModifiedDate = DateTime.Now
                 };
 
-                db.Branches.InsertOnSubmit(branch);
+                db.Employees.InsertOnSubmit(employee);
                 db.SubmitChanges();
-            }
-            else
-            {
-                branch = (Branch)cmbWorkingBranch.SelectedItem;
-            }
 
-            Department department = null;
-            if (!isDepartmentExist(branch))
-            {
-                department = new Department
+                double EPFValue = 0;
+                if (cmbEmployeeCatagory.Text.Trim().Equals("Day Wages"))
                 {
-                    DepartmentName = cmbDepartment.Text,
+                    EPFValue = getDoubleNumaricValue("EPF ETF Total Salary", txtDayWagesTotalEPFSalary.Text);
+                }
+                else
+                {
+                    EPFValue = getDoubleNumaricValue("Total For EPF ETF", txtRecrumentTotalEPF.Text);
+                }
+
+                EmployeeSalaryDetail sal = new EmployeeSalaryDetail
+                {
+                    Employee = employee,
+                    BudgetAllowance = getDoubleNumaricValue("Budget Allowance", txtBudgetAllowance.Text),
+                    DayWagesAmount = getDoubleNumaricValue("Day Wages Amount", txtDayWagesDayRate.Text),
+                    TotalValueForEPF = EPFValue,
+                    BasicSalary = getDoubleNumaricValue("Basic Salary", txtBasicSalary.Text),
+                    CreatedBy = 1,
+                    CreatedDate = DateTime.Now,
+                    ModifiedBy = 1,
+                    ModifiedDate = DateTime.Now
+                };
+                db.EmployeeSalaryDetails.InsertOnSubmit(sal);
+                db.SubmitChanges();
+
+                FixedIncentive travelingIncentive = new FixedIncentive
+                {
+                    IncentiveType = "Traveling Attendance",
+                    InventiveValue = getDoubleNumaricValue("Traveling And Attendance Incentive", txtTravellingAttendance.Text),
                     CreatedBy = 1,
                     CreatedDate = DateTime.Now,
                     ModifiedBy = 1,
                     ModifiedDate = DateTime.Now,
-                    Branch = branch
+                    Employee = employee
                 };
-                db.Departments.InsertOnSubmit(department);
+                db.FixedIncentives.InsertOnSubmit(travelingIncentive);
                 db.SubmitChanges();
-            }
-            else
-            {
-                department = (Department)cmbDepartment.SelectedItem;
-            }
-            SubDepartment subDepartment = null;
-            if (!isSubDepartmentExist(department))
-            {
-                subDepartment = new SubDepartment
+
+                foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
                 {
-                    SubDepartmentName = cmbSubDepartment.Text,
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now,
-                    Department = department,
-                };
-                db.SubDepartments.InsertOnSubmit(subDepartment);
-                db.SubmitChanges();
-            }
-            else
-            {
-                subDepartment = (SubDepartment)cmbSubDepartment.SelectedItem;
-            }
+                    string fixedIncentiveType = x.Cells[0].Value.ToString();
+                    double fixedIncentiveValue = (double)x.Cells[1].Value;
 
-            Designation designation = null;
-            if (!isDesignationExist())
-            {
-                designation = new Designation
+                    FixedIncentive addedIncentive = new FixedIncentive
+                    {
+                        IncentiveType = fixedIncentiveType,
+                        InventiveValue = fixedIncentiveValue,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now,
+                        Employee = employee
+                    };
+
+                    db.FixedIncentives.InsertOnSubmit(addedIncentive);
+                    db.SubmitChanges();
+                }
+
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Performance", txtPerformancePrecentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Sales", txtSalesPrecentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Product", txtProductPrecentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Workshop", txtWorkshopIncentivePresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Down Time Machine Break Down", txtDownTimeMatchineBreakDownPresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Machieving Maintenance", txtMachievingMaintenancePresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Achieving Production Targets", txtAchievingProductionTargetsPresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Mill Section Targets", txtMillSectionTargetsPresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Hawail Section Production", txtHawailSectionProductionPresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Achieving Sales Targets", txtAchievingSalesTargetsPresentage.Text, employee));
+                db.VariableIncentives.InsertOnSubmit(getVariableIncentive("Security Performance Targets", txtSecurityPerformanceIncentivePresentage.Text, employee));
+
+                foreach (DataGridViewRow x in dgvVariableIncentive.Rows)
                 {
-                    Designation1 = cmbDesignation.Text,
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now
-                };
-                db.Designations.InsertOnSubmit(designation);
+                    string variableIncentiveType = x.Cells[0].Value.ToString();
+                    string variableIncentivePrecentage = x.Cells[1].Value.ToString();
+
+                    db.VariableIncentives.InsertOnSubmit(getVariableIncentive(variableIncentiveType, variableIncentivePrecentage, employee));
+                }
+
                 db.SubmitChanges();
-            }
-            else
-            {
-                designation = (Designation)cmbDesignation.SelectedItem;
-            }
 
-            string Gender = "";
-            if (rdbGenderMale.Checked)
-            {
-                Gender = "Male";
+                ShowMessageBox.ShowSuccess("Successfully inserted employee details to the database.");
+                resetForm();
             }
-            else
-            {
-                Gender = "Female";
-            }
+        }
 
-            Employee employee = new Employee
+        private VariableIncentive getVariableIncentive(string variableIncentiveType, string textBoxValue, Employee employee)
+        {
+            VariableIncentive variableIncentive = new VariableIncentive
             {
-                TokenNo = txtTokenNo.Text,
-                EnrolmentID = getIntNumaricValue("Token No", txtTokenNo.Text),
-                Name = txtEmployeeName.Text,
-                Gender = Gender,
-                DateOfAppointment = dtpDateOfAppointment.Value,
-                EPFNo = txtEPFNo.Text,
-                NICNo = txtNICNo.Text,
-                EmployeeCatagory = cmbEmployeeCatagory.Text,
-                EmployeeGrade = cmbEmployeeGrade.Text,
-                NoPayCalculataionDate = getIntNumaricValue("No Pay Calculation Date", cmbDateRateOfSalary.Text),
-                PieceRateEntitled = chbPieceRate.Checked,
-                EPFEntitled = chbEPFEntitled.Checked,
-                Designation = designation,
-                SubDepartment = subDepartment
-            };
-
-            db.Employees.InsertOnSubmit(employee);
-            db.SubmitChanges();
-
-            double EPFValue = 0;
-            if (cmbEmployeeCatagory.Text.Trim().Equals("Day Wages"))
-            {
-                EPFValue = getDoubleNumaricValue("EPF ETF Total Salary", txtDayWagesTotalEPFSalary.Text);
-            }
-            else
-            {
-                EPFValue = getDoubleNumaricValue("Total For EPF ETF", txtRecrumentTotalEPF.Text);
-            }
-
-            EmployeeSalaryDetail sal = new EmployeeSalaryDetail
-            {
-                Employee = employee,
-                BudgetAllowance = getDoubleNumaricValue("Budget Allowance", txtBudgetAllowance.Text),
-                DayWagesAmount = getDoubleNumaricValue("Day Wages Amount", txtDayWagesDayRate.Text),
-                TotalValueForEPF = EPFValue,
-                BasicSalary = getDoubleNumaricValue("Basic Salary", txtBasicSalary.Text),
+                IncentiveType = variableIncentiveType,
+                IncentivePrecentage = getDoubleNumaricValue(variableIncentiveType, textBoxValue),
                 CreatedBy = 1,
                 CreatedDate = DateTime.Now,
                 ModifiedBy = 1,
-                ModifiedDate = DateTime.Now
+                ModifiedDate = DateTime.Now,
+                Employee = employee
             };
-            db.EmployeeSalaryDetails.InsertOnSubmit(sal);
-            db.SubmitChanges();
 
-            FixedIncentive travelingIncentive = new FixedIncentive
-            {
-                IncentiveType = "Traveling Attendance",
-                InventiveValue = getDoubleNumaricValue("Traveling And Attendance Incentive", txtTravellingAttendance.Text),
-                CreatedBy = 1,
-                CreatedDate = DateTime.Now,
-                ModifiedBy = 1,
-                ModifiedDate = DateTime.Now
-            };
-            db.FixedIncentives.InsertOnSubmit(travelingIncentive);
-            db.SubmitChanges();
-
-            foreach (DataGridViewRow x in dgvFixedIncentives.Rows)
-            {
-                string fixedIncentiveType = x.Cells[0].Value.ToString();
-                double fixedIncentiveValue = (double)x.Cells[1].Value;
-
-                FixedIncentive addedIncentive = new FixedIncentive
-                {
-                    IncentiveType = fixedIncentiveType,
-                    InventiveValue = fixedIncentiveValue,
-                    CreatedBy = 1,
-                    CreatedDate = DateTime.Now,
-                    ModifiedBy = 1,
-                    ModifiedDate = DateTime.Now
-                };
-
-                db.FixedIncentives.InsertOnSubmit(addedIncentive);
-                db.SubmitChanges();
-            }
-
-
-
-            MessageBox.Show("Done");
+            return variableIncentive;
         }
 
         private void calculateVaribleIncentiveValues()
@@ -393,22 +474,6 @@ namespace TeemaApplication
             }
         }
 
-        private bool checkForValues()
-        {
-            string EmptyTextBoxes = "";
-            EmptyTextBoxes += getIntNumaricValue("EPF No", txtEPFNo.Text, true);
-
-            if(EmptyTextBoxes == "")
-            {
-                return true;
-            }
-            else
-            {
-
-            }
-            return true;
-        }
-
         private bool isDepartmentExist(Branch branch)
         {
             string DepartmentName = cmbDepartment.Text;
@@ -468,7 +533,8 @@ namespace TeemaApplication
 
         private void checkIfEmpty(TextBox textBox)
         {
-            if (string.IsNullOrEmpty(textBox.Text))
+            double value = 0;
+            if (string.IsNullOrEmpty(textBox.Text) || !double.TryParse(textBox.Text, out value))
             {
                 textBox.Text = "0";
             }
@@ -597,6 +663,52 @@ namespace TeemaApplication
         private void txtHawailSectionProductionPresentage_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            frmAddNewEmployee_Load(this, new EventArgs());
+            txtEmployeeName.Text = string.Empty;
+            rdbGenderMale.Checked = true;
+            txtTokenNo.Text = string.Empty;
+            txtEPFNo.Text = string.Empty;
+            txtNICNo.Text = string.Empty;
+            cmbDesignation.Text = string.Empty;
+            dtpDateOfAppointment.Value = DateTime.Today;
+            cmbEmployeeCatagory.SelectedIndex = -1;
+            cmbEmployeeGrade.SelectedIndex = -1;
+            chbEPFEntitled.Checked = false;
+            chbPieceRate.Checked = false;
+            cmbDateRateOfSalary.SelectedIndex = -1;
+            txtDayWagesDayRate.Text = "0";
+            txtDayWagesTotalEPFSalary.Text = "0";
+            txtBasicSalary.Text = "0";
+            txtBudgetAllowance.Text = "0";
+            txtRecrumentTotalEPF.Text = "0";
+            txtTravellingAttendance.Text = "0";
+            txtFixedIncentiveType.Text = string.Empty;
+            txtFixedIncentiveValue.Text = "0";
+            txtProductionSalesPerformanceTotalValue.Text = "0";
+            txtPerformancePrecentage.Text = "0";
+            txtSalesPrecentage.Text = "0";
+            txtProductPrecentage.Text = "0";
+            txtWorkshopIncentivePresentage.Text = "0";
+            txtDownTimeMatchineBreakDownPresentage.Text = "0";
+            txtMachievingMaintenancePresentage.Text = "0";
+            txtAchievingProductionTargetsPresentage.Text = "0";
+            txtMillSectionTargetsPresentage.Text = "0";
+            txtHawailSectionProductionPresentage.Text = "0";
+            txtAchievingSalesTargetsPresentage.Text = "0";
+            txtSecurityPerformanceIncentivePresentage.Text = "0";
+            txtVariableIncentivePrecentage.Text = string.Empty;
+            txtVariableIncentivePrecentage.Text = "0";
+            dataset.NewVariableIncentive.Rows.Clear();
+            dataset.NewFixedIncentive.Rows.Clear();
         }
     }
 }
