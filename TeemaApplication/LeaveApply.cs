@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TeemaApplication
 {
-    public partial class LeaveApply : Form
+    public partial class frmLeaveApply : Form
     {
-        public LeaveApply()
+        public frmLeaveApply()
         {
             InitializeComponent();
         }

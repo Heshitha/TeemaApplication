@@ -1,6 +1,6 @@
 ﻿namespace TeemaApplication
 {
-    partial class LeaveApply
+    partial class frmLeaveApply
     {
         /// <summary>
         /// Required designer variable.
@@ -1054,7 +1054,7 @@
             this.textBox25.Size = new System.Drawing.Size(41, 20);
             this.textBox25.TabIndex = 0;
             // 
-            // LeaveApply
+            // frmLeaveApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1064,7 +1064,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Name = "LeaveApply";
+            this.Name = "frmLeaveApply";
             this.Text = "LeaveApply";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

@@ -251,6 +251,7 @@
             this.btnLeaveApply.TabIndex = 3;
             this.btnLeaveApply.Text = "Leave Apply";
             this.btnLeaveApply.UseVisualStyleBackColor = true;
+            this.btnLeaveApply.Click += new System.EventHandler(this.btnLeaveApply_Click);
             // 
             // frmMain
             // 
