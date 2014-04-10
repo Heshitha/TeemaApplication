@@ -130,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 22);
+            this.label2.Location = new System.Drawing.Point(6, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 8;
@@ -179,7 +179,7 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(6, 101);
+            this.lblDepartment.Location = new System.Drawing.Point(6, 103);
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(84, 13);
             this.lblDepartment.TabIndex = 0;
@@ -188,7 +188,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(6, 75);
+            this.lblName.Location = new System.Drawing.Point(6, 76);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(62, 13);
             this.lblName.TabIndex = 0;
@@ -197,7 +197,7 @@
             // lblTokenNumber
             // 
             this.lblTokenNumber.AutoSize = true;
-            this.lblTokenNumber.Location = new System.Drawing.Point(6, 49);
+            this.lblTokenNumber.Location = new System.Drawing.Point(6, 51);
             this.lblTokenNumber.Name = "lblTokenNumber";
             this.lblTokenNumber.Size = new System.Drawing.Size(41, 13);
             this.lblTokenNumber.TabIndex = 0;

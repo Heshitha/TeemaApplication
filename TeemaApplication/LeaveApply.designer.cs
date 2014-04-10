@@ -636,7 +636,7 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(183, 49);
+            this.radioButton6.Location = new System.Drawing.Point(183, 50);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(73, 17);
             this.radioButton6.TabIndex = 8;
@@ -647,7 +647,7 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(115, 49);
+            this.radioButton5.Location = new System.Drawing.Point(115, 50);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(62, 17);
             this.radioButton5.TabIndex = 8;
@@ -670,7 +670,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(66, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.Size = new System.Drawing.Size(215, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -684,7 +684,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(183, 81);
+            this.button5.Location = new System.Drawing.Point(206, 88);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 7;
@@ -702,7 +702,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(102, 81);
+            this.button4.Location = new System.Drawing.Point(125, 88);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 7;
