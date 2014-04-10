@@ -90,7 +90,7 @@ namespace TeemaApplication.Classes
             }
             else
             {
-                ShowMessageBox.ShowError("Please put a numaric value for " + title);
+               
                 return value;
             }
         }
@@ -104,7 +104,7 @@ namespace TeemaApplication.Classes
             }
             else
             {
-                ShowMessageBox.ShowError("Please put a numeric value for " + title);
+               
                 return value;
             }
         }
