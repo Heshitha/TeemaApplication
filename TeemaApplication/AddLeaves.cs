@@ -212,7 +212,7 @@ namespace TeemaApplication
             }
               else
              {
-                 MessageBox.Show("Please select a Employee to add leaves");
+                 MessageBox.Show("Please select an Employee to add leaves");
 
              }
         }
