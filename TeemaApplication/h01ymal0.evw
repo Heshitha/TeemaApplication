@@ -59,24 +59,39 @@ namespace TeemaApplication
 
             }
 
-            private string getEmptyInputsBeforeSubmit()
-            {
-                string EmptyTextBoxNames = string.Empty;
-
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Request Amount",txtRequested_Amount.Text);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Total from EPF Salary", txtTotalFromEPFSalary.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Day Wages", txtDayWages.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Fixed Incentive Allowance", txtFixedIncentiveAllowance.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Variable Incentive Allowance",txtVariableIncentiveAllowance.Text, true);
-
-                return EmptyTextBoxNames;
-            }
         private bool checkforValues()
         {
             String errortext = null;
             errortext +=EmployeeUtils.getIntNumaricValue(" *Requested Amount", txtRequested_Amount.Text,true);
            
-           
+
+            // check text boxes Deduction From
+
+            if (txtTotalFromEPFSalary.Text != "")
+            {
+                errortext +=EmployeeUtils.getIntNumaricValue(" Total From EPF Salary", txtTotalFromEPFSalary.Text,true);
+            }
+            else if (txtDayWages.Text != "")
+            {
+                errortext +=EmployeeUtils.getIntNumaricValue(" Day Wages", txtDayWages.Text,true);
+            }
+            else if (txtFixedIncentiveAllowance.Text != "")
+            {
+                errortext +=EmployeeUtils. getIntNumaricValue(" Fixed Intencive Value", txtFixedIncentiveAllowance.Text,true);
+            }
+            else if (txtVariableIncentiveAllowance.Text != "")
+            {
+                errortext += EmployeeUtils.getIntNumaricValue(" Variable Incentive Allowance", txtVariableIncentiveAllowance.Text,true);
+            }
+            else if (txtTotalFromEPFSalary.Text == "" && txtDayWages.Text == "" && txtFixedIncentiveAllowance.Text == "" && txtVariableIncentiveAllowance.Text == "")
+            {
+                errortext +=EmployeeUtils.getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text,true);
+                errortext += EmployeeUtils.getIntNumaricValue(" *Day Wages", txtDayWages.Text,true);
+                errortext +=EmployeeUtils.getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text,true);
+                errortext +=EmployeeUtils.getIntNumaricValue(" *Variable Incentive Allowance", txtVariableIncentiveAllowance.Text,true);
+            }
+
+
             if (errortext == "")
             {
                 MessageBox.Show("done");
@@ -94,17 +109,7 @@ namespace TeemaApplication
 
         private void btnUpsate_Click(object sender, EventArgs e)
         {
-            //checkforValues();
-            string emptyInput = getEmptyInputsBeforeSubmit();
-            if (emptyInput != string.Empty)
-            {
-                emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
-                ShowMessageBox.ShowError("Please Enter Correct Value" + emptyInput + ".");
-            }
-            else
-            {
-                MessageBox.Show("Done");
-            }
+            checkforValues();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

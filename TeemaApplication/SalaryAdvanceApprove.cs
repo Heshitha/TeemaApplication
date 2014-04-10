@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
@@ -15,98 +16,38 @@ namespace TeemaApplication
         public frmSalary_Advance_Approve()
         {
             InitializeComponent();
-        }
-
-        // fill Depsrtment Search combo boxes
-        private void fillcmbBranch()
-        {
-            cmbWorkingBranch.DisplayMember = "BranchName";
-            cmbWorkingBranch.ValueMember = "BranchID";
-            cmbWorkingBranch.DataSource = db.Branches;
-        }
-        // fill Depsrtment Search combo boxes
-        private void fillcmbDepartment(Branch branch)
-        {
-            cmbDepartment.DisplayMember = "DepartmentName";
-            cmbDepartment.ValueMember = "DepartmentID";
-            cmbDepartment.DataSource = branch.Departments;
-        }
-        // fill Depsrtment Search combo boxes
-        private void fillcmbSubDepartment(Department department)
-        {
-            cmbSubDepartment.DisplayMember = "SubDepartmentName";
-            cmbSubDepartment.ValueMember = "SubDepartmentID";
-            cmbSubDepartment.DataSource = department.SubDepartments;
-        }
-     
+        }           
 
         private void frmSalary_Advance_Load(object sender, EventArgs e)
         {
-            fillcmbBranch();
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+            EmployeeUtils.fillcmbWorkingBranch(db, cmbWorkingBranch);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
+
 
         private void cmbWorkingBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
 
-        // check text boxes for proper values
-        private String getIntNumaricValue(string title, string text)
-        {
-            int Value = 0;
-            if (int.TryParse(text, out Value))
-            {
-                return "";
-            }
-            else
-            {
-                return title + " ";
-            }
-
-        }
-
-        private bool checkforValues()
+        private bool checkforsalarymonth()
         {
             String errortext = null;
-            errortext += getIntNumaricValue(" *Requested Amount", txtRequested_Amount.Text);
+            errortext += EmployeeUtils.getIntNumaricValue(" *Year ", cmbYear.Text, true);
 
-            // check text boxes Deduction From
-
-            if (txtTotalFromEPFSalary.Text != "")
+            if (!EmployeeUtils.checkIfContainText(cmbMonth))
             {
-                errortext += getIntNumaricValue(" *Total From EPF Salary", txtTotalFromEPFSalary.Text);
+                errortext += " *Month";
             }
-            else if (txtDayWages.Text != "")
-            {
-                errortext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
-            }
-            else if (txtFixedIncentiveAllowance.Text != "")
-            {
-                errortext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
-            }
-            else if (txtVariableIncentiveAllowance.Text != "")
-            {
-                errortext += getIntNumaricValue(" * Variable Incentive Allowance", txtVariableIncentiveAllowance.Text);
-            }
-            else if (txtTotalFromEPFSalary.Text == "" && txtDayWages.Text == "" && txtFixedIncentiveAllowance.Text == "" && txtVariableIncentiveAllowance.Text == "")
-            {
-                errortext += getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text);
-                errortext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
-                errortext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
-                errortext += getIntNumaricValue(" *Variable Incentive Allowance", txtVariableIncentiveAllowance.Text);
-            }
-
-
             if (errortext == "")
             {
-                MessageBox.Show("done");
+                MessageBox.Show("Done");
                 return true;
             }
             else
@@ -115,13 +56,42 @@ namespace TeemaApplication
                 return false;
             }
 
-
-
         }
+
+        private string getEmptyInputsBeforeSubmit()
+        {
+            string EmptyTextBoxNames = string.Empty;
+
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Request Amount", txtRequested_Amount.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Total from EPF Salary", txtTotalFromEPFSalary.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Day Wages", txtDayWages.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Fixed Incentive Allowance", txtFixedIncentiveAllowance.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Variable Incentive Allowance", txtVariableIncentiveAllowance.Text, true);
+
+            return EmptyTextBoxNames;
+        }
+   
+
+       
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            checkforValues();
+            string emptyInput = getEmptyInputsBeforeSubmit();
+            if (emptyInput != string.Empty)
+            {
+                emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
+                ShowMessageBox.ShowError("Please Enter Correct Value" + emptyInput + ".");
+            }
+            else
+            {
+                MessageBox.Show("Done");
+            }
+        }
+                
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            checkforsalarymonth();
+
         }
     }
 }

@@ -63,8 +63,8 @@
             this.clmnYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxSalaryMonth = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -212,6 +212,8 @@
             this.txtVariableIncentiveAllowance.Name = "txtVariableIncentiveAllowance";
             this.txtVariableIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
             this.txtVariableIncentiveAllowance.TabIndex = 19;
+            this.txtVariableIncentiveAllowance.Text = "0";
+            this.txtVariableIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -228,6 +230,8 @@
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
             this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
             this.txtFixedIncentiveAllowance.TabIndex = 17;
+            this.txtFixedIncentiveAllowance.Text = "0";
+            this.txtFixedIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -244,6 +248,8 @@
             this.txtDayWages.Name = "txtDayWages";
             this.txtDayWages.Size = new System.Drawing.Size(177, 20);
             this.txtDayWages.TabIndex = 15;
+            this.txtDayWages.Text = "0";
+            this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -260,6 +266,8 @@
             this.txtTotalFromEPFSalary.Name = "txtTotalFromEPFSalary";
             this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(177, 20);
             this.txtTotalFromEPFSalary.TabIndex = 13;
+            this.txtTotalFromEPFSalary.Text = "0";
+            this.txtTotalFromEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -388,8 +396,8 @@
             // 
             // gbxSalaryMonth
             // 
-            this.gbxSalaryMonth.Controls.Add(this.comboBox2);
-            this.gbxSalaryMonth.Controls.Add(this.comboBox1);
+            this.gbxSalaryMonth.Controls.Add(this.cmbMonth);
+            this.gbxSalaryMonth.Controls.Add(this.cmbYear);
             this.gbxSalaryMonth.Controls.Add(this.label10);
             this.gbxSalaryMonth.Controls.Add(this.label2);
             this.gbxSalaryMonth.Location = new System.Drawing.Point(12, 157);
@@ -399,11 +407,11 @@
             this.gbxSalaryMonth.TabStop = false;
             this.gbxSalaryMonth.Text = "Salary Month";
             // 
-            // comboBox2
+            // cmbMonth
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Items.AddRange(new object[] {
             "January",
             "February",
             "March",
@@ -416,16 +424,16 @@
             "October",
             "November",
             "December"});
-            this.comboBox2.Location = new System.Drawing.Point(96, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 21);
-            this.comboBox2.TabIndex = 24;
+            this.cmbMonth.Location = new System.Drawing.Point(96, 46);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(183, 21);
+            this.cmbMonth.TabIndex = 24;
             // 
-            // comboBox1
+            // cmbYear
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Items.AddRange(new object[] {
             "2014",
             "2015",
             "2016",
@@ -437,10 +445,10 @@
             "2022",
             "2023",
             "2024"});
-            this.comboBox1.Location = new System.Drawing.Point(96, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 23;
+            this.cmbYear.Location = new System.Drawing.Point(96, 19);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(183, 21);
+            this.cmbYear.TabIndex = 23;
             // 
             // label10
             // 
@@ -468,6 +476,7 @@
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // gbxEmployeeDetails
             // 
@@ -738,7 +747,7 @@
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.CheckBox chbApprovedOnly;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMonth;
+        private System.Windows.Forms.ComboBox cmbYear;
     }
 }

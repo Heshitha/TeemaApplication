@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using TeemaApplication.Classes;
 namespace TeemaApplication
 {
     public partial class frmVariable_Incentive_Allowance : Form
@@ -17,42 +17,49 @@ namespace TeemaApplication
             InitializeComponent();
         }
 
-        // fill Depsrtment Search combo boxes
-        private void fillcmbBranch()
-        {
-            cmbWorkingBranch.DisplayMember = "BranchName";
-            cmbWorkingBranch.ValueMember = "BranchID";
-            cmbWorkingBranch.DataSource = db.Branches;
-        }
-        // fill Depsrtment Search combo boxes
-        private void fillcmbDepartment(Branch branch)
-        {
-            cmbDepartment.DisplayMember = "DepartmentName";
-            cmbDepartment.ValueMember = "DepartmentID";
-            cmbDepartment.DataSource = branch.Departments;
-        }
-        // fill Depsrtment Search combo boxes
-        private void fillcmbSubDepartment(Department department)
-        {
-            cmbSubDepartment.DisplayMember = "SubDepartmentName";
-            cmbSubDepartment.ValueMember = "SubDepartmentID";
-            cmbSubDepartment.DataSource = department.SubDepartments;
-        }
+      
         private void frmVariable_Incentive_Allowance_Load(object sender, EventArgs e)
         {
-            fillcmbBranch();
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+           EmployeeUtils.fillcmbWorkingBranch(db,cmbWorkingBranch);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem,cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem,cmbSubDepartment);
         }
+
+      
 
         private void cmbWorkingBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
+           EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem,cmbDepartment);
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+           EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem,cmbSubDepartment);
+        }
+
+        private bool checkforsalarymonth()
+        {
+            string errortext = null;
+            errortext += EmployeeUtils.getIntNumaricValue(" *Year", cmbYear.Text, true);
+            if (!EmployeeUtils.checkIfContainText(cmbMonth))
+            {
+                errortext += " *Month";
+            }
+            if (errortext == "")
+            {
+                MessageBox.Show("Done");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Please Select " + errortext + "..!");
+                return false;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            checkforsalarymonth();
         }
     }
 }

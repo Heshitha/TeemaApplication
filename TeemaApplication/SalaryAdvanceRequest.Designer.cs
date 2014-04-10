@@ -458,6 +458,8 @@
             this.txtVariableIncentiveAllowance.Name = "txtVariableIncentiveAllowance";
             this.txtVariableIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
             this.txtVariableIncentiveAllowance.TabIndex = 19;
+            this.txtVariableIncentiveAllowance.Text = "0";
+            this.txtVariableIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -474,6 +476,8 @@
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
             this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
             this.txtFixedIncentiveAllowance.TabIndex = 17;
+            this.txtFixedIncentiveAllowance.Text = "0";
+            this.txtFixedIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -490,6 +494,8 @@
             this.txtDayWages.Name = "txtDayWages";
             this.txtDayWages.Size = new System.Drawing.Size(177, 20);
             this.txtDayWages.TabIndex = 15;
+            this.txtDayWages.Text = "0";
+            this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -506,6 +512,8 @@
             this.txtTotalFromEPFSalary.Name = "txtTotalFromEPFSalary";
             this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(177, 20);
             this.txtTotalFromEPFSalary.TabIndex = 13;
+            this.txtTotalFromEPFSalary.Text = "0";
+            this.txtTotalFromEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
