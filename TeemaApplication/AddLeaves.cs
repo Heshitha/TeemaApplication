@@ -65,32 +65,39 @@ namespace TeemaApplication
             //               select new { emp.TokenNo, emp.Name, emp.EPFNo });
  
            // dgvLeaves.DataSource = empdata;
-
-            SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("TokenID");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("EPFNo");
-            dt.Columns.Add("AnnualLeaves");
-            dt.Columns.Add("CasualLeaves");
-
-            foreach (Employee emp in subdept.Employees)
+            if (dgvLeaves.SelectedRows != null)
             {
-                GrantedLeave grnLeave = (from x in emp.GrantedLeaves
-                                         where x.year == Convert.ToInt32(cmbLeaveYear.Text)
-                                         select x).SingleOrDefault();
-                if (grnLeave != null)
-                {
-                    dt.Rows.Add(emp.TokenNo, emp.Name,emp.EPFNo, grnLeave.Annual, grnLeave.Casual);
-                }
-                else
-                {
-                    dt.Rows.Add(emp.TokenNo, emp.Name, emp.EPFNo,"0", "0");
-                }
-            }
 
-            dgvLeaves.DataSource = dt;
+                SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TokenID");
+                dt.Columns.Add("Name");
+                dt.Columns.Add("EPFNo");
+                dt.Columns.Add("AnnualLeaves");
+                dt.Columns.Add("CasualLeaves");
+
+                foreach (Employee emp in subdept.Employees)
+                {
+                    GrantedLeave grnLeave = (from x in emp.GrantedLeaves
+                                             where x.year == Convert.ToInt32(cmbLeaveYear.Text)
+                                             select x).SingleOrDefault();
+                    if (grnLeave != null)
+                    {
+                        dt.Rows.Add(emp.TokenNo, emp.Name, emp.EPFNo, grnLeave.Annual, grnLeave.Casual);
+                    }
+                    else
+                    {
+                        dt.Rows.Add(emp.TokenNo, emp.Name, emp.EPFNo, "0", "0");
+                    }
+                }
+
+                dgvLeaves.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please select an Employee to add leaves");
+            }
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -248,13 +255,15 @@ namespace TeemaApplication
         {
             checkforValues();
             fillLeavesGrid();
+            cleartextbox(grpEmployeeDetails);
 
             
         }
 
         private void btnClearAddLeaves_Click(object sender, EventArgs e)
         {
-
+            txtAnnual.Text = "";
+            txtCasual.Text = "";
         }
 
         private void cmbLeaveYear_SelectedIndexChanged(object sender, EventArgs e)

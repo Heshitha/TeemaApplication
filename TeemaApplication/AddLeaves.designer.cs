@@ -47,7 +47,11 @@
             this.lblCasual = new System.Windows.Forms.Label();
             this.lblAnnual = new System.Windows.Forms.Label();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
-            this.btnClearGrid = new System.Windows.Forms.Button();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnAnnual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnCasual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.txtSubDepartment = new System.Windows.Forms.TextBox();
             this.txtBranch = new System.Windows.Forms.TextBox();
@@ -68,11 +72,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEPFNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnAnnual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnCasual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
@@ -213,10 +212,9 @@
             this.groupBox2.Controls.Add(this.lblCasual);
             this.groupBox2.Controls.Add(this.lblAnnual);
             this.groupBox2.Controls.Add(this.dgvLeaves);
-            this.groupBox2.Controls.Add(this.btnClearGrid);
             this.groupBox2.Location = new System.Drawing.Point(311, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(624, 428);
+            this.groupBox2.Size = new System.Drawing.Size(520, 428);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add Leaves";
@@ -289,18 +287,44 @@
             this.dgvLeaves.ReadOnly = true;
             this.dgvLeaves.RowHeadersVisible = false;
             this.dgvLeaves.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeaves.Size = new System.Drawing.Size(507, 282);
+            this.dgvLeaves.Size = new System.Drawing.Size(506, 321);
             this.dgvLeaves.TabIndex = 3;
             this.dgvLeaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaves_CellClick);
             // 
-            // btnClearGrid
+            // clmnTokenID
             // 
-            this.btnClearGrid.Location = new System.Drawing.Point(543, 389);
-            this.btnClearGrid.Name = "btnClearGrid";
-            this.btnClearGrid.Size = new System.Drawing.Size(75, 28);
-            this.btnClearGrid.TabIndex = 2;
-            this.btnClearGrid.Text = "Clear Grid";
-            this.btnClearGrid.UseVisualStyleBackColor = true;
+            this.clmnTokenID.DataPropertyName = "TokenID";
+            this.clmnTokenID.HeaderText = "TokenID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            this.clmnTokenID.ReadOnly = true;
+            // 
+            // clmnEmpName
+            // 
+            this.clmnEmpName.DataPropertyName = "Name";
+            this.clmnEmpName.HeaderText = "Name";
+            this.clmnEmpName.Name = "clmnEmpName";
+            this.clmnEmpName.ReadOnly = true;
+            // 
+            // clmnEPFNO
+            // 
+            this.clmnEPFNO.DataPropertyName = "EPFNo";
+            this.clmnEPFNO.HeaderText = "EPF No";
+            this.clmnEPFNO.Name = "clmnEPFNO";
+            this.clmnEPFNO.ReadOnly = true;
+            // 
+            // clmnAnnual
+            // 
+            this.clmnAnnual.DataPropertyName = "AnnualLeaves";
+            this.clmnAnnual.HeaderText = "Annual";
+            this.clmnAnnual.Name = "clmnAnnual";
+            this.clmnAnnual.ReadOnly = true;
+            // 
+            // clmnCasual
+            // 
+            this.clmnCasual.DataPropertyName = "CasualLeaves";
+            this.clmnCasual.HeaderText = "Casual";
+            this.clmnCasual.Name = "clmnCasual";
+            this.clmnCasual.ReadOnly = true;
             // 
             // grpEmployeeDetails
             // 
@@ -482,46 +506,11 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "TokenID";
-            this.clmnTokenID.HeaderText = "TokenID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
-            // 
-            // clmnEmpName
-            // 
-            this.clmnEmpName.DataPropertyName = "Name";
-            this.clmnEmpName.HeaderText = "Name";
-            this.clmnEmpName.Name = "clmnEmpName";
-            this.clmnEmpName.ReadOnly = true;
-            // 
-            // clmnEPFNO
-            // 
-            this.clmnEPFNO.DataPropertyName = "EPFNo";
-            this.clmnEPFNO.HeaderText = "EPF No";
-            this.clmnEPFNO.Name = "clmnEPFNO";
-            this.clmnEPFNO.ReadOnly = true;
-            // 
-            // clmnAnnual
-            // 
-            this.clmnAnnual.DataPropertyName = "AnnualLeaves";
-            this.clmnAnnual.HeaderText = "Annual";
-            this.clmnAnnual.Name = "clmnAnnual";
-            this.clmnAnnual.ReadOnly = true;
-            // 
-            // clmnCasual
-            // 
-            this.clmnCasual.DataPropertyName = "CasualLeaves";
-            this.clmnCasual.HeaderText = "Casual";
-            this.clmnCasual.Name = "clmnCasual";
-            this.clmnCasual.ReadOnly = true;
-            // 
             // frmAddLeaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 484);
+            this.ClientSize = new System.Drawing.Size(841, 483);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpEmployeeDetails);
@@ -555,7 +544,6 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.ComboBox cmbBranch;
         private System.Windows.Forms.DataGridView dgvLeaves;
-        private System.Windows.Forms.Button btnClearGrid;
         private System.Windows.Forms.GroupBox grpEmployeeDetails;
         private System.Windows.Forms.TextBox txtSubDepartment;
         private System.Windows.Forms.TextBox txtBranch;
