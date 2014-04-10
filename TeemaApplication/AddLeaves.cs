@@ -65,8 +65,7 @@ namespace TeemaApplication
             //               select new { emp.TokenNo, emp.Name, emp.EPFNo });
  
            // dgvLeaves.DataSource = empdata;
-            if (dgvLeaves.SelectedRows != null)
-            {
+            
 
                 SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
 
@@ -93,11 +92,8 @@ namespace TeemaApplication
                 }
 
                 dgvLeaves.DataSource = dt;
-            }
-            else
-            {
-                MessageBox.Show("Please select an Employee to add leaves");
-            }
+            
+           
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,42 +170,53 @@ namespace TeemaApplication
         //add to granted leaves tables
         private void addLeaves()
         {
-            int year = Convert.ToInt32(cmbLeaveYear.Text);
-            int annual = Convert.ToInt32(txtAnnual.Text);
-            int casual = Convert.ToInt32(txtCasual.Text);
 
-            String tokenid = Convert.ToString(dgvLeaves.SelectedRows[0].Cells[0].Value);
-
-            //Get Employee id using token number
-            Employee employee = db.Employees.Where(emp => emp.TokenNo.ToUpper().Equals(tokenid)).SingleOrDefault();
-
-
-            GrantedLeave grantedLeave = employee.GrantedLeaves.Where(grl => grl.year == Convert.ToInt32(cmbLeaveYear.Text)).SingleOrDefault();
-
-
-
-            if (grantedLeave == null)
+            if (dgvLeaves.SelectedRows != null)
             {
-                // insert to  granted leaves
-                grantedLeave = new GrantedLeave
+
+                int year = Convert.ToInt32(cmbLeaveYear.Text);
+                int annual = Convert.ToInt32(txtAnnual.Text);
+                int casual = Convert.ToInt32(txtCasual.Text);
+
+                String tokenid = Convert.ToString(dgvLeaves.SelectedRows[0].Cells[0].Value);
+
+                //Get Employee id using token number
+                Employee employee = db.Employees.Where(emp => emp.TokenNo.ToUpper().Equals(tokenid)).SingleOrDefault();
+
+
+                GrantedLeave grantedLeave = employee.GrantedLeaves.Where(grl => grl.year == Convert.ToInt32(cmbLeaveYear.Text)).SingleOrDefault();
+
+
+
+                if (grantedLeave == null)
                 {
-                    Employee = employee,
-                    year = year,
-                    Annual = annual,
-                    Casual = casual
-                };
+                    // insert to  granted leaves
+                    grantedLeave = new GrantedLeave
+                    {
+                        Employee = employee,
+                        year = year,
+                        Annual = annual,
+                        Casual = casual
+                    };
 
-                db.GrantedLeaves.InsertOnSubmit(grantedLeave);
-                //reload grid view
-                //  fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+                    db.GrantedLeaves.InsertOnSubmit(grantedLeave);
+                    //reload grid view
+                    //  fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+                }
+                else
+                {
+                    grantedLeave.Annual = Convert.ToInt32(txtAnnual.Text);
+                    grantedLeave.Casual = Convert.ToInt32(txtCasual.Text);
+                }
+                db.SubmitChanges();
             }
-            else
-            {
-                grantedLeave.Annual = Convert.ToInt32(txtAnnual.Text);
-                grantedLeave.Casual = Convert.ToInt32(txtCasual.Text);
-            }
-            db.SubmitChanges();
+              else
+             {
+                 MessageBox.Show("Please select a Employee to add leaves");
+
+             }
         }
+      
 
         // check text boxes for proper values
         private String getIntNumaricValue(string title, string text)
