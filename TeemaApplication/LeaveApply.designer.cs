@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -41,13 +40,13 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtReasonsForAbsence = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpLeaveFrom = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpLeaveTo = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtNoOfDays = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -65,18 +64,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.rbtAnnual = new System.Windows.Forms.RadioButton();
+            this.rbtPay = new System.Windows.Forms.RadioButton();
+            this.rbtOther = new System.Windows.Forms.RadioButton();
+            this.rbtCasual = new System.Windows.Forms.RadioButton();
+            this.RbtNoPay = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.txtSubstituteID = new System.Windows.Forms.TextBox();
+            this.txtNameofSubstitue = new System.Windows.Forms.TextBox();
+            this.txtOtherLeaveDescription = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -125,10 +123,19 @@
             this.txtLeavesTakenOther = new System.Windows.Forms.TextBox();
             this.txtLeaveBalanceCasual = new System.Windows.Forms.TextBox();
             this.txtLeavesTakenCasual = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.rbtFullDay = new System.Windows.Forms.RadioButton();
+            this.rbtHalfday = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpEmployeeDetails.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -140,15 +147,6 @@
             this.label1.Size = new System.Drawing.Size(177, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Apply Leaves";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Apply Date";
             // 
             // label7
             // 
@@ -244,66 +242,66 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 102);
+            this.label11.Location = new System.Drawing.Point(5, 76);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(109, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Reasons for Absence";
             // 
-            // textBox8
+            // txtReasonsForAbsence
             // 
-            this.textBox8.Location = new System.Drawing.Point(133, 99);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(182, 20);
-            this.textBox8.TabIndex = 1;
+            this.txtReasonsForAbsence.Location = new System.Drawing.Point(133, 73);
+            this.txtReasonsForAbsence.Name = "txtReasonsForAbsence";
+            this.txtReasonsForAbsence.Size = new System.Drawing.Size(182, 20);
+            this.txtReasonsForAbsence.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 149);
+            this.label12.Location = new System.Drawing.Point(6, 160);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Leave From";
             // 
-            // dateTimePicker1
+            // dtpLeaveFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 148);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(182, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtpLeaveFrom.Location = new System.Drawing.Point(133, 154);
+            this.dtpLeaveFrom.Name = "dtpLeaveFrom";
+            this.dtpLeaveFrom.Size = new System.Drawing.Size(182, 20);
+            this.dtpLeaveFrom.TabIndex = 5;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 174);
+            this.label13.Location = new System.Drawing.Point(6, 186);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "Leave To";
             // 
-            // dateTimePicker2
+            // dtpLeaveTo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(133, 174);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(182, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dtpLeaveTo.Location = new System.Drawing.Point(133, 180);
+            this.dtpLeaveTo.Name = "dtpLeaveTo";
+            this.dtpLeaveTo.Size = new System.Drawing.Size(182, 20);
+            this.dtpLeaveTo.TabIndex = 5;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 199);
+            this.label14.Location = new System.Drawing.Point(6, 209);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(69, 13);
             this.label14.TabIndex = 6;
             this.label14.Text = "No. Of Dates";
             // 
-            // textBox9
+            // txtNoOfDays
             // 
-            this.textBox9.Location = new System.Drawing.Point(133, 200);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(182, 20);
-            this.textBox9.TabIndex = 2;
+            this.txtNoOfDays.Location = new System.Drawing.Point(133, 206);
+            this.txtNoOfDays.Name = "txtNoOfDays";
+            this.txtNoOfDays.Size = new System.Drawing.Size(182, 20);
+            this.txtNoOfDays.TabIndex = 2;
             // 
             // label15
             // 
@@ -412,7 +410,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(101, 282);
+            this.button1.Location = new System.Drawing.Point(103, 284);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -421,7 +419,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(182, 282);
+            this.button2.Location = new System.Drawing.Point(184, 284);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -430,7 +428,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(263, 282);
+            this.button3.Location = new System.Drawing.Point(265, 284);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
@@ -439,114 +437,104 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dateTimePicker3);
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.panel2);
+            this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.label31);
-            this.groupBox3.Controls.Add(this.radioButton10);
-            this.groupBox3.Controls.Add(this.radioButton8);
             this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.radioButton11);
-            this.groupBox3.Controls.Add(this.radioButton9);
-            this.groupBox3.Controls.Add(this.radioButton7);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label33);
             this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.textBox24);
-            this.groupBox3.Controls.Add(this.textBox16);
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
-            this.groupBox3.Controls.Add(this.textBox23);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
-            this.groupBox3.Controls.Add(this.textBox9);
+            this.groupBox3.Controls.Add(this.txtSubstituteID);
+            this.groupBox3.Controls.Add(this.txtNameofSubstitue);
+            this.groupBox3.Controls.Add(this.dtpLeaveTo);
+            this.groupBox3.Controls.Add(this.txtOtherLeaveDescription);
+            this.groupBox3.Controls.Add(this.txtReasonsForAbsence);
+            this.groupBox3.Controls.Add(this.dtpLeaveFrom);
+            this.groupBox3.Controls.Add(this.txtNoOfDays);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label32);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Location = new System.Drawing.Point(305, 182);
+            this.groupBox3.Location = new System.Drawing.Point(305, 173);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 334);
+            this.groupBox3.Size = new System.Drawing.Size(347, 319);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "New Leave Details";
             // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(133, 20);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(182, 20);
-            this.dateTimePicker3.TabIndex = 8;
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(5, 79);
+            this.label31.Location = new System.Drawing.Point(5, 50);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(122, 13);
             this.label31.TabIndex = 0;
             this.label31.Text = "Other Leave Description";
             // 
-            // radioButton10
+            // rbtAnnual
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(133, 51);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(58, 17);
-            this.radioButton10.TabIndex = 3;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Annual";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.rbtAnnual.AutoSize = true;
+            this.rbtAnnual.Location = new System.Drawing.Point(3, 2);
+            this.rbtAnnual.Name = "rbtAnnual";
+            this.rbtAnnual.Size = new System.Drawing.Size(58, 17);
+            this.rbtAnnual.TabIndex = 3;
+            this.rbtAnnual.TabStop = true;
+            this.rbtAnnual.Text = "Annual";
+            this.rbtAnnual.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // rbtPay
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(133, 125);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(43, 17);
-            this.radioButton8.TabIndex = 3;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Pay";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.rbtPay.AutoSize = true;
+            this.rbtPay.Checked = true;
+            this.rbtPay.Location = new System.Drawing.Point(3, 3);
+            this.rbtPay.Name = "rbtPay";
+            this.rbtPay.Size = new System.Drawing.Size(43, 17);
+            this.rbtPay.TabIndex = 3;
+            this.rbtPay.TabStop = true;
+            this.rbtPay.Text = "Pay";
+            this.rbtPay.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // rbtOther
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(262, 51);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(51, 17);
-            this.radioButton11.TabIndex = 3;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "Other";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.rbtOther.AutoSize = true;
+            this.rbtOther.Location = new System.Drawing.Point(132, 2);
+            this.rbtOther.Name = "rbtOther";
+            this.rbtOther.Size = new System.Drawing.Size(51, 17);
+            this.rbtOther.TabIndex = 3;
+            this.rbtOther.TabStop = true;
+            this.rbtOther.Text = "Other";
+            this.rbtOther.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rbtCasual
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(199, 51);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(57, 17);
-            this.radioButton9.TabIndex = 3;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Casual";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rbtCasual.AutoSize = true;
+            this.rbtCasual.Location = new System.Drawing.Point(69, 2);
+            this.rbtCasual.Name = "rbtCasual";
+            this.rbtCasual.Size = new System.Drawing.Size(57, 17);
+            this.rbtCasual.TabIndex = 3;
+            this.rbtCasual.TabStop = true;
+            this.rbtCasual.Text = "Casual";
+            this.rbtCasual.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // RbtNoPay
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(199, 125);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(57, 17);
-            this.radioButton7.TabIndex = 3;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "NoPay";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.RbtNoPay.AutoSize = true;
+            this.RbtNoPay.Location = new System.Drawing.Point(68, 3);
+            this.RbtNoPay.Name = "RbtNoPay";
+            this.RbtNoPay.Size = new System.Drawing.Size(57, 17);
+            this.RbtNoPay.TabIndex = 3;
+            this.RbtNoPay.Text = "NoPay";
+            this.RbtNoPay.UseVisualStyleBackColor = true;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 224);
+            this.label33.Location = new System.Drawing.Point(6, 235);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(65, 13);
             this.label33.TabIndex = 0;
@@ -555,37 +543,37 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 249);
+            this.label23.Location = new System.Drawing.Point(5, 261);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(94, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Name of Substitue";
             // 
-            // textBox24
+            // txtSubstituteID
             // 
-            this.textBox24.Location = new System.Drawing.Point(133, 226);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(182, 20);
-            this.textBox24.TabIndex = 1;
+            this.txtSubstituteID.Location = new System.Drawing.Point(133, 232);
+            this.txtSubstituteID.Name = "txtSubstituteID";
+            this.txtSubstituteID.Size = new System.Drawing.Size(182, 20);
+            this.txtSubstituteID.TabIndex = 1;
             // 
-            // textBox16
+            // txtNameofSubstitue
             // 
-            this.textBox16.Location = new System.Drawing.Point(133, 252);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(182, 20);
-            this.textBox16.TabIndex = 1;
+            this.txtNameofSubstitue.Location = new System.Drawing.Point(133, 258);
+            this.txtNameofSubstitue.Name = "txtNameofSubstitue";
+            this.txtNameofSubstitue.Size = new System.Drawing.Size(182, 20);
+            this.txtNameofSubstitue.TabIndex = 1;
             // 
-            // textBox23
+            // txtOtherLeaveDescription
             // 
-            this.textBox23.Location = new System.Drawing.Point(133, 76);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(182, 20);
-            this.textBox23.TabIndex = 1;
+            this.txtOtherLeaveDescription.Location = new System.Drawing.Point(133, 47);
+            this.txtOtherLeaveDescription.Name = "txtOtherLeaveDescription";
+            this.txtOtherLeaveDescription.Size = new System.Drawing.Size(182, 20);
+            this.txtOtherLeaveDescription.TabIndex = 1;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 49);
+            this.label22.Location = new System.Drawing.Point(6, 20);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(64, 13);
             this.label22.TabIndex = 0;
@@ -594,7 +582,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 127);
+            this.label32.Location = new System.Drawing.Point(6, 130);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(62, 13);
             this.label32.TabIndex = 0;
@@ -918,7 +906,7 @@
             this.groupBox2.Controls.Add(this.txtLeavesTakenCasual);
             this.groupBox2.Location = new System.Drawing.Point(305, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 133);
+            this.groupBox2.Size = new System.Drawing.Size(347, 123);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Current Leave Record ";
@@ -926,7 +914,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(255, 27);
+            this.label39.Location = new System.Drawing.Point(256, 17);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(33, 13);
             this.label39.TabIndex = 6;
@@ -935,7 +923,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(192, 27);
+            this.label38.Location = new System.Drawing.Point(193, 17);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(44, 13);
             this.label38.TabIndex = 5;
@@ -944,7 +932,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(134, 27);
+            this.label37.Location = new System.Drawing.Point(135, 17);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(40, 13);
             this.label37.TabIndex = 4;
@@ -953,7 +941,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(5, 101);
+            this.label36.Location = new System.Drawing.Point(6, 91);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(79, 13);
             this.label36.TabIndex = 3;
@@ -962,7 +950,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(5, 76);
+            this.label35.Location = new System.Drawing.Point(6, 66);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 2;
@@ -971,7 +959,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(5, 50);
+            this.label34.Location = new System.Drawing.Point(6, 40);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(80, 13);
             this.label34.TabIndex = 1;
@@ -979,58 +967,117 @@
             // 
             // txtLeavesEntitledAnnual
             // 
-            this.txtLeavesEntitledAnnual.Location = new System.Drawing.Point(133, 48);
+            this.txtLeavesEntitledAnnual.Location = new System.Drawing.Point(134, 38);
             this.txtLeavesEntitledAnnual.Name = "txtLeavesEntitledAnnual";
             this.txtLeavesEntitledAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesEntitledAnnual.TabIndex = 0;
             // 
             // txtLeaveBalanceAnnual
             // 
-            this.txtLeaveBalanceAnnual.Location = new System.Drawing.Point(133, 98);
+            this.txtLeaveBalanceAnnual.Location = new System.Drawing.Point(134, 88);
             this.txtLeaveBalanceAnnual.Name = "txtLeaveBalanceAnnual";
             this.txtLeaveBalanceAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeaveBalanceAnnual.TabIndex = 0;
             // 
             // txtLeavesTakenAnnual
             // 
-            this.txtLeavesTakenAnnual.Location = new System.Drawing.Point(133, 73);
+            this.txtLeavesTakenAnnual.Location = new System.Drawing.Point(134, 63);
             this.txtLeavesTakenAnnual.Name = "txtLeavesTakenAnnual";
             this.txtLeavesTakenAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenAnnual.TabIndex = 0;
             // 
             // txtLeavesEntitledCasual
             // 
-            this.txtLeavesEntitledCasual.Location = new System.Drawing.Point(195, 48);
+            this.txtLeavesEntitledCasual.Location = new System.Drawing.Point(196, 38);
             this.txtLeavesEntitledCasual.Name = "txtLeavesEntitledCasual";
             this.txtLeavesEntitledCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesEntitledCasual.TabIndex = 0;
             // 
             // txtLeavesTakenOther
             // 
-            this.txtLeavesTakenOther.Location = new System.Drawing.Point(255, 74);
+            this.txtLeavesTakenOther.Location = new System.Drawing.Point(256, 64);
             this.txtLeavesTakenOther.Name = "txtLeavesTakenOther";
             this.txtLeavesTakenOther.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenOther.TabIndex = 0;
             // 
             // txtLeaveBalanceCasual
             // 
-            this.txtLeaveBalanceCasual.Location = new System.Drawing.Point(195, 98);
+            this.txtLeaveBalanceCasual.Location = new System.Drawing.Point(196, 88);
             this.txtLeaveBalanceCasual.Name = "txtLeaveBalanceCasual";
             this.txtLeaveBalanceCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeaveBalanceCasual.TabIndex = 0;
             // 
             // txtLeavesTakenCasual
             // 
-            this.txtLeavesTakenCasual.Location = new System.Drawing.Point(195, 73);
+            this.txtLeavesTakenCasual.Location = new System.Drawing.Point(196, 63);
             this.txtLeavesTakenCasual.Name = "txtLeavesTakenCasual";
             this.txtLeavesTakenCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenCasual.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Leave Value";
+            // 
+            // rbtFullDay
+            // 
+            this.rbtFullDay.AutoSize = true;
+            this.rbtFullDay.Checked = true;
+            this.rbtFullDay.Location = new System.Drawing.Point(3, 3);
+            this.rbtFullDay.Name = "rbtFullDay";
+            this.rbtFullDay.Size = new System.Drawing.Size(63, 17);
+            this.rbtFullDay.TabIndex = 9;
+            this.rbtFullDay.TabStop = true;
+            this.rbtFullDay.Text = "Full Day";
+            this.rbtFullDay.UseVisualStyleBackColor = true;
+            // 
+            // rbtHalfday
+            // 
+            this.rbtHalfday.AutoSize = true;
+            this.rbtHalfday.Location = new System.Drawing.Point(69, 3);
+            this.rbtHalfday.Name = "rbtHalfday";
+            this.rbtHalfday.Size = new System.Drawing.Size(66, 17);
+            this.rbtHalfday.TabIndex = 10;
+            this.rbtHalfday.Text = "Half Day";
+            this.rbtHalfday.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtAnnual);
+            this.panel1.Controls.Add(this.rbtCasual);
+            this.panel1.Controls.Add(this.rbtOther);
+            this.panel1.Location = new System.Drawing.Point(133, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(183, 23);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtFullDay);
+            this.panel2.Controls.Add(this.rbtHalfday);
+            this.panel2.Location = new System.Drawing.Point(133, 97);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(141, 23);
+            this.panel2.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.rbtPay);
+            this.panel3.Controls.Add(this.RbtNoPay);
+            this.panel3.Location = new System.Drawing.Point(134, 124);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(141, 23);
+            this.panel3.TabIndex = 10;
             // 
             // frmLeaveApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 523);
+            this.ClientSize = new System.Drawing.Size(661, 500);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpEmployeeDetails);
@@ -1046,6 +1093,12 @@
             this.grpEmployeeDetails.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1062,12 +1115,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpLeaveTo;
+        private System.Windows.Forms.DateTimePicker dtpLeaveFrom;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtReasonsForAbsence;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1075,7 +1127,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtNoOfDays;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox12;
@@ -1091,11 +1143,10 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.TextBox txtNameofSubstitue;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton rbtPay;
+        private System.Windows.Forms.RadioButton RbtNoPay;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbtTokenNo;
@@ -1127,14 +1178,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton rbtAnnual;
+        private System.Windows.Forms.RadioButton rbtCasual;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton rbtOther;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox txtSubstituteID;
+        private System.Windows.Forms.TextBox txtOtherLeaveDescription;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
@@ -1150,5 +1201,11 @@
         private System.Windows.Forms.TextBox txtLeavesTakenCasual;
         private System.Windows.Forms.TextBox txtNicNo;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton rbtFullDay;
+        private System.Windows.Forms.RadioButton rbtHalfday;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }

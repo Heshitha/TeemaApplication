@@ -174,6 +174,102 @@ namespace TeemaApplication
         {
             searchEmployee();
         }
-           
+
+        private void applyleave()
+        {
+            String leavetype;
+            String OtherLeaveReason;
+            String reasonforabsence;
+            float leavevalue;
+            int ispay;
+            DateTime leavefrom;
+            DateTime leaveto;
+            TimeSpan numberofdays;
+            int substituteid;
+            String nameofsubstitue;
+
+            if (rbtOther.Checked != null && rbtAnnual.Checked != null && rbtCasual.Checked != null)
+            {
+                if (rbtAnnual.Checked)
+                {
+                    leavetype = "Annual";
+                }
+                else if (rbtCasual.Checked)
+                {
+                    leavetype = "Casual";
+                }
+                else if (rbtOther.Checked)
+                {
+                    leavetype = "Other";
+                }
+
+                if (txtReasonsForAbsence.Text != null)
+                {
+                    reasonforabsence = txtReasonsForAbsence.Text;
+
+                    if (rbtFullDay.Checked)
+                    {
+                        leavevalue = 1;
+                    }
+                    else
+                    {
+                        leavevalue = 0.5F;
+                    }
+
+                    if (rbtPay.Checked)
+                    {
+                        ispay = 1;
+                    }
+                    else
+                    {
+                        ispay = 0;
+                    }
+
+                    leavefrom = dtpLeaveFrom.Value;
+                    leaveto = dtpLeaveTo.Value;
+                    numberofdays = leaveto - leavefrom;
+
+                    if (txtSubstituteID != null)
+                    {
+                        substituteid = Convert.ToInt32(txtSubstituteID.Text);
+
+                        Employee empname = (from emp in db.Employees
+                                            where emp.EmployeeID == Convert.ToInt64(substituteid)
+                                            select emp).SingleOrDefault();
+                        if (empname != null)
+                        {
+                            txtNameofSubstitue.Text = empname.Name;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Substitue employee not found..!!");
+                        }
+                    }
+                    else
+                    {
+                        // do somthin
+                    }
+
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Please add a Reason for absence");
+                }
+
+
+ 
+            }
+            else
+            {
+                MessageBox.Show("Please select a Leave Type");
+            }
+
+
+        }
+      
     }
 }
