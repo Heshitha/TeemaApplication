@@ -171,7 +171,7 @@ namespace TeemaApplication
         private void addLeaves()
         {
 
-            if (dgvLeaves.SelectedRows != null)
+            if (dgvLeaves.SelectedRows.Count == 1)
             {
 
                 int year = Convert.ToInt32(cmbLeaveYear.Text);
@@ -244,7 +244,7 @@ namespace TeemaApplication
 
                 if (errortext == "")
                 {
-                    addLeaves();
+                    
                     return true;
                     
                 }
@@ -260,11 +260,14 @@ namespace TeemaApplication
 
         private void btnAddLeaves_Click(object sender, EventArgs e)
         {
-            checkforValues();
-            fillLeavesGrid();
-            cleartextbox(grpEmployeeDetails);
 
-            
+            if (checkforValues())
+            {
+                addLeaves();
+                fillLeavesGrid();
+                cleartextbox(grpEmployeeDetails);
+            }
+             
         }
 
         private void btnClearAddLeaves_Click(object sender, EventArgs e)
