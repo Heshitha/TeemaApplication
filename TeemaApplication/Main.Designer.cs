@@ -32,7 +32,6 @@
             this.btnViewEmplyeeList = new System.Windows.Forms.Button();
             this.btnViewEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAddLeaves = new System.Windows.Forms.Button();
             this.gbxOverTime = new System.Windows.Forms.GroupBox();
             this.btnOverTimeApproved = new System.Windows.Forms.Button();
             this.btnOverTimeRequest = new System.Windows.Forms.Button();
@@ -45,10 +44,13 @@
             this.gbxIncentive = new System.Windows.Forms.GroupBox();
             this.btnVaribleIncentiveAllowance = new System.Windows.Forms.Button();
             this.btnFixedIncentiveAllowance = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAddLeaves = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
             this.gbxIncentive.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddNewEmployee
@@ -84,7 +86,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAddNewEmployee);
-            this.groupBox1.Controls.Add(this.btnAddLeaves);
             this.groupBox1.Controls.Add(this.btnViewEmployee);
             this.groupBox1.Controls.Add(this.btnViewEmplyeeList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -93,16 +94,6 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Functions";
-            // 
-            // btnAddLeaves
-            // 
-            this.btnAddLeaves.Location = new System.Drawing.Point(6, 108);
-            this.btnAddLeaves.Name = "btnAddLeaves";
-            this.btnAddLeaves.Size = new System.Drawing.Size(112, 23);
-            this.btnAddLeaves.TabIndex = 2;
-            this.btnAddLeaves.Text = "Add Leaves";
-            this.btnAddLeaves.UseVisualStyleBackColor = true;
-            this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
             // 
             // gbxOverTime
             // 
@@ -230,11 +221,32 @@
             this.btnFixedIncentiveAllowance.UseVisualStyleBackColor = true;
             this.btnFixedIncentiveAllowance.Click += new System.EventHandler(this.btnFixedIncentiveAllowance_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnAddLeaves);
+            this.groupBox2.Location = new System.Drawing.Point(12, 178);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Leaves";
+            // 
+            // btnAddLeaves
+            // 
+            this.btnAddLeaves.Location = new System.Drawing.Point(6, 19);
+            this.btnAddLeaves.Name = "btnAddLeaves";
+            this.btnAddLeaves.Size = new System.Drawing.Size(112, 23);
+            this.btnAddLeaves.TabIndex = 2;
+            this.btnAddLeaves.Text = "Add Leaves";
+            this.btnAddLeaves.UseVisualStyleBackColor = true;
+            this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 380);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxIncentive);
             this.Controls.Add(this.gbxSalary);
             this.Controls.Add(this.gbxOverTime);
@@ -245,6 +257,7 @@
             this.gbxOverTime.ResumeLayout(false);
             this.gbxSalary.ResumeLayout(false);
             this.gbxIncentive.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,7 +268,6 @@
         private System.Windows.Forms.Button btnViewEmplyeeList;
         private System.Windows.Forms.Button btnViewEmployee;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnAddLeaves;
         private System.Windows.Forms.GroupBox gbxOverTime;
         private System.Windows.Forms.Button btnOverTimeRequest;
         private System.Windows.Forms.Button btnOverTimeApproved;
@@ -268,5 +280,7 @@
         private System.Windows.Forms.GroupBox gbxIncentive;
         private System.Windows.Forms.Button btnVaribleIncentiveAllowance;
         private System.Windows.Forms.Button btnFixedIncentiveAllowance;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnAddLeaves;
     }
 }
