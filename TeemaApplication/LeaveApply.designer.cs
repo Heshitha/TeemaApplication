@@ -80,28 +80,28 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rbtTokenNo = new System.Windows.Forms.RadioButton();
+            this.rbtEPFNo = new System.Windows.Forms.RadioButton();
+            this.rbtNIC = new System.Windows.Forms.RadioButton();
+            this.txtKeyWord = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtNicNo = new System.Windows.Forms.TextBox();
+            this.txtSubDepartment = new System.Windows.Forms.TextBox();
+            this.txtBranch = new System.Windows.Forms.TextBox();
+            this.txtDepartment = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtTokenNo = new System.Windows.Forms.TextBox();
+            this.txtDesignation = new System.Windows.Forms.TextBox();
+            this.txtEPFno = new System.Windows.Forms.TextBox();
+            this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -118,13 +118,13 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.txtLeavesEntitledAnnual = new System.Windows.Forms.TextBox();
+            this.txtLeaveBalanceAnnual = new System.Windows.Forms.TextBox();
+            this.txtLeavesTakenAnnual = new System.Windows.Forms.TextBox();
+            this.txtLeavesEntitledCasual = new System.Windows.Forms.TextBox();
+            this.txtLeavesTakenOther = new System.Windows.Forms.TextBox();
+            this.txtLeaveBalanceCasual = new System.Windows.Forms.TextBox();
+            this.txtLeavesTakenCasual = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -199,7 +199,6 @@
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "EPF No";
-            
             // 
             // radioButton1
             // 
@@ -233,7 +232,6 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "NIC";
             this.radioButton3.UseVisualStyleBackColor = true;
-           
             // 
             // textBox7
             // 
@@ -258,7 +256,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(182, 20);
             this.textBox8.TabIndex = 1;
-          
             // 
             // label12
             // 
@@ -268,7 +265,6 @@
             this.label12.Size = new System.Drawing.Size(63, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Leave From";
-            
             // 
             // dateTimePicker1
             // 
@@ -324,7 +320,6 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(156, 20);
             this.textBox10.TabIndex = 1;
-            
             // 
             // label16
             // 
@@ -476,7 +471,6 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "New Leave Details";
-           
             // 
             // dateTimePicker3
             // 
@@ -493,7 +487,6 @@
             this.label31.Size = new System.Drawing.Size(122, 13);
             this.label31.TabIndex = 0;
             this.label31.Text = "Other Leave Description";
-           
             // 
             // radioButton10
             // 
@@ -527,7 +520,6 @@
             this.radioButton11.TabStop = true;
             this.radioButton11.Text = "Other";
             this.radioButton11.UseVisualStyleBackColor = true;
-           
             // 
             // radioButton9
             // 
@@ -539,7 +531,6 @@
             this.radioButton9.TabStop = true;
             this.radioButton9.Text = "Casual";
             this.radioButton9.UseVisualStyleBackColor = true;
-          
             // 
             // radioButton7
             // 
@@ -551,7 +542,6 @@
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "NoPay";
             this.radioButton7.UseVisualStyleBackColor = true;
-        
             // 
             // label33
             // 
@@ -577,7 +567,6 @@
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(182, 20);
             this.textBox24.TabIndex = 1;
-        
             // 
             // textBox16
             // 
@@ -585,7 +574,6 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(182, 20);
             this.textBox16.TabIndex = 1;
-          
             // 
             // textBox23
             // 
@@ -593,7 +581,6 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(182, 20);
             this.textBox23.TabIndex = 1;
-           
             // 
             // label22
             // 
@@ -603,7 +590,6 @@
             this.label22.Size = new System.Drawing.Size(64, 13);
             this.label22.TabIndex = 0;
             this.label22.Text = "Leave Type";
-            
             // 
             // label32
             // 
@@ -613,18 +599,17 @@
             this.label32.Size = new System.Drawing.Size(62, 13);
             this.label32.TabIndex = 0;
             this.label32.Text = "Pay/NoPay";
-            
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton6);
-            this.groupBox1.Controls.Add(this.radioButton5);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.rbtTokenNo);
+            this.groupBox1.Controls.Add(this.rbtEPFNo);
+            this.groupBox1.Controls.Add(this.rbtNIC);
+            this.groupBox1.Controls.Add(this.txtKeyWord);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(287, 105);
@@ -632,45 +617,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Search";
             // 
-            // radioButton6
+            // rbtTokenNo
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(183, 50);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(73, 17);
-            this.radioButton6.TabIndex = 8;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Token No";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rbtTokenNo.AutoSize = true;
+            this.rbtTokenNo.Location = new System.Drawing.Point(183, 50);
+            this.rbtTokenNo.Name = "rbtTokenNo";
+            this.rbtTokenNo.Size = new System.Drawing.Size(73, 17);
+            this.rbtTokenNo.TabIndex = 8;
+            this.rbtTokenNo.TabStop = true;
+            this.rbtTokenNo.Text = "Token No";
+            this.rbtTokenNo.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbtEPFNo
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(115, 50);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(62, 17);
-            this.radioButton5.TabIndex = 8;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "EPF No";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbtEPFNo.AutoSize = true;
+            this.rbtEPFNo.Location = new System.Drawing.Point(115, 50);
+            this.rbtEPFNo.Name = "rbtEPFNo";
+            this.rbtEPFNo.Size = new System.Drawing.Size(62, 17);
+            this.rbtEPFNo.TabIndex = 8;
+            this.rbtEPFNo.TabStop = true;
+            this.rbtEPFNo.Text = "EPF No";
+            this.rbtEPFNo.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbtNIC
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(66, 49);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(43, 17);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "NIC";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbtNIC.AutoSize = true;
+            this.rbtNIC.Location = new System.Drawing.Point(66, 49);
+            this.rbtNIC.Name = "rbtNIC";
+            this.rbtNIC.Size = new System.Drawing.Size(43, 17);
+            this.rbtNIC.TabIndex = 8;
+            this.rbtNIC.TabStop = true;
+            this.rbtNIC.Text = "NIC";
+            this.rbtNIC.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtKeyWord
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtKeyWord.Location = new System.Drawing.Point(66, 23);
+            this.txtKeyWord.Name = "txtKeyWord";
+            this.txtKeyWord.Size = new System.Drawing.Size(209, 20);
+            this.txtKeyWord.TabIndex = 1;
             // 
             // label3
             // 
@@ -680,14 +665,14 @@
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 0;
             // 
-            // button5
+            // btnReset
             // 
-            this.button5.Location = new System.Drawing.Point(200, 73);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Reset";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(200, 73);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -698,14 +683,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Key Word";
             // 
-            // button4
+            // btnSearch
             // 
-            this.button4.Location = new System.Drawing.Point(119, 73);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(119, 73);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -727,17 +712,17 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.textBox32);
-            this.groupBox4.Controls.Add(this.textBox22);
-            this.groupBox4.Controls.Add(this.textBox21);
-            this.groupBox4.Controls.Add(this.textBox19);
+            this.groupBox4.Controls.Add(this.btnClear);
+            this.groupBox4.Controls.Add(this.txtNicNo);
+            this.groupBox4.Controls.Add(this.txtSubDepartment);
+            this.groupBox4.Controls.Add(this.txtBranch);
+            this.groupBox4.Controls.Add(this.txtDepartment);
             this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.textBox20);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.textBox17);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.textBox18);
+            this.groupBox4.Controls.Add(this.txtTokenNo);
+            this.groupBox4.Controls.Add(this.txtDesignation);
+            this.groupBox4.Controls.Add(this.txtEPFno);
+            this.groupBox4.Controls.Add(this.txtEmployeeName);
             this.groupBox4.Controls.Add(this.label24);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.label29);
@@ -753,47 +738,43 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Employee Details";
-           
             // 
-            // button8
+            // btnClear
             // 
-            this.button8.Location = new System.Drawing.Point(189, 229);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Clear";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(189, 229);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
-            // textBox32
+            // txtNicNo
             // 
-            this.textBox32.Location = new System.Drawing.Point(96, 71);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(173, 20);
-            this.textBox32.TabIndex = 2;
+            this.txtNicNo.Location = new System.Drawing.Point(96, 71);
+            this.txtNicNo.Name = "txtNicNo";
+            this.txtNicNo.Size = new System.Drawing.Size(173, 20);
+            this.txtNicNo.TabIndex = 2;
             // 
-            // textBox22
+            // txtSubDepartment
             // 
-            this.textBox22.Location = new System.Drawing.Point(96, 175);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(173, 20);
-            this.textBox22.TabIndex = 1;
-        
+            this.txtSubDepartment.Location = new System.Drawing.Point(96, 175);
+            this.txtSubDepartment.Name = "txtSubDepartment";
+            this.txtSubDepartment.Size = new System.Drawing.Size(173, 20);
+            this.txtSubDepartment.TabIndex = 1;
             // 
-            // textBox21
+            // txtBranch
             // 
-            this.textBox21.Location = new System.Drawing.Point(96, 201);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(173, 20);
-            this.textBox21.TabIndex = 1;
-           
+            this.txtBranch.Location = new System.Drawing.Point(96, 201);
+            this.txtBranch.Name = "txtBranch";
+            this.txtBranch.Size = new System.Drawing.Size(173, 20);
+            this.txtBranch.TabIndex = 1;
             // 
-            // textBox19
+            // txtDepartment
             // 
-            this.textBox19.Location = new System.Drawing.Point(96, 149);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(173, 20);
-            this.textBox19.TabIndex = 1;
-           
+            this.txtDepartment.Location = new System.Drawing.Point(96, 149);
+            this.txtDepartment.Name = "txtDepartment";
+            this.txtDepartment.Size = new System.Drawing.Size(173, 20);
+            this.txtDepartment.TabIndex = 1;
             // 
             // textBox4
             // 
@@ -801,7 +782,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(173, 20);
             this.textBox4.TabIndex = 1;
-           
             // 
             // textBox20
             // 
@@ -809,39 +789,34 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(173, 20);
             this.textBox20.TabIndex = 1;
-         
             // 
-            // textBox3
+            // txtTokenNo
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(173, 20);
-            this.textBox3.TabIndex = 1;
-          
+            this.txtTokenNo.Location = new System.Drawing.Point(96, 123);
+            this.txtTokenNo.Name = "txtTokenNo";
+            this.txtTokenNo.Size = new System.Drawing.Size(173, 20);
+            this.txtTokenNo.TabIndex = 1;
             // 
-            // textBox17
+            // txtDesignation
             // 
-            this.textBox17.Location = new System.Drawing.Point(96, 45);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(173, 20);
-            this.textBox17.TabIndex = 1;
-          
+            this.txtDesignation.Location = new System.Drawing.Point(96, 45);
+            this.txtDesignation.Name = "txtDesignation";
+            this.txtDesignation.Size = new System.Drawing.Size(173, 20);
+            this.txtDesignation.TabIndex = 1;
             // 
-            // textBox2
+            // txtEPFno
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 20);
-            this.textBox2.TabIndex = 1;
-           
+            this.txtEPFno.Location = new System.Drawing.Point(96, 97);
+            this.txtEPFno.Name = "txtEPFno";
+            this.txtEPFno.Size = new System.Drawing.Size(173, 20);
+            this.txtEPFno.TabIndex = 1;
             // 
-            // textBox18
+            // txtEmployeeName
             // 
-            this.textBox18.Location = new System.Drawing.Point(96, 19);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(173, 20);
-            this.textBox18.TabIndex = 1;
-            
+            this.txtEmployeeName.Location = new System.Drawing.Point(96, 19);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Size = new System.Drawing.Size(173, 20);
+            this.txtEmployeeName.TabIndex = 1;
             // 
             // label24
             // 
@@ -859,7 +834,6 @@
             this.label30.Size = new System.Drawing.Size(62, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Department";
-         
             // 
             // label29
             // 
@@ -869,7 +843,6 @@
             this.label29.Size = new System.Drawing.Size(84, 13);
             this.label29.TabIndex = 0;
             this.label29.Text = "Sub-Department";
-        
             // 
             // label4
             // 
@@ -879,7 +852,6 @@
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "EPF No";
-           
             // 
             // label25
             // 
@@ -889,7 +861,6 @@
             this.label25.Size = new System.Drawing.Size(63, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Designation";
-           
             // 
             // label28
             // 
@@ -935,13 +906,13 @@
             this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.textBox29);
-            this.groupBox2.Controls.Add(this.textBox31);
-            this.groupBox2.Controls.Add(this.textBox27);
-            this.groupBox2.Controls.Add(this.textBox28);
-            this.groupBox2.Controls.Add(this.textBox26);
-            this.groupBox2.Controls.Add(this.textBox30);
-            this.groupBox2.Controls.Add(this.textBox25);
+            this.groupBox2.Controls.Add(this.txtLeavesEntitledAnnual);
+            this.groupBox2.Controls.Add(this.txtLeaveBalanceAnnual);
+            this.groupBox2.Controls.Add(this.txtLeavesTakenAnnual);
+            this.groupBox2.Controls.Add(this.txtLeavesEntitledCasual);
+            this.groupBox2.Controls.Add(this.txtLeavesTakenOther);
+            this.groupBox2.Controls.Add(this.txtLeaveBalanceCasual);
+            this.groupBox2.Controls.Add(this.txtLeavesTakenCasual);
             this.groupBox2.Location = new System.Drawing.Point(305, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(347, 133);
@@ -1003,54 +974,54 @@
             this.label34.TabIndex = 1;
             this.label34.Text = "Leaves Entitled";
             // 
-            // textBox29
+            // txtLeavesEntitledAnnual
             // 
-            this.textBox29.Location = new System.Drawing.Point(137, 47);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(41, 20);
-            this.textBox29.TabIndex = 0;
+            this.txtLeavesEntitledAnnual.Location = new System.Drawing.Point(137, 47);
+            this.txtLeavesEntitledAnnual.Name = "txtLeavesEntitledAnnual";
+            this.txtLeavesEntitledAnnual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeavesEntitledAnnual.TabIndex = 0;
             // 
-            // textBox31
+            // txtLeaveBalanceAnnual
             // 
-            this.textBox31.Location = new System.Drawing.Point(137, 97);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(41, 20);
-            this.textBox31.TabIndex = 0;
+            this.txtLeaveBalanceAnnual.Location = new System.Drawing.Point(137, 97);
+            this.txtLeaveBalanceAnnual.Name = "txtLeaveBalanceAnnual";
+            this.txtLeaveBalanceAnnual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeaveBalanceAnnual.TabIndex = 0;
             // 
-            // textBox27
+            // txtLeavesTakenAnnual
             // 
-            this.textBox27.Location = new System.Drawing.Point(137, 72);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(41, 20);
-            this.textBox27.TabIndex = 0;
+            this.txtLeavesTakenAnnual.Location = new System.Drawing.Point(137, 72);
+            this.txtLeavesTakenAnnual.Name = "txtLeavesTakenAnnual";
+            this.txtLeavesTakenAnnual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeavesTakenAnnual.TabIndex = 0;
             // 
-            // textBox28
+            // txtLeavesEntitledCasual
             // 
-            this.textBox28.Location = new System.Drawing.Point(199, 47);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(41, 20);
-            this.textBox28.TabIndex = 0;
+            this.txtLeavesEntitledCasual.Location = new System.Drawing.Point(199, 47);
+            this.txtLeavesEntitledCasual.Name = "txtLeavesEntitledCasual";
+            this.txtLeavesEntitledCasual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeavesEntitledCasual.TabIndex = 0;
             // 
-            // textBox26
+            // txtLeavesTakenOther
             // 
-            this.textBox26.Location = new System.Drawing.Point(259, 73);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(41, 20);
-            this.textBox26.TabIndex = 0;
+            this.txtLeavesTakenOther.Location = new System.Drawing.Point(259, 73);
+            this.txtLeavesTakenOther.Name = "txtLeavesTakenOther";
+            this.txtLeavesTakenOther.Size = new System.Drawing.Size(41, 20);
+            this.txtLeavesTakenOther.TabIndex = 0;
             // 
-            // textBox30
+            // txtLeaveBalanceCasual
             // 
-            this.textBox30.Location = new System.Drawing.Point(199, 97);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(41, 20);
-            this.textBox30.TabIndex = 0;
+            this.txtLeaveBalanceCasual.Location = new System.Drawing.Point(199, 97);
+            this.txtLeaveBalanceCasual.Name = "txtLeaveBalanceCasual";
+            this.txtLeaveBalanceCasual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeaveBalanceCasual.TabIndex = 0;
             // 
-            // textBox25
+            // txtLeavesTakenCasual
             // 
-            this.textBox25.Location = new System.Drawing.Point(199, 72);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(41, 20);
-            this.textBox25.TabIndex = 0;
+            this.txtLeavesTakenCasual.Location = new System.Drawing.Point(199, 72);
+            this.txtLeavesTakenCasual.Name = "txtLeavesTakenCasual";
+            this.txtLeavesTakenCasual.Size = new System.Drawing.Size(41, 20);
+            this.txtLeavesTakenCasual.TabIndex = 0;
             // 
             // frmLeaveApply
             // 
@@ -1124,26 +1095,26 @@
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton rbtTokenNo;
+        private System.Windows.Forms.RadioButton rbtEPFNo;
+        private System.Windows.Forms.RadioButton rbtNIC;
+        private System.Windows.Forms.TextBox txtKeyWord;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtSubDepartment;
+        private System.Windows.Forms.TextBox txtBranch;
+        private System.Windows.Forms.TextBox txtDepartment;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtTokenNo;
+        private System.Windows.Forms.TextBox txtDesignation;
+        private System.Windows.Forms.TextBox txtEPFno;
+        private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
@@ -1167,14 +1138,14 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox txtLeavesEntitledAnnual;
+        private System.Windows.Forms.TextBox txtLeaveBalanceAnnual;
+        private System.Windows.Forms.TextBox txtLeavesTakenAnnual;
+        private System.Windows.Forms.TextBox txtLeavesEntitledCasual;
+        private System.Windows.Forms.TextBox txtLeavesTakenOther;
+        private System.Windows.Forms.TextBox txtLeaveBalanceCasual;
+        private System.Windows.Forms.TextBox txtLeavesTakenCasual;
+        private System.Windows.Forms.TextBox txtNicNo;
+        private System.Windows.Forms.Button btnClear;
     }
 }

@@ -16,6 +16,11 @@ namespace TeemaApplication
             InitializeComponent();
         }
 
-       
+        private void searchEmployee()
+        {
+            String searchby;
+        }
+
+           
     }
 }
