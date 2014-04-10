@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
@@ -18,6 +19,8 @@ namespace TeemaApplication
 
         TeemaDBDataContext db = new TeemaDBDataContext();
 
+        Employee empdata = new Employee();
+
         private void searchEmployee()
         {
             if (txtKeyWord.Text != "")
@@ -27,7 +30,7 @@ namespace TeemaApplication
                 if (rbtNIC.Checked)
                 {
 
-                    Employee empdata = (from emp in db.Employees
+                     empdata = (from emp in db.Employees
                                         where emp.EmployeeID == Searchkey
                                         select emp).SingleOrDefault();
 
@@ -66,7 +69,7 @@ namespace TeemaApplication
                 else if (rbtEPFNo.Checked)
                 {
 
-                    Employee empdata = (from emp in db.Employees
+                     empdata = (from emp in db.Employees
                                         where emp.EPFNo == Convert.ToString(Searchkey)
                                         select emp).SingleOrDefault();
                      
@@ -101,7 +104,7 @@ namespace TeemaApplication
                 }
                 else if (rbtTokenNo.Checked)
                 {
-                    Employee empdata = (from emp in db.Employees
+                     empdata = (from emp in db.Employees
                                         where emp.TokenNo == Convert.ToString(Searchkey)
                                         select emp).SingleOrDefault();
                      
@@ -181,14 +184,14 @@ namespace TeemaApplication
             String OtherLeaveReason;
             String reasonforabsence;
             float leavevalue;
-            int ispay;
+            bool ispay;
             DateTime leavefrom;
             DateTime leaveto;
             TimeSpan numberofdays;
             int substituteid;
             String nameofsubstitue;
 
-            if (rbtOther.Checked != null && rbtAnnual.Checked != null && rbtCasual.Checked != null)
+            if (rbtOther.Checked || rbtAnnual.Checked || rbtCasual.Checked)
             {
                 if (rbtAnnual.Checked)
                 {
@@ -200,10 +203,15 @@ namespace TeemaApplication
                 }
                 else if (rbtOther.Checked)
                 {
+                   
                     leavetype = "Other";
                 }
+                else
+                {
+                    leavetype = "Annual";
+                }
 
-                if (txtReasonsForAbsence.Text != null)
+                if (txtReasonsForAbsence.Text != "")
                 {
                     reasonforabsence = txtReasonsForAbsence.Text;
 
@@ -218,27 +226,54 @@ namespace TeemaApplication
 
                     if (rbtPay.Checked)
                     {
-                        ispay = 1;
+                        ispay = true;
                     }
                     else
                     {
-                        ispay = 0;
+                        ispay = false;
                     }
 
                     leavefrom = dtpLeaveFrom.Value;
                     leaveto = dtpLeaveTo.Value;
-                    numberofdays = leaveto - leavefrom;
+                    //numberofdays = leaveto - leavefrom;
 
-                    if (txtSubstituteID != null)
+                    if (txtOtherLeaveDescription.Text != null)
                     {
+                        OtherLeaveReason = txtOtherLeaveDescription.Text;
+                    }
+                    else
+                    {
+                        OtherLeaveReason = "";
+                    }
+
+                    if (checkforvalues())
+                    {
+                       
                         substituteid = Convert.ToInt32(txtSubstituteID.Text);
 
                         Employee empname = (from emp in db.Employees
-                                            where emp.EmployeeID == Convert.ToInt64(substituteid)
+                                            where emp.TokenNo == Convert.ToString(substituteid)
                                             select emp).SingleOrDefault();
+
                         if (empname != null)
                         {
                             txtNameofSubstitue.Text = empname.Name;
+
+                            PersonalLeaveRecord persnlvrec = new PersonalLeaveRecord();
+
+                            persnlvrec.Employee = empdata;
+                            persnlvrec.LeaveValue = leavevalue;
+                            persnlvrec.LeaveType = leavetype;
+                            persnlvrec.LeaveReason = reasonforabsence;
+                            persnlvrec.LeaveDate = System.DateTime.Today;
+                            persnlvrec.IsNoPay = ispay;
+                            persnlvrec.LeaveFrom = leavefrom;
+                            persnlvrec.LeaveTo = leaveto;
+                            persnlvrec.OtherLeaveDescription = OtherLeaveReason;
+                            persnlvrec.SubstituteID = substituteid;
+
+                            db.PersonalLeaveRecords.InsertOnSubmit(persnlvrec);
+                            db.SubmitChanges();
 
                         }
                         else
@@ -246,14 +281,7 @@ namespace TeemaApplication
                             MessageBox.Show("Substitue employee not found..!!");
                         }
                     }
-                    else
-                    {
-                        // do somthin
-                    }
-
-
-
-
+                     
                 }
                 else
                 {
@@ -270,6 +298,50 @@ namespace TeemaApplication
 
 
         }
-      
+        private bool checkforvalues()
+        {
+            String Errortext = "";
+
+            Errortext += EmployeeUtils.getIntNumaricValue("*For Substitue ID", txtSubstituteID.Text, true);
+ 
+            if (Errortext == "")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Please add a number to " + Errortext);
+                return false;
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            applyleave();
+        }
+
+        private void calculatedaterange()
+        {
+            DateTime leavefrom1 = dtpLeaveFrom.Value;
+            DateTime leaveto1 = dtpLeaveTo.Value;
+
+            TimeSpan numberofdays;
+
+            numberofdays = leaveto1 - leavefrom1;
+
+            txtNoOfDays.Text = numberofdays.Days.ToString();
+ 
+        }
+
+        private void dtpLeaveTo_ValueChanged(object sender, EventArgs e)
+        {
+            calculatedaterange();
+        }
+
+        private void rbtOther_CheckedChanged(object sender, EventArgs e)
+        {
+            txtOtherLeaveDescription.ReadOnly = false;
+        }
     }
 }

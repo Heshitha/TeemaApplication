@@ -64,12 +64,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.rbtAnnual = new System.Windows.Forms.RadioButton();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.rbtPay = new System.Windows.Forms.RadioButton();
-            this.rbtOther = new System.Windows.Forms.RadioButton();
-            this.rbtCasual = new System.Windows.Forms.RadioButton();
             this.RbtNoPay = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbtFullDay = new System.Windows.Forms.RadioButton();
+            this.rbtHalfday = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtAnnual = new System.Windows.Forms.RadioButton();
+            this.rbtCasual = new System.Windows.Forms.RadioButton();
+            this.rbtOther = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txtSubstituteID = new System.Windows.Forms.TextBox();
@@ -123,19 +129,13 @@
             this.txtLeavesTakenOther = new System.Windows.Forms.TextBox();
             this.txtLeaveBalanceCasual = new System.Windows.Forms.TextBox();
             this.txtLeavesTakenCasual = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.rbtFullDay = new System.Windows.Forms.RadioButton();
-            this.rbtHalfday = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpEmployeeDetails.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -286,6 +286,7 @@
             this.dtpLeaveTo.Name = "dtpLeaveTo";
             this.dtpLeaveTo.Size = new System.Drawing.Size(182, 20);
             this.dtpLeaveTo.TabIndex = 5;
+            this.dtpLeaveTo.ValueChanged += new System.EventHandler(this.dtpLeaveTo_ValueChanged);
             // 
             // label14
             // 
@@ -416,6 +417,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Apply ";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -467,25 +469,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "New Leave Details";
             // 
-            // label31
+            // panel3
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(5, 50);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(122, 13);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Other Leave Description";
-            // 
-            // rbtAnnual
-            // 
-            this.rbtAnnual.AutoSize = true;
-            this.rbtAnnual.Location = new System.Drawing.Point(3, 2);
-            this.rbtAnnual.Name = "rbtAnnual";
-            this.rbtAnnual.Size = new System.Drawing.Size(58, 17);
-            this.rbtAnnual.TabIndex = 3;
-            this.rbtAnnual.TabStop = true;
-            this.rbtAnnual.Text = "Annual";
-            this.rbtAnnual.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.rbtPay);
+            this.panel3.Controls.Add(this.RbtNoPay);
+            this.panel3.Location = new System.Drawing.Point(134, 124);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(141, 23);
+            this.panel3.TabIndex = 10;
             // 
             // rbtPay
             // 
@@ -499,16 +490,68 @@
             this.rbtPay.Text = "Pay";
             this.rbtPay.UseVisualStyleBackColor = true;
             // 
-            // rbtOther
+            // RbtNoPay
             // 
-            this.rbtOther.AutoSize = true;
-            this.rbtOther.Location = new System.Drawing.Point(132, 2);
-            this.rbtOther.Name = "rbtOther";
-            this.rbtOther.Size = new System.Drawing.Size(51, 17);
-            this.rbtOther.TabIndex = 3;
-            this.rbtOther.TabStop = true;
-            this.rbtOther.Text = "Other";
-            this.rbtOther.UseVisualStyleBackColor = true;
+            this.RbtNoPay.AutoSize = true;
+            this.RbtNoPay.Location = new System.Drawing.Point(68, 3);
+            this.RbtNoPay.Name = "RbtNoPay";
+            this.RbtNoPay.Size = new System.Drawing.Size(57, 17);
+            this.RbtNoPay.TabIndex = 3;
+            this.RbtNoPay.Text = "NoPay";
+            this.RbtNoPay.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtFullDay);
+            this.panel2.Controls.Add(this.rbtHalfday);
+            this.panel2.Location = new System.Drawing.Point(133, 97);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(141, 23);
+            this.panel2.TabIndex = 10;
+            // 
+            // rbtFullDay
+            // 
+            this.rbtFullDay.AutoSize = true;
+            this.rbtFullDay.Checked = true;
+            this.rbtFullDay.Location = new System.Drawing.Point(3, 3);
+            this.rbtFullDay.Name = "rbtFullDay";
+            this.rbtFullDay.Size = new System.Drawing.Size(63, 17);
+            this.rbtFullDay.TabIndex = 9;
+            this.rbtFullDay.TabStop = true;
+            this.rbtFullDay.Text = "Full Day";
+            this.rbtFullDay.UseVisualStyleBackColor = true;
+            // 
+            // rbtHalfday
+            // 
+            this.rbtHalfday.AutoSize = true;
+            this.rbtHalfday.Location = new System.Drawing.Point(69, 3);
+            this.rbtHalfday.Name = "rbtHalfday";
+            this.rbtHalfday.Size = new System.Drawing.Size(66, 17);
+            this.rbtHalfday.TabIndex = 10;
+            this.rbtHalfday.Text = "Half Day";
+            this.rbtHalfday.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtAnnual);
+            this.panel1.Controls.Add(this.rbtCasual);
+            this.panel1.Controls.Add(this.rbtOther);
+            this.panel1.Location = new System.Drawing.Point(133, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(183, 23);
+            this.panel1.TabIndex = 10;
+            // 
+            // rbtAnnual
+            // 
+            this.rbtAnnual.AutoSize = true;
+            this.rbtAnnual.Checked = true;
+            this.rbtAnnual.Location = new System.Drawing.Point(3, 2);
+            this.rbtAnnual.Name = "rbtAnnual";
+            this.rbtAnnual.Size = new System.Drawing.Size(58, 17);
+            this.rbtAnnual.TabIndex = 3;
+            this.rbtAnnual.TabStop = true;
+            this.rbtAnnual.Text = "Annual";
+            this.rbtAnnual.UseVisualStyleBackColor = true;
             // 
             // rbtCasual
             // 
@@ -521,24 +564,43 @@
             this.rbtCasual.Text = "Casual";
             this.rbtCasual.UseVisualStyleBackColor = true;
             // 
-            // RbtNoPay
+            // rbtOther
             // 
-            this.RbtNoPay.AutoSize = true;
-            this.RbtNoPay.Location = new System.Drawing.Point(68, 3);
-            this.RbtNoPay.Name = "RbtNoPay";
-            this.RbtNoPay.Size = new System.Drawing.Size(57, 17);
-            this.RbtNoPay.TabIndex = 3;
-            this.RbtNoPay.Text = "NoPay";
-            this.RbtNoPay.UseVisualStyleBackColor = true;
+            this.rbtOther.AutoSize = true;
+            this.rbtOther.Location = new System.Drawing.Point(132, 2);
+            this.rbtOther.Name = "rbtOther";
+            this.rbtOther.Size = new System.Drawing.Size(51, 17);
+            this.rbtOther.TabIndex = 3;
+            this.rbtOther.Text = "Other";
+            this.rbtOther.UseVisualStyleBackColor = true;
+            this.rbtOther.CheckedChanged += new System.EventHandler(this.rbtOther_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Leave Value";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(5, 50);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(122, 13);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Other Leave Description";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(6, 235);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(65, 13);
+            this.label33.Size = new System.Drawing.Size(102, 13);
             this.label33.TabIndex = 0;
-            this.label33.Text = "Substitue ID";
+            this.label33.Text = "Substitue Token No";
             // 
             // label23
             // 
@@ -567,6 +629,7 @@
             // 
             this.txtOtherLeaveDescription.Location = new System.Drawing.Point(133, 47);
             this.txtOtherLeaveDescription.Name = "txtOtherLeaveDescription";
+            this.txtOtherLeaveDescription.ReadOnly = true;
             this.txtOtherLeaveDescription.Size = new System.Drawing.Size(182, 20);
             this.txtOtherLeaveDescription.TabIndex = 1;
             // 
@@ -1014,65 +1077,6 @@
             this.txtLeavesTakenCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenCasual.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 103);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Leave Value";
-            // 
-            // rbtFullDay
-            // 
-            this.rbtFullDay.AutoSize = true;
-            this.rbtFullDay.Checked = true;
-            this.rbtFullDay.Location = new System.Drawing.Point(3, 3);
-            this.rbtFullDay.Name = "rbtFullDay";
-            this.rbtFullDay.Size = new System.Drawing.Size(63, 17);
-            this.rbtFullDay.TabIndex = 9;
-            this.rbtFullDay.TabStop = true;
-            this.rbtFullDay.Text = "Full Day";
-            this.rbtFullDay.UseVisualStyleBackColor = true;
-            // 
-            // rbtHalfday
-            // 
-            this.rbtHalfday.AutoSize = true;
-            this.rbtHalfday.Location = new System.Drawing.Point(69, 3);
-            this.rbtHalfday.Name = "rbtHalfday";
-            this.rbtHalfday.Size = new System.Drawing.Size(66, 17);
-            this.rbtHalfday.TabIndex = 10;
-            this.rbtHalfday.Text = "Half Day";
-            this.rbtHalfday.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rbtAnnual);
-            this.panel1.Controls.Add(this.rbtCasual);
-            this.panel1.Controls.Add(this.rbtOther);
-            this.panel1.Location = new System.Drawing.Point(133, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 23);
-            this.panel1.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.rbtFullDay);
-            this.panel2.Controls.Add(this.rbtHalfday);
-            this.panel2.Location = new System.Drawing.Point(133, 97);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(141, 23);
-            this.panel2.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.rbtPay);
-            this.panel3.Controls.Add(this.RbtNoPay);
-            this.panel3.Location = new System.Drawing.Point(134, 124);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(141, 23);
-            this.panel3.TabIndex = 10;
-            // 
             // frmLeaveApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1087,18 +1091,18 @@
             this.Text = "LeaveApply";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpEmployeeDetails.ResumeLayout(false);
             this.grpEmployeeDetails.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
