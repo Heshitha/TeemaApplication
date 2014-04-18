@@ -66,8 +66,8 @@
             this.rdbSingle = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxTime = new System.Windows.Forms.GroupBox();
-            this.dudTo = new System.Windows.Forms.DomainUpDown();
-            this.dudFrom = new System.Windows.Forms.DomainUpDown();
+            this.dudToHH = new System.Windows.Forms.DomainUpDown();
+            this.dudFromHH = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,6 +77,8 @@
             this.clmnToken_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dudToMM = new System.Windows.Forms.DomainUpDown();
+            this.dudFromMM = new System.Windows.Forms.DomainUpDown();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxOver_Time_Details.SuspendLayout();
@@ -443,8 +445,10 @@
             // 
             // gbxTime
             // 
-            this.gbxTime.Controls.Add(this.dudTo);
-            this.gbxTime.Controls.Add(this.dudFrom);
+            this.gbxTime.Controls.Add(this.dudToMM);
+            this.gbxTime.Controls.Add(this.dudFromMM);
+            this.gbxTime.Controls.Add(this.dudToHH);
+            this.gbxTime.Controls.Add(this.dudFromHH);
             this.gbxTime.Controls.Add(this.label4);
             this.gbxTime.Controls.Add(this.label2);
             this.gbxTime.Location = new System.Drawing.Point(6, 45);
@@ -454,21 +458,45 @@
             this.gbxTime.TabStop = false;
             this.gbxTime.Text = "Time";
             // 
-            // dudTo
+            // dudToHH
             // 
-            this.dudTo.Location = new System.Drawing.Point(42, 45);
-            this.dudTo.Name = "dudTo";
-            this.dudTo.Size = new System.Drawing.Size(73, 20);
-            this.dudTo.TabIndex = 4;
-            this.dudTo.Text = "dudTo";
+            this.dudToHH.Location = new System.Drawing.Point(42, 45);
+            this.dudToHH.Name = "dudToHH";
+            this.dudToHH.Size = new System.Drawing.Size(42, 20);
+            this.dudToHH.TabIndex = 4;
+            this.dudToHH.Text = "HH";
             // 
-            // dudFrom
+            // dudFromHH
             // 
-            this.dudFrom.Location = new System.Drawing.Point(42, 19);
-            this.dudFrom.Name = "dudFrom";
-            this.dudFrom.Size = new System.Drawing.Size(73, 20);
-            this.dudFrom.TabIndex = 3;
-            this.dudFrom.Text = "dudFrom";
+            this.dudFromHH.Items.Add("00");
+            this.dudFromHH.Items.Add("01");
+            this.dudFromHH.Items.Add("02");
+            this.dudFromHH.Items.Add("03");
+            this.dudFromHH.Items.Add("04");
+            this.dudFromHH.Items.Add("05");
+            this.dudFromHH.Items.Add("06");
+            this.dudFromHH.Items.Add("07");
+            this.dudFromHH.Items.Add("08");
+            this.dudFromHH.Items.Add("09");
+            this.dudFromHH.Items.Add("10");
+            this.dudFromHH.Items.Add("11");
+            this.dudFromHH.Items.Add("12");
+            this.dudFromHH.Items.Add("13");
+            this.dudFromHH.Items.Add("14");
+            this.dudFromHH.Items.Add("15");
+            this.dudFromHH.Items.Add("16");
+            this.dudFromHH.Items.Add("17");
+            this.dudFromHH.Items.Add("18");
+            this.dudFromHH.Items.Add("19");
+            this.dudFromHH.Items.Add("20");
+            this.dudFromHH.Items.Add("21");
+            this.dudFromHH.Items.Add("22");
+            this.dudFromHH.Items.Add("23");
+            this.dudFromHH.Location = new System.Drawing.Point(42, 19);
+            this.dudFromHH.Name = "dudFromHH";
+            this.dudFromHH.Size = new System.Drawing.Size(42, 20);
+            this.dudFromHH.TabIndex = 3;
+            this.dudFromHH.Text = "HH";
             // 
             // label4
             // 
@@ -542,6 +570,20 @@
             // 
             this.clmnEmployee_Name.HeaderText = "Employee Name";
             this.clmnEmployee_Name.Name = "clmnEmployee_Name";
+            // 
+            // dudToMM
+            // 
+            this.dudToMM.Location = new System.Drawing.Point(90, 45);
+            this.dudToMM.Name = "dudToMM";
+            this.dudToMM.Size = new System.Drawing.Size(42, 20);
+            this.dudToMM.TabIndex = 6;
+            // 
+            // dudFromMM
+            // 
+            this.dudFromMM.Location = new System.Drawing.Point(90, 19);
+            this.dudFromMM.Name = "dudFromMM";
+            this.dudFromMM.Size = new System.Drawing.Size(42, 20);
+            this.dudFromMM.TabIndex = 5;
             // 
             // frmOver_Time_Request
             // 
@@ -623,7 +665,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmployee_Name;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DomainUpDown dudTo;
-        private System.Windows.Forms.DomainUpDown dudFrom;
+        private System.Windows.Forms.DomainUpDown dudToHH;
+        private System.Windows.Forms.DomainUpDown dudFromHH;
+        private System.Windows.Forms.DomainUpDown dudToMM;
+        private System.Windows.Forms.DomainUpDown dudFromMM;
     }
 }

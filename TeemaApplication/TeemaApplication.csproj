@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RealandAPI">
+      <HintPath>..\..\..\..\TEEMA\madu\Bin\RealandAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Riss.Devices">
+      <HintPath>..\..\..\..\TEEMA\madu\Bin\Riss.Devices.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -71,6 +77,7 @@
     <Compile Include="BasicSalary.designer.cs">
       <DependentUpon>BasicSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AttendanceRecords.cs" />
     <Compile Include="Classes\EmployeeUtils.cs" />
     <Compile Include="Classes\ShowMessageBox.cs" />
     <Compile Include="Classes\NewFixedIncentive.cs" />
