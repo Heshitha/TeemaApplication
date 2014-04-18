@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
@@ -16,62 +17,32 @@ namespace TeemaApplication
         {
             InitializeComponent();
         }
-        private void fillcmbBranch()
-        {
-            cmbWorkingBranch.DisplayMember = "BranchName";
-            cmbWorkingBranch.ValueMember = "BranchID";
-            cmbWorkingBranch.DataSource = db.Branches;
-        }
-
-        private void fillcmbDepartment(Branch branch)
-        {
-            cmbDepartment.DisplayMember = "DepartmentName";
-            cmbDepartment.ValueMember = "DepartmentID";
-            cmbDepartment.DataSource = branch.Departments;
-        }
-
-        private void fillcmbSubDepartment(Department department)
-        {
-            cmbSubDepartment.DisplayMember = "SubDepartmentName";
-            cmbSubDepartment.ValueMember = "SubDepartmentID";
-            cmbSubDepartment.DataSource = department.SubDepartments;
-        }
+        
         private void frmOver_Time_Approve_Load(object sender, EventArgs e)
         {
-            fillcmbBranch();
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+            EmployeeUtils.fillcmbWorkingBranch(db, cmbWorkingBranch);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
 
         private void cmbWorkingBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillcmbSubDepartment((Department)cmbDepartment.SelectedItem);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
 
-        private String getIntNumaricValue(string title, string text)
-        {
-            int Value = 0;
-            if (int.TryParse(text, out Value))
-            {
-                return "";
-            }
-            else
-            {
-                return title + " ";
-            }
-        }
+
         private bool checkforvalues()
         {
             String errortext = null;
 
-            errortext += getIntNumaricValue(" *Over Time Hours ", txtOver_Time_Hours.Text);
+            errortext += EmployeeUtils.getIntNumaricValue(" *Over Time Hours ", txtOver_Time_Hours.Text, true);
 
-            if (txtReason.Text.Equals(string.Empty))
+            if (!EmployeeUtils.checkIfContainText(txtReason))
             {
                 errortext += " *Reason";
             }
