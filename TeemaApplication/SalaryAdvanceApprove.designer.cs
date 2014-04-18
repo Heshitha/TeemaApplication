@@ -250,6 +250,7 @@
             this.txtDayWages.TabIndex = 15;
             this.txtDayWages.Text = "0";
             this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+          
             // 
             // label5
             // 
