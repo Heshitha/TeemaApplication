@@ -94,6 +94,11 @@ namespace TeemaApplication
 
         }
 
+        private void txtRequested_Amount_TextChanged(object sender, EventArgs e)
+        {
+             
+        }
+
        
     }
 }

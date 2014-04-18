@@ -250,7 +250,6 @@
             this.txtDayWages.TabIndex = 15;
             this.txtDayWages.Text = "0";
             this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-          
             // 
             // label5
             // 
@@ -285,6 +284,7 @@
             this.txtRequested_Amount.Name = "txtRequested_Amount";
             this.txtRequested_Amount.Size = new System.Drawing.Size(177, 20);
             this.txtRequested_Amount.TabIndex = 18;
+            this.txtRequested_Amount.TextChanged += new System.EventHandler(this.txtRequested_Amount_TextChanged);
             // 
             // label1
             // 
