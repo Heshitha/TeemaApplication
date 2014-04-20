@@ -10876,7 +10876,7 @@ namespace TeemaApplication
 		
 		private System.Nullable<int> _LeaveAuthorizedDept;
 		
-		private int _SubstituteID;
+		private string _SubstituteID;
 		
 		private System.Nullable<int> _LeaveApprovedDept;
 		
@@ -10920,7 +10920,7 @@ namespace TeemaApplication
     partial void OnLeaveToChanged();
     partial void OnLeaveAuthorizedDeptChanging(System.Nullable<int> value);
     partial void OnLeaveAuthorizedDeptChanged();
-    partial void OnSubstituteIDChanging(int value);
+    partial void OnSubstituteIDChanging(string value);
     partial void OnSubstituteIDChanged();
     partial void OnLeaveApprovedDeptChanging(System.Nullable<int> value);
     partial void OnLeaveApprovedDeptChanged();
@@ -11166,8 +11166,8 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubstituteID", DbType="Int NOT NULL")]
-		public int SubstituteID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubstituteID", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string SubstituteID
 		{
 			get
 			{

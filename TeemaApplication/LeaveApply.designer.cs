@@ -60,10 +60,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnAllReset = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpAddNewLeaveRecord = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rbtPay = new System.Windows.Forms.RadioButton();
             this.RbtNoPay = new System.Windows.Forms.RadioButton();
@@ -83,19 +83,17 @@
             this.txtOtherLeaveDescription = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpEmployeeSearch = new System.Windows.Forms.GroupBox();
             this.rbtTokenNo = new System.Windows.Forms.RadioButton();
             this.rbtEPFNo = new System.Windows.Forms.RadioButton();
             this.rbtNIC = new System.Windows.Forms.RadioButton();
             this.txtKeyWord = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
             this.txtNicNo = new System.Windows.Forms.TextBox();
             this.txtSubDepartment = new System.Windows.Forms.TextBox();
             this.txtBranch = new System.Windows.Forms.TextBox();
@@ -115,7 +113,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpCurrentLeaveRecord = new System.Windows.Forms.GroupBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -129,13 +127,13 @@
             this.txtLeavesTakenOther = new System.Windows.Forms.TextBox();
             this.txtLeaveBalanceCasual = new System.Windows.Forms.TextBox();
             this.txtLeavesTakenCasual = new System.Windows.Forms.TextBox();
-            this.groupBox3.SuspendLayout();
+            this.grpAddNewLeaveRecord.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpEmployeeSearch.SuspendLayout();
             this.grpEmployeeDetails.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpCurrentLeaveRecord.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -293,9 +291,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 209);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
+            this.label14.Size = new System.Drawing.Size(65, 13);
             this.label14.TabIndex = 6;
-            this.label14.Text = "No. Of Dates";
+            this.label14.Text = "No. Of Days";
             // 
             // txtNoOfDays
             // 
@@ -409,24 +407,25 @@
             this.textBox15.Size = new System.Drawing.Size(190, 20);
             this.textBox15.TabIndex = 1;
             // 
-            // button1
+            // btnApply
             // 
-            this.button1.Location = new System.Drawing.Point(103, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Apply ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnApply.Location = new System.Drawing.Point(103, 284);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 7;
+            this.btnApply.Text = "Apply ";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
-            // button2
+            // btnAllReset
             // 
-            this.button2.Location = new System.Drawing.Point(184, 284);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAllReset.Location = new System.Drawing.Point(184, 284);
+            this.btnAllReset.Name = "btnAllReset";
+            this.btnAllReset.Size = new System.Drawing.Size(75, 23);
+            this.btnAllReset.TabIndex = 7;
+            this.btnAllReset.Text = "Reset";
+            this.btnAllReset.UseVisualStyleBackColor = true;
+            this.btnAllReset.Click += new System.EventHandler(this.btnAllReset_Click);
             // 
             // button3
             // 
@@ -437,37 +436,37 @@
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // grpAddNewLeaveRecord
             // 
-            this.groupBox3.Controls.Add(this.panel3);
-            this.groupBox3.Controls.Add(this.panel2);
-            this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.label31);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label33);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.txtSubstituteID);
-            this.groupBox3.Controls.Add(this.txtNameofSubstitue);
-            this.groupBox3.Controls.Add(this.dtpLeaveTo);
-            this.groupBox3.Controls.Add(this.txtOtherLeaveDescription);
-            this.groupBox3.Controls.Add(this.txtReasonsForAbsence);
-            this.groupBox3.Controls.Add(this.dtpLeaveFrom);
-            this.groupBox3.Controls.Add(this.txtNoOfDays);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label32);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Location = new System.Drawing.Point(305, 173);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 319);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "New Leave Details";
+            this.grpAddNewLeaveRecord.Controls.Add(this.panel3);
+            this.grpAddNewLeaveRecord.Controls.Add(this.panel2);
+            this.grpAddNewLeaveRecord.Controls.Add(this.panel1);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label6);
+            this.grpAddNewLeaveRecord.Controls.Add(this.button3);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label31);
+            this.grpAddNewLeaveRecord.Controls.Add(this.btnAllReset);
+            this.grpAddNewLeaveRecord.Controls.Add(this.btnApply);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label14);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label11);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label33);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label23);
+            this.grpAddNewLeaveRecord.Controls.Add(this.txtSubstituteID);
+            this.grpAddNewLeaveRecord.Controls.Add(this.txtNameofSubstitue);
+            this.grpAddNewLeaveRecord.Controls.Add(this.dtpLeaveTo);
+            this.grpAddNewLeaveRecord.Controls.Add(this.txtOtherLeaveDescription);
+            this.grpAddNewLeaveRecord.Controls.Add(this.txtReasonsForAbsence);
+            this.grpAddNewLeaveRecord.Controls.Add(this.dtpLeaveFrom);
+            this.grpAddNewLeaveRecord.Controls.Add(this.txtNoOfDays);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label22);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label32);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label12);
+            this.grpAddNewLeaveRecord.Controls.Add(this.label13);
+            this.grpAddNewLeaveRecord.Location = new System.Drawing.Point(305, 173);
+            this.grpAddNewLeaveRecord.Name = "grpAddNewLeaveRecord";
+            this.grpAddNewLeaveRecord.Size = new System.Drawing.Size(347, 319);
+            this.grpAddNewLeaveRecord.TabIndex = 9;
+            this.grpAddNewLeaveRecord.TabStop = false;
+            this.grpAddNewLeaveRecord.Text = "New Leave Details";
             // 
             // panel3
             // 
@@ -651,26 +650,26 @@
             this.label32.TabIndex = 0;
             this.label32.Text = "Pay/NoPay";
             // 
-            // groupBox1
+            // grpEmployeeSearch
             // 
-            this.groupBox1.Controls.Add(this.rbtTokenNo);
-            this.groupBox1.Controls.Add(this.rbtEPFNo);
-            this.groupBox1.Controls.Add(this.rbtNIC);
-            this.groupBox1.Controls.Add(this.txtKeyWord);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnReset);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Location = new System.Drawing.Point(12, 43);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 105);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Employee Search";
+            this.grpEmployeeSearch.Controls.Add(this.rbtTokenNo);
+            this.grpEmployeeSearch.Controls.Add(this.rbtEPFNo);
+            this.grpEmployeeSearch.Controls.Add(this.rbtNIC);
+            this.grpEmployeeSearch.Controls.Add(this.txtKeyWord);
+            this.grpEmployeeSearch.Controls.Add(this.label3);
+            this.grpEmployeeSearch.Controls.Add(this.label2);
+            this.grpEmployeeSearch.Controls.Add(this.btnSearch);
+            this.grpEmployeeSearch.Location = new System.Drawing.Point(12, 43);
+            this.grpEmployeeSearch.Name = "grpEmployeeSearch";
+            this.grpEmployeeSearch.Size = new System.Drawing.Size(287, 105);
+            this.grpEmployeeSearch.TabIndex = 2;
+            this.grpEmployeeSearch.TabStop = false;
+            this.grpEmployeeSearch.Text = "Employee Search";
             // 
             // rbtTokenNo
             // 
             this.rbtTokenNo.AutoSize = true;
+            this.rbtTokenNo.Checked = true;
             this.rbtTokenNo.Location = new System.Drawing.Point(183, 50);
             this.rbtTokenNo.Name = "rbtTokenNo";
             this.rbtTokenNo.Size = new System.Drawing.Size(73, 17);
@@ -686,7 +685,6 @@
             this.rbtEPFNo.Name = "rbtEPFNo";
             this.rbtEPFNo.Size = new System.Drawing.Size(62, 17);
             this.rbtEPFNo.TabIndex = 8;
-            this.rbtEPFNo.TabStop = true;
             this.rbtEPFNo.Text = "EPF No";
             this.rbtEPFNo.UseVisualStyleBackColor = true;
             // 
@@ -697,7 +695,6 @@
             this.rbtNIC.Name = "rbtNIC";
             this.rbtNIC.Size = new System.Drawing.Size(43, 17);
             this.rbtNIC.TabIndex = 8;
-            this.rbtNIC.TabStop = true;
             this.rbtNIC.Text = "NIC";
             this.rbtNIC.UseVisualStyleBackColor = true;
             // 
@@ -716,16 +713,6 @@
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 0;
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(200, 73);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 7;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -737,7 +724,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(119, 73);
+            this.btnSearch.Location = new System.Drawing.Point(200, 73);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -765,7 +752,6 @@
             // 
             // grpEmployeeDetails
             // 
-            this.grpEmployeeDetails.Controls.Add(this.btnClear);
             this.grpEmployeeDetails.Controls.Add(this.txtNicNo);
             this.grpEmployeeDetails.Controls.Add(this.txtSubDepartment);
             this.grpEmployeeDetails.Controls.Add(this.txtBranch);
@@ -787,20 +773,10 @@
             this.grpEmployeeDetails.Controls.Add(this.label27);
             this.grpEmployeeDetails.Location = new System.Drawing.Point(18, 154);
             this.grpEmployeeDetails.Name = "grpEmployeeDetails";
-            this.grpEmployeeDetails.Size = new System.Drawing.Size(281, 265);
+            this.grpEmployeeDetails.Size = new System.Drawing.Size(281, 241);
             this.grpEmployeeDetails.TabIndex = 2;
             this.grpEmployeeDetails.TabStop = false;
             this.grpEmployeeDetails.Text = "Employee Details";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(189, 229);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 4;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtNicNo
             // 
@@ -952,27 +928,27 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "NIC No";
             // 
-            // groupBox2
+            // grpCurrentLeaveRecord
             // 
-            this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.label38);
-            this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.txtLeavesEntitledAnnual);
-            this.groupBox2.Controls.Add(this.txtLeaveBalanceAnnual);
-            this.groupBox2.Controls.Add(this.txtLeavesTakenAnnual);
-            this.groupBox2.Controls.Add(this.txtLeavesEntitledCasual);
-            this.groupBox2.Controls.Add(this.txtLeavesTakenOther);
-            this.groupBox2.Controls.Add(this.txtLeaveBalanceCasual);
-            this.groupBox2.Controls.Add(this.txtLeavesTakenCasual);
-            this.groupBox2.Location = new System.Drawing.Point(305, 43);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 123);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Current Leave Record ";
+            this.grpCurrentLeaveRecord.Controls.Add(this.label39);
+            this.grpCurrentLeaveRecord.Controls.Add(this.label38);
+            this.grpCurrentLeaveRecord.Controls.Add(this.label37);
+            this.grpCurrentLeaveRecord.Controls.Add(this.label36);
+            this.grpCurrentLeaveRecord.Controls.Add(this.label35);
+            this.grpCurrentLeaveRecord.Controls.Add(this.label34);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeavesEntitledAnnual);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeaveBalanceAnnual);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeavesTakenAnnual);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeavesEntitledCasual);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeavesTakenOther);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeaveBalanceCasual);
+            this.grpCurrentLeaveRecord.Controls.Add(this.txtLeavesTakenCasual);
+            this.grpCurrentLeaveRecord.Location = new System.Drawing.Point(305, 43);
+            this.grpCurrentLeaveRecord.Name = "grpCurrentLeaveRecord";
+            this.grpCurrentLeaveRecord.Size = new System.Drawing.Size(347, 123);
+            this.grpCurrentLeaveRecord.TabIndex = 8;
+            this.grpCurrentLeaveRecord.TabStop = false;
+            this.grpCurrentLeaveRecord.Text = "Current Leave Record ";
             // 
             // label39
             // 
@@ -1082,27 +1058,27 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 500);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpAddNewLeaveRecord);
+            this.Controls.Add(this.grpCurrentLeaveRecord);
             this.Controls.Add(this.grpEmployeeDetails);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpEmployeeSearch);
             this.Controls.Add(this.label1);
             this.Name = "frmLeaveApply";
             this.Text = "LeaveApply";
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpAddNewLeaveRecord.ResumeLayout(false);
+            this.grpAddNewLeaveRecord.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpEmployeeSearch.ResumeLayout(false);
+            this.grpEmployeeSearch.PerformLayout();
             this.grpEmployeeDetails.ResumeLayout(false);
             this.grpEmployeeDetails.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpCurrentLeaveRecord.ResumeLayout(false);
+            this.grpCurrentLeaveRecord.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1128,8 +1104,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAllReset;
+        private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtNoOfDays;
         private System.Windows.Forms.TextBox textBox13;
@@ -1145,20 +1121,19 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpAddNewLeaveRecord;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtNameofSubstitue;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.RadioButton rbtPay;
         private System.Windows.Forms.RadioButton RbtNoPay;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpEmployeeSearch;
         private System.Windows.Forms.RadioButton rbtTokenNo;
         private System.Windows.Forms.RadioButton rbtEPFNo;
         private System.Windows.Forms.RadioButton rbtNIC;
         private System.Windows.Forms.TextBox txtKeyWord;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button6;
@@ -1185,7 +1160,7 @@
         private System.Windows.Forms.RadioButton rbtAnnual;
         private System.Windows.Forms.RadioButton rbtCasual;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpCurrentLeaveRecord;
         private System.Windows.Forms.RadioButton rbtOther;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtSubstituteID;
@@ -1204,7 +1179,6 @@
         private System.Windows.Forms.TextBox txtLeaveBalanceCasual;
         private System.Windows.Forms.TextBox txtLeavesTakenCasual;
         private System.Windows.Forms.TextBox txtNicNo;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton rbtFullDay;
         private System.Windows.Forms.RadioButton rbtHalfday;

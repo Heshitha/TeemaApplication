@@ -25,24 +25,21 @@ namespace TeemaApplication
         {
             if (txtKeyWord.Text != "")
             {
-                int Searchkey = Convert.ToInt32(txtKeyWord.Text);
+                String Searchkey = Convert.ToString(txtKeyWord.Text);
 
                 if (rbtNIC.Checked)
                 {
 
                      empdata = (from emp in db.Employees
-                                        where emp.EmployeeID == Searchkey
+                                        where emp.NICNo == Searchkey
                                         select emp).SingleOrDefault();
-
-                    
-                    if (empdata != null && empdata.EmployeeID == Searchkey)
+    
+                    if (empdata != null && empdata.NICNo == Searchkey)
                     {
                         GrantedLeave grntslvs = (from grntdlvs in empdata.GrantedLeaves
                                                  where grntdlvs.year == Convert.ToInt32(System.DateTime.Today.Year)
                                                  select grntdlvs).SingleOrDefault();
-
-                        
-
+  
                         txtEmployeeName.Text = empdata.Name;
                         txtEPFno.Text = empdata.EPFNo;
                         txtBranch.Text = empdata.SubDepartment.Department.Branch.BranchName;
@@ -70,10 +67,10 @@ namespace TeemaApplication
                 {
 
                      empdata = (from emp in db.Employees
-                                        where emp.EPFNo == Convert.ToString(Searchkey)
+                                        where emp.EPFNo == Searchkey
                                         select emp).SingleOrDefault();
                      
-                    if (empdata != null && empdata.EPFNo == Convert.ToString(Searchkey))
+                    if (empdata != null && empdata.EPFNo == Searchkey)
                     {
                         GrantedLeave grntslvs = (from grntdlvs in empdata.GrantedLeaves
                                                  where grntdlvs.year == Convert.ToInt32(System.DateTime.Today.Year)
@@ -105,10 +102,10 @@ namespace TeemaApplication
                 else if (rbtTokenNo.Checked)
                 {
                      empdata = (from emp in db.Employees
-                                        where emp.TokenNo == Convert.ToString(Searchkey)
+                                        where emp.TokenNo ==  Searchkey 
                                         select emp).SingleOrDefault();
                      
-                    if (empdata != null && empdata.TokenNo == Convert.ToString(Searchkey))
+                    if (empdata != null && empdata.TokenNo ==  (Searchkey))
                     {
                         GrantedLeave grntslvs = (from grntdlvs in empdata.GrantedLeaves
                                                  where grntdlvs.year == Convert.ToInt32(System.DateTime.Today.Year)
@@ -151,28 +148,7 @@ namespace TeemaApplication
 
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            txtKeyWord.Text = "";
-        }
-
-        private void cleartextbox(Control control)
-        {
-
-            foreach (Control c in control.Controls)
-            {
-                if (c is TextBox)
-                {
-                    c.Text = "";
-                }
-            }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            cleartextbox(grpEmployeeDetails);
-        }
-
+         
         private void btnSearch_Click(object sender, EventArgs e)
         {
             searchEmployee();
@@ -188,7 +164,7 @@ namespace TeemaApplication
             DateTime leavefrom;
             DateTime leaveto;
             TimeSpan numberofdays;
-            int substituteid;
+            String substituteid;
             String nameofsubstitue;
 
             if (rbtOther.Checked || rbtAnnual.Checked || rbtCasual.Checked)
@@ -246,13 +222,13 @@ namespace TeemaApplication
                         OtherLeaveReason = "";
                     }
 
-                    if (checkforvalues())
+                    if (txtSubstituteID.Text != "")
                     {
-                       
-                        substituteid = Convert.ToInt32(txtSubstituteID.Text);
+
+                        substituteid = txtSubstituteID.Text;
 
                         Employee empname = (from emp in db.Employees
-                                            where emp.TokenNo == Convert.ToString(substituteid)
+                                            where emp.TokenNo == substituteid
                                             select emp).SingleOrDefault();
 
                         if (empname != null)
@@ -275,11 +251,17 @@ namespace TeemaApplication
                             db.PersonalLeaveRecords.InsertOnSubmit(persnlvrec);
                             db.SubmitChanges();
 
+                            MessageBox.Show("Leave applied successfully..!!");
+
                         }
                         else
                         {
                             MessageBox.Show("Substitue employee not found..!!");
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please add a substitute token number..!!");
                     }
                      
                 }
@@ -298,6 +280,8 @@ namespace TeemaApplication
 
 
         }
+
+        // not using to check anything
         private bool checkforvalues()
         {
             String Errortext = "";
@@ -316,10 +300,7 @@ namespace TeemaApplication
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            applyleave();
-        }
+       
 
         private void calculatedaterange()
         {
@@ -343,5 +324,33 @@ namespace TeemaApplication
         {
             txtOtherLeaveDescription.ReadOnly = false;
         }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            applyleave();
+        }
+
+        private void cleartextbox(Control control)
+        {
+
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                }
+                   
+            }
+        }
+
+        private void btnAllReset_Click(object sender, EventArgs e)
+        {
+            cleartextbox(grpAddNewLeaveRecord);
+            cleartextbox(grpCurrentLeaveRecord);
+            cleartextbox(grpEmployeeDetails);
+            cleartextbox(grpEmployeeSearch);
+        }
+
+
     }
 }

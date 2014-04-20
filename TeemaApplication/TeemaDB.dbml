@@ -449,7 +449,7 @@
       <Column Name="LeaveFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LeaveTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LeaveAuthorizedDept" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SubstituteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubstituteID" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="LeaveApprovedDept" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
