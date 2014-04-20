@@ -34,11 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RealandAPI">
-      <HintPath>..\..\..\Referances\RealandAPI.dll</HintPath>
+    <Reference Include="RealandAPI, Version=1.0.0.625, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RealandAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Riss.Devices">
-      <HintPath>..\..\..\Referances\Riss.Devices.dll</HintPath>
+    <Reference Include="Riss.Devices, Version=1.0.0.1830, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Riss.Devices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

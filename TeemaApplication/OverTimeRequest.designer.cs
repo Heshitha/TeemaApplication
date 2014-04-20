@@ -38,14 +38,7 @@
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
             this.gbxEmployeeDetails = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtBranch = new System.Windows.Forms.TextBox();
-            this.txtSub_Department = new System.Windows.Forms.TextBox();
-            this.txtDepartment = new System.Windows.Forms.TextBox();
             this.txtToken_No = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtEPF_No = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -66,6 +59,8 @@
             this.rdbSingle = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxTime = new System.Windows.Forms.GroupBox();
+            this.dudToMM = new System.Windows.Forms.DomainUpDown();
+            this.dudFromMM = new System.Windows.Forms.DomainUpDown();
             this.dudToHH = new System.Windows.Forms.DomainUpDown();
             this.dudFromHH = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,8 +72,6 @@
             this.clmnToken_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEPF_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dudToMM = new System.Windows.Forms.DomainUpDown();
-            this.dudFromMM = new System.Windows.Forms.DomainUpDown();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxOver_Time_Details.SuspendLayout();
@@ -122,6 +115,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblSubDepartment
             // 
@@ -181,14 +175,7 @@
             // 
             // gbxEmployeeDetails
             // 
-            this.gbxEmployeeDetails.Controls.Add(this.btnClear);
-            this.gbxEmployeeDetails.Controls.Add(this.txtBranch);
-            this.gbxEmployeeDetails.Controls.Add(this.txtSub_Department);
-            this.gbxEmployeeDetails.Controls.Add(this.txtDepartment);
             this.gbxEmployeeDetails.Controls.Add(this.txtToken_No);
-            this.gbxEmployeeDetails.Controls.Add(this.label16);
-            this.gbxEmployeeDetails.Controls.Add(this.label15);
-            this.gbxEmployeeDetails.Controls.Add(this.label14);
             this.gbxEmployeeDetails.Controls.Add(this.label13);
             this.gbxEmployeeDetails.Controls.Add(this.txtEPF_No);
             this.gbxEmployeeDetails.Controls.Add(this.label12);
@@ -200,40 +187,10 @@
             this.gbxEmployeeDetails.Controls.Add(this.label3);
             this.gbxEmployeeDetails.Location = new System.Drawing.Point(12, 185);
             this.gbxEmployeeDetails.Name = "gbxEmployeeDetails";
-            this.gbxEmployeeDetails.Size = new System.Drawing.Size(285, 274);
+            this.gbxEmployeeDetails.Size = new System.Drawing.Size(285, 155);
             this.gbxEmployeeDetails.TabIndex = 5;
             this.gbxEmployeeDetails.TabStop = false;
             this.gbxEmployeeDetails.Text = "Employee Details";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(204, 228);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 26;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // txtBranch
-            // 
-            this.txtBranch.Location = new System.Drawing.Point(97, 202);
-            this.txtBranch.Name = "txtBranch";
-            this.txtBranch.Size = new System.Drawing.Size(176, 20);
-            this.txtBranch.TabIndex = 25;
-            // 
-            // txtSub_Department
-            // 
-            this.txtSub_Department.Location = new System.Drawing.Point(97, 176);
-            this.txtSub_Department.Name = "txtSub_Department";
-            this.txtSub_Department.Size = new System.Drawing.Size(176, 20);
-            this.txtSub_Department.TabIndex = 24;
-            // 
-            // txtDepartment
-            // 
-            this.txtDepartment.Location = new System.Drawing.Point(97, 150);
-            this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(176, 20);
-            this.txtDepartment.TabIndex = 19;
             // 
             // txtToken_No
             // 
@@ -241,33 +198,6 @@
             this.txtToken_No.Name = "txtToken_No";
             this.txtToken_No.Size = new System.Drawing.Size(176, 20);
             this.txtToken_No.TabIndex = 23;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 205);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Branch";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 179);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 13);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Sub Department";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 153);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Department";
             // 
             // label13
             // 
@@ -458,13 +388,176 @@
             this.gbxTime.TabStop = false;
             this.gbxTime.Text = "Time";
             // 
+            // dudToMM
+            // 
+            this.dudToMM.Items.Add("00");
+            this.dudToMM.Items.Add("01");
+            this.dudToMM.Items.Add("02");
+            this.dudToMM.Items.Add("03");
+            this.dudToMM.Items.Add("04");
+            this.dudToMM.Items.Add("05");
+            this.dudToMM.Items.Add("06");
+            this.dudToMM.Items.Add("07");
+            this.dudToMM.Items.Add("08");
+            this.dudToMM.Items.Add("09");
+            this.dudToMM.Items.Add("10");
+            this.dudToMM.Items.Add("11");
+            this.dudToMM.Items.Add("12");
+            this.dudToMM.Items.Add("13");
+            this.dudToMM.Items.Add("14");
+            this.dudToMM.Items.Add("15");
+            this.dudToMM.Items.Add("16");
+            this.dudToMM.Items.Add("17");
+            this.dudToMM.Items.Add("18");
+            this.dudToMM.Items.Add("19");
+            this.dudToMM.Items.Add("20");
+            this.dudToMM.Items.Add("21");
+            this.dudToMM.Items.Add("22");
+            this.dudToMM.Items.Add("23");
+            this.dudToMM.Items.Add("24");
+            this.dudToMM.Items.Add("25");
+            this.dudToMM.Items.Add("26");
+            this.dudToMM.Items.Add("27");
+            this.dudToMM.Items.Add("28");
+            this.dudToMM.Items.Add("29");
+            this.dudToMM.Items.Add("30");
+            this.dudToMM.Items.Add("31");
+            this.dudToMM.Items.Add("32");
+            this.dudToMM.Items.Add("33");
+            this.dudToMM.Items.Add("34");
+            this.dudToMM.Items.Add("35");
+            this.dudToMM.Items.Add("36");
+            this.dudToMM.Items.Add("37");
+            this.dudToMM.Items.Add("38");
+            this.dudToMM.Items.Add("39");
+            this.dudToMM.Items.Add("40");
+            this.dudToMM.Items.Add("41");
+            this.dudToMM.Items.Add("42");
+            this.dudToMM.Items.Add("43");
+            this.dudToMM.Items.Add("44");
+            this.dudToMM.Items.Add("45");
+            this.dudToMM.Items.Add("46");
+            this.dudToMM.Items.Add("47");
+            this.dudToMM.Items.Add("48");
+            this.dudToMM.Items.Add("49");
+            this.dudToMM.Items.Add("50");
+            this.dudToMM.Items.Add("51");
+            this.dudToMM.Items.Add("52");
+            this.dudToMM.Items.Add("53");
+            this.dudToMM.Items.Add("54");
+            this.dudToMM.Items.Add("55");
+            this.dudToMM.Items.Add("56");
+            this.dudToMM.Items.Add("57");
+            this.dudToMM.Items.Add("58");
+            this.dudToMM.Items.Add("59");
+            this.dudToMM.Location = new System.Drawing.Point(90, 45);
+            this.dudToMM.Name = "dudToMM";
+            this.dudToMM.Size = new System.Drawing.Size(42, 20);
+            this.dudToMM.TabIndex = 6;
+            this.dudToMM.Text = "MM";
+            this.dudToMM.SelectedItemChanged += new System.EventHandler(this.dudToMM_SelectedItemChanged);
+            // 
+            // dudFromMM
+            // 
+            this.dudFromMM.Items.Add("00");
+            this.dudFromMM.Items.Add("01");
+            this.dudFromMM.Items.Add("02");
+            this.dudFromMM.Items.Add("03");
+            this.dudFromMM.Items.Add("04");
+            this.dudFromMM.Items.Add("05");
+            this.dudFromMM.Items.Add("06");
+            this.dudFromMM.Items.Add("07");
+            this.dudFromMM.Items.Add("08");
+            this.dudFromMM.Items.Add("09");
+            this.dudFromMM.Items.Add("10");
+            this.dudFromMM.Items.Add("11");
+            this.dudFromMM.Items.Add("12");
+            this.dudFromMM.Items.Add("13");
+            this.dudFromMM.Items.Add("14");
+            this.dudFromMM.Items.Add("15");
+            this.dudFromMM.Items.Add("16");
+            this.dudFromMM.Items.Add("17");
+            this.dudFromMM.Items.Add("18");
+            this.dudFromMM.Items.Add("19");
+            this.dudFromMM.Items.Add("20");
+            this.dudFromMM.Items.Add("21");
+            this.dudFromMM.Items.Add("22");
+            this.dudFromMM.Items.Add("23");
+            this.dudFromMM.Items.Add("24");
+            this.dudFromMM.Items.Add("25");
+            this.dudFromMM.Items.Add("26");
+            this.dudFromMM.Items.Add("27");
+            this.dudFromMM.Items.Add("28");
+            this.dudFromMM.Items.Add("29");
+            this.dudFromMM.Items.Add("30");
+            this.dudFromMM.Items.Add("31");
+            this.dudFromMM.Items.Add("32");
+            this.dudFromMM.Items.Add("33");
+            this.dudFromMM.Items.Add("34");
+            this.dudFromMM.Items.Add("35");
+            this.dudFromMM.Items.Add("36");
+            this.dudFromMM.Items.Add("37");
+            this.dudFromMM.Items.Add("38");
+            this.dudFromMM.Items.Add("39");
+            this.dudFromMM.Items.Add("40");
+            this.dudFromMM.Items.Add("41");
+            this.dudFromMM.Items.Add("42");
+            this.dudFromMM.Items.Add("43");
+            this.dudFromMM.Items.Add("44");
+            this.dudFromMM.Items.Add("45");
+            this.dudFromMM.Items.Add("46");
+            this.dudFromMM.Items.Add("47");
+            this.dudFromMM.Items.Add("48");
+            this.dudFromMM.Items.Add("49");
+            this.dudFromMM.Items.Add("50");
+            this.dudFromMM.Items.Add("51");
+            this.dudFromMM.Items.Add("52");
+            this.dudFromMM.Items.Add("53");
+            this.dudFromMM.Items.Add("54");
+            this.dudFromMM.Items.Add("55");
+            this.dudFromMM.Items.Add("56");
+            this.dudFromMM.Items.Add("57");
+            this.dudFromMM.Items.Add("58");
+            this.dudFromMM.Items.Add("59");
+            this.dudFromMM.Location = new System.Drawing.Point(90, 19);
+            this.dudFromMM.Name = "dudFromMM";
+            this.dudFromMM.Size = new System.Drawing.Size(42, 20);
+            this.dudFromMM.TabIndex = 5;
+            this.dudFromMM.Text = "MM";
+            this.dudFromMM.SelectedItemChanged += new System.EventHandler(this.dudFromMM_SelectedItemChanged);
+            // 
             // dudToHH
             // 
+            this.dudToHH.Items.Add("00");
+            this.dudToHH.Items.Add("01");
+            this.dudToHH.Items.Add("02");
+            this.dudToHH.Items.Add("03");
+            this.dudToHH.Items.Add("04");
+            this.dudToHH.Items.Add("05");
+            this.dudToHH.Items.Add("06");
+            this.dudToHH.Items.Add("07");
+            this.dudToHH.Items.Add("08");
+            this.dudToHH.Items.Add("09");
+            this.dudToHH.Items.Add("10");
+            this.dudToHH.Items.Add("11");
+            this.dudToHH.Items.Add("12");
+            this.dudToHH.Items.Add("13");
+            this.dudToHH.Items.Add("14");
+            this.dudToHH.Items.Add("15");
+            this.dudToHH.Items.Add("16");
+            this.dudToHH.Items.Add("17");
+            this.dudToHH.Items.Add("18");
+            this.dudToHH.Items.Add("19");
+            this.dudToHH.Items.Add("20");
+            this.dudToHH.Items.Add("21");
+            this.dudToHH.Items.Add("22");
+            this.dudToHH.Items.Add("23");
             this.dudToHH.Location = new System.Drawing.Point(42, 45);
             this.dudToHH.Name = "dudToHH";
             this.dudToHH.Size = new System.Drawing.Size(42, 20);
             this.dudToHH.TabIndex = 4;
             this.dudToHH.Text = "HH";
+            this.dudToHH.SelectedItemChanged += new System.EventHandler(this.dudToHH_SelectedItemChanged);
             // 
             // dudFromHH
             // 
@@ -497,6 +590,7 @@
             this.dudFromHH.Size = new System.Drawing.Size(42, 20);
             this.dudFromHH.TabIndex = 3;
             this.dudFromHH.Text = "HH";
+            this.dudFromHH.SelectedItemChanged += new System.EventHandler(this.dudFromHH_SelectedItemChanged);
             // 
             // label4
             // 
@@ -537,6 +631,7 @@
             // 
             // gdvOver_Time_Request
             // 
+            this.gdvOver_Time_Request.AllowUserToAddRows = false;
             this.gdvOver_Time_Request.AllowUserToDeleteRows = false;
             this.gdvOver_Time_Request.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gdvOver_Time_Request.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -548,42 +643,34 @@
             this.gdvOver_Time_Request.Location = new System.Drawing.Point(303, 227);
             this.gdvOver_Time_Request.Name = "gdvOver_Time_Request";
             this.gdvOver_Time_Request.RowHeadersVisible = false;
+            this.gdvOver_Time_Request.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdvOver_Time_Request.Size = new System.Drawing.Size(561, 232);
             this.gdvOver_Time_Request.TabIndex = 7;
+            this.gdvOver_Time_Request.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvOver_Time_Request_CellClick);
             // 
             // clmnEntitled
             // 
+            this.clmnEntitled.DataPropertyName = "Entitled";
             this.clmnEntitled.HeaderText = "Entitled";
             this.clmnEntitled.Name = "clmnEntitled";
             // 
             // clmnToken_no
             // 
+            this.clmnToken_no.DataPropertyName = "TokenNo";
             this.clmnToken_no.HeaderText = "Token No.";
             this.clmnToken_no.Name = "clmnToken_no";
             // 
             // clmnEPF_No
             // 
+            this.clmnEPF_No.DataPropertyName = "EPFNo";
             this.clmnEPF_No.HeaderText = "E.P.F No.";
             this.clmnEPF_No.Name = "clmnEPF_No";
             // 
             // clmnEmployee_Name
             // 
+            this.clmnEmployee_Name.DataPropertyName = "EmployeeName";
             this.clmnEmployee_Name.HeaderText = "Employee Name";
             this.clmnEmployee_Name.Name = "clmnEmployee_Name";
-            // 
-            // dudToMM
-            // 
-            this.dudToMM.Location = new System.Drawing.Point(90, 45);
-            this.dudToMM.Name = "dudToMM";
-            this.dudToMM.Size = new System.Drawing.Size(42, 20);
-            this.dudToMM.TabIndex = 6;
-            // 
-            // dudFromMM
-            // 
-            this.dudFromMM.Location = new System.Drawing.Point(90, 19);
-            this.dudFromMM.Name = "dudFromMM";
-            this.dudFromMM.Size = new System.Drawing.Size(42, 20);
-            this.dudFromMM.TabIndex = 5;
             // 
             // frmOver_Time_Request
             // 
@@ -628,14 +715,7 @@
         private System.Windows.Forms.Label lblWorkingBranch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox gbxEmployeeDetails;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtBranch;
-        private System.Windows.Forms.TextBox txtSub_Department;
-        private System.Windows.Forms.TextBox txtDepartment;
         private System.Windows.Forms.TextBox txtToken_No;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtEPF_No;
         private System.Windows.Forms.Label label12;
@@ -660,14 +740,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.DataGridView gdvOver_Time_Request;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clmnEntitled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmployee_Name;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DomainUpDown dudToHH;
         private System.Windows.Forms.DomainUpDown dudFromHH;
         private System.Windows.Forms.DomainUpDown dudToMM;
         private System.Windows.Forms.DomainUpDown dudFromMM;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmnEntitled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPF_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmployee_Name;
     }
 }

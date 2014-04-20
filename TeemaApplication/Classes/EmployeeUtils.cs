@@ -123,6 +123,19 @@ namespace TeemaApplication.Classes
             }
         }
 
+        public static string getDoubleNumaricValue(string title, string text, bool flag)
+        {
+            double value = 0;
+            if (double.TryParse(text, out value))
+            {
+                return "";
+            }
+            else
+            {
+                return title + ", ";
+            }
+        }
+
         public static VariableIncentive getVariableIncentive(string variableIncentiveType, string textBoxValue, Employee employee)
         {
             VariableIncentive variableIncentive = new VariableIncentive
