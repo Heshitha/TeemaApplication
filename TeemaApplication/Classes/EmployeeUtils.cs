@@ -50,9 +50,9 @@ namespace TeemaApplication.Classes
             }
         }
 
-        public static double getVariableIncentiveValue(TextBox textBox)
+        public static double getDoubleValueFromTextBox(TextBox textBox)
         {
-            double value;
+            double value = 0;
             if (double.TryParse(textBox.Text, out value))
             {
                 return value;

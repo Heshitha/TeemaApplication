@@ -89,7 +89,69 @@ namespace TeemaApplication
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            checkforsalarymonth();
+            if (checkforsalarymonth())
+            {
+                SubDepartment subDept = (SubDepartment)cmbSubDepartment.SelectedItem;
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TokenNo");
+                dt.Columns.Add("EPFNo");
+                dt.Columns.Add("EmployeeName");
+                dt.Columns.Add("RequestedAmount");
+
+                int year = Convert.ToInt32(cmbYear.Text);
+                int month = cmbMonth.SelectedIndex + 1;
+
+                foreach (Employee emp in subDept.Employees)
+                {
+                    var salAdvances = emp.SalaryAdvances.Where(sa => sa.Year == year && sa.Month == month);
+
+                    if (salAdvances.Count() != 0)
+                    {
+                        foreach (SalaryAdvance sa in salAdvances)
+                        {
+                            double totalAdvance = sa.TotalFromEPFSalary.Value + sa.DayWagesAmount.Value + sa.FixedIncentiveAmount.Value + sa.VariableIncentiveAmount.Value;
+                            dt.Rows.Add(emp.TokenNo, emp.EPFNo, emp.Name, totalAdvance);
+                        }
+                    }
+                    else
+                    {
+                        dt.Rows.Add(emp.TokenNo, emp.EPFNo, emp.Name, "No Advance Requested.");
+                    }
+                }
+                gdvSalaryAdvance.DataSource = dt;
+            }
+        }
+
+        private void calculateTotalRequestedAmount()
+        {
+            double epfSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary);
+            double dayWages = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages);
+            double fixedIncentive = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance);
+            double variableIncentive = EmployeeUtils.getDoubleValueFromTextBox(txtVariableIncentiveAllowance);
+
+            double totalRequestedAmount = epfSalary + dayWages + fixedIncentive + variableIncentive;
+            txtRequested_Amount.Text = totalRequestedAmount.ToString("0.00");
+        }
+
+        private void txtTotalFromEPFSalary_TextChanged(object sender, EventArgs e)
+        {
+            calculateTotalRequestedAmount();
+        }
+
+        private void txtDayWages_TextChanged(object sender, EventArgs e)
+        {
+            calculateTotalRequestedAmount();
+        }
+
+        private void txtFixedIncentiveAllowance_TextChanged(object sender, EventArgs e)
+        {
+            calculateTotalRequestedAmount();
+        }
+
+        private void txtVariableIncentiveAllowance_TextChanged(object sender, EventArgs e)
+        {
+            calculateTotalRequestedAmount();
         }
     }
 }

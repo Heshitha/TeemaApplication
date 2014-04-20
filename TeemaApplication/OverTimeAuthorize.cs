@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,15 +10,15 @@ using TeemaApplication.Classes;
 
 namespace TeemaApplication
 {
-    public partial class frmOver_Time_Approve : Form
+    public partial class frmOverTimeAuthorize : Form
     {
         TeemaDBDataContext db = new TeemaDBDataContext();
-        public frmOver_Time_Approve()
+        public frmOverTimeAuthorize()
         {
             InitializeComponent();
         }
-        
-        private void frmOver_Time_Approve_Load(object sender, EventArgs e)
+
+        private void frmOverTimeAuthorize_Load(object sender, EventArgs e)
         {
             EmployeeUtils.fillcmbWorkingBranch(db, cmbWorkingBranch);
             EmployeeUtils.fillcmbDepartment((Branch)cmbWorkingBranch.SelectedItem, cmbDepartment);
@@ -36,68 +35,6 @@ namespace TeemaApplication
             EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
         }
 
-
-        private bool checkforvalues()
-        {
-            String errortext = null;
-
-            errortext += EmployeeUtils.getDoubleNumaricValue(" *Over Time Hours ", txtOver_Time_Hours.Text, true);
-
-            if (!EmployeeUtils.checkIfContainText(txtReason))
-            {
-                errortext += " *Reason";
-            }
-
-            if (errortext == "")
-            {
-                MessageBox.Show("Done");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Please Add Correct Value To " + errortext + "..!");
-                return false;
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            checkforvalues();
-
-            foreach (DataGridViewRow row in gdvOver_Time_Request.Rows)
-            {
-                DataGridViewCheckBoxCell checkCell = row.Cells[0] as DataGridViewCheckBoxCell;
-
-                bool IsApproved = (checkCell != null && checkCell.Value != null && true == (bool)checkCell.Value);
-
-                string tokenNo = row.Cells[1].Value.ToString();
-                DateTime overtimeDate = Convert.ToDateTime(row.Cells[4].Value);
-
-                Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
-                OverTime overtime = emp.OverTimes.Where(ot => ot.OverTimeDate.Equals(overtimeDate)).SingleOrDefault();
-
-                if (IsApproved)
-                {
-                    overtime.OverTimeApprovedDept = 1;
-                }
-                else
-                {
-                    overtime.OverTimeApprovedDept = null;
-                }
-                db.SubmitChanges();
-            }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            FillOvertimeGridView();
-        }
-
-        private void cmbSubDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void FillOvertimeGridView()
         {
             try
@@ -105,7 +42,8 @@ namespace TeemaApplication
                 SubDepartment subDept = (SubDepartment)cmbSubDepartment.SelectedItem;
 
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Approve", typeof(bool));
+                dt.Columns.Add("Authorize", typeof(bool));
+                dt.Columns.Add("Approve");
                 dt.Columns.Add("TokenNo");
                 dt.Columns.Add("EPFNo");
                 dt.Columns.Add("EmployeeName");
@@ -116,22 +54,22 @@ namespace TeemaApplication
                 foreach (Employee emp in subDept.Employees)
                 {
                     List<OverTime> OverTimeList;
-                    if (chbUnApprovedOnly.Checked)
+                    if (chbUnAuthorizedOnly.Checked)
                     {
-                        OverTimeList = emp.OverTimes.Where(ot => ot.OverTimeApprovedDept == null).ToList();
+                        OverTimeList = emp.OverTimes.Where(ot => ot.OverTImeAuthorizedDept == null && ot.OverTimeApprovedDept != null).ToList();
                     }
                     else
                     {
-                        OverTimeList = emp.OverTimes.ToList();
+                        OverTimeList = emp.OverTimes.Where(ot => ot.OverTimeApprovedDept != null).ToList();
                     }
 
                     foreach (OverTime ot in OverTimeList)
                     {
                         TimeSpan ts = ot.OverTimeTo.Value.Subtract(ot.OverTImeFrom.Value);
 
-                        bool isApproved = ot.OverTimeApprovedDept == null ? false : true;
+                        bool isAuthorized = ot.OverTImeAuthorizedDept == null ? false : true;
 
-                        dt.Rows.Add(isApproved, emp.TokenNo, emp.EPFNo, emp.Name, ot.OverTimeDate.Value, ot.OverTimeCategory.Value, ts.Hours.ToString("0.00"));
+                        dt.Rows.Add(isAuthorized, ot.OverTimeApprovedDept, emp.TokenNo, emp.EPFNo, emp.Name, ot.OverTimeDate.Value, ot.OverTimeCategory.Value, ts.Hours.ToString("0.00"));
                     }
                 }
 
@@ -147,12 +85,17 @@ namespace TeemaApplication
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FillOvertimeGridView();
+        }
+
         private void gdvOver_Time_Request_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                string tokenNo = gdvOver_Time_Request.Rows[e.RowIndex].Cells[1].Value.ToString();
-                DateTime overtimeDate = Convert.ToDateTime(gdvOver_Time_Request.Rows[e.RowIndex].Cells[4].Value);
+                string tokenNo = gdvOver_Time_Request.Rows[e.RowIndex].Cells[2].Value.ToString();
+                DateTime overtimeDate = Convert.ToDateTime(gdvOver_Time_Request.Rows[e.RowIndex].Cells[5].Value);
 
                 Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
                 OverTime overtime = emp.OverTimes.Where(ot => ot.OverTimeDate.Equals(overtimeDate)).SingleOrDefault();
@@ -182,23 +125,40 @@ namespace TeemaApplication
             }
             catch (Exception)
             {
-                
+
             }
         }
 
-        private void gdvOver_Time_Request_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                foreach (DataGridViewRow row in gdvOver_Time_Request.Rows)
+                {
+                    DataGridViewCheckBoxCell checkCell = row.Cells[0] as DataGridViewCheckBoxCell;
+                    bool IsAuthorized = (checkCell != null && checkCell.Value != null && true == (bool)checkCell.Value);
 
-        }
+                    string tokenNo = row.Cells[2].Value.ToString();
+                    DateTime overtimeDate = Convert.ToDateTime(row.Cells[5].Value);
 
-        private void gdvOver_Time_Request_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+                    Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
+                    OverTime overtime = emp.OverTimes.Where(ot => ot.OverTimeDate.Equals(overtimeDate)).SingleOrDefault();
 
-        private void gdvOver_Time_Request_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            
+                    if (IsAuthorized)
+                    {
+                        overtime.OverTImeAuthorizedDept = 1;
+                    }
+                    else
+                    {
+                        overtime.OverTImeAuthorizedDept = null;
+                    }
+                    db.SubmitChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

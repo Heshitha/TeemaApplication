@@ -45,8 +45,9 @@
             this.btnVaribleIncentiveAllowance = new System.Windows.Forms.Button();
             this.btnFixedIncentiveAllowance = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAddLeaves = new System.Windows.Forms.Button();
             this.btnLeaveApply = new System.Windows.Forms.Button();
+            this.btnAddLeaves = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
@@ -98,11 +99,12 @@
             // 
             // gbxOverTime
             // 
+            this.gbxOverTime.Controls.Add(this.button1);
             this.gbxOverTime.Controls.Add(this.btnOverTimeApproved);
             this.gbxOverTime.Controls.Add(this.btnOverTimeRequest);
             this.gbxOverTime.Location = new System.Drawing.Point(143, 12);
             this.gbxOverTime.Name = "gbxOverTime";
-            this.gbxOverTime.Size = new System.Drawing.Size(147, 83);
+            this.gbxOverTime.Size = new System.Drawing.Size(147, 110);
             this.gbxOverTime.TabIndex = 4;
             this.gbxOverTime.TabStop = false;
             this.gbxOverTime.Text = "Over Time";
@@ -233,6 +235,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
             // 
+            // btnLeaveApply
+            // 
+            this.btnLeaveApply.Location = new System.Drawing.Point(6, 48);
+            this.btnLeaveApply.Name = "btnLeaveApply";
+            this.btnLeaveApply.Size = new System.Drawing.Size(112, 23);
+            this.btnLeaveApply.TabIndex = 3;
+            this.btnLeaveApply.Text = "Leave Apply";
+            this.btnLeaveApply.UseVisualStyleBackColor = true;
+            this.btnLeaveApply.Click += new System.EventHandler(this.btnLeaveApply_Click);
+            // 
             // btnAddLeaves
             // 
             this.btnAddLeaves.Location = new System.Drawing.Point(6, 19);
@@ -243,15 +255,15 @@
             this.btnAddLeaves.UseVisualStyleBackColor = true;
             this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
             // 
-            // btnLeaveApply
+            // button1
             // 
-            this.btnLeaveApply.Location = new System.Drawing.Point(6, 48);
-            this.btnLeaveApply.Name = "btnLeaveApply";
-            this.btnLeaveApply.Size = new System.Drawing.Size(112, 23);
-            this.btnLeaveApply.TabIndex = 3;
-            this.btnLeaveApply.Text = "Leave Apply";
-            this.btnLeaveApply.UseVisualStyleBackColor = true;
-            this.btnLeaveApply.Click += new System.EventHandler(this.btnLeaveApply_Click);
+            this.button1.Location = new System.Drawing.Point(6, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Over Time Authorize";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMain
             // 
@@ -295,5 +307,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddLeaves;
         private System.Windows.Forms.Button btnLeaveApply;
+        private System.Windows.Forms.Button button1;
     }
 }

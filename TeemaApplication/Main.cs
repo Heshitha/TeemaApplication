@@ -101,6 +101,12 @@ namespace TeemaApplication
             frm.ShowDialog();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmOverTimeAuthorize frm = new frmOverTimeAuthorize();
+            frm.ShowDialog();
+        }
+
         
     }
 }

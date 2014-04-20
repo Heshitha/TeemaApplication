@@ -232,10 +232,10 @@ namespace TeemaApplication
 
         private void calculateVaribleIncentiveValues()
         {
-            double ProductionSalesPerformanceTotal = EmployeeUtils.getVariableIncentiveValue(txtProductionSalesPerformanceTotalValue);
-            double performPrecentage = EmployeeUtils.getVariableIncentiveValue(txtPerformancePrecentage) / 100.0;
-            double salesPrecentage = EmployeeUtils.getVariableIncentiveValue(txtSalesPrecentage) / 100.0;
-            double productPrecentage = EmployeeUtils.getVariableIncentiveValue(txtProductPrecentage) / 100.0;
+            double ProductionSalesPerformanceTotal = EmployeeUtils.getDoubleValueFromTextBox(txtProductionSalesPerformanceTotalValue);
+            double performPrecentage = EmployeeUtils.getDoubleValueFromTextBox(txtPerformancePrecentage) / 100.0;
+            double salesPrecentage = EmployeeUtils.getDoubleValueFromTextBox(txtSalesPrecentage) / 100.0;
+            double productPrecentage = EmployeeUtils.getDoubleValueFromTextBox(txtProductPrecentage) / 100.0;
 
             double performValue = ProductionSalesPerformanceTotal * performPrecentage;
             double salesValue = ProductionSalesPerformanceTotal * salesPrecentage;

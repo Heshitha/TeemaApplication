@@ -136,6 +136,12 @@
     <Compile Include="OverTimeApprove.designer.cs">
       <DependentUpon>OverTimeApprove.cs</DependentUpon>
     </Compile>
+    <Compile Include="OverTimeAuthorize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverTimeAuthorize.Designer.cs">
+      <DependentUpon>OverTimeAuthorize.cs</DependentUpon>
+    </Compile>
     <Compile Include="OverTimeRequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OverTimeApprove.resx">
       <DependentUpon>OverTimeApprove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverTimeAuthorize.resx">
+      <DependentUpon>OverTimeAuthorize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OverTimeRequest.resx">
       <DependentUpon>OverTimeRequest.cs</DependentUpon>
