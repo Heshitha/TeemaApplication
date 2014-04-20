@@ -57,9 +57,37 @@ namespace TeemaApplication
             }
         }
 
+        private string getEmptyInputBeforeSubmit()
+        {
+            string EmptyTextBoxNames = string.Empty;
+
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" M / Break / D ", txtM_Break_D.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" M / Main.A / P / T ", txtM_Main_A_P_T .Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" Mill Sec ", txtMill_Sec.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" Hawail Sec ", txtHawail_Sec.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" Sales Targets ", txtSalary_Target.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue(" Per.Ins.Marks ", txtPer_Ins_Markes.Text, true);
+
+            return EmptyTextBoxNames;
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             checkforsalarymonth();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string emptyInput = getEmptyInputBeforeSubmit();
+            if (emptyInput != string.Empty)
+            {
+                emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
+                ShowMessageBox.ShowError(" Please Enter Correct Value " + emptyInput + " . ");
+            }
+            else
+            {
+                MessageBox.Show("Done");
+            }
         }
     }
 }
