@@ -38,14 +38,7 @@
             this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.lblWorkingBranch = new System.Windows.Forms.Label();
             this.gbxEmployeeDetails = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtBranch = new System.Windows.Forms.TextBox();
-            this.txtSub_Department = new System.Windows.Forms.TextBox();
-            this.txtDepartment = new System.Windows.Forms.TextBox();
             this.txtToken_No = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtEPF_No = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -189,14 +182,7 @@
             // 
             // gbxEmployeeDetails
             // 
-            this.gbxEmployeeDetails.Controls.Add(this.btnClear);
-            this.gbxEmployeeDetails.Controls.Add(this.txtBranch);
-            this.gbxEmployeeDetails.Controls.Add(this.txtSub_Department);
-            this.gbxEmployeeDetails.Controls.Add(this.txtDepartment);
             this.gbxEmployeeDetails.Controls.Add(this.txtToken_No);
-            this.gbxEmployeeDetails.Controls.Add(this.label16);
-            this.gbxEmployeeDetails.Controls.Add(this.label15);
-            this.gbxEmployeeDetails.Controls.Add(this.label14);
             this.gbxEmployeeDetails.Controls.Add(this.label13);
             this.gbxEmployeeDetails.Controls.Add(this.txtEPF_No);
             this.gbxEmployeeDetails.Controls.Add(this.label12);
@@ -208,40 +194,10 @@
             this.gbxEmployeeDetails.Controls.Add(this.label3);
             this.gbxEmployeeDetails.Location = new System.Drawing.Point(12, 203);
             this.gbxEmployeeDetails.Name = "gbxEmployeeDetails";
-            this.gbxEmployeeDetails.Size = new System.Drawing.Size(287, 276);
+            this.gbxEmployeeDetails.Size = new System.Drawing.Size(287, 164);
             this.gbxEmployeeDetails.TabIndex = 5;
             this.gbxEmployeeDetails.TabStop = false;
             this.gbxEmployeeDetails.Text = "Employee Details";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(198, 228);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 26;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // txtBranch
-            // 
-            this.txtBranch.Location = new System.Drawing.Point(97, 202);
-            this.txtBranch.Name = "txtBranch";
-            this.txtBranch.Size = new System.Drawing.Size(176, 20);
-            this.txtBranch.TabIndex = 25;
-            // 
-            // txtSub_Department
-            // 
-            this.txtSub_Department.Location = new System.Drawing.Point(97, 176);
-            this.txtSub_Department.Name = "txtSub_Department";
-            this.txtSub_Department.Size = new System.Drawing.Size(176, 20);
-            this.txtSub_Department.TabIndex = 24;
-            // 
-            // txtDepartment
-            // 
-            this.txtDepartment.Location = new System.Drawing.Point(97, 150);
-            this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(176, 20);
-            this.txtDepartment.TabIndex = 19;
             // 
             // txtToken_No
             // 
@@ -249,33 +205,6 @@
             this.txtToken_No.Name = "txtToken_No";
             this.txtToken_No.Size = new System.Drawing.Size(176, 20);
             this.txtToken_No.TabIndex = 23;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 205);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Branch";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 179);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 13);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Sub Department";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 153);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Department";
             // 
             // label13
             // 
@@ -455,6 +384,8 @@
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
             this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(176, 20);
             this.txtFixedIncentiveAllowance.TabIndex = 17;
+            this.txtFixedIncentiveAllowance.Text = "0";
+            this.txtFixedIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -471,6 +402,8 @@
             this.txtDayWages.Name = "txtDayWages";
             this.txtDayWages.Size = new System.Drawing.Size(176, 20);
             this.txtDayWages.TabIndex = 15;
+            this.txtDayWages.Text = "0";
+            this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -487,6 +420,8 @@
             this.txtTotalFromEPFSalary.Name = "txtTotalFromEPFSalary";
             this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(176, 20);
             this.txtTotalFromEPFSalary.TabIndex = 13;
+            this.txtTotalFromEPFSalary.Text = "0";
+            this.txtTotalFromEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -537,7 +472,7 @@
             this.btnApproved.Name = "btnApproved";
             this.btnApproved.Size = new System.Drawing.Size(75, 23);
             this.btnApproved.TabIndex = 18;
-            this.btnApproved.Text = "Approved";
+            this.btnApproved.Text = "Approve";
             this.btnApproved.UseVisualStyleBackColor = true;
             this.btnApproved.Click += new System.EventHandler(this.btnApproved_Click);
             // 
@@ -571,7 +506,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(305, 232);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(679, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(679, 253);
             this.dataGridView1.TabIndex = 23;
             // 
             // clm_Token_No
@@ -628,7 +563,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 491);
+            this.ClientSize = new System.Drawing.Size(996, 497);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chbApprovedOnly);
             this.Controls.Add(this.btnCancel);
@@ -668,14 +603,7 @@
         private System.Windows.Forms.ComboBox cmbWorkingBranch;
         private System.Windows.Forms.Label lblWorkingBranch;
         private System.Windows.Forms.GroupBox gbxEmployeeDetails;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtBranch;
-        private System.Windows.Forms.TextBox txtSub_Department;
-        private System.Windows.Forms.TextBox txtDepartment;
         private System.Windows.Forms.TextBox txtToken_No;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtEPF_No;
         private System.Windows.Forms.Label label12;

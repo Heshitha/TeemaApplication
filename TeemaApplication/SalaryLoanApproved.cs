@@ -37,33 +37,38 @@ namespace TeemaApplication
             EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem,cmbSubDepartment);
         }
 
-       
-   
-        private bool checkforValues()
+        private string getEmptyInputsBeforeSubmit()
         {
-            String erroetext = null;
+            string EmptyTextBoxNames = string.Empty;
 
-            //erroetext += getIntNumaricValue("*Requested Amount", txtRequested_Amount.Text);
-            //erroetext += getIntNumaricValue(" *Deduction Amount in Month ", txtDeductionAmountinMonth.Text);
-            //erroetext += getIntNumaricValue(" *Number of Month ", txtNumber_of_Month.Text);
-            //erroetext += getIntNumaricValue(" *Deduction Salary Period ", txtDeduction_Salary_Period.Text);
-
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Requested Amount ", txtRequested_Amount.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Deduction Amount in Month ", txtDeductionAmountinMonth.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Number of Month ", txtNumber_of_Month.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Deduction Salary Period ", txtDeduction_Salary_Period.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Total From EPF Salary ",txtTotalFromEPFSalary.Text,true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Day Wages ", txtDayWages.Text, true);
+            EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue(" Fixed Incentive Allowance ", txtFixedIncentiveAllowance.Text, true);
            
-            if (erroetext == "")
+
+            return EmptyTextBoxNames;
+        }
+        
+     
+   
+       
+        private void btnApproved_Click(object sender, EventArgs e)
+        {
+            string emptyInput = getEmptyInputsBeforeSubmit();
+            if (emptyInput != string.Empty)
             {
-                MessageBox.Show("done");
-                return true;
+                emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
+                ShowMessageBox.ShowError(" Please Enter Correct Value " + emptyInput + " . ");
             }
             else
             {
-                MessageBox.Show("Please add Correct value to " + erroetext + "..!");
-                return false;
+                MessageBox.Show("Done");
             }
-        }
-
-        private void btnApproved_Click(object sender, EventArgs e)
-        {
-            checkforValues();
+            
         }
     }
 }

@@ -35,66 +35,77 @@ namespace TeemaApplication
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
-        }
-        // check text boxes for proper values
-        private String getIntNumaricValue(string title, string text)
-        {
-            int Value = 0;
-            if (int.TryParse(text, out Value))
-            {
-                return "";
-            }
-            else
-            {
-                return title + " ";
-            }
+        }        
 
-        }
+        //private bool checkforValues()
+        //{
+        //    String erroetext = null;
 
-        private bool checkforValues()
-        {
-            String erroetext = null;
+        //    erroetext += getIntNumaricValue("*Requested Amount", txtRequested_Amount.Text);
+        //    erroetext += getIntNumaricValue(" *Deduction Amount in Month ", txtDeductionAmountinMonth.Text);
+        //    erroetext += getIntNumaricValue(" *Number of Month ", txtNumber_of_Month.Text);
+        //    erroetext += getIntNumaricValue(" *Deduction Salary Period ", txtDeduction_Salary_Period.Text);
 
-            erroetext += getIntNumaricValue("*Requested Amount", txtRequested_Amount.Text);
-            erroetext += getIntNumaricValue(" *Deduction Amount in Month ", txtDeductionAmountinMonth.Text);
-            erroetext += getIntNumaricValue(" *Number of Month ", txtNumber_of_Month.Text);
-            erroetext += getIntNumaricValue(" *Deduction Salary Period ", txtDeduction_Salary_Period.Text);
+        //    if (txtTotalFromEPFSalary.Text != "")
+        //    {
+        //        erroetext += getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text);
+        //    }
+        //    else if (txtDayWages.Text != "")
+        //    {
+        //        erroetext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
 
-            if (txtTotalFromEPFSalary.Text != "")
-            {
-                erroetext += getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text);
-            }
-            else if (txtDayWages.Text != "")
-            {
-                erroetext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
-
-            }
-            else if (txtFixedIncentiveAllowance.Text != "")
-            {
-                erroetext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
-            }
-            else if (txtTotalFromEPFSalary.Text == "" && txtDayWages.Text == "" && txtFixedIncentiveAllowance.Text == "")
-            {
-                erroetext += getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text);
-                erroetext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
-                erroetext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
-            }
+        //    }
+        //    else if (txtFixedIncentiveAllowance.Text != "")
+        //    {
+        //        erroetext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
+        //    }
+        //    else if (txtTotalFromEPFSalary.Text == "" && txtDayWages.Text == "" && txtFixedIncentiveAllowance.Text == "")
+        //    {
+        //        erroetext += getIntNumaricValue(" *Toatal from EPF Salary", txtTotalFromEPFSalary.Text);
+        //        erroetext += getIntNumaricValue(" *Day Wages", txtDayWages.Text);
+        //        erroetext += getIntNumaricValue(" *Fixed Intencive Value", txtFixedIncentiveAllowance.Text);
+        //    }
             
-            if (erroetext == "")
-            {
-                MessageBox.Show("done");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Please add Correct value to "+erroetext+"..!");
-                return false;
-            }
+        //    if (erroetext == "")
+        //    {
+        //        MessageBox.Show("done");
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please add Correct value to "+erroetext+"..!");
+        //        return false;
+        //    }
+        //}
+
+        private string getEmptyInputBeforeSubmit()
+        {
+            string EmptyTextBoxName = string.Empty;
+
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Requested Amount ",txtRequested_Amount.Text,true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Deduction Amount In Month ", txtDeductionAmountinMonth.Text, true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Number of month ", txtNumber_of_Month.Text, true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Deduction Salary Period ", txtDeduction_Salary_Period.Text, true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Total From EPF Salary ", txtTotalFromEPFSalary.Text, true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Day Wages ", txtDayWages.Text, true);
+            EmptyTextBoxName += EmployeeUtils.getIntNumaricValue(" Fixed Incentive Allowance ", txtFixedIncentiveAllowance.Text, true);
+
+
+            return EmptyTextBoxName;
         }
 
         private void btnUpsate_Click(object sender, EventArgs e)
         {
-            checkforValues();
+            string emptyInput = getEmptyInputBeforeSubmit();
+            if (emptyInput != string.Empty)
+            {
+                emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
+                ShowMessageBox.ShowError(" Please Enter Correct Value " + emptyInput + " . ");
+            }
+            else
+            {
+                MessageBox.Show("Done");
+            }
         }
 
       

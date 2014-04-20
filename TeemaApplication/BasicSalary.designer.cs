@@ -29,44 +29,36 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnDepartment = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnBranch = new System.Windows.Forms.ComboBox();
+            this.cmbSubDepartment = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblTokenNumber = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtNic = new System.Windows.Forms.TextBox();
+            this.txtTokenNo = new System.Windows.Forms.TextBox();
+            this.txtDesignation = new System.Windows.Forms.TextBox();
+            this.txtEPFNo = new System.Windows.Forms.TextBox();
+            this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblAnnual = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.txtOTRate = new System.Windows.Forms.TextBox();
+            this.lblAnnual = new System.Windows.Forms.Label();
+            this.dtpSalaryPeriod = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,10 +67,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.btnDepartment);
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.btnBranch);
+            this.groupBox1.Controls.Add(this.cmbSubDepartment);
             this.groupBox1.Controls.Add(this.lblDepartment);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.lblTokenNumber);
@@ -89,13 +81,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Department Search";
             // 
-            // comboBox4
+            // btnDepartment
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(108, 56);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(156, 21);
-            this.comboBox4.TabIndex = 2;
+            this.btnDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.btnDepartment.FormattingEnabled = true;
+            this.btnDepartment.Location = new System.Drawing.Point(108, 56);
+            this.btnDepartment.Name = "btnDepartment";
+            this.btnDepartment.Size = new System.Drawing.Size(156, 21);
+            this.btnDepartment.TabIndex = 2;
             // 
             // btnSearch
             // 
@@ -106,21 +99,23 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // btnBranch
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(108, 29);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(156, 21);
-            this.comboBox3.TabIndex = 2;
+            this.btnBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.btnBranch.FormattingEnabled = true;
+            this.btnBranch.Location = new System.Drawing.Point(108, 29);
+            this.btnBranch.Name = "btnBranch";
+            this.btnBranch.Size = new System.Drawing.Size(156, 21);
+            this.btnBranch.TabIndex = 2;
             // 
-            // comboBox1
+            // cmbSubDepartment
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cmbSubDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSubDepartment.FormattingEnabled = true;
+            this.cmbSubDepartment.Location = new System.Drawing.Point(108, 81);
+            this.cmbSubDepartment.Name = "cmbSubDepartment";
+            this.cmbSubDepartment.Size = new System.Drawing.Size(156, 21);
+            this.cmbSubDepartment.TabIndex = 2;
             // 
             // lblDepartment
             // 
@@ -151,103 +146,58 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox22);
-            this.groupBox4.Controls.Add(this.textBox21);
-            this.groupBox4.Controls.Add(this.textBox19);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.textBox20);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.textBox17);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox18);
+            this.groupBox4.Controls.Add(this.txtNic);
+            this.groupBox4.Controls.Add(this.txtTokenNo);
+            this.groupBox4.Controls.Add(this.txtDesignation);
+            this.groupBox4.Controls.Add(this.txtEPFNo);
+            this.groupBox4.Controls.Add(this.txtEmployeeName);
             this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.label27);
             this.groupBox4.Location = new System.Drawing.Point(12, 194);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(287, 265);
+            this.groupBox4.Size = new System.Drawing.Size(287, 171);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Employee Details";
             // 
-            // textBox22
+            // txtNic
             // 
-            this.textBox22.Location = new System.Drawing.Point(108, 177);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(156, 20);
-            this.textBox22.TabIndex = 1;
+            this.txtNic.Location = new System.Drawing.Point(108, 73);
+            this.txtNic.Name = "txtNic";
+            this.txtNic.Size = new System.Drawing.Size(156, 20);
+            this.txtNic.TabIndex = 1;
             // 
-            // textBox21
+            // txtTokenNo
             // 
-            this.textBox21.Location = new System.Drawing.Point(108, 203);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(156, 20);
-            this.textBox21.TabIndex = 1;
+            this.txtTokenNo.Location = new System.Drawing.Point(108, 125);
+            this.txtTokenNo.Name = "txtTokenNo";
+            this.txtTokenNo.Size = new System.Drawing.Size(156, 20);
+            this.txtTokenNo.TabIndex = 1;
             // 
-            // textBox19
+            // txtDesignation
             // 
-            this.textBox19.Location = new System.Drawing.Point(108, 151);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(156, 20);
-            this.textBox19.TabIndex = 1;
+            this.txtDesignation.Location = new System.Drawing.Point(108, 47);
+            this.txtDesignation.Name = "txtDesignation";
+            this.txtDesignation.Size = new System.Drawing.Size(156, 20);
+            this.txtDesignation.TabIndex = 1;
             // 
-            // button2
+            // txtEPFNo
             // 
-            this.button2.Location = new System.Drawing.Point(189, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtEPFNo.Location = new System.Drawing.Point(108, 99);
+            this.txtEPFNo.Name = "txtEPFNo";
+            this.txtEPFNo.Size = new System.Drawing.Size(156, 20);
+            this.txtEPFNo.TabIndex = 1;
             // 
-            // textBox4
+            // txtEmployeeName
             // 
-            this.textBox4.Location = new System.Drawing.Point(108, 73);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 20);
-            this.textBox4.TabIndex = 1;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(108, 151);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(156, 20);
-            this.textBox20.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(108, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 1;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(108, 47);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(156, 20);
-            this.textBox17.TabIndex = 1;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(108, 99);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(156, 20);
-            this.textBox5.TabIndex = 1;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(108, 21);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(156, 20);
-            this.textBox18.TabIndex = 1;
+            this.txtEmployeeName.Location = new System.Drawing.Point(108, 21);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Size = new System.Drawing.Size(156, 20);
+            this.txtEmployeeName.TabIndex = 1;
             // 
             // label24
             // 
@@ -256,24 +206,6 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(0, 13);
             this.label24.TabIndex = 0;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 157);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(62, 13);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Department";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(5, 183);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(84, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Sub-Department";
             // 
             // label4
             // 
@@ -301,15 +233,6 @@
             this.label28.Size = new System.Drawing.Size(55, 13);
             this.label28.TabIndex = 0;
             this.label28.Text = "Token No";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Branch";
             // 
             // label26
             // 
@@ -341,14 +264,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnReset);
+            this.groupBox2.Controls.Add(this.btnPrint);
+            this.groupBox2.Controls.Add(this.btnSubmit);
+            this.groupBox2.Controls.Add(this.btnCalculate);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtOTRate);
             this.groupBox2.Controls.Add(this.lblAnnual);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.dtpSalaryPeriod);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(305, 43);
             this.groupBox2.Name = "groupBox2";
@@ -357,29 +280,57 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Basic Salary Deails";
             // 
-            // dateTimePicker1
+            // btnReset
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(85, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(237, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.btnReset.Location = new System.Drawing.Point(328, 77);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 20;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // btnPrint
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Salary Period";
+            this.btnPrint.Location = new System.Drawing.Point(247, 77);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnSubmit
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 20);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.btnSubmit.Location = new System.Drawing.Point(166, 77);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 19;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(85, 77);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculate.TabIndex = 18;
+            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 108);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(700, 295);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // txtOTRate
+            // 
+            this.txtOTRate.Location = new System.Drawing.Point(85, 51);
+            this.txtOTRate.Name = "txtOTRate";
+            this.txtOTRate.Size = new System.Drawing.Size(237, 20);
+            this.txtOTRate.TabIndex = 16;
+            this.txtOTRate.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblAnnual
             // 
@@ -391,49 +342,21 @@
             this.lblAnnual.Text = "OT Rate";
             this.lblAnnual.Click += new System.EventHandler(this.lblAnnual_Click);
             // 
-            // dataGridView1
+            // dtpSalaryPeriod
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(700, 295);
-            this.dataGridView1.TabIndex = 17;
+            this.dtpSalaryPeriod.Location = new System.Drawing.Point(85, 28);
+            this.dtpSalaryPeriod.Name = "dtpSalaryPeriod";
+            this.dtpSalaryPeriod.Size = new System.Drawing.Size(237, 20);
+            this.dtpSalaryPeriod.TabIndex = 14;
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(85, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(166, 77);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(247, 77);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Print";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(328, 77);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Clear Grid";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Salary Period";
             // 
             // BasicSalary
             // 
@@ -463,43 +386,35 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox btnDepartment;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox btnBranch;
+        private System.Windows.Forms.ComboBox cmbSubDepartment;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTokenNumber;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtNic;
+        private System.Windows.Forms.TextBox txtTokenNo;
+        private System.Windows.Forms.TextBox txtDesignation;
+        private System.Windows.Forms.TextBox txtEPFNo;
+        private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpSalaryPeriod;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOTRate;
         private System.Windows.Forms.Label lblAnnual;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.Button btnReset;
     }
 }

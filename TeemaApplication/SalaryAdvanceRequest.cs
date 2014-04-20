@@ -63,7 +63,7 @@ namespace TeemaApplication
             {
                 string EmptyTextBoxNames = string.Empty;
 
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Request Amount",txtRequested_Amount.Text);
+                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Request Amount",txtRequested_Amount.Text,true);
                 EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Total from EPF Salary", txtTotalFromEPFSalary.Text, true);
                 EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Day Wages", txtDayWages.Text, true);
                 EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Fixed Incentive Allowance", txtFixedIncentiveAllowance.Text, true);
@@ -71,35 +71,15 @@ namespace TeemaApplication
 
                 return EmptyTextBoxNames;
             }
-        private bool checkforValues()
-        {
-            String errortext = null;
-            errortext +=EmployeeUtils.getIntNumaricValue(" *Requested Amount", txtRequested_Amount.Text,true);
-           
-           
-            if (errortext == "")
-            {
-                MessageBox.Show("done");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Please Add Correct Value To "+errortext+"..!");
-                return false;
-            }
-
-           
-
-        }
+        
 
         private void btnUpsate_Click(object sender, EventArgs e)
         {
-            //checkforValues();
             string emptyInput = getEmptyInputsBeforeSubmit();
             if (emptyInput != string.Empty)
             {
                 emptyInput = emptyInput.Remove(emptyInput.Length - 2, 2);
-                ShowMessageBox.ShowError("Please Enter Correct Value" + emptyInput + ".");
+                ShowMessageBox.ShowError("Please Enter Correct Value " + emptyInput + ".");
             }
             else
             {
