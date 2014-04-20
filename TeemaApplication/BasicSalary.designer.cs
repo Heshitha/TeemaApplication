@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnBranch = new System.Windows.Forms.ComboBox();
+            this.cmbWorkingBranch = new System.Windows.Forms.ComboBox();
             this.cmbSubDepartment = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -67,9 +67,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnDepartment);
+            this.groupBox1.Controls.Add(this.cmbDepartment);
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.btnBranch);
+            this.groupBox1.Controls.Add(this.cmbWorkingBranch);
             this.groupBox1.Controls.Add(this.cmbSubDepartment);
             this.groupBox1.Controls.Add(this.lblDepartment);
             this.groupBox1.Controls.Add(this.lblName);
@@ -81,14 +81,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Department Search";
             // 
-            // btnDepartment
+            // cmbDepartment
             // 
-            this.btnDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.btnDepartment.FormattingEnabled = true;
-            this.btnDepartment.Location = new System.Drawing.Point(108, 56);
-            this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(156, 21);
-            this.btnDepartment.TabIndex = 2;
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(108, 56);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(156, 21);
+            this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // btnSearch
             // 
@@ -99,14 +100,15 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // btnBranch
+            // cmbWorkingBranch
             // 
-            this.btnBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.btnBranch.FormattingEnabled = true;
-            this.btnBranch.Location = new System.Drawing.Point(108, 29);
-            this.btnBranch.Name = "btnBranch";
-            this.btnBranch.Size = new System.Drawing.Size(156, 21);
-            this.btnBranch.TabIndex = 2;
+            this.cmbWorkingBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWorkingBranch.FormattingEnabled = true;
+            this.cmbWorkingBranch.Location = new System.Drawing.Point(108, 29);
+            this.cmbWorkingBranch.Name = "cmbWorkingBranch";
+            this.cmbWorkingBranch.Size = new System.Drawing.Size(156, 21);
+            this.cmbWorkingBranch.TabIndex = 2;
+            this.cmbWorkingBranch.SelectedIndexChanged += new System.EventHandler(this.cmbWorkingBranch_SelectedIndexChanged);
             // 
             // cmbSubDepartment
             // 
@@ -306,6 +308,7 @@
             this.btnSubmit.TabIndex = 19;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCalculate
             // 
@@ -315,6 +318,7 @@
             this.btnCalculate.TabIndex = 18;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // dataGridView1
             // 
@@ -330,7 +334,6 @@
             this.txtOTRate.Name = "txtOTRate";
             this.txtOTRate.Size = new System.Drawing.Size(237, 20);
             this.txtOTRate.TabIndex = 16;
-            this.txtOTRate.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblAnnual
             // 
@@ -340,7 +343,6 @@
             this.lblAnnual.Size = new System.Drawing.Size(48, 13);
             this.lblAnnual.TabIndex = 15;
             this.lblAnnual.Text = "OT Rate";
-            this.lblAnnual.Click += new System.EventHandler(this.lblAnnual_Click);
             // 
             // dtpSalaryPeriod
             // 
@@ -386,9 +388,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox btnDepartment;
+        private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox btnBranch;
+        private System.Windows.Forms.ComboBox cmbWorkingBranch;
         private System.Windows.Forms.ComboBox cmbSubDepartment;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblName;
