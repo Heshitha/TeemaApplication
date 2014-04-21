@@ -176,19 +176,21 @@ namespace TeemaApplication
                         txtLeavesTakenCasual.Text = prsnlvreccasual.ToString();
                         txtLeavesTakenOther.Text = prsnlvrecother.ToString();
 
-                        if (grntslvs != null)
-                        {
+                        //if ()
+                        //{
                             
                             Double annualentitled = Convert.ToDouble(grntslvs.Annual);
                             Double annualtaken = Convert.ToDouble(prsnlvrecannual);
-                            Double balanceAnnual = annualentitled - annualtaken;
-                            txtLeaveBalanceAnnual.Text = Convert.ToString(balanceAnnual);
-                        
+                            Double balance = annualentitled - annualtaken;
+                            txtLeaveBalanceAnnual.Text = Convert.ToString(balance);
+                        //}
+                        //if ()
+                        //{
                             Double casualentitled = Convert.ToDouble(grntslvs.Casual);
                             Double casualtaken = Convert.ToDouble(prsnlvreccasual);
-                            Double balanceCasual = casualentitled - casualtaken;
-                            txtLeaveBalanceCasual.Text = Convert.ToString(balanceCasual);
-                        }
+                            Double balance2 = casualentitled - casualtaken;
+                            txtLeaveBalanceCasual.Text = Convert.ToString(balance2);
+                        //}
                     }
                     else
                     {

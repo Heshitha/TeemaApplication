@@ -196,7 +196,13 @@ namespace TeemaApplication
                         Employee = employee,
                         year = year,
                         Annual = annual,
-                        Casual = casual
+                        Casual = casual,
+                        CreatedBy = 0,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 0,
+                        ModifiedDate = DateTime.Now
+
+                        
                     };
 
                     db.GrantedLeaves.InsertOnSubmit(grantedLeave);
