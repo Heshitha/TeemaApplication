@@ -13,6 +13,10 @@ namespace TeemaApplication
     public partial class frmSalaryAdvanceRequest : Form
     {
         TeemaDBDataContext db = new TeemaDBDataContext();
+        Employee employee;
+        int year;
+        int month;
+
         public frmSalaryAdvanceRequest()
         {
             InitializeComponent();
@@ -48,7 +52,6 @@ namespace TeemaApplication
                 }
                 if (errortext == "")
                 {
-                    MessageBox.Show("Done");
                     return true;
                 }
                 else
@@ -63,11 +66,11 @@ namespace TeemaApplication
             {
                 string EmptyTextBoxNames = string.Empty;
 
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Request Amount",txtRequested_Amount.Text,true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Total from EPF Salary", txtTotalFromEPFSalary.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Day Wages", txtDayWages.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Fixed Incentive Allowance", txtFixedIncentiveAllowance.Text, true);
-                EmptyTextBoxNames += EmployeeUtils.getIntNumaricValue("Variable Incentive Allowance",txtVariableIncentiveAllowance.Text, true);
+                EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue("Request Amount", txtRequested_Amount.Text, true);
+                EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue("Total from EPF Salary", txtTotalFromEPFSalary.Text, true);
+                EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue("Day Wages", txtDayWages.Text, true);
+                EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue("Fixed Incentive Allowance", txtFixedIncentiveAllowance.Text, true);
+                EmptyTextBoxNames += EmployeeUtils.getDoubleNumaricValue("Variable Incentive Allowance", txtVariableIncentiveAllowance.Text, true);
 
                 return EmptyTextBoxNames;
             }
@@ -83,7 +86,31 @@ namespace TeemaApplication
             }
             else
             {
-                MessageBox.Show("Done");
+                Employee emp = db.Employees.Where(em => em.TokenNo == txtToken_No.Text).SingleOrDefault();
+                if (emp != null)
+                {
+                    SalaryAdvance salAdv = new SalaryAdvance
+                    {
+                        Employee = emp,
+                        RequestedDate = DateTime.Today,
+                        Year = Convert.ToInt32(cmbYear.Text),
+                        Month = cmbMonth.SelectedIndex+1,
+                        TotalFromEPFSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary),
+                        DayWagesAmount = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages),
+                        FixedIncentiveAmount = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance),
+                        VariableIncentiveAmount = EmployeeUtils.getDoubleValueFromTextBox(txtVariableIncentiveAllowance),
+                        IsApproved = false,
+                        CreatedBy = 1,
+                        CreatedDate = DateTime.Now,
+                        ModifiedBy = 1,
+                        ModifiedDate = DateTime.Now
+                    };
+
+                    db.SalaryAdvances.InsertOnSubmit(salAdv);
+                    db.SubmitChanges();
+                    ShowMessageBox.ShowSuccess("Successfully Requested Advance.");
+                    resetFormControls();
+                }
             }
         }
 
@@ -91,36 +118,42 @@ namespace TeemaApplication
         {
             if (checkforsalarymonth())
             {
-                SubDepartment subDept = (SubDepartment)cmbSubDepartment.SelectedItem;
+                FillDataGridView();
+            }
+        }
 
-                DataTable dt = new DataTable();
-                dt.Columns.Add("TokenNo");
-                dt.Columns.Add("EPFNo");
-                dt.Columns.Add("EmployeeName");
-                dt.Columns.Add("RequestedAmount");
+        private void FillDataGridView()
+        {
+            SubDepartment subDept = (SubDepartment)cmbSubDepartment.SelectedItem;
 
-                int year = Convert.ToInt32(cmbYear.Text);
-                int month = cmbMonth.SelectedIndex + 1;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TokenNo");
+            dt.Columns.Add("EmployeeName");
+            dt.Columns.Add("advanceId");
+            dt.Columns.Add("isApproved");
+            dt.Columns.Add("RequestedAmount");
 
-                foreach (Employee emp in subDept.Employees)
+           year = Convert.ToInt32(cmbYear.Text);
+           month = cmbMonth.SelectedIndex + 1;
+
+            foreach (Employee emp in subDept.Employees)
+            {
+                var salAdvances = emp.SalaryAdvances.Where(sa => sa.Year == year && sa.Month == month);
+
+                if (salAdvances.Count() != 0)
                 {
-                    var salAdvances = emp.SalaryAdvances.Where(sa => sa.Year == year && sa.Month == month);
-
-                    if (salAdvances.Count() != 0)
+                    foreach (SalaryAdvance sa in salAdvances)
                     {
-                        foreach (SalaryAdvance sa in salAdvances)
-                        {
-                            double totalAdvance = sa.TotalFromEPFSalary.Value + sa.DayWagesAmount.Value + sa.FixedIncentiveAmount.Value + sa.VariableIncentiveAmount.Value;
-                            dt.Rows.Add(emp.TokenNo, emp.EPFNo, emp.Name, totalAdvance);
-                        }
-                    }
-                    else
-                    {
-                        dt.Rows.Add(emp.TokenNo, emp.EPFNo, emp.Name, "No Advance Requested.");
+                        double totalAdvance = sa.TotalFromEPFSalary.Value + sa.DayWagesAmount.Value + sa.FixedIncentiveAmount.Value + sa.VariableIncentiveAmount.Value;
+                        dt.Rows.Add(emp.TokenNo, emp.Name, sa.SalaryAdvanceID, (sa.IsApproved.Value == true ? true : false).ToString(), totalAdvance);
                     }
                 }
-                gdvSalaryAdvance.DataSource = dt;
+                else
+                {
+                    dt.Rows.Add(emp.TokenNo, emp.Name, "No Advance Requested.", "", "");
+                }
             }
+            gdvSalaryAdvance.DataSource = dt;
         }
 
         private void calculateTotalRequestedAmount()
@@ -136,7 +169,33 @@ namespace TeemaApplication
 
         private void txtTotalFromEPFSalary_TextChanged(object sender, EventArgs e)
         {
-            calculateTotalRequestedAmount();
+            try
+            {
+                double TotalEPFSalary = employee.EmployeeSalaryDetail.TotalValueForEPF.Value;
+                double previousSalaryAdvancesValue = (from x in employee.SalaryAdvances
+                                                      where x.Year == year && x.Month == month && x.IsApproved == true
+                                                      select x.TotalFromEPFSalary).Sum().Value;
+                double advanceTotalSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary);
+                if (TotalEPFSalary >= (advanceTotalSalary + previousSalaryAdvancesValue))
+                {
+                    calculateTotalRequestedAmount();
+                }
+                else if (TotalEPFSalary < advanceTotalSalary)
+                {
+                    ShowMessageBox.ShowError("Deduction value from Total EPF salary should be less than Total EPF Salary.");
+                    txtTotalFromEPFSalary.Text = "0";
+                }
+                else if (TotalEPFSalary < (advanceTotalSalary + previousSalaryAdvancesValue))
+                {
+                    double remainingFromTotalEPFSalary = TotalEPFSalary - previousSalaryAdvancesValue;
+                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your EPF salary. Remaining balance from EPF salary is " + remainingFromTotalEPFSalary.ToString("0.00"));
+                    txtTotalFromEPFSalary.Text = remainingFromTotalEPFSalary.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         private void txtDayWages_TextChanged(object sender, EventArgs e)
@@ -146,12 +205,123 @@ namespace TeemaApplication
 
         private void txtFixedIncentiveAllowance_TextChanged(object sender, EventArgs e)
         {
-            calculateTotalRequestedAmount();
+            try
+            {
+                double totalFixedIncentives = (from x in employee.FixedIncentives
+                                               select x.InventiveValue).Sum().Value;
+                double previousSalaryAdvancesValue = (from x in employee.SalaryAdvances
+                                                      where x.Year == year && x.Month == month && x.IsApproved == true
+                                                      select x.FixedIncentiveAmount).Sum().Value;
+                double advanceFixedIncentive = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance);
+                if (totalFixedIncentives >= (advanceFixedIncentive + previousSalaryAdvancesValue))
+                {
+                    calculateTotalRequestedAmount();
+                }
+                else if (totalFixedIncentives <= advanceFixedIncentive)
+                {
+                    ShowMessageBox.ShowError("Deduction value from Fixed Incentive should be less than Total Fixed Incentive Value.");
+                    txtFixedIncentiveAllowance.Text = "0";
+                }
+                else if (totalFixedIncentives <= (advanceFixedIncentive + previousSalaryAdvancesValue))
+                {
+                    double remainingFromTotalEPFSalary = totalFixedIncentives - previousSalaryAdvancesValue;
+                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your Fixed Incentives. Remaining balance from Fixed Incentive Total is " + remainingFromTotalEPFSalary.ToString("0.00"));
+                    txtFixedIncentiveAllowance.Text = remainingFromTotalEPFSalary.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         private void txtVariableIncentiveAllowance_TextChanged(object sender, EventArgs e)
         {
             calculateTotalRequestedAmount();
+        }
+
+        private void gdvSalaryAdvance_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string tokenNo = gdvSalaryAdvance.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Employee emp = db.Employees.Where(em => em.TokenNo == tokenNo).SingleOrDefault();
+                employee = emp;
+
+                if (emp != null)
+                {
+                    txtEmployeeName.Text = emp.Name;
+                    txtDesignation.Text = emp.Designation.Designation1;
+                    txtNIC_No.Text = emp.NICNo;
+                    txtEPF_No.Text = emp.EPFNo;
+                    txtToken_No.Text = emp.TokenNo;
+                }
+
+                string salAdvID = gdvSalaryAdvance.Rows[e.RowIndex].Cells[2].Value.ToString();
+                if (salAdvID != "No Advance Requested.")
+                {
+                    int salaryAdvanceID = Convert.ToInt32(salAdvID);
+                    SalaryAdvance salAdvance = db.SalaryAdvances.Where(sa => sa.SalaryAdvanceID == salaryAdvanceID).SingleOrDefault();
+
+                    txtCADAdvanceID.Text = salAdvance.SalaryAdvanceID.ToString();
+                    txtCADRequestedDate.Text = salAdvance.RequestedDate.Value.ToString("dd-MM-yyyy");
+                    txtCADTotalFrom.Text = salAdvance.TotalFromEPFSalary.Value.ToString("0.00");
+                    txtCADDayWages.Text = salAdvance.DayWagesAmount.Value.ToString("0.00");
+                    txtCADFixedInceniveAllowance.Text = salAdvance.FixedIncentiveAmount.Value.ToString("0.00");
+                    txtCADVariableIncentiveAllowance.Text = salAdvance.VariableIncentiveAmount.Value.ToString("0.00");
+                    txtCADTotalRequestAmount.Text = (salAdvance.TotalFromEPFSalary.Value + salAdvance.DayWagesAmount.Value + salAdvance.FixedIncentiveAmount.Value + salAdvance.VariableIncentiveAmount.Value).ToString("0.00");
+
+                }
+                else
+                {
+                    resetCreatedAdvanceDetails();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void resetCreatedAdvanceDetails()
+        {
+            txtCADAdvanceID.Text = "";
+            txtCADDayWages.Text = "";
+            txtCADFixedInceniveAllowance.Text = "";
+            txtCADRequestedDate.Text = "";
+            txtCADTotalFrom.Text = "";
+            txtCADTotalRequestAmount.Text = "";
+            txtCADVariableIncentiveAllowance.Text = "";
+        }
+
+        private void resetFormControls()
+        {
+            txtEmployeeName.Text = "";
+            txtDesignation.Text = "";
+            txtNIC_No.Text = "";
+            txtEPF_No.Text = "";
+            txtToken_No.Text = "";
+
+            resetAddNewSalaryAdvance();
+            
+            resetCreatedAdvanceDetails();
+
+            FillDataGridView();
+        }
+
+        private void resetAddNewSalaryAdvance()
+        {
+            txtTotalFromEPFSalary.Text = "0";
+            txtDayWages.Text = "0";
+            txtFixedIncentiveAllowance.Text = "0";
+            txtVariableIncentiveAllowance.Text = "0";
+            txtRequested_Amount.Text = "0";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetAddNewSalaryAdvance();
         }
     }
 }

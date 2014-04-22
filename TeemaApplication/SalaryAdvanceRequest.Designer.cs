@@ -54,6 +54,9 @@
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.gbxSalaryAdvance = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRequested_Amount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbxDeductionFrom = new System.Windows.Forms.GroupBox();
             this.txtVariableIncentiveAllowance = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,23 +67,42 @@
             this.txtTotalFromEPFSalary = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gdvSalaryAdvance = new System.Windows.Forms.DataGridView();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnUpsate = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRequested_Amount = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.gbxCreatedAdvance = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCADTotalRequestAmount = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtCADVariableIncentiveAllowance = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCADFixedInceniveAllowance = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCADDayWages = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCADTotalFrom = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtCADAdvanceID = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCADRequestedDate = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.clmnToken_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEPFNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnAdvanceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnApproved = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnRequestedAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxSalaryMonth.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
             this.gbxSalaryAdvance.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.gbxDeductionFrom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvSalaryAdvance)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbxCreatedAdvance.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFormTopic
@@ -272,8 +294,10 @@
             // 
             this.txtToken_No.Location = new System.Drawing.Point(97, 124);
             this.txtToken_No.Name = "txtToken_No";
+            this.txtToken_No.ReadOnly = true;
             this.txtToken_No.Size = new System.Drawing.Size(176, 20);
             this.txtToken_No.TabIndex = 23;
+            this.txtToken_No.TabStop = false;
             // 
             // label44
             // 
@@ -288,8 +312,10 @@
             // 
             this.txtEPF_No.Location = new System.Drawing.Point(97, 98);
             this.txtEPF_No.Name = "txtEPF_No";
+            this.txtEPF_No.ReadOnly = true;
             this.txtEPF_No.Size = new System.Drawing.Size(176, 20);
             this.txtEPF_No.TabIndex = 18;
+            this.txtEPF_No.TabStop = false;
             // 
             // label45
             // 
@@ -304,8 +330,10 @@
             // 
             this.txtNIC_No.Location = new System.Drawing.Point(97, 71);
             this.txtNIC_No.Name = "txtNIC_No";
+            this.txtNIC_No.ReadOnly = true;
             this.txtNIC_No.Size = new System.Drawing.Size(176, 20);
             this.txtNIC_No.TabIndex = 16;
+            this.txtNIC_No.TabStop = false;
             // 
             // label46
             // 
@@ -320,8 +348,10 @@
             // 
             this.txtDesignation.Location = new System.Drawing.Point(97, 45);
             this.txtDesignation.Name = "txtDesignation";
+            this.txtDesignation.ReadOnly = true;
             this.txtDesignation.Size = new System.Drawing.Size(176, 20);
             this.txtDesignation.TabIndex = 14;
+            this.txtDesignation.TabStop = false;
             // 
             // label47
             // 
@@ -336,8 +366,10 @@
             // 
             this.txtEmployeeName.Location = new System.Drawing.Point(97, 19);
             this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.ReadOnly = true;
             this.txtEmployeeName.Size = new System.Drawing.Size(176, 20);
             this.txtEmployeeName.TabIndex = 9;
+            this.txtEmployeeName.TabStop = false;
             // 
             // label48
             // 
@@ -350,14 +382,46 @@
             // 
             // gbxSalaryAdvance
             // 
+            this.gbxSalaryAdvance.Controls.Add(this.btnAdd);
+            this.gbxSalaryAdvance.Controls.Add(this.btnReset);
             this.gbxSalaryAdvance.Controls.Add(this.groupBox1);
             this.gbxSalaryAdvance.Controls.Add(this.gbxDeductionFrom);
-            this.gbxSalaryAdvance.Location = new System.Drawing.Point(303, 43);
+            this.gbxSalaryAdvance.Location = new System.Drawing.Point(603, 43);
             this.gbxSalaryAdvance.Name = "gbxSalaryAdvance";
-            this.gbxSalaryAdvance.Size = new System.Drawing.Size(364, 207);
+            this.gbxSalaryAdvance.Size = new System.Drawing.Size(294, 237);
             this.gbxSalaryAdvance.TabIndex = 26;
             this.gbxSalaryAdvance.TabStop = false;
-            this.gbxSalaryAdvance.Text = "Salary Advance";
+            this.gbxSalaryAdvance.Text = "Add New Salary Advance";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtRequested_Amount);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(7, 151);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(281, 50);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            // 
+            // txtRequested_Amount
+            // 
+            this.txtRequested_Amount.Location = new System.Drawing.Point(172, 19);
+            this.txtRequested_Amount.Name = "txtRequested_Amount";
+            this.txtRequested_Amount.ReadOnly = true;
+            this.txtRequested_Amount.Size = new System.Drawing.Size(103, 20);
+            this.txtRequested_Amount.TabIndex = 20;
+            this.txtRequested_Amount.TabStop = false;
+            this.txtRequested_Amount.Text = "0";
+            this.txtRequested_Amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Total Requested Amount";
             // 
             // gbxDeductionFrom
             // 
@@ -371,16 +435,16 @@
             this.gbxDeductionFrom.Controls.Add(this.label4);
             this.gbxDeductionFrom.Location = new System.Drawing.Point(6, 19);
             this.gbxDeductionFrom.Name = "gbxDeductionFrom";
-            this.gbxDeductionFrom.Size = new System.Drawing.Size(352, 125);
+            this.gbxDeductionFrom.Size = new System.Drawing.Size(282, 125);
             this.gbxDeductionFrom.TabIndex = 19;
             this.gbxDeductionFrom.TabStop = false;
             this.gbxDeductionFrom.Text = "Deduction From";
             // 
             // txtVariableIncentiveAllowance
             // 
-            this.txtVariableIncentiveAllowance.Location = new System.Drawing.Point(169, 97);
+            this.txtVariableIncentiveAllowance.Location = new System.Drawing.Point(173, 99);
             this.txtVariableIncentiveAllowance.Name = "txtVariableIncentiveAllowance";
-            this.txtVariableIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
+            this.txtVariableIncentiveAllowance.Size = new System.Drawing.Size(103, 20);
             this.txtVariableIncentiveAllowance.TabIndex = 19;
             this.txtVariableIncentiveAllowance.Text = "0";
             this.txtVariableIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -397,9 +461,9 @@
             // 
             // txtFixedIncentiveAllowance
             // 
-            this.txtFixedIncentiveAllowance.Location = new System.Drawing.Point(169, 71);
+            this.txtFixedIncentiveAllowance.Location = new System.Drawing.Point(173, 73);
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
-            this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(177, 20);
+            this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(103, 20);
             this.txtFixedIncentiveAllowance.TabIndex = 17;
             this.txtFixedIncentiveAllowance.Text = "0";
             this.txtFixedIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -416,9 +480,9 @@
             // 
             // txtDayWages
             // 
-            this.txtDayWages.Location = new System.Drawing.Point(169, 45);
+            this.txtDayWages.Location = new System.Drawing.Point(173, 47);
             this.txtDayWages.Name = "txtDayWages";
-            this.txtDayWages.Size = new System.Drawing.Size(177, 20);
+            this.txtDayWages.Size = new System.Drawing.Size(103, 20);
             this.txtDayWages.TabIndex = 15;
             this.txtDayWages.Text = "0";
             this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -435,9 +499,9 @@
             // 
             // txtTotalFromEPFSalary
             // 
-            this.txtTotalFromEPFSalary.Location = new System.Drawing.Point(169, 19);
+            this.txtTotalFromEPFSalary.Location = new System.Drawing.Point(173, 21);
             this.txtTotalFromEPFSalary.Name = "txtTotalFromEPFSalary";
-            this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(177, 20);
+            this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(103, 20);
             this.txtTotalFromEPFSalary.TabIndex = 13;
             this.txtTotalFromEPFSalary.Text = "0";
             this.txtTotalFromEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -460,71 +524,222 @@
             this.gdvSalaryAdvance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdvSalaryAdvance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnToken_No,
-            this.clmnEPFNo,
             this.clmnEmployeeName,
+            this.clmnAdvanceId,
+            this.clmnApproved,
             this.clmnRequestedAmount});
-            this.gdvSalaryAdvance.Location = new System.Drawing.Point(303, 256);
+            this.gdvSalaryAdvance.Location = new System.Drawing.Point(303, 334);
             this.gdvSalaryAdvance.Name = "gdvSalaryAdvance";
             this.gdvSalaryAdvance.ReadOnly = true;
             this.gdvSalaryAdvance.RowHeadersVisible = false;
             this.gdvSalaryAdvance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gdvSalaryAdvance.Size = new System.Drawing.Size(488, 171);
+            this.gdvSalaryAdvance.Size = new System.Drawing.Size(594, 225);
             this.gdvSalaryAdvance.TabIndex = 27;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(677, 101);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 23);
-            this.btnCancel.TabIndex = 30;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.gdvSalaryAdvance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvSalaryAdvance_CellClick);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(677, 72);
+            this.btnReset.Location = new System.Drawing.Point(214, 208);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(114, 23);
+            this.btnReset.Size = new System.Drawing.Size(74, 23);
             this.btnReset.TabIndex = 29;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnUpsate
+            // btnAdd
             // 
-            this.btnUpsate.Location = new System.Drawing.Point(677, 43);
-            this.btnUpsate.Name = "btnUpsate";
-            this.btnUpsate.Size = new System.Drawing.Size(114, 23);
-            this.btnUpsate.TabIndex = 28;
-            this.btnUpsate.Text = "Update";
-            this.btnUpsate.UseVisualStyleBackColor = true;
-            this.btnUpsate.Click += new System.EventHandler(this.btnUpsate_Click);
+            this.btnAdd.Location = new System.Drawing.Point(134, 208);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(74, 23);
+            this.btnAdd.TabIndex = 28;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnUpsate_Click);
             // 
-            // groupBox1
+            // gbxCreatedAdvance
             // 
-            this.groupBox1.Controls.Add(this.txtRequested_Amount);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 151);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 50);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
+            this.gbxCreatedAdvance.Controls.Add(this.groupBox4);
+            this.gbxCreatedAdvance.Controls.Add(this.groupBox2);
+            this.gbxCreatedAdvance.Controls.Add(this.groupBox3);
+            this.gbxCreatedAdvance.Location = new System.Drawing.Point(303, 43);
+            this.gbxCreatedAdvance.Name = "gbxCreatedAdvance";
+            this.gbxCreatedAdvance.Size = new System.Drawing.Size(294, 285);
+            this.gbxCreatedAdvance.TabIndex = 28;
+            this.gbxCreatedAdvance.TabStop = false;
+            this.gbxCreatedAdvance.Text = "Created Advance Details";
             // 
-            // txtRequested_Amount
+            // label3
             // 
-            this.txtRequested_Amount.Location = new System.Drawing.Point(168, 19);
-            this.txtRequested_Amount.Name = "txtRequested_Amount";
-            this.txtRequested_Amount.ReadOnly = true;
-            this.txtRequested_Amount.Size = new System.Drawing.Size(177, 20);
-            this.txtRequested_Amount.TabIndex = 20;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Total Requested Amount";
             // 
-            // label1
+            // groupBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Total Requested Amount";
+            this.groupBox2.Controls.Add(this.txtCADTotalRequestAmount);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(8, 226);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(281, 50);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtCADTotalRequestAmount
+            // 
+            this.txtCADTotalRequestAmount.Location = new System.Drawing.Point(172, 19);
+            this.txtCADTotalRequestAmount.Name = "txtCADTotalRequestAmount";
+            this.txtCADTotalRequestAmount.ReadOnly = true;
+            this.txtCADTotalRequestAmount.Size = new System.Drawing.Size(103, 20);
+            this.txtCADTotalRequestAmount.TabIndex = 20;
+            this.txtCADTotalRequestAmount.TabStop = false;
+            this.txtCADTotalRequestAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtCADVariableIncentiveAllowance);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtCADFixedInceniveAllowance);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtCADDayWages);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.txtCADTotalFrom);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Location = new System.Drawing.Point(7, 95);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(282, 125);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Deduction From";
+            // 
+            // txtCADVariableIncentiveAllowance
+            // 
+            this.txtCADVariableIncentiveAllowance.Location = new System.Drawing.Point(173, 99);
+            this.txtCADVariableIncentiveAllowance.Name = "txtCADVariableIncentiveAllowance";
+            this.txtCADVariableIncentiveAllowance.ReadOnly = true;
+            this.txtCADVariableIncentiveAllowance.Size = new System.Drawing.Size(103, 20);
+            this.txtCADVariableIncentiveAllowance.TabIndex = 19;
+            this.txtCADVariableIncentiveAllowance.TabStop = false;
+            this.txtCADVariableIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Variable Incentive Allowance";
+            // 
+            // txtCADFixedInceniveAllowance
+            // 
+            this.txtCADFixedInceniveAllowance.Location = new System.Drawing.Point(173, 73);
+            this.txtCADFixedInceniveAllowance.Name = "txtCADFixedInceniveAllowance";
+            this.txtCADFixedInceniveAllowance.ReadOnly = true;
+            this.txtCADFixedInceniveAllowance.Size = new System.Drawing.Size(103, 20);
+            this.txtCADFixedInceniveAllowance.TabIndex = 17;
+            this.txtCADFixedInceniveAllowance.TabStop = false;
+            this.txtCADFixedInceniveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Fixed Incentive Allowance";
+            // 
+            // txtCADDayWages
+            // 
+            this.txtCADDayWages.Location = new System.Drawing.Point(173, 47);
+            this.txtCADDayWages.Name = "txtCADDayWages";
+            this.txtCADDayWages.ReadOnly = true;
+            this.txtCADDayWages.Size = new System.Drawing.Size(103, 20);
+            this.txtCADDayWages.TabIndex = 15;
+            this.txtCADDayWages.TabStop = false;
+            this.txtCADDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Day Wages";
+            // 
+            // txtCADTotalFrom
+            // 
+            this.txtCADTotalFrom.Location = new System.Drawing.Point(173, 21);
+            this.txtCADTotalFrom.Name = "txtCADTotalFrom";
+            this.txtCADTotalFrom.ReadOnly = true;
+            this.txtCADTotalFrom.Size = new System.Drawing.Size(103, 20);
+            this.txtCADTotalFrom.TabIndex = 13;
+            this.txtCADTotalFrom.TabStop = false;
+            this.txtCADTotalFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(112, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Total From EPF Salary";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtCADAdvanceID);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.txtCADRequestedDate);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Location = new System.Drawing.Point(7, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(281, 70);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            // 
+            // txtCADAdvanceID
+            // 
+            this.txtCADAdvanceID.Location = new System.Drawing.Point(172, 44);
+            this.txtCADAdvanceID.Name = "txtCADAdvanceID";
+            this.txtCADAdvanceID.ReadOnly = true;
+            this.txtCADAdvanceID.Size = new System.Drawing.Size(103, 20);
+            this.txtCADAdvanceID.TabIndex = 24;
+            this.txtCADAdvanceID.TabStop = false;
+            this.txtCADAdvanceID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 47);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Advance ID";
+            // 
+            // txtCADRequestedDate
+            // 
+            this.txtCADRequestedDate.Location = new System.Drawing.Point(122, 18);
+            this.txtCADRequestedDate.Name = "txtCADRequestedDate";
+            this.txtCADRequestedDate.ReadOnly = true;
+            this.txtCADRequestedDate.Size = new System.Drawing.Size(153, 20);
+            this.txtCADRequestedDate.TabIndex = 22;
+            this.txtCADRequestedDate.TabStop = false;
+            this.txtCADRequestedDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 21);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Requested Date";
             // 
             // clmnToken_No
             // 
@@ -533,19 +748,26 @@
             this.clmnToken_No.Name = "clmnToken_No";
             this.clmnToken_No.ReadOnly = true;
             // 
-            // clmnEPFNo
-            // 
-            this.clmnEPFNo.DataPropertyName = "EPFNo";
-            this.clmnEPFNo.HeaderText = "E.P.F No,";
-            this.clmnEPFNo.Name = "clmnEPFNo";
-            this.clmnEPFNo.ReadOnly = true;
-            // 
             // clmnEmployeeName
             // 
             this.clmnEmployeeName.DataPropertyName = "EmployeeName";
             this.clmnEmployeeName.HeaderText = "Employee Name";
             this.clmnEmployeeName.Name = "clmnEmployeeName";
             this.clmnEmployeeName.ReadOnly = true;
+            // 
+            // clmnAdvanceId
+            // 
+            this.clmnAdvanceId.DataPropertyName = "advanceId";
+            this.clmnAdvanceId.HeaderText = "Advance ID";
+            this.clmnAdvanceId.Name = "clmnAdvanceId";
+            this.clmnAdvanceId.ReadOnly = true;
+            // 
+            // clmnApproved
+            // 
+            this.clmnApproved.DataPropertyName = "isApproved";
+            this.clmnApproved.HeaderText = "Is Approved";
+            this.clmnApproved.Name = "clmnApproved";
+            this.clmnApproved.ReadOnly = true;
             // 
             // clmnRequestedAmount
             // 
@@ -558,10 +780,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 439);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnUpsate);
+            this.ClientSize = new System.Drawing.Size(911, 573);
+            this.Controls.Add(this.gbxCreatedAdvance);
             this.Controls.Add(this.gdvSalaryAdvance);
             this.Controls.Add(this.gbxSalaryAdvance);
             this.Controls.Add(this.gbxEmployeeDetails);
@@ -580,11 +800,18 @@
             this.gbxEmployeeDetails.ResumeLayout(false);
             this.gbxEmployeeDetails.PerformLayout();
             this.gbxSalaryAdvance.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.gbxDeductionFrom.ResumeLayout(false);
             this.gbxDeductionFrom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvSalaryAdvance)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbxCreatedAdvance.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,15 +855,33 @@
         private System.Windows.Forms.TextBox txtTotalFromEPFSalary;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView gdvSalaryAdvance;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnUpsate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtRequested_Amount;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbxCreatedAdvance;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtCADTotalRequestAmount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtCADVariableIncentiveAllowance;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCADFixedInceniveAllowance;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCADDayWages;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCADTotalFrom;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtCADAdvanceID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtCADRequestedDate;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnToken_No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEPFNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmployeeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnAdvanceId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnApproved;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnRequestedAmount;
     }
 }

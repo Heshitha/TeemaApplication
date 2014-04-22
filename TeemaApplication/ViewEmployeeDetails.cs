@@ -60,10 +60,10 @@ namespace TeemaApplication
                 chbPieceRate.Checked = emp.PieceRateEntitled.Value ? true : false;
                 cmbDateRateOfSalary.Text = emp.NoPayCalculataionDate.ToString();
                 txtDayWagesDayRate.Text = emp.EmployeeSalaryDetail.DayWagesAmount.ToString();
-                txtDayWagesTotalEPFSalary.Text = emp.EmployeeSalaryDetail.DayWagesAmount.ToString().Equals("0") ? "0" : emp.EmployeeSalaryDetail.TotalValueForEPF.ToString();
+                txtDayWagesTotalEPFSalary.Text = !emp.EmployeeCatagory.Equals("Day Wages") ? "0" : emp.EmployeeSalaryDetail.TotalValueForEPF.ToString();
                 txtBasicSalary.Text = emp.EmployeeSalaryDetail.BasicSalary.ToString();
                 txtBudgetAllowance.Text = emp.EmployeeSalaryDetail.BudgetAllowance.ToString();
-                txtRecrumentTotalEPF.Text = emp.EmployeeSalaryDetail.BasicSalary.ToString().Equals("0") ? "0" : emp.EmployeeSalaryDetail.TotalValueForEPF.ToString();
+                txtRecrumentTotalEPF.Text = emp.EmployeeCatagory.Equals("Day Wages") ? "0" : emp.EmployeeSalaryDetail.TotalValueForEPF.ToString();
                 txtTravellingAttendance.Text = emp.FixedIncentives.Where(f => f.IncentiveType.Equals("Traveling Attendance")).SingleOrDefault().InventiveValue.ToString();
 
                 dataset.NewFixedIncentive.Clear();

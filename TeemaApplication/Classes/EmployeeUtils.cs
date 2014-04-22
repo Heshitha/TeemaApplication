@@ -67,6 +67,23 @@ namespace TeemaApplication.Classes
             }
         }
 
+        public static int getIntValueFromTextBox(TextBox textBox)
+        {
+            int value = 0;
+            if (int.TryParse(textBox.Text, out value))
+            {
+                return value;
+            }
+            else
+            {
+                if (!textBox.Focused)
+                {
+                    textBox.Text = "0";
+                }
+                return value;
+            }
+        }
+
         public static bool isBranchExist(TeemaDBDataContext db, ComboBox comboBox)
         {
             string BranchName = comboBox.Text;
