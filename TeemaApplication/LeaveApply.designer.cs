@@ -251,7 +251,7 @@
             this.txtReasonsForAbsence.Location = new System.Drawing.Point(133, 73);
             this.txtReasonsForAbsence.Name = "txtReasonsForAbsence";
             this.txtReasonsForAbsence.Size = new System.Drawing.Size(182, 20);
-            this.txtReasonsForAbsence.TabIndex = 1;
+            this.txtReasonsForAbsence.TabIndex = 2;
             // 
             // label12
             // 
@@ -268,6 +268,7 @@
             this.dtpLeaveFrom.Name = "dtpLeaveFrom";
             this.dtpLeaveFrom.Size = new System.Drawing.Size(182, 20);
             this.dtpLeaveFrom.TabIndex = 5;
+            this.dtpLeaveFrom.TabStop = false;
             // 
             // label13
             // 
@@ -284,6 +285,7 @@
             this.dtpLeaveTo.Name = "dtpLeaveTo";
             this.dtpLeaveTo.Size = new System.Drawing.Size(182, 20);
             this.dtpLeaveTo.TabIndex = 5;
+            this.dtpLeaveTo.TabStop = false;
             this.dtpLeaveTo.ValueChanged += new System.EventHandler(this.dtpLeaveTo_ValueChanged);
             // 
             // label14
@@ -300,7 +302,8 @@
             this.txtNoOfDays.Location = new System.Drawing.Point(133, 206);
             this.txtNoOfDays.Name = "txtNoOfDays";
             this.txtNoOfDays.Size = new System.Drawing.Size(182, 20);
-            this.txtNoOfDays.TabIndex = 2;
+            this.txtNoOfDays.TabIndex = 0;
+            this.txtNoOfDays.TabStop = false;
             // 
             // label15
             // 
@@ -422,7 +425,7 @@
             this.btnAllReset.Location = new System.Drawing.Point(184, 284);
             this.btnAllReset.Name = "btnAllReset";
             this.btnAllReset.Size = new System.Drawing.Size(75, 23);
-            this.btnAllReset.TabIndex = 7;
+            this.btnAllReset.TabIndex = 8;
             this.btnAllReset.Text = "Reset";
             this.btnAllReset.UseVisualStyleBackColor = true;
             this.btnAllReset.Click += new System.EventHandler(this.btnAllReset_Click);
@@ -432,7 +435,7 @@
             this.button3.Location = new System.Drawing.Point(265, 284);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
+            this.button3.TabIndex = 9;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -519,6 +522,7 @@
             this.rbtFullDay.TabStop = true;
             this.rbtFullDay.Text = "Full Day";
             this.rbtFullDay.UseVisualStyleBackColor = true;
+            this.rbtFullDay.CheckedChanged += new System.EventHandler(this.rbtFullDay_CheckedChanged);
             // 
             // rbtHalfday
             // 
@@ -529,6 +533,7 @@
             this.rbtHalfday.TabIndex = 10;
             this.rbtHalfday.Text = "Half Day";
             this.rbtHalfday.UseVisualStyleBackColor = true;
+            this.rbtHalfday.CheckedChanged += new System.EventHandler(this.rbtHalfday_CheckedChanged);
             // 
             // panel1
             // 
@@ -559,7 +564,6 @@
             this.rbtCasual.Name = "rbtCasual";
             this.rbtCasual.Size = new System.Drawing.Size(57, 17);
             this.rbtCasual.TabIndex = 3;
-            this.rbtCasual.TabStop = true;
             this.rbtCasual.Text = "Casual";
             this.rbtCasual.UseVisualStyleBackColor = true;
             // 
@@ -615,7 +619,7 @@
             this.txtSubstituteID.Location = new System.Drawing.Point(133, 232);
             this.txtSubstituteID.Name = "txtSubstituteID";
             this.txtSubstituteID.Size = new System.Drawing.Size(182, 20);
-            this.txtSubstituteID.TabIndex = 1;
+            this.txtSubstituteID.TabIndex = 3;
             // 
             // txtNameofSubstitue
             // 
@@ -623,6 +627,7 @@
             this.txtNameofSubstitue.Name = "txtNameofSubstitue";
             this.txtNameofSubstitue.Size = new System.Drawing.Size(182, 20);
             this.txtNameofSubstitue.TabIndex = 1;
+            this.txtNameofSubstitue.TabStop = false;
             // 
             // txtOtherLeaveDescription
             // 
@@ -631,6 +636,7 @@
             this.txtOtherLeaveDescription.ReadOnly = true;
             this.txtOtherLeaveDescription.Size = new System.Drawing.Size(182, 20);
             this.txtOtherLeaveDescription.TabIndex = 1;
+            this.txtOtherLeaveDescription.TabStop = false;
             // 
             // label22
             // 
@@ -673,7 +679,7 @@
             this.rbtTokenNo.Location = new System.Drawing.Point(183, 50);
             this.rbtTokenNo.Name = "rbtTokenNo";
             this.rbtTokenNo.Size = new System.Drawing.Size(73, 17);
-            this.rbtTokenNo.TabIndex = 8;
+            this.rbtTokenNo.TabIndex = 0;
             this.rbtTokenNo.TabStop = true;
             this.rbtTokenNo.Text = "Token No";
             this.rbtTokenNo.UseVisualStyleBackColor = true;
@@ -684,7 +690,7 @@
             this.rbtEPFNo.Location = new System.Drawing.Point(115, 50);
             this.rbtEPFNo.Name = "rbtEPFNo";
             this.rbtEPFNo.Size = new System.Drawing.Size(62, 17);
-            this.rbtEPFNo.TabIndex = 8;
+            this.rbtEPFNo.TabIndex = 0;
             this.rbtEPFNo.Text = "EPF No";
             this.rbtEPFNo.UseVisualStyleBackColor = true;
             // 
@@ -694,7 +700,7 @@
             this.rbtNIC.Location = new System.Drawing.Point(66, 49);
             this.rbtNIC.Name = "rbtNIC";
             this.rbtNIC.Size = new System.Drawing.Size(43, 17);
-            this.rbtNIC.TabIndex = 8;
+            this.rbtNIC.TabIndex = 0;
             this.rbtNIC.Text = "NIC";
             this.rbtNIC.UseVisualStyleBackColor = true;
             // 
@@ -703,7 +709,7 @@
             this.txtKeyWord.Location = new System.Drawing.Point(66, 23);
             this.txtKeyWord.Name = "txtKeyWord";
             this.txtKeyWord.Size = new System.Drawing.Size(209, 20);
-            this.txtKeyWord.TabIndex = 1;
+            this.txtKeyWord.TabIndex = 0;
             // 
             // label3
             // 
@@ -727,7 +733,7 @@
             this.btnSearch.Location = new System.Drawing.Point(200, 73);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 7;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -782,71 +788,91 @@
             // 
             this.txtNicNo.Location = new System.Drawing.Point(96, 71);
             this.txtNicNo.Name = "txtNicNo";
+            this.txtNicNo.ReadOnly = true;
             this.txtNicNo.Size = new System.Drawing.Size(173, 20);
-            this.txtNicNo.TabIndex = 2;
+            this.txtNicNo.TabIndex = 0;
+            this.txtNicNo.TabStop = false;
             // 
             // txtSubDepartment
             // 
             this.txtSubDepartment.Location = new System.Drawing.Point(96, 175);
             this.txtSubDepartment.Name = "txtSubDepartment";
+            this.txtSubDepartment.ReadOnly = true;
             this.txtSubDepartment.Size = new System.Drawing.Size(173, 20);
-            this.txtSubDepartment.TabIndex = 1;
+            this.txtSubDepartment.TabIndex = 0;
+            this.txtSubDepartment.TabStop = false;
             // 
             // txtBranch
             // 
             this.txtBranch.Location = new System.Drawing.Point(96, 201);
             this.txtBranch.Name = "txtBranch";
+            this.txtBranch.ReadOnly = true;
             this.txtBranch.Size = new System.Drawing.Size(173, 20);
-            this.txtBranch.TabIndex = 1;
+            this.txtBranch.TabIndex = 0;
+            this.txtBranch.TabStop = false;
             // 
             // txtDepartment
             // 
             this.txtDepartment.Location = new System.Drawing.Point(96, 149);
             this.txtDepartment.Name = "txtDepartment";
+            this.txtDepartment.ReadOnly = true;
             this.txtDepartment.Size = new System.Drawing.Size(173, 20);
-            this.txtDepartment.TabIndex = 1;
+            this.txtDepartment.TabIndex = 0;
+            this.txtDepartment.TabStop = false;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(96, 175);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(173, 20);
             this.textBox4.TabIndex = 1;
+            this.textBox4.TabStop = false;
             // 
             // textBox20
             // 
             this.textBox20.Location = new System.Drawing.Point(96, 149);
             this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(173, 20);
             this.textBox20.TabIndex = 1;
+            this.textBox20.TabStop = false;
             // 
             // txtTokenNo
             // 
             this.txtTokenNo.Location = new System.Drawing.Point(96, 123);
             this.txtTokenNo.Name = "txtTokenNo";
+            this.txtTokenNo.ReadOnly = true;
             this.txtTokenNo.Size = new System.Drawing.Size(173, 20);
-            this.txtTokenNo.TabIndex = 1;
+            this.txtTokenNo.TabIndex = 0;
+            this.txtTokenNo.TabStop = false;
             // 
             // txtDesignation
             // 
             this.txtDesignation.Location = new System.Drawing.Point(96, 45);
             this.txtDesignation.Name = "txtDesignation";
+            this.txtDesignation.ReadOnly = true;
             this.txtDesignation.Size = new System.Drawing.Size(173, 20);
-            this.txtDesignation.TabIndex = 1;
+            this.txtDesignation.TabIndex = 0;
+            this.txtDesignation.TabStop = false;
             // 
             // txtEPFno
             // 
             this.txtEPFno.Location = new System.Drawing.Point(96, 97);
             this.txtEPFno.Name = "txtEPFno";
+            this.txtEPFno.ReadOnly = true;
             this.txtEPFno.Size = new System.Drawing.Size(173, 20);
-            this.txtEPFno.TabIndex = 1;
+            this.txtEPFno.TabIndex = 0;
+            this.txtEPFno.TabStop = false;
             // 
             // txtEmployeeName
             // 
             this.txtEmployeeName.Location = new System.Drawing.Point(96, 19);
             this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.ReadOnly = true;
             this.txtEmployeeName.Size = new System.Drawing.Size(173, 20);
-            this.txtEmployeeName.TabIndex = 1;
+            this.txtEmployeeName.TabIndex = 0;
+            this.txtEmployeeName.TabStop = false;
             // 
             // label24
             // 
@@ -949,6 +975,7 @@
             this.grpCurrentLeaveRecord.TabIndex = 8;
             this.grpCurrentLeaveRecord.TabStop = false;
             this.grpCurrentLeaveRecord.Text = "Current Leave Record ";
+            this.grpCurrentLeaveRecord.Enter += new System.EventHandler(this.grpCurrentLeaveRecord_Enter);
             // 
             // label39
             // 
@@ -1008,50 +1035,64 @@
             // 
             this.txtLeavesEntitledAnnual.Location = new System.Drawing.Point(134, 38);
             this.txtLeavesEntitledAnnual.Name = "txtLeavesEntitledAnnual";
+            this.txtLeavesEntitledAnnual.ReadOnly = true;
             this.txtLeavesEntitledAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesEntitledAnnual.TabIndex = 0;
+            this.txtLeavesEntitledAnnual.TabStop = false;
             // 
             // txtLeaveBalanceAnnual
             // 
             this.txtLeaveBalanceAnnual.Location = new System.Drawing.Point(134, 88);
             this.txtLeaveBalanceAnnual.Name = "txtLeaveBalanceAnnual";
+            this.txtLeaveBalanceAnnual.ReadOnly = true;
             this.txtLeaveBalanceAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeaveBalanceAnnual.TabIndex = 0;
+            this.txtLeaveBalanceAnnual.TabStop = false;
             // 
             // txtLeavesTakenAnnual
             // 
             this.txtLeavesTakenAnnual.Location = new System.Drawing.Point(134, 63);
             this.txtLeavesTakenAnnual.Name = "txtLeavesTakenAnnual";
+            this.txtLeavesTakenAnnual.ReadOnly = true;
             this.txtLeavesTakenAnnual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenAnnual.TabIndex = 0;
+            this.txtLeavesTakenAnnual.TabStop = false;
             // 
             // txtLeavesEntitledCasual
             // 
             this.txtLeavesEntitledCasual.Location = new System.Drawing.Point(196, 38);
             this.txtLeavesEntitledCasual.Name = "txtLeavesEntitledCasual";
+            this.txtLeavesEntitledCasual.ReadOnly = true;
             this.txtLeavesEntitledCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesEntitledCasual.TabIndex = 0;
+            this.txtLeavesEntitledCasual.TabStop = false;
             // 
             // txtLeavesTakenOther
             // 
             this.txtLeavesTakenOther.Location = new System.Drawing.Point(256, 64);
             this.txtLeavesTakenOther.Name = "txtLeavesTakenOther";
+            this.txtLeavesTakenOther.ReadOnly = true;
             this.txtLeavesTakenOther.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenOther.TabIndex = 0;
+            this.txtLeavesTakenOther.TabStop = false;
             // 
             // txtLeaveBalanceCasual
             // 
             this.txtLeaveBalanceCasual.Location = new System.Drawing.Point(196, 88);
             this.txtLeaveBalanceCasual.Name = "txtLeaveBalanceCasual";
+            this.txtLeaveBalanceCasual.ReadOnly = true;
             this.txtLeaveBalanceCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeaveBalanceCasual.TabIndex = 0;
+            this.txtLeaveBalanceCasual.TabStop = false;
             // 
             // txtLeavesTakenCasual
             // 
             this.txtLeavesTakenCasual.Location = new System.Drawing.Point(196, 63);
             this.txtLeavesTakenCasual.Name = "txtLeavesTakenCasual";
+            this.txtLeavesTakenCasual.ReadOnly = true;
             this.txtLeavesTakenCasual.Size = new System.Drawing.Size(41, 20);
             this.txtLeavesTakenCasual.TabIndex = 0;
+            this.txtLeavesTakenCasual.TabStop = false;
             // 
             // frmLeaveApply
             // 
