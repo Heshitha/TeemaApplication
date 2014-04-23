@@ -107,6 +107,12 @@ namespace TeemaApplication
             frm.ShowDialog();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmLeaveApplyApprove frm = new frmLeaveApplyApprove();
+            frm.ShowDialog();
+        }
+
         
     }
 }
