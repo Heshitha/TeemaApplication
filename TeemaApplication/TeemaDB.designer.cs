@@ -75,9 +75,6 @@ namespace TeemaApplication
     partial void InsertOverTime(OverTime instance);
     partial void UpdateOverTime(OverTime instance);
     partial void DeleteOverTime(OverTime instance);
-    partial void InsertSalaryLoan(SalaryLoan instance);
-    partial void UpdateSalaryLoan(SalaryLoan instance);
-    partial void DeleteSalaryLoan(SalaryLoan instance);
     partial void InsertSalaryLoanInstallment(SalaryLoanInstallment instance);
     partial void UpdateSalaryLoanInstallment(SalaryLoanInstallment instance);
     partial void DeleteSalaryLoanInstallment(SalaryLoanInstallment instance);
@@ -96,6 +93,9 @@ namespace TeemaApplication
     partial void InsertSalaryAdvance(SalaryAdvance instance);
     partial void UpdateSalaryAdvance(SalaryAdvance instance);
     partial void DeleteSalaryAdvance(SalaryAdvance instance);
+    partial void InsertSalaryLoan(SalaryLoan instance);
+    partial void UpdateSalaryLoan(SalaryLoan instance);
+    partial void DeleteSalaryLoan(SalaryLoan instance);
     #endregion
 		
 		public TeemaDBDataContext() : 
@@ -248,14 +248,6 @@ namespace TeemaApplication
 			}
 		}
 		
-		public System.Data.Linq.Table<SalaryLoan> SalaryLoans
-		{
-			get
-			{
-				return this.GetTable<SalaryLoan>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SalaryLoanInstallment> SalaryLoanInstallments
 		{
 			get
@@ -301,6 +293,14 @@ namespace TeemaApplication
 			get
 			{
 				return this.GetTable<SalaryAdvance>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SalaryLoan> SalaryLoans
+		{
+			get
+			{
+				return this.GetTable<SalaryLoan>();
 			}
 		}
 	}
@@ -3322,15 +3322,13 @@ namespace TeemaApplication
 		
 		private EntitySet<OverTime> _OverTimes;
 		
-		private EntitySet<SalaryLoan> _SalaryLoans;
-		
-		private EntitySet<SalaryLoan> _SalaryLoans1;
-		
 		private EntitySet<VariableIncentive> _VariableIncentives;
 		
 		private EntitySet<PersonalLeaveRecord> _PersonalLeaveRecords;
 		
 		private EntitySet<SalaryAdvance> _SalaryAdvances;
+		
+		private EntitySet<SalaryLoan> _SalaryLoans;
 		
 		private EntityRef<Designation> _Designation;
 		
@@ -3396,11 +3394,10 @@ namespace TeemaApplication
 			this._GrantedLeaves = new EntitySet<GrantedLeave>(new Action<GrantedLeave>(this.attach_GrantedLeaves), new Action<GrantedLeave>(this.detach_GrantedLeaves));
 			this._OtherDeductions = new EntitySet<OtherDeduction>(new Action<OtherDeduction>(this.attach_OtherDeductions), new Action<OtherDeduction>(this.detach_OtherDeductions));
 			this._OverTimes = new EntitySet<OverTime>(new Action<OverTime>(this.attach_OverTimes), new Action<OverTime>(this.detach_OverTimes));
-			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
-			this._SalaryLoans1 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans1), new Action<SalaryLoan>(this.detach_SalaryLoans1));
 			this._VariableIncentives = new EntitySet<VariableIncentive>(new Action<VariableIncentive>(this.attach_VariableIncentives), new Action<VariableIncentive>(this.detach_VariableIncentives));
 			this._PersonalLeaveRecords = new EntitySet<PersonalLeaveRecord>(new Action<PersonalLeaveRecord>(this.attach_PersonalLeaveRecords), new Action<PersonalLeaveRecord>(this.detach_PersonalLeaveRecords));
 			this._SalaryAdvances = new EntitySet<SalaryAdvance>(new Action<SalaryAdvance>(this.attach_SalaryAdvances), new Action<SalaryAdvance>(this.detach_SalaryAdvances));
+			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
 			this._Designation = default(EntityRef<Designation>);
 			this._SubDepartment = default(EntityRef<SubDepartment>);
 			this._UserAccount = default(EntityRef<UserAccount>);
@@ -3950,32 +3947,6 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan", Storage="_SalaryLoans", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<SalaryLoan> SalaryLoans
-		{
-			get
-			{
-				return this._SalaryLoans;
-			}
-			set
-			{
-				this._SalaryLoans.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan1", Storage="_SalaryLoans1", ThisKey="EmployeeID", OtherKey="ApprovedBy")]
-		public EntitySet<SalaryLoan> SalaryLoans1
-		{
-			get
-			{
-				return this._SalaryLoans1;
-			}
-			set
-			{
-				this._SalaryLoans1.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_VariableIncentive", Storage="_VariableIncentives", ThisKey="EmployeeID", OtherKey="EmployeeID")]
 		public EntitySet<VariableIncentive> VariableIncentives
 		{
@@ -4012,6 +3983,19 @@ namespace TeemaApplication
 			set
 			{
 				this._SalaryAdvances.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan", Storage="_SalaryLoans", ThisKey="EmployeeID", OtherKey="EmployeeID")]
+		public EntitySet<SalaryLoan> SalaryLoans
+		{
+			get
+			{
+				return this._SalaryLoans;
+			}
+			set
+			{
+				this._SalaryLoans.Assign(value);
 			}
 		}
 		
@@ -4279,30 +4263,6 @@ namespace TeemaApplication
 			entity.Employee = null;
 		}
 		
-		private void attach_SalaryLoans(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_SalaryLoans(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_SalaryLoans1(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee1 = this;
-		}
-		
-		private void detach_SalaryLoans1(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee1 = null;
-		}
-		
 		private void attach_VariableIncentives(VariableIncentive entity)
 		{
 			this.SendPropertyChanging();
@@ -4334,6 +4294,18 @@ namespace TeemaApplication
 		}
 		
 		private void detach_SalaryAdvances(SalaryAdvance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_SalaryLoans(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_SalaryLoans(SalaryLoan entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -7243,596 +7215,6 @@ namespace TeemaApplication
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalaryLoan")]
-	public partial class SalaryLoan : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SalaryLoanID;
-		
-		private System.Nullable<int> _EmployeeID;
-		
-		private System.Nullable<double> _RequestedAmount;
-		
-		private System.Nullable<System.DateTime> _RequestedDate;
-		
-		private System.Nullable<int> _NoOfInstallment;
-		
-		private System.Nullable<double> _DayWagesAmount;
-		
-		private System.Nullable<double> _TotalFromEPFSalary;
-		
-		private System.Nullable<double> _FixedIncentiveAmount;
-		
-		private System.Nullable<int> _ApprovedBy;
-		
-		private System.Nullable<System.DateTime> _ApprovedDate;
-		
-		private System.Nullable<bool> _IsApproved;
-		
-		private System.Nullable<int> _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<int> _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedDate;
-		
-		private EntitySet<SalaryLoanInstallment> _SalaryLoanInstallments;
-		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<Employee> _Employee1;
-		
-		private EntityRef<UserAccount> _UserAccount;
-		
-		private EntityRef<UserAccount> _UserAccount1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSalaryLoanIDChanging(int value);
-    partial void OnSalaryLoanIDChanged();
-    partial void OnEmployeeIDChanging(System.Nullable<int> value);
-    partial void OnEmployeeIDChanged();
-    partial void OnRequestedAmountChanging(System.Nullable<double> value);
-    partial void OnRequestedAmountChanged();
-    partial void OnRequestedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnRequestedDateChanged();
-    partial void OnNoOfInstallmentChanging(System.Nullable<int> value);
-    partial void OnNoOfInstallmentChanged();
-    partial void OnDayWagesAmountChanging(System.Nullable<double> value);
-    partial void OnDayWagesAmountChanged();
-    partial void OnTotalFromEPFSalaryChanging(System.Nullable<double> value);
-    partial void OnTotalFromEPFSalaryChanged();
-    partial void OnFixedIncentiveAmountChanging(System.Nullable<double> value);
-    partial void OnFixedIncentiveAmountChanged();
-    partial void OnApprovedByChanging(System.Nullable<int> value);
-    partial void OnApprovedByChanged();
-    partial void OnApprovedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnApprovedDateChanged();
-    partial void OnIsApprovedChanging(System.Nullable<bool> value);
-    partial void OnIsApprovedChanged();
-    partial void OnCreatedByChanging(System.Nullable<int> value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedDateChanged();
-    partial void OnModifiedByChanging(System.Nullable<int> value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnModifiedDateChanged();
-    #endregion
-		
-		public SalaryLoan()
-		{
-			this._SalaryLoanInstallments = new EntitySet<SalaryLoanInstallment>(new Action<SalaryLoanInstallment>(this.attach_SalaryLoanInstallments), new Action<SalaryLoanInstallment>(this.detach_SalaryLoanInstallments));
-			this._Employee = default(EntityRef<Employee>);
-			this._Employee1 = default(EntityRef<Employee>);
-			this._UserAccount = default(EntityRef<UserAccount>);
-			this._UserAccount1 = default(EntityRef<UserAccount>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryLoanID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int SalaryLoanID
-		{
-			get
-			{
-				return this._SalaryLoanID;
-			}
-			set
-			{
-				if ((this._SalaryLoanID != value))
-				{
-					this.OnSalaryLoanIDChanging(value);
-					this.SendPropertyChanging();
-					this._SalaryLoanID = value;
-					this.SendPropertyChanged("SalaryLoanID");
-					this.OnSalaryLoanIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
-		public System.Nullable<int> EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestedAmount", DbType="Float")]
-		public System.Nullable<double> RequestedAmount
-		{
-			get
-			{
-				return this._RequestedAmount;
-			}
-			set
-			{
-				if ((this._RequestedAmount != value))
-				{
-					this.OnRequestedAmountChanging(value);
-					this.SendPropertyChanging();
-					this._RequestedAmount = value;
-					this.SendPropertyChanged("RequestedAmount");
-					this.OnRequestedAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> RequestedDate
-		{
-			get
-			{
-				return this._RequestedDate;
-			}
-			set
-			{
-				if ((this._RequestedDate != value))
-				{
-					this.OnRequestedDateChanging(value);
-					this.SendPropertyChanging();
-					this._RequestedDate = value;
-					this.SendPropertyChanged("RequestedDate");
-					this.OnRequestedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoOfInstallment", DbType="Int")]
-		public System.Nullable<int> NoOfInstallment
-		{
-			get
-			{
-				return this._NoOfInstallment;
-			}
-			set
-			{
-				if ((this._NoOfInstallment != value))
-				{
-					this.OnNoOfInstallmentChanging(value);
-					this.SendPropertyChanging();
-					this._NoOfInstallment = value;
-					this.SendPropertyChanged("NoOfInstallment");
-					this.OnNoOfInstallmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayWagesAmount", DbType="Float")]
-		public System.Nullable<double> DayWagesAmount
-		{
-			get
-			{
-				return this._DayWagesAmount;
-			}
-			set
-			{
-				if ((this._DayWagesAmount != value))
-				{
-					this.OnDayWagesAmountChanging(value);
-					this.SendPropertyChanging();
-					this._DayWagesAmount = value;
-					this.SendPropertyChanged("DayWagesAmount");
-					this.OnDayWagesAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalFromEPFSalary", DbType="Float")]
-		public System.Nullable<double> TotalFromEPFSalary
-		{
-			get
-			{
-				return this._TotalFromEPFSalary;
-			}
-			set
-			{
-				if ((this._TotalFromEPFSalary != value))
-				{
-					this.OnTotalFromEPFSalaryChanging(value);
-					this.SendPropertyChanging();
-					this._TotalFromEPFSalary = value;
-					this.SendPropertyChanged("TotalFromEPFSalary");
-					this.OnTotalFromEPFSalaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FixedIncentiveAmount", DbType="Float")]
-		public System.Nullable<double> FixedIncentiveAmount
-		{
-			get
-			{
-				return this._FixedIncentiveAmount;
-			}
-			set
-			{
-				if ((this._FixedIncentiveAmount != value))
-				{
-					this.OnFixedIncentiveAmountChanging(value);
-					this.SendPropertyChanging();
-					this._FixedIncentiveAmount = value;
-					this.SendPropertyChanged("FixedIncentiveAmount");
-					this.OnFixedIncentiveAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int")]
-		public System.Nullable<int> ApprovedBy
-		{
-			get
-			{
-				return this._ApprovedBy;
-			}
-			set
-			{
-				if ((this._ApprovedBy != value))
-				{
-					if (this._Employee1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnApprovedByChanging(value);
-					this.SendPropertyChanging();
-					this._ApprovedBy = value;
-					this.SendPropertyChanged("ApprovedBy");
-					this.OnApprovedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ApprovedDate
-		{
-			get
-			{
-				return this._ApprovedDate;
-			}
-			set
-			{
-				if ((this._ApprovedDate != value))
-				{
-					this.OnApprovedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ApprovedDate = value;
-					this.SendPropertyChanged("ApprovedDate");
-					this.OnApprovedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsApproved", DbType="Bit")]
-		public System.Nullable<bool> IsApproved
-		{
-			get
-			{
-				return this._IsApproved;
-			}
-			set
-			{
-				if ((this._IsApproved != value))
-				{
-					this.OnIsApprovedChanging(value);
-					this.SendPropertyChanging();
-					this._IsApproved = value;
-					this.SendPropertyChanged("IsApproved");
-					this.OnIsApprovedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
-		public System.Nullable<int> CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					if (this._UserAccount.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
-		public System.Nullable<int> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					if (this._UserAccount1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryLoan_SalaryLoanInstallment", Storage="_SalaryLoanInstallments", ThisKey="SalaryLoanID", OtherKey="SalaryLoanID")]
-		public EntitySet<SalaryLoanInstallment> SalaryLoanInstallments
-		{
-			get
-			{
-				return this._SalaryLoanInstallments;
-			}
-			set
-			{
-				this._SalaryLoanInstallments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.SalaryLoans.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.SalaryLoans.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan1", Storage="_Employee1", ThisKey="ApprovedBy", OtherKey="EmployeeID", IsForeignKey=true)]
-		public Employee Employee1
-		{
-			get
-			{
-				return this._Employee1.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee1.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee1.Entity = null;
-						previousValue.SalaryLoans1.Remove(this);
-					}
-					this._Employee1.Entity = value;
-					if ((value != null))
-					{
-						value.SalaryLoans1.Add(this);
-						this._ApprovedBy = value.EmployeeID;
-					}
-					else
-					{
-						this._ApprovedBy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Employee1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
-		public UserAccount UserAccount
-		{
-			get
-			{
-				return this._UserAccount.Entity;
-			}
-			set
-			{
-				UserAccount previousValue = this._UserAccount.Entity;
-				if (((previousValue != value) 
-							|| (this._UserAccount.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserAccount.Entity = null;
-						previousValue.SalaryLoans.Remove(this);
-					}
-					this._UserAccount.Entity = value;
-					if ((value != null))
-					{
-						value.SalaryLoans.Add(this);
-						this._CreatedBy = value.UserID;
-					}
-					else
-					{
-						this._CreatedBy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UserAccount");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
-		public UserAccount UserAccount1
-		{
-			get
-			{
-				return this._UserAccount1.Entity;
-			}
-			set
-			{
-				UserAccount previousValue = this._UserAccount1.Entity;
-				if (((previousValue != value) 
-							|| (this._UserAccount1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserAccount1.Entity = null;
-						previousValue.SalaryLoans1.Remove(this);
-					}
-					this._UserAccount1.Entity = value;
-					if ((value != null))
-					{
-						value.SalaryLoans1.Add(this);
-						this._ModifiedBy = value.UserID;
-					}
-					else
-					{
-						this._ModifiedBy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UserAccount1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SalaryLoanInstallments(SalaryLoanInstallment entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryLoan = this;
-		}
-		
-		private void detach_SalaryLoanInstallments(SalaryLoanInstallment entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryLoan = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalaryLoanInstallment")]
 	public partial class SalaryLoanInstallment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -7855,11 +7237,11 @@ namespace TeemaApplication
 		
 		private System.Nullable<System.DateTime> _ModifiedDate;
 		
-		private EntityRef<SalaryLoan> _SalaryLoan;
-		
 		private EntityRef<UserAccount> _UserAccount;
 		
 		private EntityRef<UserAccount> _UserAccount1;
+		
+		private EntityRef<SalaryLoan> _SalaryLoan;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -7885,9 +7267,9 @@ namespace TeemaApplication
 		
 		public SalaryLoanInstallment()
 		{
-			this._SalaryLoan = default(EntityRef<SalaryLoan>);
 			this._UserAccount = default(EntityRef<UserAccount>);
 			this._UserAccount1 = default(EntityRef<UserAccount>);
+			this._SalaryLoan = default(EntityRef<SalaryLoan>);
 			OnCreated();
 		}
 		
@@ -8063,40 +7445,6 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryLoan_SalaryLoanInstallment", Storage="_SalaryLoan", ThisKey="SalaryLoanID", OtherKey="SalaryLoanID", IsForeignKey=true)]
-		public SalaryLoan SalaryLoan
-		{
-			get
-			{
-				return this._SalaryLoan.Entity;
-			}
-			set
-			{
-				SalaryLoan previousValue = this._SalaryLoan.Entity;
-				if (((previousValue != value) 
-							|| (this._SalaryLoan.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SalaryLoan.Entity = null;
-						previousValue.SalaryLoanInstallments.Remove(this);
-					}
-					this._SalaryLoan.Entity = value;
-					if ((value != null))
-					{
-						value.SalaryLoanInstallments.Add(this);
-						this._SalaryLoanID = value.SalaryLoanID;
-					}
-					else
-					{
-						this._SalaryLoanID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("SalaryLoan");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoanInstallment", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
 		public UserAccount UserAccount
 		{
@@ -8161,6 +7509,40 @@ namespace TeemaApplication
 						this._ModifiedBy = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("UserAccount1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryLoan_SalaryLoanInstallment", Storage="_SalaryLoan", ThisKey="SalaryLoanID", OtherKey="SalaryLoanID", IsForeignKey=true)]
+		public SalaryLoan SalaryLoan
+		{
+			get
+			{
+				return this._SalaryLoan.Entity;
+			}
+			set
+			{
+				SalaryLoan previousValue = this._SalaryLoan.Entity;
+				if (((previousValue != value) 
+							|| (this._SalaryLoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SalaryLoan.Entity = null;
+						previousValue.SalaryLoanInstallments.Remove(this);
+					}
+					this._SalaryLoan.Entity = value;
+					if ((value != null))
+					{
+						value.SalaryLoanInstallments.Add(this);
+						this._SalaryLoanID = value.SalaryLoanID;
+					}
+					else
+					{
+						this._SalaryLoanID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("SalaryLoan");
 				}
 			}
 		}
@@ -8645,10 +8027,6 @@ namespace TeemaApplication
 		
 		private EntitySet<OverTime> _OverTimes1;
 		
-		private EntitySet<SalaryLoan> _SalaryLoans;
-		
-		private EntitySet<SalaryLoan> _SalaryLoans1;
-		
 		private EntitySet<SalaryLoanInstallment> _SalaryLoanInstallments;
 		
 		private EntitySet<SalaryLoanInstallment> _SalaryLoanInstallments1;
@@ -8670,6 +8048,12 @@ namespace TeemaApplication
 		private EntitySet<SalaryAdvance> _SalaryAdvances1;
 		
 		private EntitySet<SalaryAdvance> _SalaryAdvances2;
+		
+		private EntitySet<SalaryLoan> _SalaryLoans;
+		
+		private EntitySet<SalaryLoan> _SalaryLoans1;
+		
+		private EntitySet<SalaryLoan> _SalaryLoans2;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -8717,8 +8101,6 @@ namespace TeemaApplication
 			this._OTRates1 = new EntitySet<OTRate>(new Action<OTRate>(this.attach_OTRates1), new Action<OTRate>(this.detach_OTRates1));
 			this._OverTimes = new EntitySet<OverTime>(new Action<OverTime>(this.attach_OverTimes), new Action<OverTime>(this.detach_OverTimes));
 			this._OverTimes1 = new EntitySet<OverTime>(new Action<OverTime>(this.attach_OverTimes1), new Action<OverTime>(this.detach_OverTimes1));
-			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
-			this._SalaryLoans1 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans1), new Action<SalaryLoan>(this.detach_SalaryLoans1));
 			this._SalaryLoanInstallments = new EntitySet<SalaryLoanInstallment>(new Action<SalaryLoanInstallment>(this.attach_SalaryLoanInstallments), new Action<SalaryLoanInstallment>(this.detach_SalaryLoanInstallments));
 			this._SalaryLoanInstallments1 = new EntitySet<SalaryLoanInstallment>(new Action<SalaryLoanInstallment>(this.attach_SalaryLoanInstallments1), new Action<SalaryLoanInstallment>(this.detach_SalaryLoanInstallments1));
 			this._SubDepartments = new EntitySet<SubDepartment>(new Action<SubDepartment>(this.attach_SubDepartments), new Action<SubDepartment>(this.detach_SubDepartments));
@@ -8730,6 +8112,9 @@ namespace TeemaApplication
 			this._SalaryAdvances = new EntitySet<SalaryAdvance>(new Action<SalaryAdvance>(this.attach_SalaryAdvances), new Action<SalaryAdvance>(this.detach_SalaryAdvances));
 			this._SalaryAdvances1 = new EntitySet<SalaryAdvance>(new Action<SalaryAdvance>(this.attach_SalaryAdvances1), new Action<SalaryAdvance>(this.detach_SalaryAdvances1));
 			this._SalaryAdvances2 = new EntitySet<SalaryAdvance>(new Action<SalaryAdvance>(this.attach_SalaryAdvances2), new Action<SalaryAdvance>(this.detach_SalaryAdvances2));
+			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
+			this._SalaryLoans1 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans1), new Action<SalaryLoan>(this.detach_SalaryLoans1));
+			this._SalaryLoans2 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans2), new Action<SalaryLoan>(this.detach_SalaryLoans2));
 			OnCreated();
 		}
 		
@@ -9203,32 +8588,6 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan", Storage="_SalaryLoans", ThisKey="UserID", OtherKey="CreatedBy")]
-		public EntitySet<SalaryLoan> SalaryLoans
-		{
-			get
-			{
-				return this._SalaryLoans;
-			}
-			set
-			{
-				this._SalaryLoans.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan1", Storage="_SalaryLoans1", ThisKey="UserID", OtherKey="ModifiedBy")]
-		public EntitySet<SalaryLoan> SalaryLoans1
-		{
-			get
-			{
-				return this._SalaryLoans1;
-			}
-			set
-			{
-				this._SalaryLoans1.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoanInstallment", Storage="_SalaryLoanInstallments", ThisKey="UserID", OtherKey="CreatedBy")]
 		public EntitySet<SalaryLoanInstallment> SalaryLoanInstallments
 		{
@@ -9369,6 +8728,45 @@ namespace TeemaApplication
 			set
 			{
 				this._SalaryAdvances2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan", Storage="_SalaryLoans", ThisKey="UserID", OtherKey="ApprovedBy")]
+		public EntitySet<SalaryLoan> SalaryLoans
+		{
+			get
+			{
+				return this._SalaryLoans;
+			}
+			set
+			{
+				this._SalaryLoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan1", Storage="_SalaryLoans1", ThisKey="UserID", OtherKey="CreatedBy")]
+		public EntitySet<SalaryLoan> SalaryLoans1
+		{
+			get
+			{
+				return this._SalaryLoans1;
+			}
+			set
+			{
+				this._SalaryLoans1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan2", Storage="_SalaryLoans2", ThisKey="UserID", OtherKey="ModifiedBy")]
+		public EntitySet<SalaryLoan> SalaryLoans2
+		{
+			get
+			{
+				return this._SalaryLoans2;
+			}
+			set
+			{
+				this._SalaryLoans2.Assign(value);
 			}
 		}
 		
@@ -9752,30 +9150,6 @@ namespace TeemaApplication
 			entity.UserAccount1 = null;
 		}
 		
-		private void attach_SalaryLoans(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount = this;
-		}
-		
-		private void detach_SalaryLoans(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount = null;
-		}
-		
-		private void attach_SalaryLoans1(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount1 = this;
-		}
-		
-		private void detach_SalaryLoans1(SalaryLoan entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount1 = null;
-		}
-		
 		private void attach_SalaryLoanInstallments(SalaryLoanInstallment entity)
 		{
 			this.SendPropertyChanging();
@@ -9903,6 +9277,42 @@ namespace TeemaApplication
 		}
 		
 		private void detach_SalaryAdvances2(SalaryAdvance entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount2 = null;
+		}
+		
+		private void attach_SalaryLoans(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = this;
+		}
+		
+		private void detach_SalaryLoans(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = null;
+		}
+		
+		private void attach_SalaryLoans1(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = this;
+		}
+		
+		private void detach_SalaryLoans1(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = null;
+		}
+		
+		private void attach_SalaryLoans2(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount2 = this;
+		}
+		
+		private void detach_SalaryLoans2(SalaryLoan entity)
 		{
 			this.SendPropertyChanging();
 			entity.UserAccount2 = null;
@@ -11414,6 +10824,596 @@ namespace TeemaApplication
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalaryLoan")]
+	public partial class SalaryLoan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SalaryLoanID;
+		
+		private System.Nullable<int> _EmployeeID;
+		
+		private System.Nullable<double> _RequestedAmount;
+		
+		private System.Nullable<System.DateTime> _RequestedDate;
+		
+		private System.Nullable<int> _NoOfInstallment;
+		
+		private System.Nullable<double> _DayWagesAmount;
+		
+		private System.Nullable<double> _TotalFromEPFSalary;
+		
+		private System.Nullable<double> _FixedIncentiveAmount;
+		
+		private System.Nullable<int> _ApprovedBy;
+		
+		private System.Nullable<System.DateTime> _ApprovedDate;
+		
+		private System.Nullable<bool> _IsApproved;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<int> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedDate;
+		
+		private EntitySet<SalaryLoanInstallment> _SalaryLoanInstallments;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<UserAccount> _UserAccount;
+		
+		private EntityRef<UserAccount> _UserAccount1;
+		
+		private EntityRef<UserAccount> _UserAccount2;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSalaryLoanIDChanging(int value);
+    partial void OnSalaryLoanIDChanged();
+    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanged();
+    partial void OnRequestedAmountChanging(System.Nullable<double> value);
+    partial void OnRequestedAmountChanged();
+    partial void OnRequestedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRequestedDateChanged();
+    partial void OnNoOfInstallmentChanging(System.Nullable<int> value);
+    partial void OnNoOfInstallmentChanged();
+    partial void OnDayWagesAmountChanging(System.Nullable<double> value);
+    partial void OnDayWagesAmountChanged();
+    partial void OnTotalFromEPFSalaryChanging(System.Nullable<double> value);
+    partial void OnTotalFromEPFSalaryChanged();
+    partial void OnFixedIncentiveAmountChanging(System.Nullable<double> value);
+    partial void OnFixedIncentiveAmountChanged();
+    partial void OnApprovedByChanging(System.Nullable<int> value);
+    partial void OnApprovedByChanged();
+    partial void OnApprovedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnApprovedDateChanged();
+    partial void OnIsApprovedChanging(System.Nullable<bool> value);
+    partial void OnIsApprovedChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnModifiedByChanging(System.Nullable<int> value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedDateChanged();
+    #endregion
+		
+		public SalaryLoan()
+		{
+			this._SalaryLoanInstallments = new EntitySet<SalaryLoanInstallment>(new Action<SalaryLoanInstallment>(this.attach_SalaryLoanInstallments), new Action<SalaryLoanInstallment>(this.detach_SalaryLoanInstallments));
+			this._Employee = default(EntityRef<Employee>);
+			this._UserAccount = default(EntityRef<UserAccount>);
+			this._UserAccount1 = default(EntityRef<UserAccount>);
+			this._UserAccount2 = default(EntityRef<UserAccount>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryLoanID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SalaryLoanID
+		{
+			get
+			{
+				return this._SalaryLoanID;
+			}
+			set
+			{
+				if ((this._SalaryLoanID != value))
+				{
+					this.OnSalaryLoanIDChanging(value);
+					this.SendPropertyChanging();
+					this._SalaryLoanID = value;
+					this.SendPropertyChanged("SalaryLoanID");
+					this.OnSalaryLoanIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
+		public System.Nullable<int> EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestedAmount", DbType="Float")]
+		public System.Nullable<double> RequestedAmount
+		{
+			get
+			{
+				return this._RequestedAmount;
+			}
+			set
+			{
+				if ((this._RequestedAmount != value))
+				{
+					this.OnRequestedAmountChanging(value);
+					this.SendPropertyChanging();
+					this._RequestedAmount = value;
+					this.SendPropertyChanged("RequestedAmount");
+					this.OnRequestedAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> RequestedDate
+		{
+			get
+			{
+				return this._RequestedDate;
+			}
+			set
+			{
+				if ((this._RequestedDate != value))
+				{
+					this.OnRequestedDateChanging(value);
+					this.SendPropertyChanging();
+					this._RequestedDate = value;
+					this.SendPropertyChanged("RequestedDate");
+					this.OnRequestedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoOfInstallment", DbType="Int")]
+		public System.Nullable<int> NoOfInstallment
+		{
+			get
+			{
+				return this._NoOfInstallment;
+			}
+			set
+			{
+				if ((this._NoOfInstallment != value))
+				{
+					this.OnNoOfInstallmentChanging(value);
+					this.SendPropertyChanging();
+					this._NoOfInstallment = value;
+					this.SendPropertyChanged("NoOfInstallment");
+					this.OnNoOfInstallmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayWagesAmount", DbType="Float")]
+		public System.Nullable<double> DayWagesAmount
+		{
+			get
+			{
+				return this._DayWagesAmount;
+			}
+			set
+			{
+				if ((this._DayWagesAmount != value))
+				{
+					this.OnDayWagesAmountChanging(value);
+					this.SendPropertyChanging();
+					this._DayWagesAmount = value;
+					this.SendPropertyChanged("DayWagesAmount");
+					this.OnDayWagesAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalFromEPFSalary", DbType="Float")]
+		public System.Nullable<double> TotalFromEPFSalary
+		{
+			get
+			{
+				return this._TotalFromEPFSalary;
+			}
+			set
+			{
+				if ((this._TotalFromEPFSalary != value))
+				{
+					this.OnTotalFromEPFSalaryChanging(value);
+					this.SendPropertyChanging();
+					this._TotalFromEPFSalary = value;
+					this.SendPropertyChanged("TotalFromEPFSalary");
+					this.OnTotalFromEPFSalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FixedIncentiveAmount", DbType="Float")]
+		public System.Nullable<double> FixedIncentiveAmount
+		{
+			get
+			{
+				return this._FixedIncentiveAmount;
+			}
+			set
+			{
+				if ((this._FixedIncentiveAmount != value))
+				{
+					this.OnFixedIncentiveAmountChanging(value);
+					this.SendPropertyChanging();
+					this._FixedIncentiveAmount = value;
+					this.SendPropertyChanged("FixedIncentiveAmount");
+					this.OnFixedIncentiveAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int")]
+		public System.Nullable<int> ApprovedBy
+		{
+			get
+			{
+				return this._ApprovedBy;
+			}
+			set
+			{
+				if ((this._ApprovedBy != value))
+				{
+					if (this._UserAccount.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedBy = value;
+					this.SendPropertyChanged("ApprovedBy");
+					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ApprovedDate
+		{
+			get
+			{
+				return this._ApprovedDate;
+			}
+			set
+			{
+				if ((this._ApprovedDate != value))
+				{
+					this.OnApprovedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedDate = value;
+					this.SendPropertyChanged("ApprovedDate");
+					this.OnApprovedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsApproved", DbType="Bit")]
+		public System.Nullable<bool> IsApproved
+		{
+			get
+			{
+				return this._IsApproved;
+			}
+			set
+			{
+				if ((this._IsApproved != value))
+				{
+					this.OnIsApprovedChanging(value);
+					this.SendPropertyChanging();
+					this._IsApproved = value;
+					this.SendPropertyChanged("IsApproved");
+					this.OnIsApprovedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._UserAccount1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
+		public System.Nullable<int> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					if (this._UserAccount2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryLoan_SalaryLoanInstallment", Storage="_SalaryLoanInstallments", ThisKey="SalaryLoanID", OtherKey="SalaryLoanID")]
+		public EntitySet<SalaryLoanInstallment> SalaryLoanInstallments
+		{
+			get
+			{
+				return this._SalaryLoanInstallments;
+			}
+			set
+			{
+				this._SalaryLoanInstallments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SalaryLoan", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.SalaryLoans.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.SalaryLoans.Add(this);
+						this._EmployeeID = value.EmployeeID;
+					}
+					else
+					{
+						this._EmployeeID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan", Storage="_UserAccount", ThisKey="ApprovedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount
+		{
+			get
+			{
+				return this._UserAccount.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount.Entity = null;
+						previousValue.SalaryLoans.Remove(this);
+					}
+					this._UserAccount.Entity = value;
+					if ((value != null))
+					{
+						value.SalaryLoans.Add(this);
+						this._ApprovedBy = value.UserID;
+					}
+					else
+					{
+						this._ApprovedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan1", Storage="_UserAccount1", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount1
+		{
+			get
+			{
+				return this._UserAccount1.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount1.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount1.Entity = null;
+						previousValue.SalaryLoans1.Remove(this);
+					}
+					this._UserAccount1.Entity = value;
+					if ((value != null))
+					{
+						value.SalaryLoans1.Add(this);
+						this._CreatedBy = value.UserID;
+					}
+					else
+					{
+						this._CreatedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_SalaryLoan2", Storage="_UserAccount2", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount2
+		{
+			get
+			{
+				return this._UserAccount2.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount2.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount2.Entity = null;
+						previousValue.SalaryLoans2.Remove(this);
+					}
+					this._UserAccount2.Entity = value;
+					if ((value != null))
+					{
+						value.SalaryLoans2.Add(this);
+						this._ModifiedBy = value.UserID;
+					}
+					else
+					{
+						this._ModifiedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount2");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SalaryLoanInstallments(SalaryLoanInstallment entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryLoan = this;
+		}
+		
+		private void detach_SalaryLoanInstallments(SalaryLoanInstallment entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryLoan = null;
 		}
 	}
 }

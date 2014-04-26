@@ -157,11 +157,10 @@
       <Association Name="Employee_GrantedLeave" Member="GrantedLeaves" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="GrantedLeave" />
       <Association Name="Employee_OtherDeduction" Member="OtherDeductions" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="OtherDeduction" />
       <Association Name="Employee_OverTime" Member="OverTimes" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="OverTime" />
-      <Association Name="Employee_SalaryLoan" Member="SalaryLoans" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryLoan" />
-      <Association Name="Employee_SalaryLoan1" Member="SalaryLoans1" ThisKey="EmployeeID" OtherKey="ApprovedBy" Type="SalaryLoan" />
       <Association Name="Employee_VariableIncentive" Member="VariableIncentives" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="VariableIncentive" />
       <Association Name="Employee_PersonalLeaveRecord" Member="PersonalLeaveRecords" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="PersonalLeaveRecord" />
       <Association Name="Employee_SalaryAdvance" Member="SalaryAdvances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryAdvance" />
+      <Association Name="Employee_SalaryLoan" Member="SalaryLoans" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryLoan" />
       <Association Name="Designation_Employee" Member="Designation" ThisKey="DesignationID" OtherKey="DesignationID" Type="Designation" IsForeignKey="true" />
       <Association Name="SubDepartment_Employee" Member="SubDepartment" ThisKey="SubDepartmentID" OtherKey="SubDepartmentID" Type="SubDepartment" IsForeignKey="true" />
       <Association Name="UserAccount_Employee" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
@@ -291,30 +290,6 @@
       <Association Name="UserAccount_OverTime1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SalaryLoan" Member="SalaryLoans">
-    <Type Name="SalaryLoan">
-      <Column Name="SalaryLoanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RequestedAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="RequestedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NoOfInstallment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DayWagesAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalFromEPFSalary" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FixedIncentiveAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ApprovedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ApprovedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="SalaryLoan_SalaryLoanInstallment" Member="SalaryLoanInstallments" ThisKey="SalaryLoanID" OtherKey="SalaryLoanID" Type="SalaryLoanInstallment" />
-      <Association Name="Employee_SalaryLoan" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Employee_SalaryLoan1" Member="Employee1" ThisKey="ApprovedBy" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-      <Association Name="UserAccount_SalaryLoan" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
-      <Association Name="UserAccount_SalaryLoan1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SalaryLoanInstallment" Member="SalaryLoanInstallments">
     <Type Name="SalaryLoanInstallment">
       <Column Name="LoanInstallmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -325,9 +300,9 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="SalaryLoan_SalaryLoanInstallment" Member="SalaryLoan" ThisKey="SalaryLoanID" OtherKey="SalaryLoanID" Type="SalaryLoan" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryLoanInstallment" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryLoanInstallment1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="SalaryLoan_SalaryLoanInstallment" Member="SalaryLoan" ThisKey="SalaryLoanID" OtherKey="SalaryLoanID" Type="SalaryLoan" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SubDepartment" Member="SubDepartments">
@@ -382,8 +357,6 @@
       <Association Name="UserAccount_OTRate1" Member="OTRates1" ThisKey="UserID" OtherKey="ModifiedBy" Type="OTRate" />
       <Association Name="UserAccount_OverTime" Member="OverTimes" ThisKey="UserID" OtherKey="CreatedBy" Type="OverTime" />
       <Association Name="UserAccount_OverTime1" Member="OverTimes1" ThisKey="UserID" OtherKey="ModifiedBy" Type="OverTime" />
-      <Association Name="UserAccount_SalaryLoan" Member="SalaryLoans" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryLoan" />
-      <Association Name="UserAccount_SalaryLoan1" Member="SalaryLoans1" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryLoan" />
       <Association Name="UserAccount_SalaryLoanInstallment" Member="SalaryLoanInstallments" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryLoanInstallment" />
       <Association Name="UserAccount_SalaryLoanInstallment1" Member="SalaryLoanInstallments1" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryLoanInstallment" />
       <Association Name="UserAccount_SubDepartment" Member="SubDepartments" ThisKey="UserID" OtherKey="CreatedBy" Type="SubDepartment" />
@@ -395,6 +368,9 @@
       <Association Name="UserAccount_SalaryAdvance" Member="SalaryAdvances" ThisKey="UserID" OtherKey="ApprovedBy" Type="SalaryAdvance" />
       <Association Name="UserAccount_SalaryAdvance1" Member="SalaryAdvances1" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryAdvance" />
       <Association Name="UserAccount_SalaryAdvance2" Member="SalaryAdvances2" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryAdvance" />
+      <Association Name="UserAccount_SalaryLoan" Member="SalaryLoans" ThisKey="UserID" OtherKey="ApprovedBy" Type="SalaryLoan" />
+      <Association Name="UserAccount_SalaryLoan1" Member="SalaryLoans1" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryLoan" />
+      <Association Name="UserAccount_SalaryLoan2" Member="SalaryLoans2" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryLoan" />
     </Type>
   </Table>
   <Table Name="dbo.VariableIncentive" Member="VariableIncentives">
@@ -458,6 +434,30 @@
       <Association Name="UserAccount_SalaryAdvance" Member="UserAccount" ThisKey="ApprovedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryAdvance1" Member="UserAccount1" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryAdvance2" Member="UserAccount2" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalaryLoan" Member="SalaryLoans">
+    <Type Name="SalaryLoan">
+      <Column Name="SalaryLoanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RequestedAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RequestedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NoOfInstallment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DayWagesAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TotalFromEPFSalary" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FixedIncentiveAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApprovedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SalaryLoan_SalaryLoanInstallment" Member="SalaryLoanInstallments" ThisKey="SalaryLoanID" OtherKey="SalaryLoanID" Type="SalaryLoanInstallment" />
+      <Association Name="Employee_SalaryLoan" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="UserAccount_SalaryLoan" Member="UserAccount" ThisKey="ApprovedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_SalaryLoan1" Member="UserAccount1" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_SalaryLoan2" Member="UserAccount2" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

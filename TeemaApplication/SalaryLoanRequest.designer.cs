@@ -53,7 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNumber_of_Month = new System.Windows.Forms.TextBox();
-            this.gdvDeductionFrom = new System.Windows.Forms.GroupBox();
+            this.gbxDeductionFrom = new System.Windows.Forms.GroupBox();
             this.txtFixedIncentiveAllowance = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDayWages = new System.Windows.Forms.TextBox();
@@ -106,7 +106,7 @@
             this.gbxSalary_Loan.SuspendLayout();
             this.gbxOtherDetails.SuspendLayout();
             this.gbxInstallmentDetails.SuspendLayout();
-            this.gdvDeductionFrom.SuspendLayout();
+            this.gbxDeductionFrom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvLoanDetails)).BeginInit();
             this.gbxEmployeeDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -164,7 +164,7 @@
             this.chbUnFinished.Location = new System.Drawing.Point(81, 18);
             this.chbUnFinished.Name = "chbUnFinished";
             this.chbUnFinished.Size = new System.Drawing.Size(82, 17);
-            this.chbUnFinished.TabIndex = 10;
+            this.chbUnFinished.TabIndex = 5;
             this.chbUnFinished.Text = "Un Finished";
             this.chbUnFinished.UseVisualStyleBackColor = true;
             // 
@@ -176,7 +176,7 @@
             this.chbUnApproved.Location = new System.Drawing.Point(81, 41);
             this.chbUnApproved.Name = "chbUnApproved";
             this.chbUnApproved.Size = new System.Drawing.Size(89, 17);
-            this.chbUnApproved.TabIndex = 9;
+            this.chbUnApproved.TabIndex = 7;
             this.chbUnApproved.Text = "Un Approved";
             this.chbUnApproved.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.chbFinished.Location = new System.Drawing.Point(6, 18);
             this.chbFinished.Name = "chbFinished";
             this.chbFinished.Size = new System.Drawing.Size(65, 17);
-            this.chbFinished.TabIndex = 8;
+            this.chbFinished.TabIndex = 4;
             this.chbFinished.Text = "Finished";
             this.chbFinished.UseVisualStyleBackColor = true;
             // 
@@ -200,7 +200,7 @@
             this.chbApproved.Location = new System.Drawing.Point(6, 41);
             this.chbApproved.Name = "chbApproved";
             this.chbApproved.Size = new System.Drawing.Size(72, 17);
-            this.chbApproved.TabIndex = 7;
+            this.chbApproved.TabIndex = 6;
             this.chbApproved.Text = "Approved";
             this.chbApproved.UseVisualStyleBackColor = true;
             // 
@@ -209,7 +209,7 @@
             this.btnSearch.Location = new System.Drawing.Point(206, 167);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
+            this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -230,7 +230,7 @@
             this.cmbSubDepartment.Location = new System.Drawing.Point(105, 73);
             this.cmbSubDepartment.Name = "cmbSubDepartment";
             this.cmbSubDepartment.Size = new System.Drawing.Size(176, 21);
-            this.cmbSubDepartment.TabIndex = 4;
+            this.cmbSubDepartment.TabIndex = 3;
             // 
             // lblDepartment
             // 
@@ -274,7 +274,7 @@
             // 
             this.gbxSalary_Loan.Controls.Add(this.gbxOtherDetails);
             this.gbxSalary_Loan.Controls.Add(this.gbxInstallmentDetails);
-            this.gbxSalary_Loan.Controls.Add(this.gdvDeductionFrom);
+            this.gbxSalary_Loan.Controls.Add(this.gbxDeductionFrom);
             this.gbxSalary_Loan.Location = new System.Drawing.Point(609, 43);
             this.gbxSalary_Loan.Name = "gbxSalary_Loan";
             this.gbxSalary_Loan.Size = new System.Drawing.Size(298, 279);
@@ -299,7 +299,10 @@
             this.txtRequested_Amount.Location = new System.Drawing.Point(152, 19);
             this.txtRequested_Amount.Name = "txtRequested_Amount";
             this.txtRequested_Amount.Size = new System.Drawing.Size(128, 20);
-            this.txtRequested_Amount.TabIndex = 18;
+            this.txtRequested_Amount.TabIndex = 10;
+            this.txtRequested_Amount.Text = "0";
+            this.txtRequested_Amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRequested_Amount.TextChanged += new System.EventHandler(this.txtRequested_Amount_TextChanged);
             // 
             // dtpStarting_Date
             // 
@@ -307,7 +310,7 @@
             this.dtpStarting_Date.Location = new System.Drawing.Point(152, 45);
             this.dtpStarting_Date.Name = "dtpStarting_Date";
             this.dtpStarting_Date.Size = new System.Drawing.Size(128, 20);
-            this.dtpStarting_Date.TabIndex = 27;
+            this.dtpStarting_Date.TabIndex = 11;
             // 
             // label9
             // 
@@ -344,8 +347,12 @@
             // 
             this.txtDeductionAmountinMonth.Location = new System.Drawing.Point(152, 19);
             this.txtDeductionAmountinMonth.Name = "txtDeductionAmountinMonth";
+            this.txtDeductionAmountinMonth.ReadOnly = true;
             this.txtDeductionAmountinMonth.Size = new System.Drawing.Size(128, 20);
             this.txtDeductionAmountinMonth.TabIndex = 21;
+            this.txtDeductionAmountinMonth.TabStop = false;
+            this.txtDeductionAmountinMonth.Text = "0";
+            this.txtDeductionAmountinMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -369,32 +376,37 @@
             // 
             this.txtNumber_of_Month.Location = new System.Drawing.Point(152, 45);
             this.txtNumber_of_Month.Name = "txtNumber_of_Month";
+            this.txtNumber_of_Month.ReadOnly = true;
             this.txtNumber_of_Month.Size = new System.Drawing.Size(128, 20);
             this.txtNumber_of_Month.TabIndex = 23;
+            this.txtNumber_of_Month.TabStop = false;
+            this.txtNumber_of_Month.Text = "0";
+            this.txtNumber_of_Month.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // gdvDeductionFrom
+            // gbxDeductionFrom
             // 
-            this.gdvDeductionFrom.Controls.Add(this.txtFixedIncentiveAllowance);
-            this.gdvDeductionFrom.Controls.Add(this.label8);
-            this.gdvDeductionFrom.Controls.Add(this.txtDayWages);
-            this.gdvDeductionFrom.Controls.Add(this.label5);
-            this.gdvDeductionFrom.Controls.Add(this.txtTotalFromEPFSalary);
-            this.gdvDeductionFrom.Controls.Add(this.label4);
-            this.gdvDeductionFrom.Location = new System.Drawing.Point(6, 97);
-            this.gdvDeductionFrom.Name = "gdvDeductionFrom";
-            this.gdvDeductionFrom.Size = new System.Drawing.Size(286, 100);
-            this.gdvDeductionFrom.TabIndex = 19;
-            this.gdvDeductionFrom.TabStop = false;
-            this.gdvDeductionFrom.Text = "Deduction From";
+            this.gbxDeductionFrom.Controls.Add(this.txtFixedIncentiveAllowance);
+            this.gbxDeductionFrom.Controls.Add(this.label8);
+            this.gbxDeductionFrom.Controls.Add(this.txtDayWages);
+            this.gbxDeductionFrom.Controls.Add(this.label5);
+            this.gbxDeductionFrom.Controls.Add(this.txtTotalFromEPFSalary);
+            this.gbxDeductionFrom.Controls.Add(this.label4);
+            this.gbxDeductionFrom.Location = new System.Drawing.Point(6, 97);
+            this.gbxDeductionFrom.Name = "gbxDeductionFrom";
+            this.gbxDeductionFrom.Size = new System.Drawing.Size(286, 100);
+            this.gbxDeductionFrom.TabIndex = 19;
+            this.gbxDeductionFrom.TabStop = false;
+            this.gbxDeductionFrom.Text = "Deduction From";
             // 
             // txtFixedIncentiveAllowance
             // 
             this.txtFixedIncentiveAllowance.Location = new System.Drawing.Point(152, 71);
             this.txtFixedIncentiveAllowance.Name = "txtFixedIncentiveAllowance";
             this.txtFixedIncentiveAllowance.Size = new System.Drawing.Size(128, 20);
-            this.txtFixedIncentiveAllowance.TabIndex = 17;
+            this.txtFixedIncentiveAllowance.TabIndex = 14;
             this.txtFixedIncentiveAllowance.Text = "0";
             this.txtFixedIncentiveAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFixedIncentiveAllowance.TextChanged += new System.EventHandler(this.txtFixedIncentiveAllowance_TextChanged);
             // 
             // label8
             // 
@@ -410,9 +422,10 @@
             this.txtDayWages.Location = new System.Drawing.Point(152, 45);
             this.txtDayWages.Name = "txtDayWages";
             this.txtDayWages.Size = new System.Drawing.Size(128, 20);
-            this.txtDayWages.TabIndex = 15;
+            this.txtDayWages.TabIndex = 13;
             this.txtDayWages.Text = "0";
             this.txtDayWages.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDayWages.TextChanged += new System.EventHandler(this.txtDayWages_TextChanged);
             // 
             // label5
             // 
@@ -428,9 +441,10 @@
             this.txtTotalFromEPFSalary.Location = new System.Drawing.Point(152, 19);
             this.txtTotalFromEPFSalary.Name = "txtTotalFromEPFSalary";
             this.txtTotalFromEPFSalary.Size = new System.Drawing.Size(128, 20);
-            this.txtTotalFromEPFSalary.TabIndex = 13;
+            this.txtTotalFromEPFSalary.TabIndex = 12;
             this.txtTotalFromEPFSalary.Text = "0";
             this.txtTotalFromEPFSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotalFromEPFSalary.TextChanged += new System.EventHandler(this.txtTotalFromEPFSalary_TextChanged);
             // 
             // label4
             // 
@@ -449,6 +463,7 @@
             this.btnReset.TabIndex = 16;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSubmit
             // 
@@ -480,7 +495,7 @@
             this.gdvLoanDetails.RowHeadersVisible = false;
             this.gdvLoanDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdvLoanDetails.Size = new System.Drawing.Size(602, 206);
-            this.gdvLoanDetails.TabIndex = 18;
+            this.gdvLoanDetails.TabIndex = 9;
             this.gdvLoanDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvLoanDetails_CellClick);
             // 
             // clm_Token_No
@@ -551,6 +566,7 @@
             this.txtEmployeeName.ReadOnly = true;
             this.txtEmployeeName.Size = new System.Drawing.Size(176, 20);
             this.txtEmployeeName.TabIndex = 9;
+            this.txtEmployeeName.TabStop = false;
             // 
             // label6
             // 
@@ -568,6 +584,7 @@
             this.txtDesignation.ReadOnly = true;
             this.txtDesignation.Size = new System.Drawing.Size(176, 20);
             this.txtDesignation.TabIndex = 14;
+            this.txtDesignation.TabStop = false;
             // 
             // label12
             // 
@@ -585,6 +602,7 @@
             this.txtEPF_No.ReadOnly = true;
             this.txtEPF_No.Size = new System.Drawing.Size(176, 20);
             this.txtEPF_No.TabIndex = 18;
+            this.txtEPF_No.TabStop = false;
             // 
             // label13
             // 
@@ -602,6 +620,7 @@
             this.txtToken_No.ReadOnly = true;
             this.txtToken_No.Size = new System.Drawing.Size(176, 20);
             this.txtToken_No.TabIndex = 23;
+            this.txtToken_No.TabStop = false;
             // 
             // gbxEmployeeDetails
             // 
@@ -629,6 +648,7 @@
             this.txtNIC_No.ReadOnly = true;
             this.txtNIC_No.Size = new System.Drawing.Size(176, 20);
             this.txtNIC_No.TabIndex = 16;
+            this.txtNIC_No.TabStop = false;
             // 
             // label7
             // 
@@ -673,6 +693,7 @@
             this.txtCSLStartingDate.Size = new System.Drawing.Size(128, 20);
             this.txtCSLStartingDate.TabIndex = 29;
             this.txtCSLStartingDate.TabStop = false;
+            this.txtCSLStartingDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCSLStartingDate.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label20
@@ -693,6 +714,7 @@
             this.txtCSLRequestedAmount.Size = new System.Drawing.Size(128, 20);
             this.txtCSLRequestedAmount.TabIndex = 27;
             this.txtCSLRequestedAmount.TabStop = false;
+            this.txtCSLRequestedAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCSLRequestedAmount.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // txtCSLLoanID
@@ -703,6 +725,7 @@
             this.txtCSLLoanID.Size = new System.Drawing.Size(128, 20);
             this.txtCSLLoanID.TabIndex = 18;
             this.txtCSLLoanID.TabStop = false;
+            this.txtCSLLoanID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCSLLoanID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label11
@@ -879,8 +902,8 @@
             this.gbxOtherDetails.PerformLayout();
             this.gbxInstallmentDetails.ResumeLayout(false);
             this.gbxInstallmentDetails.PerformLayout();
-            this.gdvDeductionFrom.ResumeLayout(false);
-            this.gdvDeductionFrom.PerformLayout();
+            this.gbxDeductionFrom.ResumeLayout(false);
+            this.gbxDeductionFrom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvLoanDetails)).EndInit();
             this.gbxEmployeeDetails.ResumeLayout(false);
             this.gbxEmployeeDetails.PerformLayout();
@@ -911,7 +934,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDeductionAmountinMonth;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox gdvDeductionFrom;
+        private System.Windows.Forms.GroupBox gbxDeductionFrom;
         private System.Windows.Forms.TextBox txtFixedIncentiveAllowance;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDayWages;

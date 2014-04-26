@@ -62,47 +62,54 @@ namespace TeemaApplication
             }
             else
             {
-                string tokenNo = gdvLoanDetails.SelectedRows[0].Cells[0].Value.ToString();
-                Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
-
-                bool hasUnfinishedLoan = false;
-                int unfinishedLoanId = 0;
-
-                foreach (SalaryLoan sl in emp.SalaryLoans)
+                try
                 {
-                    double installmentTotal = (from x in sl.SalaryLoanInstallments select x.Amount).Sum().Value;
-                    if (installmentTotal < sl.RequestedAmount)
+                    string tokenNo = gdvLoanDetails.SelectedRows[0].Cells[0].Value.ToString();
+                    Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
+
+                    bool hasUnfinishedLoan = false;
+                    int unfinishedLoanId = 0;
+
+                    foreach (SalaryLoan sl in (from x in emp.SalaryLoans where x.IsApproved.Value == true select x))
                     {
-                        hasUnfinishedLoan = true;
-                        unfinishedLoanId = sl.SalaryLoanID;
+                        double installmentTotal = (from x in sl.SalaryLoanInstallments select x.Amount).Sum().Value;
+                        if (installmentTotal < sl.RequestedAmount)
+                        {
+                            hasUnfinishedLoan = true;
+                            unfinishedLoanId = sl.SalaryLoanID;
+                        }
+                    }
+
+                    if (hasUnfinishedLoan)
+                    {
+                        ShowMessageBox.ShowError("You have unfinshed loan. Loan No : " + unfinishedLoanId + ".\r\nYou can only have one loan at a time. So please finish unfinished loans and request another loan.");
+                    }
+                    else
+                    {
+                        SalaryLoan salLoan = new SalaryLoan
+                        {
+                            Employee = emp,
+                            RequestedAmount = EmployeeUtils.getDoubleValueFromTextBox(txtRequested_Amount),
+                            RequestedDate = dtpStarting_Date.Value,
+                            NoOfInstallment = EmployeeUtils.getIntValueFromTextBox(txtNumber_of_Month),
+                            DayWagesAmount = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages),
+                            TotalFromEPFSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary),
+                            FixedIncentiveAmount = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance),
+                            IsApproved = false,
+                            CreatedBy = 1,
+                            CreatedDate = DateTime.Now,
+                            ModifiedBy = 1,
+                            ModifiedDate = DateTime.Now,
+                        };
+
+                        db.SalaryLoans.InsertOnSubmit(salLoan);
+                        db.SubmitChanges();
+                        ShowMessageBox.ShowSuccess("Successfully requested a loan.");
                     }
                 }
-
-                if (hasUnfinishedLoan)
+                catch (Exception)
                 {
-                    ShowMessageBox.ShowError("You have unfinshed loan. Loan No : "+unfinishedLoanId+".\r\nYou can only have one loan at a time. So please finish unfinished loans and request another loan.");
-                }
-                else
-                {
-                    SalaryLoan salLoan = new SalaryLoan
-                    {
-                        Employee = emp,
-                        RequestedAmount = EmployeeUtils.getDoubleValueFromTextBox(txtRequested_Amount),
-                        RequestedDate = dtpStarting_Date.Value,
-                        NoOfInstallment = EmployeeUtils.getIntValueFromTextBox(txtNumber_of_Month),
-                        DayWagesAmount = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages),
-                        TotalFromEPFSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary),
-                        FixedIncentiveAmount = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance),
-                        IsApproved = false,
-                        CreatedBy = 1,
-                        CreatedDate = DateTime.Now,
-                        ModifiedBy = 1,
-                        ModifiedDate = DateTime.Now,
-                    };
-
-                    db.SalaryLoans.InsertOnSubmit(salLoan);
-                    db.SubmitChanges();
-                    ShowMessageBox.ShowSuccess("Successfully requested a loan.");
+                    ShowMessageBox.ShowError("Plese search for employees and select one from the list.");
                 }
             }
         }
@@ -138,6 +145,11 @@ namespace TeemaApplication
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            fillLoanGridView();
+        }
+
+        private void fillLoanGridView()
         {
             bool Approved = chbApproved.Checked;
             bool Finished = chbFinished.Checked;
@@ -252,6 +264,115 @@ namespace TeemaApplication
             txtCSLFixedIncentiveAllowance.Text = "0";
             txtCSLInstallmentAmount.Text = "0";
             txtCSLNumberOfMonths.Text = "0";
+        }
+
+        private void calculateInstallmentAmount()
+        {
+            try
+            {
+                double requestedAmount = EmployeeUtils.getDoubleValueFromTextBox(txtRequested_Amount);
+                double fromEPFSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary);
+                double dayWages = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages);
+                double fixedIncentive = EmployeeUtils.getDoubleValueFromTextBox(txtFixedIncentiveAllowance);
+
+                double totalDeduction = fromEPFSalary + dayWages + fixedIncentive;
+                double realNoOfInstallment = requestedAmount / totalDeduction;
+                int noOfInstallment = Convert.ToInt32(Math.Ceiling(realNoOfInstallment));
+
+                txtDeductionAmountinMonth.Text = totalDeduction.ToString("0.00");
+                txtNumber_of_Month.Text = noOfInstallment.ToString();
+            }
+            catch (Exception)
+            {
+                txtNumber_of_Month.Text = "0";
+            }
+        }
+
+        private void txtTotalFromEPFSalary_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double FromEpfSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary);
+
+                string tokenNo = gdvLoanDetails.SelectedRows[0].Cells[0].Value.ToString();
+                Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
+
+                if (emp.EmployeeSalaryDetail.TotalValueForEPF.Value < FromEpfSalary)
+                {
+                    ShowMessageBox.ShowError("You can not have deduction from EPF salary more than your current EPF salary. Maximum value you can have is " + emp.EmployeeSalaryDetail.TotalValueForEPF.Value.ToString("0.00"));
+                    txtTotalFromEPFSalary.Text = emp.EmployeeSalaryDetail.TotalValueForEPF.Value.ToString();
+                }
+
+                calculateInstallmentAmount();
+            }
+            catch (Exception)
+            {
+                ShowMessageBox.ShowError("Plese search for employees and select one from the list.");
+            }
+        }
+
+        private void txtRequested_Amount_TextChanged(object sender, EventArgs e)
+        {
+            calculateInstallmentAmount();
+        }
+
+        private void txtDayWages_TextChanged(object sender, EventArgs e)
+        {
+            calculateInstallmentAmount();
+        }
+
+        private void txtFixedIncentiveAllowance_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double fromFixedIncentive = EmployeeUtils.getDoubleValueFromTextBox(txtDayWages);
+
+                string tokenNo = gdvLoanDetails.SelectedRows[0].Cells[0].Value.ToString();
+                Employee emp = db.Employees.Where(em => em.TokenNo.Equals(tokenNo)).SingleOrDefault();
+
+                double fixedIncentiveTotal = (from x in emp.FixedIncentives select x.InventiveValue).Sum().Value;
+                if (fromFixedIncentive > fixedIncentiveTotal)
+                {
+                    ShowMessageBox.ShowError("You can not have deduction from fixed incentives more than your current fixed incentives. Maximum value you can have is " + fixedIncentiveTotal.ToString("0.00"));
+                    txtFixedIncentiveAllowance.Text = fixedIncentiveTotal.ToString("0.00");
+                }
+                calculateInstallmentAmount();
+            }
+            catch (Exception)
+            {
+                ShowMessageBox.ShowError("Plese search for employees and select one from the list.");
+            }
+            
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            chbApproved.Checked = true;
+            chbFinished.Checked = true;
+            chbUnApproved.Checked = true;
+            chbUnFinished.Checked = true;
+
+            txtEmployeeName.Text = string.Empty;
+            txtDesignation.Text = string.Empty;
+            txtNIC_No.Text = string.Empty;
+            txtEPF_No.Text = string.Empty;
+            txtToken_No.Text = string.Empty;
+
+            resetCSLTextBoxes();
+
+            txtRequested_Amount.Text = "0";
+            txtTotalFromEPFSalary.Text = "0";
+            txtDayWages.Text = "0";
+            txtFixedIncentiveAllowance.Text = "0";
+            txtDeductionAmountinMonth.Text = "0";
+            txtNumber_of_Month.Text = "0";
+
+            fillLoanGridView();
         }
     }
 }
