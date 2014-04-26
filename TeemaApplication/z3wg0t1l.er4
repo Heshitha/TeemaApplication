@@ -32,8 +32,6 @@ namespace TeemaApplication
             EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem,cmbSubDepartment);
             cmbYear.SelectedIndex =5 ;
             setcurrentyear();
-            setcurrentmonth();
-            
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,46 +61,6 @@ namespace TeemaApplication
 
             cmbMonth.SelectedIndex = currentmonth;
         }
-
-        private void loadleavesgrid()
-        {
-            MessageBox.Show("hutha");
-
-            SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Token ID");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("LeaveType");
-            dt.Columns.Add("LeaveDate");
-
-            foreach (Employee e in subdept.Employees)
-            {
-                
-                PersonalLeaveRecord perlr = (from per in e.PersonalLeaveRecords
-                                             where per.LeaveFrom.Value.Year == Convert.ToInt32(cmbYear.SelectedValue) && per.LeaveFrom.Value.Month == (cmbMonth.SelectedIndex) + 1
-                                             select per).SingleOrDefault();
-
-                if (perlr != null)
-                {
-                    dt.Rows.Add(e.TokenNo, e.Name, perlr.LeaveType, perlr.LeaveDate);
-                }
-                else
-                {
-                    MessageBox.Show("Leave applications not found..!!");
- 
-                }
-
-            }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("asdasd");
-            loadleavesgrid();
-        }
-
-       
        
     }
 }
