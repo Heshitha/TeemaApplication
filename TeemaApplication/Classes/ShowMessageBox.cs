@@ -16,5 +16,10 @@ namespace TeemaApplication.Classes
         {
             MessageBox.Show(Message, "Successfully Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        public static void ShowInformation(string Message)
+        {
+            MessageBox.Show(Message, "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
