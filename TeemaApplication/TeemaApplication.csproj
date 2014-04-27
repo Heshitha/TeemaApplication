@@ -112,6 +112,12 @@
     <Compile Include="Employee Attendance.designer.cs">
       <DependentUpon>Employee Attendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="FingerprintDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FingerprintDevice.Designer.cs">
+      <DependentUpon>FingerprintDevice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fixed Incentive Allowance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="LeaveApplyApprove.Designer.cs">
       <DependentUpon>LeaveApplyApprove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadAttendanceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadAttendanceDetails.Designer.cs">
+      <DependentUpon>LoadAttendanceDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -239,6 +251,9 @@
     <EmbeddedResource Include="Employee Attendance.resx">
       <DependentUpon>Employee Attendance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FingerprintDevice.resx">
+      <DependentUpon>FingerprintDevice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fixed Incentive Allowance.resx">
       <DependentUpon>Fixed Incentive Allowance.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LeaveApplyApprove.resx">
       <DependentUpon>LeaveApplyApprove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadAttendanceDetails.resx">
+      <DependentUpon>LoadAttendanceDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

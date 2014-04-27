@@ -119,6 +119,12 @@ namespace TeemaApplication
             frm.ShowDialog();
         }
 
+        private void btnFingerprintDevices_Click(object sender, EventArgs e)
+        {
+            frmFingerprintDevice frm = new frmFingerprintDevice();
+            frm.ShowDialog();
+        }
+
         
     }
 }

@@ -37,6 +37,7 @@
             this.btnOverTimeApproved = new System.Windows.Forms.Button();
             this.btnOverTimeRequest = new System.Windows.Forms.Button();
             this.gbxSalary = new System.Windows.Forms.GroupBox();
+            this.btnSalaryInstallment = new System.Windows.Forms.Button();
             this.btnSalaryAdvanceApproved = new System.Windows.Forms.Button();
             this.btnASalaryAdvanceRequest = new System.Windows.Forms.Button();
             this.btnSalaryLoanApproved = new System.Windows.Forms.Button();
@@ -49,12 +50,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnLeaveApply = new System.Windows.Forms.Button();
             this.btnAddLeaves = new System.Windows.Forms.Button();
-            this.btnSalaryInstallment = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnFingerprintDevices = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
             this.gbxIncentive.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddNewEmployee
@@ -155,6 +158,16 @@
             this.gbxSalary.TabIndex = 5;
             this.gbxSalary.TabStop = false;
             this.gbxSalary.Text = "Salary";
+            // 
+            // btnSalaryInstallment
+            // 
+            this.btnSalaryInstallment.Location = new System.Drawing.Point(7, 107);
+            this.btnSalaryInstallment.Name = "btnSalaryInstallment";
+            this.btnSalaryInstallment.Size = new System.Drawing.Size(141, 23);
+            this.btnSalaryInstallment.TabIndex = 5;
+            this.btnSalaryInstallment.Text = "Salary Installment";
+            this.btnSalaryInstallment.UseVisualStyleBackColor = true;
+            this.btnSalaryInstallment.Click += new System.EventHandler(this.btnSalaryInstallment_Click);
             // 
             // btnSalaryAdvanceApproved
             // 
@@ -279,21 +292,32 @@
             this.btnAddLeaves.UseVisualStyleBackColor = true;
             this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
             // 
-            // btnSalaryInstallment
+            // groupBox3
             // 
-            this.btnSalaryInstallment.Location = new System.Drawing.Point(7, 107);
-            this.btnSalaryInstallment.Name = "btnSalaryInstallment";
-            this.btnSalaryInstallment.Size = new System.Drawing.Size(141, 23);
-            this.btnSalaryInstallment.TabIndex = 5;
-            this.btnSalaryInstallment.Text = "Salary Installment";
-            this.btnSalaryInstallment.UseVisualStyleBackColor = true;
-            this.btnSalaryInstallment.Click += new System.EventHandler(this.btnSalaryInstallment_Click);
+            this.groupBox3.Controls.Add(this.btnFingerprintDevices);
+            this.groupBox3.Location = new System.Drawing.Point(461, 102);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(181, 134);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Attendance Details";
+            // 
+            // btnFingerprintDevices
+            // 
+            this.btnFingerprintDevices.Location = new System.Drawing.Point(6, 19);
+            this.btnFingerprintDevices.Name = "btnFingerprintDevices";
+            this.btnFingerprintDevices.Size = new System.Drawing.Size(169, 23);
+            this.btnFingerprintDevices.TabIndex = 0;
+            this.btnFingerprintDevices.Text = "Fingerprint Devices";
+            this.btnFingerprintDevices.UseVisualStyleBackColor = true;
+            this.btnFingerprintDevices.Click += new System.EventHandler(this.btnFingerprintDevices_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 380);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxIncentive);
             this.Controls.Add(this.gbxSalary);
@@ -306,6 +330,7 @@
             this.gbxSalary.ResumeLayout(false);
             this.gbxIncentive.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -334,5 +359,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSalaryInstallment;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnFingerprintDevices;
     }
 }
