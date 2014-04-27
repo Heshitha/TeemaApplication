@@ -397,14 +397,19 @@ namespace TeemaApplication
               
             int realdays =  (numberofdays.Days)+1;
 
-            txtNoOfDays.Text = realdays.ToString();
-             
+            if (realdays > 0)
+            { txtNoOfDays.Text = realdays.ToString(); }
+            else
+            {
+                MessageBox.Show("Please add a future day to \"*Leave To* \"");
+            }
+            
+                
+ 
         }
 
         private void dtpLeaveTo_ValueChanged(object sender, EventArgs e)
         {
-
-            dtpLeaveFrom.MaxDate = dtpLeaveTo.Value;
             calculatedaterange();
         }
 
@@ -473,11 +478,6 @@ namespace TeemaApplication
         private void frmLeaveApply_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void dtpLeaveFrom_ValueChanged(object sender, EventArgs e)
-        {
-            dtpLeaveTo.MinDate = dtpLeaveFrom.Value;
         }
 
     }

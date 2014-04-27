@@ -304,15 +304,7 @@ namespace TeemaApplication
                            
                             
                                 persnlvrec.Employee = empdata;
-
-                            if (rbtFullDay.Checked)
-                            {
-                                persnlvrec.LeaveValue = 1; 
-                                }
-                            else if (rbtHalfday.Checked)
-                            {
-                                persnlvrec.LeaveValue = 0.5;
-                            }
+                                persnlvrec.LeaveValue = Convert.ToDouble(txtNoOfDays.Text);
                                 persnlvrec.LeaveType = leavetype;
                                 persnlvrec.LeaveReason = reasonforabsence;
                                 persnlvrec.LeaveDate = System.DateTime.Today;
@@ -395,16 +387,15 @@ namespace TeemaApplication
 
             numberofdays = (leaveto1 - leavefrom1);
               
-            int realdays =  (numberofdays.Days)+1;
+            int realdays =  numberofdays.Days;
 
-            txtNoOfDays.Text = realdays.ToString();
-             
+            txtNoOfDays.Text = Convert.ToString(realdays + 1); 
+                
+ 
         }
 
         private void dtpLeaveTo_ValueChanged(object sender, EventArgs e)
         {
-
-            dtpLeaveFrom.MaxDate = dtpLeaveTo.Value;
             calculatedaterange();
         }
 
@@ -449,7 +440,6 @@ namespace TeemaApplication
             if (rbtHalfday.Checked)
             {
                 dtpLeaveTo.Enabled = false;
-                txtNoOfDays.Text = "0.5";
                 
             }
             else
@@ -473,11 +463,6 @@ namespace TeemaApplication
         private void frmLeaveApply_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void dtpLeaveFrom_ValueChanged(object sender, EventArgs e)
-        {
-            dtpLeaveTo.MinDate = dtpLeaveFrom.Value;
         }
 
     }

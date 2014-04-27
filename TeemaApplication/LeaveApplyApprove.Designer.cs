@@ -50,9 +50,10 @@
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.dgvLeaves = new System.Windows.Forms.DataGridView();
+            this.dgvLeavesapplied = new System.Windows.Forms.DataGridView();
             this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeaveID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnLeaveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnLeaveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnApprove = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -88,7 +89,7 @@
             this.groupBox1.SuspendLayout();
             this.grpEmployeeDetails.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeavesapplied)).BeginInit();
             this.gbxSalaryMonth.SuspendLayout();
             this.gbxCreatedAdvance.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -288,13 +289,13 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSubmit);
-            this.groupBox2.Controls.Add(this.dgvLeaves);
+            this.groupBox2.Controls.Add(this.dgvLeavesapplied);
             this.groupBox2.Location = new System.Drawing.Point(309, 271);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(671, 271);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "To be Approved";
+            this.groupBox2.Text = "Leaves";
             // 
             // btnSubmit
             // 
@@ -304,64 +305,72 @@
             this.btnSubmit.TabIndex = 38;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // dgvLeaves
+            // dgvLeavesapplied
             // 
-            this.dgvLeaves.AllowUserToAddRows = false;
-            this.dgvLeaves.AllowUserToDeleteRows = false;
-            this.dgvLeaves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLeaves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLeaves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLeavesapplied.AllowUserToAddRows = false;
+            this.dgvLeavesapplied.AllowUserToDeleteRows = false;
+            this.dgvLeavesapplied.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLeavesapplied.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLeavesapplied.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnTokenID,
             this.clmnEmpName,
+            this.LeaveID,
             this.clmnLeaveType,
             this.clmnLeaveDate,
             this.btnApprove});
-            this.dgvLeaves.Location = new System.Drawing.Point(6, 18);
-            this.dgvLeaves.Name = "dgvLeaves";
-            this.dgvLeaves.ReadOnly = true;
-            this.dgvLeaves.RowHeadersVisible = false;
-            this.dgvLeaves.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeaves.Size = new System.Drawing.Size(657, 208);
-            this.dgvLeaves.TabIndex = 3;
+            this.dgvLeavesapplied.Location = new System.Drawing.Point(6, 18);
+            this.dgvLeavesapplied.Name = "dgvLeavesapplied";
+            this.dgvLeavesapplied.RowHeadersVisible = false;
+            this.dgvLeavesapplied.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLeavesapplied.Size = new System.Drawing.Size(657, 208);
+            this.dgvLeavesapplied.TabIndex = 3;
+            this.dgvLeavesapplied.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeavesapplied_CellClick);
             // 
             // clmnTokenID
             // 
             this.clmnTokenID.DataPropertyName = "TokenID";
             this.clmnTokenID.HeaderText = "TokenID";
             this.clmnTokenID.Name = "clmnTokenID";
-            this.clmnTokenID.ReadOnly = true;
             // 
             // clmnEmpName
             // 
             this.clmnEmpName.DataPropertyName = "Name";
             this.clmnEmpName.HeaderText = "Name";
             this.clmnEmpName.Name = "clmnEmpName";
-            this.clmnEmpName.ReadOnly = true;
+            // 
+            // LeaveID
+            // 
+            this.LeaveID.DataPropertyName = "PersonalLeaveID";
+            this.LeaveID.HeaderText = "Leave ID";
+            this.LeaveID.Name = "LeaveID";
             // 
             // clmnLeaveType
             // 
             this.clmnLeaveType.DataPropertyName = "LeaveType";
             this.clmnLeaveType.HeaderText = "Leave Type";
             this.clmnLeaveType.Name = "clmnLeaveType";
-            this.clmnLeaveType.ReadOnly = true;
             // 
             // clmnLeaveDate
             // 
             this.clmnLeaveDate.DataPropertyName = "LeaveDate";
             this.clmnLeaveDate.HeaderText = "Leave Date";
             this.clmnLeaveDate.Name = "clmnLeaveDate";
-            this.clmnLeaveDate.ReadOnly = true;
             // 
             // btnApprove
             // 
+            this.btnApprove.DataPropertyName = "Approve";
+            this.btnApprove.FalseValue = "false";
             this.btnApprove.HeaderText = "Approve";
             this.btnApprove.Name = "btnApprove";
-            this.btnApprove.ReadOnly = true;
+            this.btnApprove.TrueValue = "true";
             // 
             // chbUnApprovedOnly
             // 
             this.chbUnApprovedOnly.AutoSize = true;
+            this.chbUnApprovedOnly.Checked = true;
+            this.chbUnApprovedOnly.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbUnApprovedOnly.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbUnApprovedOnly.Location = new System.Drawing.Point(103, 235);
             this.chbUnApprovedOnly.Name = "chbUnApprovedOnly";
@@ -702,7 +711,7 @@
             this.grpEmployeeDetails.ResumeLayout(false);
             this.grpEmployeeDetails.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeavesapplied)).EndInit();
             this.gbxSalaryMonth.ResumeLayout(false);
             this.gbxSalaryMonth.PerformLayout();
             this.gbxCreatedAdvance.ResumeLayout(false);
@@ -740,7 +749,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvLeaves;
+        private System.Windows.Forms.DataGridView dgvLeavesapplied;
         private System.Windows.Forms.CheckBox chbUnApprovedOnly;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox gbxSalaryMonth;
@@ -773,6 +782,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmpName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeaveID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveDate;
         private System.Windows.Forms.DataGridViewCheckBoxColumn btnApprove;

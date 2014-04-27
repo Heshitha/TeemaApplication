@@ -1,0 +1,102 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using TeemaApplication.Classes;
+
+
+namespace TeemaApplication
+{
+    public partial class frmLeaveApplyApprove : Form
+    {
+        TeemaDBDataContext db = new TeemaDBDataContext();
+
+        public frmLeaveApplyApprove()
+        {
+            InitializeComponent();
+        }
+
+        private void txtCADAdvanceID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmLeaveApplyApprove_Load(object sender, EventArgs e)
+        {
+            EmployeeUtils.fillcmbWorkingBranch(db, cmbBranch);
+            EmployeeUtils.fillcmbDepartment((Branch)cmbBranch.SelectedItem, cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem,cmbSubDepartment);
+            cmbYear.SelectedIndex =5 ;
+            setcurrentyear();
+            setcurrentmonth();
+            loadleavesgrid();
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
+        }
+
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmployeeUtils.fillcmbDepartment((Branch)cmbBranch.SelectedItem, cmbDepartment);
+            EmployeeUtils.fillcmbSubDepartment((Department)cmbDepartment.SelectedItem, cmbSubDepartment);
+
+        }
+
+        private void setcurrentyear()
+        {
+            int currentyear = Convert.ToInt32(System.DateTime.Now.Year);
+
+            int indexval =  currentyear - 2014;
+
+            cmbYear.SelectedIndex = indexval;
+        }
+
+        private void setcurrentmonth()
+        {
+            int currentmonth = (Convert.ToInt32(System.DateTime.Now.Month))-1;
+
+            cmbMonth.SelectedIndex = currentmonth;
+        }
+
+        private void loadleavesgrid()
+        {
+            SubDepartment subdept = (SubDepartment)cmbSubDepartment.SelectedItem;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Token ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("LeaveType");
+            dt.Columns.Add("LeaveDate");
+
+            foreach (Employee e in subdept.Employees)
+            {
+                
+                PersonalLeaveRecord perlr = (from per in e.PersonalLeaveRecords
+                                             where per.LeaveFrom.Value.Year == Convert.ToInt32(cmbYear.SelectedValue) && per.LeaveFrom.Value.Month == (cmbMonth.SelectedIndex) + 1
+                                             select per).SingleOrDefault();
+
+                if (perlr != null)
+                {
+                    dt.Rows.Add(e.TokenNo, e.Name, perlr.LeaveType, perlr.LeaveDate);
+                }
+                else
+                {
+ 
+                }
+
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            loadleavesgrid();
+        }
+       
+    }
+}

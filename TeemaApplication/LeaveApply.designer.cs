@@ -62,7 +62,6 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnAllReset = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.grpAddNewLeaveRecord = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rbtPay = new System.Windows.Forms.RadioButton();
@@ -269,6 +268,7 @@
             this.dtpLeaveFrom.Size = new System.Drawing.Size(182, 20);
             this.dtpLeaveFrom.TabIndex = 5;
             this.dtpLeaveFrom.TabStop = false;
+            this.dtpLeaveFrom.ValueChanged += new System.EventHandler(this.dtpLeaveFrom_ValueChanged);
             // 
             // label13
             // 
@@ -412,7 +412,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(103, 284);
+            this.btnApply.Location = new System.Drawing.Point(159, 284);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 7;
@@ -422,7 +422,7 @@
             // 
             // btnAllReset
             // 
-            this.btnAllReset.Location = new System.Drawing.Point(184, 284);
+            this.btnAllReset.Location = new System.Drawing.Point(240, 284);
             this.btnAllReset.Name = "btnAllReset";
             this.btnAllReset.Size = new System.Drawing.Size(75, 23);
             this.btnAllReset.TabIndex = 8;
@@ -430,22 +430,12 @@
             this.btnAllReset.UseVisualStyleBackColor = true;
             this.btnAllReset.Click += new System.EventHandler(this.btnAllReset_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(265, 284);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Close";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // grpAddNewLeaveRecord
             // 
             this.grpAddNewLeaveRecord.Controls.Add(this.panel3);
             this.grpAddNewLeaveRecord.Controls.Add(this.panel2);
             this.grpAddNewLeaveRecord.Controls.Add(this.panel1);
             this.grpAddNewLeaveRecord.Controls.Add(this.label6);
-            this.grpAddNewLeaveRecord.Controls.Add(this.button3);
             this.grpAddNewLeaveRecord.Controls.Add(this.label31);
             this.grpAddNewLeaveRecord.Controls.Add(this.btnAllReset);
             this.grpAddNewLeaveRecord.Controls.Add(this.btnApply);
@@ -1106,6 +1096,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmLeaveApply";
             this.Text = "LeaveApply";
+            this.Load += new System.EventHandler(this.frmLeaveApply_Load);
             this.grpAddNewLeaveRecord.ResumeLayout(false);
             this.grpAddNewLeaveRecord.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -1144,7 +1135,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAllReset;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Label label14;
