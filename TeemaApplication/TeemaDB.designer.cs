@@ -96,6 +96,9 @@ namespace TeemaApplication
     partial void InsertSalaryLoan(SalaryLoan instance);
     partial void UpdateSalaryLoan(SalaryLoan instance);
     partial void DeleteSalaryLoan(SalaryLoan instance);
+    partial void InsertFingerPrintDevice(FingerPrintDevice instance);
+    partial void UpdateFingerPrintDevice(FingerPrintDevice instance);
+    partial void DeleteFingerPrintDevice(FingerPrintDevice instance);
     #endregion
 		
 		public TeemaDBDataContext() : 
@@ -301,6 +304,14 @@ namespace TeemaApplication
 			get
 			{
 				return this.GetTable<SalaryLoan>();
+			}
+		}
+		
+		public System.Data.Linq.Table<FingerPrintDevice> FingerPrintDevices
+		{
+			get
+			{
+				return this.GetTable<FingerPrintDevice>();
 			}
 		}
 	}
@@ -8055,6 +8066,10 @@ namespace TeemaApplication
 		
 		private EntitySet<SalaryLoan> _SalaryLoans2;
 		
+		private EntitySet<FingerPrintDevice> _FingerPrintDivices;
+		
+		private EntitySet<FingerPrintDevice> _FingerPrintDevices;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8115,6 +8130,8 @@ namespace TeemaApplication
 			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
 			this._SalaryLoans1 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans1), new Action<SalaryLoan>(this.detach_SalaryLoans1));
 			this._SalaryLoans2 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans2), new Action<SalaryLoan>(this.detach_SalaryLoans2));
+			this._FingerPrintDivices = new EntitySet<FingerPrintDevice>(new Action<FingerPrintDevice>(this.attach_FingerPrintDivices), new Action<FingerPrintDevice>(this.detach_FingerPrintDivices));
+			this._FingerPrintDevices = new EntitySet<FingerPrintDevice>(new Action<FingerPrintDevice>(this.attach_FingerPrintDevices), new Action<FingerPrintDevice>(this.detach_FingerPrintDevices));
 			OnCreated();
 		}
 		
@@ -8770,6 +8787,32 @@ namespace TeemaApplication
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice", Storage="_FingerPrintDivices", ThisKey="UserID", OtherKey="CreatedBy")]
+		public EntitySet<FingerPrintDevice> FingerPrintDivices
+		{
+			get
+			{
+				return this._FingerPrintDivices;
+			}
+			set
+			{
+				this._FingerPrintDivices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice1", Storage="_FingerPrintDevices", ThisKey="UserID", OtherKey="ModifiedBy")]
+		public EntitySet<FingerPrintDevice> FingerPrintDevices
+		{
+			get
+			{
+				return this._FingerPrintDevices;
+			}
+			set
+			{
+				this._FingerPrintDevices.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -9316,6 +9359,30 @@ namespace TeemaApplication
 		{
 			this.SendPropertyChanging();
 			entity.UserAccount2 = null;
+		}
+		
+		private void attach_FingerPrintDivices(FingerPrintDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = this;
+		}
+		
+		private void detach_FingerPrintDivices(FingerPrintDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = null;
+		}
+		
+		private void attach_FingerPrintDevices(FingerPrintDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = this;
+		}
+		
+		private void detach_FingerPrintDevices(FingerPrintDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = null;
 		}
 	}
 	
@@ -11414,6 +11481,366 @@ namespace TeemaApplication
 		{
 			this.SendPropertyChanging();
 			entity.SalaryLoan = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FingerPrintDivices")]
+	public partial class FingerPrintDevice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DeviceID;
+		
+		private string _DeviceName;
+		
+		private System.Nullable<int> _CommunicationType;
+		
+		private string _IPAddress;
+		
+		private System.Nullable<int> _IPPort;
+		
+		private System.Nullable<int> _Password;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<int> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedDate;
+		
+		private EntityRef<UserAccount> _UserAccount;
+		
+		private EntityRef<UserAccount> _UserAccount1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDeviceIDChanging(int value);
+    partial void OnDeviceIDChanged();
+    partial void OnDeviceNameChanging(string value);
+    partial void OnDeviceNameChanged();
+    partial void OnCommunicationTypeChanging(System.Nullable<int> value);
+    partial void OnCommunicationTypeChanged();
+    partial void OnIPAddressChanging(string value);
+    partial void OnIPAddressChanged();
+    partial void OnIPPortChanging(System.Nullable<int> value);
+    partial void OnIPPortChanged();
+    partial void OnPasswordChanging(System.Nullable<int> value);
+    partial void OnPasswordChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnModifiedByChanging(System.Nullable<int> value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedDateChanged();
+    #endregion
+		
+		public FingerPrintDevice()
+		{
+			this._UserAccount = default(EntityRef<UserAccount>);
+			this._UserAccount1 = default(EntityRef<UserAccount>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeviceID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DeviceID
+		{
+			get
+			{
+				return this._DeviceID;
+			}
+			set
+			{
+				if ((this._DeviceID != value))
+				{
+					this.OnDeviceIDChanging(value);
+					this.SendPropertyChanging();
+					this._DeviceID = value;
+					this.SendPropertyChanged("DeviceID");
+					this.OnDeviceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeviceName", DbType="VarChar(500)")]
+		public string DeviceName
+		{
+			get
+			{
+				return this._DeviceName;
+			}
+			set
+			{
+				if ((this._DeviceName != value))
+				{
+					this.OnDeviceNameChanging(value);
+					this.SendPropertyChanging();
+					this._DeviceName = value;
+					this.SendPropertyChanged("DeviceName");
+					this.OnDeviceNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommunicationType", DbType="Int")]
+		public System.Nullable<int> CommunicationType
+		{
+			get
+			{
+				return this._CommunicationType;
+			}
+			set
+			{
+				if ((this._CommunicationType != value))
+				{
+					this.OnCommunicationTypeChanging(value);
+					this.SendPropertyChanging();
+					this._CommunicationType = value;
+					this.SendPropertyChanged("CommunicationType");
+					this.OnCommunicationTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IPAddress", DbType="VarChar(15)")]
+		public string IPAddress
+		{
+			get
+			{
+				return this._IPAddress;
+			}
+			set
+			{
+				if ((this._IPAddress != value))
+				{
+					this.OnIPAddressChanging(value);
+					this.SendPropertyChanging();
+					this._IPAddress = value;
+					this.SendPropertyChanged("IPAddress");
+					this.OnIPAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IPPort", DbType="Int")]
+		public System.Nullable<int> IPPort
+		{
+			get
+			{
+				return this._IPPort;
+			}
+			set
+			{
+				if ((this._IPPort != value))
+				{
+					this.OnIPPortChanging(value);
+					this.SendPropertyChanging();
+					this._IPPort = value;
+					this.SendPropertyChanged("IPPort");
+					this.OnIPPortChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="Int")]
+		public System.Nullable<int> Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._UserAccount.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
+		public System.Nullable<int> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					if (this._UserAccount1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount
+		{
+			get
+			{
+				return this._UserAccount.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount.Entity = null;
+						previousValue.FingerPrintDivices.Remove(this);
+					}
+					this._UserAccount.Entity = value;
+					if ((value != null))
+					{
+						value.FingerPrintDivices.Add(this);
+						this._CreatedBy = value.UserID;
+					}
+					else
+					{
+						this._CreatedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount1
+		{
+			get
+			{
+				return this._UserAccount1.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount1.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount1.Entity = null;
+						previousValue.FingerPrintDevices.Remove(this);
+					}
+					this._UserAccount1.Entity = value;
+					if ((value != null))
+					{
+						value.FingerPrintDevices.Add(this);
+						this._ModifiedBy = value.UserID;
+					}
+					else
+					{
+						this._ModifiedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

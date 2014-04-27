@@ -371,6 +371,8 @@
       <Association Name="UserAccount_SalaryLoan" Member="SalaryLoans" ThisKey="UserID" OtherKey="ApprovedBy" Type="SalaryLoan" />
       <Association Name="UserAccount_SalaryLoan1" Member="SalaryLoans1" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryLoan" />
       <Association Name="UserAccount_SalaryLoan2" Member="SalaryLoans2" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryLoan" />
+      <Association Name="UserAccount_FingerPrintDivice" Member="FingerPrintDivices" ThisKey="UserID" OtherKey="CreatedBy" Type="FingerPrintDevice" />
+      <Association Name="UserAccount_FingerPrintDivice1" Member="FingerPrintDevices" ThisKey="UserID" OtherKey="ModifiedBy" Type="FingerPrintDevice" />
     </Type>
   </Table>
   <Table Name="dbo.VariableIncentive" Member="VariableIncentives">
@@ -458,6 +460,22 @@
       <Association Name="UserAccount_SalaryLoan" Member="UserAccount" ThisKey="ApprovedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryLoan1" Member="UserAccount1" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
       <Association Name="UserAccount_SalaryLoan2" Member="UserAccount2" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FingerPrintDivices" Member="FingerPrintDevices">
+    <Type Name="FingerPrintDevice">
+      <Column Name="DeviceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeviceName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CommunicationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IPAddress" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="IPPort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Password" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserAccount_FingerPrintDivice" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_FingerPrintDivice1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
