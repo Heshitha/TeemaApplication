@@ -1347,7 +1347,7 @@
             this.gbxEmployeeDetails.Controls.Add(this.label48);
             this.gbxEmployeeDetails.Location = new System.Drawing.Point(12, 273);
             this.gbxEmployeeDetails.Name = "gbxEmployeeDetails";
-            this.gbxEmployeeDetails.Size = new System.Drawing.Size(281, 165);
+            this.gbxEmployeeDetails.Size = new System.Drawing.Size(281, 151);
             this.gbxEmployeeDetails.TabIndex = 7;
             this.gbxEmployeeDetails.TabStop = false;
             this.gbxEmployeeDetails.Text = "Employee Details";

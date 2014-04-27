@@ -60,11 +60,14 @@ namespace TeemaApplication
                     SalaryLoan salLoan = db.SalaryLoans.Where(sl => sl.SalaryLoanID == loanID).SingleOrDefault();
 
                     salLoan.IsApproved = true;
-                    salLoan.ApprovedBy = 3;
+                    salLoan.ApprovedBy = 1;
                     salLoan.ApprovedDate = DateTime.Now;
+                    salLoan.ModifiedBy = 1;
+                    salLoan.ModifiedDate = DateTime.Now;
 
                     db.SubmitChanges();
-
+                    ShowMessageBox.ShowSuccess("Successfully approved the selected loan.");
+                    resetForm();
                 }
                 catch (Exception)
                 {
@@ -76,7 +79,28 @@ namespace TeemaApplication
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            resetForm();
+        }
 
+        private void resetForm()
+        {
+            txtEmployeeName.Text = string.Empty;
+            txtDesignation.Text = string.Empty;
+            txtNIC_No.Text = string.Empty;
+            txtEPF_No.Text = string.Empty;
+            txtToken_No.Text = string.Empty;
+
+            txtLoanID.Text = string.Empty;
+            txtRequestedAmount.Text = string.Empty;
+            txtStartingDate.Text = string.Empty;
+            txtEpfSalary.Text = "0";
+            txtDayWages.Text = "0";
+            txtFixedIncentiveAllowance.Text = "0";
+
+            txtInstallmentAmount.Text = "0";
+            txtNumberOfMonths.Text = "0";
+
+            fillLoanGridView();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

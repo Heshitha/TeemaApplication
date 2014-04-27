@@ -113,6 +113,12 @@ namespace TeemaApplication
             frm.ShowDialog();
         }
 
+        private void btnSalaryInstallment_Click(object sender, EventArgs e)
+        {
+            frmSalaryLoanInstallmentList frm = new frmSalaryLoanInstallmentList();
+            frm.ShowDialog();
+        }
+
         
     }
 }

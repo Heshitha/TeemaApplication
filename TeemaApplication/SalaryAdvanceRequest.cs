@@ -172,23 +172,31 @@ namespace TeemaApplication
             try
             {
                 double TotalEPFSalary = employee.EmployeeSalaryDetail.TotalValueForEPF.Value;
+
+                SalaryLoan salLoan = employee.SalaryLoans.Where(sl => sl.IsApproved.Value == true && (sl.RequestedAmount > (from x in sl.SalaryLoanInstallments select x.Amount).Sum().Value)).SingleOrDefault();
+
+                double loanDeductionFromEPFSalary = salLoan != null ? salLoan.TotalFromEPFSalary.Value : 0;
+
                 double previousSalaryAdvancesValue = (from x in employee.SalaryAdvances
                                                       where x.Year == year && x.Month == month && x.IsApproved == true
                                                       select x.TotalFromEPFSalary).Sum().Value;
                 double advanceTotalSalary = EmployeeUtils.getDoubleValueFromTextBox(txtTotalFromEPFSalary);
+
+                TotalEPFSalary -= loanDeductionFromEPFSalary;
+
                 if (TotalEPFSalary >= (advanceTotalSalary + previousSalaryAdvancesValue))
                 {
                     calculateTotalRequestedAmount();
                 }
                 else if (TotalEPFSalary < advanceTotalSalary)
                 {
-                    ShowMessageBox.ShowError("Deduction value from Total EPF salary should be less than Total EPF Salary.");
+                    ShowMessageBox.ShowError("Deduction value from Total EPF salary should be less than Total EPF Salary after deduction any loan installments.");
                     txtTotalFromEPFSalary.Text = "0";
                 }
                 else if (TotalEPFSalary < (advanceTotalSalary + previousSalaryAdvancesValue))
                 {
                     double remainingFromTotalEPFSalary = TotalEPFSalary - previousSalaryAdvancesValue;
-                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your EPF salary. Remaining balance from EPF salary is " + remainingFromTotalEPFSalary.ToString("0.00"));
+                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your EPF salary. Remaining balance from EPF salary  after deduction any loan installments is " + remainingFromTotalEPFSalary.ToString("0.00"));
                     txtTotalFromEPFSalary.Text = remainingFromTotalEPFSalary.ToString();
                 }
             }
@@ -209,6 +217,13 @@ namespace TeemaApplication
             {
                 double totalFixedIncentives = (from x in employee.FixedIncentives
                                                select x.InventiveValue).Sum().Value;
+
+                SalaryLoan salLoan = employee.SalaryLoans.Where(sl => sl.IsApproved.Value == true && (sl.RequestedAmount > (from x in sl.SalaryLoanInstallments select x.Amount).Sum().Value)).SingleOrDefault();
+
+                double deductionForLoanFromFixedIncentives = salLoan != null ? salLoan.DayWagesAmount.Value : 0;
+
+                totalFixedIncentives -= deductionForLoanFromFixedIncentives;
+
                 double previousSalaryAdvancesValue = (from x in employee.SalaryAdvances
                                                       where x.Year == year && x.Month == month && x.IsApproved == true
                                                       select x.FixedIncentiveAmount).Sum().Value;
@@ -219,13 +234,13 @@ namespace TeemaApplication
                 }
                 else if (totalFixedIncentives <= advanceFixedIncentive)
                 {
-                    ShowMessageBox.ShowError("Deduction value from Fixed Incentive should be less than Total Fixed Incentive Value.");
+                    ShowMessageBox.ShowError("Deduction value from Fixed Incentive should be less than Total Fixed Incentive Value after deduction any loan installments.");
                     txtFixedIncentiveAllowance.Text = "0";
                 }
                 else if (totalFixedIncentives <= (advanceFixedIncentive + previousSalaryAdvancesValue))
                 {
                     double remainingFromTotalEPFSalary = totalFixedIncentives - previousSalaryAdvancesValue;
-                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your Fixed Incentives. Remaining balance from Fixed Incentive Total is " + remainingFromTotalEPFSalary.ToString("0.00"));
+                    ShowMessageBox.ShowError("You have already deduct " + previousSalaryAdvancesValue.ToString("0.00") + " from your Fixed Incentives. Remaining balance from Fixed Incentive Total after deduction any loan installments is " + remainingFromTotalEPFSalary.ToString("0.00"));
                     txtFixedIncentiveAllowance.Text = remainingFromTotalEPFSalary.ToString();
                 }
             }

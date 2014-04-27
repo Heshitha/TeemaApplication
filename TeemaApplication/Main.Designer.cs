@@ -46,9 +46,10 @@
             this.btnVaribleIncentiveAllowance = new System.Windows.Forms.Button();
             this.btnFixedIncentiveAllowance = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnLeaveApply = new System.Windows.Forms.Button();
             this.btnAddLeaves = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSalaryInstallment = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
@@ -93,7 +94,7 @@
             this.groupBox1.Controls.Add(this.btnViewEmplyeeList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 142);
+            this.groupBox1.Size = new System.Drawing.Size(125, 110);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Functions";
@@ -142,6 +143,7 @@
             // 
             // gbxSalary
             // 
+            this.gbxSalary.Controls.Add(this.btnSalaryInstallment);
             this.gbxSalary.Controls.Add(this.btnSalaryAdvanceApproved);
             this.gbxSalary.Controls.Add(this.btnASalaryAdvanceRequest);
             this.gbxSalary.Controls.Add(this.btnSalaryLoanApproved);
@@ -149,14 +151,14 @@
             this.gbxSalary.Controls.Add(this.btnBasicSalary);
             this.gbxSalary.Location = new System.Drawing.Point(296, 12);
             this.gbxSalary.Name = "gbxSalary";
-            this.gbxSalary.Size = new System.Drawing.Size(159, 174);
+            this.gbxSalary.Size = new System.Drawing.Size(159, 199);
             this.gbxSalary.TabIndex = 5;
             this.gbxSalary.TabStop = false;
             this.gbxSalary.Text = "Salary";
             // 
             // btnSalaryAdvanceApproved
             // 
-            this.btnSalaryAdvanceApproved.Location = new System.Drawing.Point(6, 135);
+            this.btnSalaryAdvanceApproved.Location = new System.Drawing.Point(6, 164);
             this.btnSalaryAdvanceApproved.Name = "btnSalaryAdvanceApproved";
             this.btnSalaryAdvanceApproved.Size = new System.Drawing.Size(142, 23);
             this.btnSalaryAdvanceApproved.TabIndex = 4;
@@ -166,7 +168,7 @@
             // 
             // btnASalaryAdvanceRequest
             // 
-            this.btnASalaryAdvanceRequest.Location = new System.Drawing.Point(6, 106);
+            this.btnASalaryAdvanceRequest.Location = new System.Drawing.Point(6, 135);
             this.btnASalaryAdvanceRequest.Name = "btnASalaryAdvanceRequest";
             this.btnASalaryAdvanceRequest.Size = new System.Drawing.Size(142, 23);
             this.btnASalaryAdvanceRequest.TabIndex = 3;
@@ -240,12 +242,22 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btnLeaveApply);
             this.groupBox2.Controls.Add(this.btnAddLeaves);
-            this.groupBox2.Location = new System.Drawing.Point(12, 178);
+            this.groupBox2.Location = new System.Drawing.Point(12, 128);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(142, 132);
+            this.groupBox2.Size = new System.Drawing.Size(133, 108);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Leave Apply Approve";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnLeaveApply
             // 
@@ -267,15 +279,15 @@
             this.btnAddLeaves.UseVisualStyleBackColor = true;
             this.btnAddLeaves.Click += new System.EventHandler(this.btnAddLeaves_Click);
             // 
-            // button2
+            // btnSalaryInstallment
             // 
-            this.button2.Location = new System.Drawing.Point(6, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Leave Apply Approve";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSalaryInstallment.Location = new System.Drawing.Point(7, 107);
+            this.btnSalaryInstallment.Name = "btnSalaryInstallment";
+            this.btnSalaryInstallment.Size = new System.Drawing.Size(141, 23);
+            this.btnSalaryInstallment.TabIndex = 5;
+            this.btnSalaryInstallment.Text = "Salary Installment";
+            this.btnSalaryInstallment.UseVisualStyleBackColor = true;
+            this.btnSalaryInstallment.Click += new System.EventHandler(this.btnSalaryInstallment_Click);
             // 
             // frmMain
             // 
@@ -321,5 +333,6 @@
         private System.Windows.Forms.Button btnLeaveApply;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSalaryInstallment;
     }
 }
