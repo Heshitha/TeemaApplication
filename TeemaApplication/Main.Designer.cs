@@ -52,6 +52,7 @@
             this.btnAddLeaves = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnFingerprintDevices = new System.Windows.Forms.Button();
+            this.btnDayoffApply = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
@@ -252,12 +253,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnDayoffApply);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btnLeaveApply);
             this.groupBox2.Controls.Add(this.btnAddLeaves);
             this.groupBox2.Location = new System.Drawing.Point(12, 128);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(133, 108);
+            this.groupBox2.Size = new System.Drawing.Size(133, 140);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
@@ -312,6 +314,16 @@
             this.btnFingerprintDevices.UseVisualStyleBackColor = true;
             this.btnFingerprintDevices.Click += new System.EventHandler(this.btnFingerprintDevices_Click);
             // 
+            // btnDayoffApply
+            // 
+            this.btnDayoffApply.Location = new System.Drawing.Point(6, 106);
+            this.btnDayoffApply.Name = "btnDayoffApply";
+            this.btnDayoffApply.Size = new System.Drawing.Size(119, 23);
+            this.btnDayoffApply.TabIndex = 5;
+            this.btnDayoffApply.Text = "Day off apply";
+            this.btnDayoffApply.UseVisualStyleBackColor = true;
+            this.btnDayoffApply.Click += new System.EventHandler(this.btnDayoffApply_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,5 +373,6 @@
         private System.Windows.Forms.Button btnSalaryInstallment;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnFingerprintDevices;
+        private System.Windows.Forms.Button btnDayoffApply;
     }
 }
