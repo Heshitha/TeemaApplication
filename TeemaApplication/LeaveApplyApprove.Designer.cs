@@ -400,7 +400,7 @@
             this.gbxSalaryMonth.Size = new System.Drawing.Size(287, 80);
             this.gbxSalaryMonth.TabIndex = 34;
             this.gbxSalaryMonth.TabStop = false;
-            this.gbxSalaryMonth.Text = "Salary Month";
+            this.gbxSalaryMonth.Text = "Leave month";
             // 
             // cmbMonth
             // 

@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btndayoffapply = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtdayoffreason = new System.Windows.Forms.TextBox();
             this.dtpLeaveDate = new System.Windows.Forms.DateTimePicker();
@@ -80,7 +80,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btndayoffapply);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.txtdayoffreason);
             this.groupBox3.Controls.Add(this.dtpLeaveDate);
@@ -92,15 +92,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Day Off Details";
             // 
-            // button1
+            // btndayoffapply
             // 
-            this.button1.Location = new System.Drawing.Point(214, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 29);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Apply ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btndayoffapply.Location = new System.Drawing.Point(214, 71);
+            this.btndayoffapply.Name = "btndayoffapply";
+            this.btndayoffapply.Size = new System.Drawing.Size(86, 29);
+            this.btndayoffapply.TabIndex = 7;
+            this.btndayoffapply.Text = "Apply ";
+            this.btndayoffapply.UseVisualStyleBackColor = true;
+            this.btndayoffapply.Click += new System.EventHandler(this.btndayoffapply_Click);
             // 
             // label11
             // 
@@ -435,7 +435,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btndayoffapply;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtdayoffreason;
         private System.Windows.Forms.DateTimePicker dtpLeaveDate;

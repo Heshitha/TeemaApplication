@@ -173,9 +173,11 @@ namespace TeemaApplication
             { MessageBox.Show("Please search an employee..!"); }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btndayoffapply_Click(object sender, EventArgs e)
         {
-                        adddayoffrequest();
+            adddayoffrequest();
         }
+
+        
     }
 }
