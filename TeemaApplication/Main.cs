@@ -132,6 +132,11 @@ namespace TeemaApplication
             frmDayOffApply frm = new frmDayOffApply();
             frm.ShowDialog();
         }
-         
+
+        private void btnLoadAttendance_Click(object sender, EventArgs e)
+        {
+            frmLoadAttendanceDetails frm = new frmLoadAttendanceDetails();
+            frm.Show();
+        }
     }
 }
