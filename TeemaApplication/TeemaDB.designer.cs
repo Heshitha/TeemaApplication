@@ -42,9 +42,6 @@ namespace TeemaApplication
     partial void InsertCreatedSalaryDetail(CreatedSalaryDetail instance);
     partial void UpdateCreatedSalaryDetail(CreatedSalaryDetail instance);
     partial void DeleteCreatedSalaryDetail(CreatedSalaryDetail instance);
-    partial void InsertDayOffRecord(DayOffRecord instance);
-    partial void UpdateDayOffRecord(DayOffRecord instance);
-    partial void DeleteDayOffRecord(DayOffRecord instance);
     partial void InsertDepartment(Department instance);
     partial void UpdateDepartment(Department instance);
     partial void DeleteDepartment(Department instance);
@@ -99,6 +96,9 @@ namespace TeemaApplication
     partial void InsertFingerPrintDevice(FingerPrintDevice instance);
     partial void UpdateFingerPrintDevice(FingerPrintDevice instance);
     partial void DeleteFingerPrintDevice(FingerPrintDevice instance);
+    partial void InsertDayOffRecord(DayOffRecord instance);
+    partial void UpdateDayOffRecord(DayOffRecord instance);
+    partial void DeleteDayOffRecord(DayOffRecord instance);
     #endregion
 		
 		public TeemaDBDataContext() : 
@@ -160,14 +160,6 @@ namespace TeemaApplication
 			get
 			{
 				return this.GetTable<CreatedSalaryDetail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DayOffRecord> DayOffRecords
-		{
-			get
-			{
-				return this.GetTable<DayOffRecord>();
 			}
 		}
 		
@@ -312,6 +304,14 @@ namespace TeemaApplication
 			get
 			{
 				return this.GetTable<FingerPrintDevice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DayOffRecord> DayOffRecords
+		{
+			get
+			{
+				return this.GetTable<DayOffRecord>();
 			}
 		}
 	}
@@ -2243,383 +2243,6 @@ namespace TeemaApplication
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DayOffRecord")]
-	public partial class DayOffRecord : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DayOffID;
-		
-		private int _EmployeeID;
-		
-		private System.Nullable<System.DateTime> _DayOffFrom;
-		
-		private System.Nullable<System.DateTime> _DayOffTo;
-		
-		private string _DayOffReason;
-		
-		private System.Nullable<int> _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<int> _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedDate;
-		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<UserAccount> _UserAccount;
-		
-		private EntityRef<UserAccount> _UserAccount1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDayOffIDChanging(int value);
-    partial void OnDayOffIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnDayOffFromChanging(System.Nullable<System.DateTime> value);
-    partial void OnDayOffFromChanged();
-    partial void OnDayOffToChanging(System.Nullable<System.DateTime> value);
-    partial void OnDayOffToChanged();
-    partial void OnDayOffReasonChanging(string value);
-    partial void OnDayOffReasonChanged();
-    partial void OnCreatedByChanging(System.Nullable<int> value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedDateChanged();
-    partial void OnModifiedByChanging(System.Nullable<int> value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnModifiedDateChanged();
-    #endregion
-		
-		public DayOffRecord()
-		{
-			this._Employee = default(EntityRef<Employee>);
-			this._UserAccount = default(EntityRef<UserAccount>);
-			this._UserAccount1 = default(EntityRef<UserAccount>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int DayOffID
-		{
-			get
-			{
-				return this._DayOffID;
-			}
-			set
-			{
-				if ((this._DayOffID != value))
-				{
-					this.OnDayOffIDChanging(value);
-					this.SendPropertyChanging();
-					this._DayOffID = value;
-					this.SendPropertyChanged("DayOffID");
-					this.OnDayOffIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffFrom", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DayOffFrom
-		{
-			get
-			{
-				return this._DayOffFrom;
-			}
-			set
-			{
-				if ((this._DayOffFrom != value))
-				{
-					this.OnDayOffFromChanging(value);
-					this.SendPropertyChanging();
-					this._DayOffFrom = value;
-					this.SendPropertyChanged("DayOffFrom");
-					this.OnDayOffFromChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffTo", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DayOffTo
-		{
-			get
-			{
-				return this._DayOffTo;
-			}
-			set
-			{
-				if ((this._DayOffTo != value))
-				{
-					this.OnDayOffToChanging(value);
-					this.SendPropertyChanging();
-					this._DayOffTo = value;
-					this.SendPropertyChanged("DayOffTo");
-					this.OnDayOffToChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffReason", DbType="VarChar(500)")]
-		public string DayOffReason
-		{
-			get
-			{
-				return this._DayOffReason;
-			}
-			set
-			{
-				if ((this._DayOffReason != value))
-				{
-					this.OnDayOffReasonChanging(value);
-					this.SendPropertyChanging();
-					this._DayOffReason = value;
-					this.SendPropertyChanged("DayOffReason");
-					this.OnDayOffReasonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
-		public System.Nullable<int> CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					if (this._UserAccount.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
-		public System.Nullable<int> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					if (this._UserAccount1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DayOffRecord", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.DayOffRecords.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.DayOffRecords.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
-		public UserAccount UserAccount
-		{
-			get
-			{
-				return this._UserAccount.Entity;
-			}
-			set
-			{
-				UserAccount previousValue = this._UserAccount.Entity;
-				if (((previousValue != value) 
-							|| (this._UserAccount.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserAccount.Entity = null;
-						previousValue.DayOffRecords.Remove(this);
-					}
-					this._UserAccount.Entity = value;
-					if ((value != null))
-					{
-						value.DayOffRecords.Add(this);
-						this._CreatedBy = value.UserID;
-					}
-					else
-					{
-						this._CreatedBy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UserAccount");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
-		public UserAccount UserAccount1
-		{
-			get
-			{
-				return this._UserAccount1.Entity;
-			}
-			set
-			{
-				UserAccount previousValue = this._UserAccount1.Entity;
-				if (((previousValue != value) 
-							|| (this._UserAccount1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserAccount1.Entity = null;
-						previousValue.DayOffRecords1.Remove(this);
-					}
-					this._UserAccount1.Entity = value;
-					if ((value != null))
-					{
-						value.DayOffRecords1.Add(this);
-						this._ModifiedBy = value.UserID;
-					}
-					else
-					{
-						this._ModifiedBy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UserAccount1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Department")]
 	public partial class Department : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3319,8 +2942,6 @@ namespace TeemaApplication
 		
 		private EntitySet<CreatedSalaryDetail> _CreatedSalaryDetails;
 		
-		private EntitySet<DayOffRecord> _DayOffRecords;
-		
 		private EntitySet<EmployeeAttendance> _EmployeeAttendances;
 		
 		private EntityRef<EmployeeSalaryDetail> _EmployeeSalaryDetail;
@@ -3340,6 +2961,8 @@ namespace TeemaApplication
 		private EntitySet<SalaryAdvance> _SalaryAdvances;
 		
 		private EntitySet<SalaryLoan> _SalaryLoans;
+		
+		private EntitySet<DayOffRecord> _DayOffRecords;
 		
 		private EntityRef<Designation> _Designation;
 		
@@ -3398,7 +3021,6 @@ namespace TeemaApplication
 			this._WorkOtherLocations = new EntitySet<WorkOtherLocation>(new Action<WorkOtherLocation>(this.attach_WorkOtherLocations), new Action<WorkOtherLocation>(this.detach_WorkOtherLocations));
 			this._BroughtForwards = new EntitySet<BroughtForward>(new Action<BroughtForward>(this.attach_BroughtForwards), new Action<BroughtForward>(this.detach_BroughtForwards));
 			this._CreatedSalaryDetails = new EntitySet<CreatedSalaryDetail>(new Action<CreatedSalaryDetail>(this.attach_CreatedSalaryDetails), new Action<CreatedSalaryDetail>(this.detach_CreatedSalaryDetails));
-			this._DayOffRecords = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords), new Action<DayOffRecord>(this.detach_DayOffRecords));
 			this._EmployeeAttendances = new EntitySet<EmployeeAttendance>(new Action<EmployeeAttendance>(this.attach_EmployeeAttendances), new Action<EmployeeAttendance>(this.detach_EmployeeAttendances));
 			this._EmployeeSalaryDetail = default(EntityRef<EmployeeSalaryDetail>);
 			this._FixedIncentives = new EntitySet<FixedIncentive>(new Action<FixedIncentive>(this.attach_FixedIncentives), new Action<FixedIncentive>(this.detach_FixedIncentives));
@@ -3409,6 +3031,7 @@ namespace TeemaApplication
 			this._PersonalLeaveRecords = new EntitySet<PersonalLeaveRecord>(new Action<PersonalLeaveRecord>(this.attach_PersonalLeaveRecords), new Action<PersonalLeaveRecord>(this.detach_PersonalLeaveRecords));
 			this._SalaryAdvances = new EntitySet<SalaryAdvance>(new Action<SalaryAdvance>(this.attach_SalaryAdvances), new Action<SalaryAdvance>(this.detach_SalaryAdvances));
 			this._SalaryLoans = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans), new Action<SalaryLoan>(this.detach_SalaryLoans));
+			this._DayOffRecords = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords), new Action<DayOffRecord>(this.detach_DayOffRecords));
 			this._Designation = default(EntityRef<Designation>);
 			this._SubDepartment = default(EntityRef<SubDepartment>);
 			this._UserAccount = default(EntityRef<UserAccount>);
@@ -3851,19 +3474,6 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DayOffRecord", Storage="_DayOffRecords", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<DayOffRecord> DayOffRecords
-		{
-			get
-			{
-				return this._DayOffRecords;
-			}
-			set
-			{
-				this._DayOffRecords.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeAttendance", Storage="_EmployeeAttendances", ThisKey="EmployeeID", OtherKey="EmployeeID")]
 		public EntitySet<EmployeeAttendance> EmployeeAttendances
 		{
@@ -4007,6 +3617,19 @@ namespace TeemaApplication
 			set
 			{
 				this._SalaryLoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DayOffRecord", Storage="_DayOffRecords", ThisKey="EmployeeID", OtherKey="EmployeeID")]
+		public EntitySet<DayOffRecord> DayOffRecords
+		{
+			get
+			{
+				return this._DayOffRecords;
+			}
+			set
+			{
+				this._DayOffRecords.Assign(value);
 			}
 		}
 		
@@ -4202,18 +3825,6 @@ namespace TeemaApplication
 			entity.Employee = null;
 		}
 		
-		private void attach_DayOffRecords(DayOffRecord entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_DayOffRecords(DayOffRecord entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
 		private void attach_EmployeeAttendances(EmployeeAttendance entity)
 		{
 			this.SendPropertyChanging();
@@ -4317,6 +3928,18 @@ namespace TeemaApplication
 		}
 		
 		private void detach_SalaryLoans(SalaryLoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_DayOffRecords(DayOffRecord entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_DayOffRecords(DayOffRecord entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -7994,10 +7617,6 @@ namespace TeemaApplication
 		
 		private EntitySet<CreatedSalaryDetail> _CreatedSalaryDetails1;
 		
-		private EntitySet<DayOffRecord> _DayOffRecords;
-		
-		private EntitySet<DayOffRecord> _DayOffRecords1;
-		
 		private EntitySet<Department> _Departments;
 		
 		private EntitySet<Department> _Departments1;
@@ -8070,6 +7689,10 @@ namespace TeemaApplication
 		
 		private EntitySet<FingerPrintDevice> _FingerPrintDevices;
 		
+		private EntitySet<DayOffRecord> _DayOffRecords;
+		
+		private EntitySet<DayOffRecord> _DayOffRecords1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8094,8 +7717,6 @@ namespace TeemaApplication
 			this._BroughtForwards1 = new EntitySet<BroughtForward>(new Action<BroughtForward>(this.attach_BroughtForwards1), new Action<BroughtForward>(this.detach_BroughtForwards1));
 			this._CreatedSalaryDetails = new EntitySet<CreatedSalaryDetail>(new Action<CreatedSalaryDetail>(this.attach_CreatedSalaryDetails), new Action<CreatedSalaryDetail>(this.detach_CreatedSalaryDetails));
 			this._CreatedSalaryDetails1 = new EntitySet<CreatedSalaryDetail>(new Action<CreatedSalaryDetail>(this.attach_CreatedSalaryDetails1), new Action<CreatedSalaryDetail>(this.detach_CreatedSalaryDetails1));
-			this._DayOffRecords = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords), new Action<DayOffRecord>(this.detach_DayOffRecords));
-			this._DayOffRecords1 = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords1), new Action<DayOffRecord>(this.detach_DayOffRecords1));
 			this._Departments = new EntitySet<Department>(new Action<Department>(this.attach_Departments), new Action<Department>(this.detach_Departments));
 			this._Departments1 = new EntitySet<Department>(new Action<Department>(this.attach_Departments1), new Action<Department>(this.detach_Departments1));
 			this._Designations = new EntitySet<Designation>(new Action<Designation>(this.attach_Designations), new Action<Designation>(this.detach_Designations));
@@ -8132,6 +7753,8 @@ namespace TeemaApplication
 			this._SalaryLoans2 = new EntitySet<SalaryLoan>(new Action<SalaryLoan>(this.attach_SalaryLoans2), new Action<SalaryLoan>(this.detach_SalaryLoans2));
 			this._FingerPrintDivices = new EntitySet<FingerPrintDevice>(new Action<FingerPrintDevice>(this.attach_FingerPrintDivices), new Action<FingerPrintDevice>(this.detach_FingerPrintDivices));
 			this._FingerPrintDevices = new EntitySet<FingerPrintDevice>(new Action<FingerPrintDevice>(this.attach_FingerPrintDevices), new Action<FingerPrintDevice>(this.detach_FingerPrintDevices));
+			this._DayOffRecords = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords), new Action<DayOffRecord>(this.detach_DayOffRecords));
+			this._DayOffRecords1 = new EntitySet<DayOffRecord>(new Action<DayOffRecord>(this.attach_DayOffRecords1), new Action<DayOffRecord>(this.detach_DayOffRecords1));
 			OnCreated();
 		}
 		
@@ -8316,32 +7939,6 @@ namespace TeemaApplication
 			set
 			{
 				this._CreatedSalaryDetails1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord", Storage="_DayOffRecords", ThisKey="UserID", OtherKey="CreatedBy")]
-		public EntitySet<DayOffRecord> DayOffRecords
-		{
-			get
-			{
-				return this._DayOffRecords;
-			}
-			set
-			{
-				this._DayOffRecords.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord1", Storage="_DayOffRecords1", ThisKey="UserID", OtherKey="ModifiedBy")]
-		public EntitySet<DayOffRecord> DayOffRecords1
-		{
-			get
-			{
-				return this._DayOffRecords1;
-			}
-			set
-			{
-				this._DayOffRecords1.Assign(value);
 			}
 		}
 		
@@ -8787,7 +8384,7 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice", Storage="_FingerPrintDivices", ThisKey="UserID", OtherKey="CreatedBy")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDevice", Storage="_FingerPrintDivices", ThisKey="UserID", OtherKey="CreatedBy")]
 		public EntitySet<FingerPrintDevice> FingerPrintDivices
 		{
 			get
@@ -8800,7 +8397,7 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice1", Storage="_FingerPrintDevices", ThisKey="UserID", OtherKey="ModifiedBy")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDevice1", Storage="_FingerPrintDevices", ThisKey="UserID", OtherKey="ModifiedBy")]
 		public EntitySet<FingerPrintDevice> FingerPrintDevices
 		{
 			get
@@ -8810,6 +8407,32 @@ namespace TeemaApplication
 			set
 			{
 				this._FingerPrintDevices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord", Storage="_DayOffRecords", ThisKey="UserID", OtherKey="CreatedBy")]
+		public EntitySet<DayOffRecord> DayOffRecords
+		{
+			get
+			{
+				return this._DayOffRecords;
+			}
+			set
+			{
+				this._DayOffRecords.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord1", Storage="_DayOffRecords1", ThisKey="UserID", OtherKey="ModifiedBy")]
+		public EntitySet<DayOffRecord> DayOffRecords1
+		{
+			get
+			{
+				return this._DayOffRecords1;
+			}
+			set
+			{
+				this._DayOffRecords1.Assign(value);
 			}
 		}
 		
@@ -8924,30 +8547,6 @@ namespace TeemaApplication
 		}
 		
 		private void detach_CreatedSalaryDetails1(CreatedSalaryDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount1 = null;
-		}
-		
-		private void attach_DayOffRecords(DayOffRecord entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount = this;
-		}
-		
-		private void detach_DayOffRecords(DayOffRecord entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount = null;
-		}
-		
-		private void attach_DayOffRecords1(DayOffRecord entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserAccount1 = this;
-		}
-		
-		private void detach_DayOffRecords1(DayOffRecord entity)
 		{
 			this.SendPropertyChanging();
 			entity.UserAccount1 = null;
@@ -9380,6 +8979,30 @@ namespace TeemaApplication
 		}
 		
 		private void detach_FingerPrintDevices(FingerPrintDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = null;
+		}
+		
+		private void attach_DayOffRecords(DayOffRecord entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = this;
+		}
+		
+		private void detach_DayOffRecords(DayOffRecord entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount = null;
+		}
+		
+		private void attach_DayOffRecords1(DayOffRecord entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserAccount1 = this;
+		}
+		
+		private void detach_DayOffRecords1(DayOffRecord entity)
 		{
 			this.SendPropertyChanging();
 			entity.UserAccount1 = null;
@@ -11755,7 +11378,7 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDevice", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
 		public UserAccount UserAccount
 		{
 			get
@@ -11789,7 +11412,7 @@ namespace TeemaApplication
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDivice1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_FingerPrintDevice1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
 		public UserAccount UserAccount1
 		{
 			get
@@ -11812,6 +11435,407 @@ namespace TeemaApplication
 					if ((value != null))
 					{
 						value.FingerPrintDevices.Add(this);
+						this._ModifiedBy = value.UserID;
+					}
+					else
+					{
+						this._ModifiedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DayOffRecord")]
+	public partial class DayOffRecord : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DayOffID;
+		
+		private int _EmployeeID;
+		
+		private System.Nullable<System.DateTime> _DayOffFrom;
+		
+		private System.Nullable<System.DateTime> _DayOffTo;
+		
+		private string _DayOffReason;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<int> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedDate;
+		
+		private System.Nullable<int> _ApprovedBy;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<UserAccount> _UserAccount;
+		
+		private EntityRef<UserAccount> _UserAccount1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDayOffIDChanging(int value);
+    partial void OnDayOffIDChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnDayOffFromChanging(System.Nullable<System.DateTime> value);
+    partial void OnDayOffFromChanged();
+    partial void OnDayOffToChanging(System.Nullable<System.DateTime> value);
+    partial void OnDayOffToChanged();
+    partial void OnDayOffReasonChanging(string value);
+    partial void OnDayOffReasonChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnModifiedByChanging(System.Nullable<int> value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedDateChanged();
+    partial void OnApprovedByChanging(System.Nullable<int> value);
+    partial void OnApprovedByChanged();
+    #endregion
+		
+		public DayOffRecord()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			this._UserAccount = default(EntityRef<UserAccount>);
+			this._UserAccount1 = default(EntityRef<UserAccount>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DayOffID
+		{
+			get
+			{
+				return this._DayOffID;
+			}
+			set
+			{
+				if ((this._DayOffID != value))
+				{
+					this.OnDayOffIDChanging(value);
+					this.SendPropertyChanging();
+					this._DayOffID = value;
+					this.SendPropertyChanged("DayOffID");
+					this.OnDayOffIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffFrom", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DayOffFrom
+		{
+			get
+			{
+				return this._DayOffFrom;
+			}
+			set
+			{
+				if ((this._DayOffFrom != value))
+				{
+					this.OnDayOffFromChanging(value);
+					this.SendPropertyChanging();
+					this._DayOffFrom = value;
+					this.SendPropertyChanged("DayOffFrom");
+					this.OnDayOffFromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffTo", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DayOffTo
+		{
+			get
+			{
+				return this._DayOffTo;
+			}
+			set
+			{
+				if ((this._DayOffTo != value))
+				{
+					this.OnDayOffToChanging(value);
+					this.SendPropertyChanging();
+					this._DayOffTo = value;
+					this.SendPropertyChanged("DayOffTo");
+					this.OnDayOffToChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOffReason", DbType="VarChar(500)")]
+		public string DayOffReason
+		{
+			get
+			{
+				return this._DayOffReason;
+			}
+			set
+			{
+				if ((this._DayOffReason != value))
+				{
+					this.OnDayOffReasonChanging(value);
+					this.SendPropertyChanging();
+					this._DayOffReason = value;
+					this.SendPropertyChanged("DayOffReason");
+					this.OnDayOffReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._UserAccount.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
+		public System.Nullable<int> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					if (this._UserAccount1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int")]
+		public System.Nullable<int> ApprovedBy
+		{
+			get
+			{
+				return this._ApprovedBy;
+			}
+			set
+			{
+				if ((this._ApprovedBy != value))
+				{
+					this.OnApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedBy = value;
+					this.SendPropertyChanged("ApprovedBy");
+					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DayOffRecord", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.DayOffRecords.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.DayOffRecords.Add(this);
+						this._EmployeeID = value.EmployeeID;
+					}
+					else
+					{
+						this._EmployeeID = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord", Storage="_UserAccount", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount
+		{
+			get
+			{
+				return this._UserAccount.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount.Entity = null;
+						previousValue.DayOffRecords.Remove(this);
+					}
+					this._UserAccount.Entity = value;
+					if ((value != null))
+					{
+						value.DayOffRecords.Add(this);
+						this._CreatedBy = value.UserID;
+					}
+					else
+					{
+						this._CreatedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UserAccount");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserAccount_DayOffRecord1", Storage="_UserAccount1", ThisKey="ModifiedBy", OtherKey="UserID", IsForeignKey=true)]
+		public UserAccount UserAccount1
+		{
+			get
+			{
+				return this._UserAccount1.Entity;
+			}
+			set
+			{
+				UserAccount previousValue = this._UserAccount1.Entity;
+				if (((previousValue != value) 
+							|| (this._UserAccount1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserAccount1.Entity = null;
+						previousValue.DayOffRecords1.Remove(this);
+					}
+					this._UserAccount1.Entity = value;
+					if ((value != null))
+					{
+						value.DayOffRecords1.Add(this);
 						this._ModifiedBy = value.UserID;
 					}
 					else

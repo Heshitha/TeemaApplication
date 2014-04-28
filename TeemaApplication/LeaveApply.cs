@@ -49,9 +49,7 @@ namespace TeemaApplication
                          txtNicNo.Text = empdata.NICNo;
                          txtSubDepartment.Text = empdata.SubDepartment.SubDepartmentName;
                          txtTokenNo.Text = empdata.TokenNo;
-
-
-
+ 
                          if (grntslvs != null && grntslvs.EmployeeID == empdata.EmployeeID)
                          {
 
@@ -82,10 +80,19 @@ namespace TeemaApplication
                              txtLeavesTakenCasual.Text = prsnlvreccasual.ToString();
                              txtLeavesTakenOther.Text = prsnlvrecother.ToString();
 
-                             txtLeaveBalanceAnnual.Text =Convert.ToString( Convert.ToInt32(txtLeavesEntitledAnnual.Text) - Convert.ToInt32(txtLeavesTakenAnnual.Text));
+                             if (grntslvs != null)
+                             {
 
-                             txtLeaveBalanceCasual.Text = Convert.ToString(Convert.ToInt32(txtLeavesEntitledCasual) - Convert.ToInt32(txtLeavesTakenCasual.Text));
+                                 Double annualentitled = Convert.ToDouble(grntslvs.Annual);
+                                 Double annualtaken = Convert.ToDouble(prsnlvrecannual);
+                                 Double balanceAnnual = annualentitled - annualtaken;
+                                 txtLeaveBalanceAnnual.Text = Convert.ToString(balanceAnnual);
 
+                                 Double casualentitled = Convert.ToDouble(grntslvs.Casual);
+                                 Double casualtaken = Convert.ToDouble(prsnlvreccasual);
+                                 Double balanceCasual = casualentitled - casualtaken;
+                                 txtLeaveBalanceCasual.Text = Convert.ToString(balanceCasual);
+                             }
                          
 
  
@@ -123,6 +130,37 @@ namespace TeemaApplication
 
                             txtLeavesEntitledAnnual.Text = grntslvs.Annual.ToString();
                             txtLeavesEntitledCasual.Text = grntslvs.Casual.ToString();
+                        }
+
+                        double prsnlvrecannual = (from persn in empdata.PersonalLeaveRecords
+                                                  where persn.LeaveDate.Value.Year == Convert.ToInt32(System.DateTime.Today.Year) && persn.LeaveType == "Annual"
+                                                  select persn.LeaveValue).Sum().Value;
+
+                        double prsnlvreccasual = (from persn in empdata.PersonalLeaveRecords
+                                                  where persn.LeaveDate.Value.Year == Convert.ToInt32(System.DateTime.Today.Year) && persn.LeaveType == "Casual"
+                                                  select persn.LeaveValue).Sum().Value;
+
+                        double prsnlvrecother = (from persn in empdata.PersonalLeaveRecords
+                                                 where persn.LeaveDate.Value.Year == Convert.ToInt32(System.DateTime.Today.Year) && persn.LeaveType == "Other"
+                                                 select persn.LeaveValue).Sum().Value;
+
+
+                        txtLeavesTakenAnnual.Text = prsnlvrecannual.ToString();
+                        txtLeavesTakenCasual.Text = prsnlvreccasual.ToString();
+                        txtLeavesTakenOther.Text = prsnlvrecother.ToString();
+
+                        if (grntslvs != null)
+                        {
+
+                            Double annualentitled = Convert.ToDouble(grntslvs.Annual);
+                            Double annualtaken = Convert.ToDouble(prsnlvrecannual);
+                            Double balanceAnnual = annualentitled - annualtaken;
+                            txtLeaveBalanceAnnual.Text = Convert.ToString(balanceAnnual);
+
+                            Double casualentitled = Convert.ToDouble(grntslvs.Casual);
+                            Double casualtaken = Convert.ToDouble(prsnlvreccasual);
+                            Double balanceCasual = casualentitled - casualtaken;
+                            txtLeaveBalanceCasual.Text = Convert.ToString(balanceCasual);
                         }
 
                     }

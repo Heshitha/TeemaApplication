@@ -82,22 +82,6 @@
       <Association Name="UserAccount_CreatedSalaryDetail1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.DayOffRecord" Member="DayOffRecords">
-    <Type Name="DayOffRecord">
-      <Column Name="DayOffID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DayOffFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DayOffTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DayOffReason" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Employee_DayOffRecord" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-      <Association Name="UserAccount_DayOffRecord" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
-      <Association Name="UserAccount_DayOffRecord1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Department" Member="Departments">
     <Type Name="Department">
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -150,7 +134,6 @@
       <Association Name="Employee_WorkOtherLocation" Member="WorkOtherLocations" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="WorkOtherLocation" />
       <Association Name="Employee_BroughtForward" Member="BroughtForwards" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="BroughtForward" />
       <Association Name="Employee_CreatedSalaryDetail" Member="CreatedSalaryDetails" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="CreatedSalaryDetail" />
-      <Association Name="Employee_DayOffRecord" Member="DayOffRecords" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="DayOffRecord" />
       <Association Name="Employee_EmployeeAttendance" Member="EmployeeAttendances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeAttendance" />
       <Association Name="Employee_EmployeeSalaryDetail" Member="EmployeeSalaryDetail" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeSalaryDetail" Cardinality="One" />
       <Association Name="Employee_FixedIncentive" Member="FixedIncentives" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="FixedIncentive" />
@@ -161,6 +144,7 @@
       <Association Name="Employee_PersonalLeaveRecord" Member="PersonalLeaveRecords" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="PersonalLeaveRecord" />
       <Association Name="Employee_SalaryAdvance" Member="SalaryAdvances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryAdvance" />
       <Association Name="Employee_SalaryLoan" Member="SalaryLoans" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryLoan" />
+      <Association Name="Employee_DayOffRecord" Member="DayOffRecords" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="DayOffRecord" />
       <Association Name="Designation_Employee" Member="Designation" ThisKey="DesignationID" OtherKey="DesignationID" Type="Designation" IsForeignKey="true" />
       <Association Name="SubDepartment_Employee" Member="SubDepartment" ThisKey="SubDepartmentID" OtherKey="SubDepartmentID" Type="SubDepartment" IsForeignKey="true" />
       <Association Name="UserAccount_Employee" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
@@ -335,8 +319,6 @@
       <Association Name="UserAccount_BroughtForward1" Member="BroughtForwards1" ThisKey="UserID" OtherKey="ModifiedBy" Type="BroughtForward" />
       <Association Name="UserAccount_CreatedSalaryDetail" Member="CreatedSalaryDetails" ThisKey="UserID" OtherKey="CreatedBy" Type="CreatedSalaryDetail" />
       <Association Name="UserAccount_CreatedSalaryDetail1" Member="CreatedSalaryDetails1" ThisKey="UserID" OtherKey="ModifiedBy" Type="CreatedSalaryDetail" />
-      <Association Name="UserAccount_DayOffRecord" Member="DayOffRecords" ThisKey="UserID" OtherKey="CreatedBy" Type="DayOffRecord" />
-      <Association Name="UserAccount_DayOffRecord1" Member="DayOffRecords1" ThisKey="UserID" OtherKey="ModifiedBy" Type="DayOffRecord" />
       <Association Name="UserAccount_Department" Member="Departments" ThisKey="UserID" OtherKey="CreatedBy" Type="Department" />
       <Association Name="UserAccount_Department1" Member="Departments1" ThisKey="UserID" OtherKey="ModifiedBy" Type="Department" />
       <Association Name="UserAccount_Designation" Member="Designations" ThisKey="UserID" OtherKey="CreatedBy" Type="Designation" />
@@ -371,8 +353,10 @@
       <Association Name="UserAccount_SalaryLoan" Member="SalaryLoans" ThisKey="UserID" OtherKey="ApprovedBy" Type="SalaryLoan" />
       <Association Name="UserAccount_SalaryLoan1" Member="SalaryLoans1" ThisKey="UserID" OtherKey="CreatedBy" Type="SalaryLoan" />
       <Association Name="UserAccount_SalaryLoan2" Member="SalaryLoans2" ThisKey="UserID" OtherKey="ModifiedBy" Type="SalaryLoan" />
-      <Association Name="UserAccount_FingerPrintDivice" Member="FingerPrintDivices" ThisKey="UserID" OtherKey="CreatedBy" Type="FingerPrintDevice" />
-      <Association Name="UserAccount_FingerPrintDivice1" Member="FingerPrintDevices" ThisKey="UserID" OtherKey="ModifiedBy" Type="FingerPrintDevice" />
+      <Association Name="UserAccount_FingerPrintDevice" Member="FingerPrintDivices" ThisKey="UserID" OtherKey="CreatedBy" Type="FingerPrintDevice" />
+      <Association Name="UserAccount_FingerPrintDevice1" Member="FingerPrintDevices" ThisKey="UserID" OtherKey="ModifiedBy" Type="FingerPrintDevice" />
+      <Association Name="UserAccount_DayOffRecord" Member="DayOffRecords" ThisKey="UserID" OtherKey="CreatedBy" Type="DayOffRecord" />
+      <Association Name="UserAccount_DayOffRecord1" Member="DayOffRecords1" ThisKey="UserID" OtherKey="ModifiedBy" Type="DayOffRecord" />
     </Type>
   </Table>
   <Table Name="dbo.VariableIncentive" Member="VariableIncentives">
@@ -474,8 +458,25 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="UserAccount_FingerPrintDivice" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
-      <Association Name="UserAccount_FingerPrintDivice1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_FingerPrintDevice" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_FingerPrintDevice1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DayOffRecord" Member="DayOffRecords">
+    <Type Name="DayOffRecord">
+      <Column Name="DayOffID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DayOffFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DayOffTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DayOffReason" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_DayOffRecord" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="UserAccount_DayOffRecord" Member="UserAccount" ThisKey="CreatedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="UserAccount_DayOffRecord1" Member="UserAccount1" ThisKey="ModifiedBy" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
