@@ -15,5 +15,10 @@ namespace TeemaApplication
         {
             InitializeComponent();
         }
+
+        private void frmDayOffApprove_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
