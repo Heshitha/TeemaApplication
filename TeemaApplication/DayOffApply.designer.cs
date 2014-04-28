@@ -417,6 +417,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDayOffApply";
             this.Text = "DayOffApply";
             this.Load += new System.EventHandler(this.frmDayOffApply_Load);

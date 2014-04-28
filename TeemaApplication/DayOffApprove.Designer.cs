@@ -38,12 +38,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.dgvLeavesapplied = new System.Windows.Forms.DataGridView();
-            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeaveID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnLeaveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnLeaveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnApprove = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grpEmployeeDetails = new System.Windows.Forms.GroupBox();
             this.txtNICNo = new System.Windows.Forms.TextBox();
             this.txtTokenNo = new System.Windows.Forms.TextBox();
@@ -71,6 +65,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtLeavefrom = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnLeaveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnApprove = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbxSalaryMonth.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeavesapplied)).BeginInit();
@@ -181,14 +179,14 @@
             this.groupBox2.Controls.Add(this.dgvLeavesapplied);
             this.groupBox2.Location = new System.Drawing.Point(303, 146);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(671, 271);
+            this.groupBox2.Size = new System.Drawing.Size(587, 271);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(577, 232);
+            this.btnSubmit.Location = new System.Drawing.Point(494, 233);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(86, 31);
             this.btnSubmit.TabIndex = 38;
@@ -203,55 +201,15 @@
             this.dgvLeavesapplied.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLeavesapplied.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnTokenID,
-            this.clmnEmpName,
-            this.LeaveID,
-            this.clmnLeaveType,
+            this.clmnName,
             this.clmnLeaveDate,
-            this.btnApprove});
+            this.clmnApprove});
             this.dgvLeavesapplied.Location = new System.Drawing.Point(6, 18);
             this.dgvLeavesapplied.Name = "dgvLeavesapplied";
             this.dgvLeavesapplied.RowHeadersVisible = false;
             this.dgvLeavesapplied.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeavesapplied.Size = new System.Drawing.Size(657, 208);
+            this.dgvLeavesapplied.Size = new System.Drawing.Size(574, 208);
             this.dgvLeavesapplied.TabIndex = 3;
-            // 
-            // clmnTokenID
-            // 
-            this.clmnTokenID.DataPropertyName = "TokenID";
-            this.clmnTokenID.HeaderText = "TokenID";
-            this.clmnTokenID.Name = "clmnTokenID";
-            // 
-            // clmnEmpName
-            // 
-            this.clmnEmpName.DataPropertyName = "Name";
-            this.clmnEmpName.HeaderText = "Name";
-            this.clmnEmpName.Name = "clmnEmpName";
-            // 
-            // LeaveID
-            // 
-            this.LeaveID.DataPropertyName = "PersonalLeaveID";
-            this.LeaveID.HeaderText = "Leave ID";
-            this.LeaveID.Name = "LeaveID";
-            // 
-            // clmnLeaveType
-            // 
-            this.clmnLeaveType.DataPropertyName = "LeaveType";
-            this.clmnLeaveType.HeaderText = "Leave Type";
-            this.clmnLeaveType.Name = "clmnLeaveType";
-            // 
-            // clmnLeaveDate
-            // 
-            this.clmnLeaveDate.DataPropertyName = "LeaveDate";
-            this.clmnLeaveDate.HeaderText = "Leave Date";
-            this.clmnLeaveDate.Name = "clmnLeaveDate";
-            // 
-            // btnApprove
-            // 
-            this.btnApprove.DataPropertyName = "Approve";
-            this.btnApprove.FalseValue = "false";
-            this.btnApprove.HeaderText = "Approve";
-            this.btnApprove.Name = "btnApprove";
-            this.btnApprove.TrueValue = "true";
             // 
             // grpEmployeeDetails
             // 
@@ -367,9 +325,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 31);
+            this.label1.Size = new System.Drawing.Size(229, 31);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Approve Leaves";
+            this.label1.Text = "Approve Day Offs";
             // 
             // groupBox1
             // 
@@ -450,7 +408,7 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Location = new System.Drawing.Point(305, 43);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(281, 99);
+            this.groupBox4.Size = new System.Drawing.Size(323, 99);
             this.groupBox4.TabIndex = 41;
             this.groupBox4.TabStop = false;
             // 
@@ -459,7 +417,7 @@
             this.txtNumberofdays.Location = new System.Drawing.Point(122, 70);
             this.txtNumberofdays.Name = "txtNumberofdays";
             this.txtNumberofdays.ReadOnly = true;
-            this.txtNumberofdays.Size = new System.Drawing.Size(153, 20);
+            this.txtNumberofdays.Size = new System.Drawing.Size(192, 20);
             this.txtNumberofdays.TabIndex = 26;
             this.txtNumberofdays.TabStop = false;
             this.txtNumberofdays.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -469,16 +427,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 73);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Number of Days";
+            this.label5.Text = "Leave Reason";
             // 
             // txtLeaveto
             // 
             this.txtLeaveto.Location = new System.Drawing.Point(122, 44);
             this.txtLeaveto.Name = "txtLeaveto";
             this.txtLeaveto.ReadOnly = true;
-            this.txtLeaveto.Size = new System.Drawing.Size(153, 20);
+            this.txtLeaveto.Size = new System.Drawing.Size(192, 20);
             this.txtLeaveto.TabIndex = 24;
             this.txtLeaveto.TabStop = false;
             this.txtLeaveto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -488,16 +446,16 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(7, 47);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.Size = new System.Drawing.Size(63, 13);
             this.label14.TabIndex = 23;
-            this.label14.Text = "Leave To";
+            this.label14.Text = "Leave Date";
             // 
             // txtLeavefrom
             // 
             this.txtLeavefrom.Location = new System.Drawing.Point(122, 18);
             this.txtLeavefrom.Name = "txtLeavefrom";
             this.txtLeavefrom.ReadOnly = true;
-            this.txtLeavefrom.Size = new System.Drawing.Size(153, 20);
+            this.txtLeavefrom.Size = new System.Drawing.Size(192, 20);
             this.txtLeavefrom.TabIndex = 22;
             this.txtLeavefrom.TabStop = false;
             this.txtLeavefrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -507,15 +465,37 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(7, 21);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.Size = new System.Drawing.Size(101, 13);
             this.label13.TabIndex = 21;
-            this.label13.Text = "Leave From";
+            this.label13.Text = "Leave Applied Date";
+            // 
+            // clmnTokenID
+            // 
+            this.clmnTokenID.HeaderText = "Token ID";
+            this.clmnTokenID.Name = "clmnTokenID";
+            // 
+            // clmnName
+            // 
+            this.clmnName.HeaderText = "Name";
+            this.clmnName.Name = "clmnName";
+            // 
+            // clmnLeaveDate
+            // 
+            this.clmnLeaveDate.HeaderText = "Leave Date";
+            this.clmnLeaveDate.Name = "clmnLeaveDate";
+            // 
+            // clmnApprove
+            // 
+            this.clmnApprove.HeaderText = "Approve";
+            this.clmnApprove.Name = "clmnApprove";
+            this.clmnApprove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmnApprove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmDayOffApprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 423);
+            this.ClientSize = new System.Drawing.Size(896, 423);
             this.Controls.Add(this.chbUnApprovedOnly);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gbxSalaryMonth);
@@ -524,6 +504,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDayOffApprove";
             this.Text = "DayOffApprove";
             this.Load += new System.EventHandler(this.frmDayOffApprove_Load);
@@ -554,12 +535,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridView dgvLeavesapplied;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnEmpName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LeaveID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn btnApprove;
         private System.Windows.Forms.GroupBox grpEmployeeDetails;
         private System.Windows.Forms.TextBox txtNICNo;
         private System.Windows.Forms.TextBox txtTokenNo;
@@ -587,5 +562,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtLeavefrom;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveDate;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmnApprove;
     }
 }
