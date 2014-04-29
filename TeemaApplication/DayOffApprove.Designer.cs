@@ -59,14 +59,15 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblTokenNumber = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtNumberofdays = new System.Windows.Forms.TextBox();
+            this.txtLeaveReason = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtLeaveto = new System.Windows.Forms.TextBox();
+            this.txtLeaveDate = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtLeavefrom = new System.Windows.Forms.TextBox();
+            this.txtLeaveAppliedDate = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.clmnTokenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnDayOffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnLeaveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnApprove = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbxSalaryMonth.SuspendLayout();
@@ -98,6 +99,7 @@
             this.btnSearch.TabIndex = 43;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gbxSalaryMonth
             // 
@@ -154,6 +156,7 @@
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(173, 21);
             this.cmbYear.TabIndex = 23;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -192,6 +195,7 @@
             this.btnSubmit.TabIndex = 38;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // dgvLeavesapplied
             // 
@@ -202,6 +206,7 @@
             this.dgvLeavesapplied.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnTokenID,
             this.clmnName,
+            this.clmnDayOffID,
             this.clmnLeaveDate,
             this.clmnApprove});
             this.dgvLeavesapplied.Location = new System.Drawing.Point(6, 18);
@@ -210,6 +215,7 @@
             this.dgvLeavesapplied.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLeavesapplied.Size = new System.Drawing.Size(574, 208);
             this.dgvLeavesapplied.TabIndex = 3;
+            this.dgvLeavesapplied.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeavesapplied_CellContentClick);
             // 
             // grpEmployeeDetails
             // 
@@ -352,6 +358,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(173, 21);
             this.cmbDepartment.TabIndex = 2;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // cmbBranch
             // 
@@ -361,6 +368,7 @@
             this.cmbBranch.Name = "cmbBranch";
             this.cmbBranch.Size = new System.Drawing.Size(173, 21);
             this.cmbBranch.TabIndex = 2;
+            this.cmbBranch.SelectedIndexChanged += new System.EventHandler(this.cmbBranch_SelectedIndexChanged);
             // 
             // cmbSubDepartment
             // 
@@ -400,11 +408,11 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtNumberofdays);
+            this.groupBox4.Controls.Add(this.txtLeaveReason);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.txtLeaveto);
+            this.groupBox4.Controls.Add(this.txtLeaveDate);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.txtLeavefrom);
+            this.groupBox4.Controls.Add(this.txtLeaveAppliedDate);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Location = new System.Drawing.Point(305, 43);
             this.groupBox4.Name = "groupBox4";
@@ -412,15 +420,15 @@
             this.groupBox4.TabIndex = 41;
             this.groupBox4.TabStop = false;
             // 
-            // txtNumberofdays
+            // txtLeaveReason
             // 
-            this.txtNumberofdays.Location = new System.Drawing.Point(122, 70);
-            this.txtNumberofdays.Name = "txtNumberofdays";
-            this.txtNumberofdays.ReadOnly = true;
-            this.txtNumberofdays.Size = new System.Drawing.Size(192, 20);
-            this.txtNumberofdays.TabIndex = 26;
-            this.txtNumberofdays.TabStop = false;
-            this.txtNumberofdays.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLeaveReason.Location = new System.Drawing.Point(122, 70);
+            this.txtLeaveReason.Name = "txtLeaveReason";
+            this.txtLeaveReason.ReadOnly = true;
+            this.txtLeaveReason.Size = new System.Drawing.Size(192, 20);
+            this.txtLeaveReason.TabIndex = 26;
+            this.txtLeaveReason.TabStop = false;
+            this.txtLeaveReason.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -431,15 +439,15 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Leave Reason";
             // 
-            // txtLeaveto
+            // txtLeaveDate
             // 
-            this.txtLeaveto.Location = new System.Drawing.Point(122, 44);
-            this.txtLeaveto.Name = "txtLeaveto";
-            this.txtLeaveto.ReadOnly = true;
-            this.txtLeaveto.Size = new System.Drawing.Size(192, 20);
-            this.txtLeaveto.TabIndex = 24;
-            this.txtLeaveto.TabStop = false;
-            this.txtLeaveto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLeaveDate.Location = new System.Drawing.Point(122, 44);
+            this.txtLeaveDate.Name = "txtLeaveDate";
+            this.txtLeaveDate.ReadOnly = true;
+            this.txtLeaveDate.Size = new System.Drawing.Size(192, 20);
+            this.txtLeaveDate.TabIndex = 24;
+            this.txtLeaveDate.TabStop = false;
+            this.txtLeaveDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label14
             // 
@@ -450,15 +458,15 @@
             this.label14.TabIndex = 23;
             this.label14.Text = "Leave Date";
             // 
-            // txtLeavefrom
+            // txtLeaveAppliedDate
             // 
-            this.txtLeavefrom.Location = new System.Drawing.Point(122, 18);
-            this.txtLeavefrom.Name = "txtLeavefrom";
-            this.txtLeavefrom.ReadOnly = true;
-            this.txtLeavefrom.Size = new System.Drawing.Size(192, 20);
-            this.txtLeavefrom.TabIndex = 22;
-            this.txtLeavefrom.TabStop = false;
-            this.txtLeavefrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLeaveAppliedDate.Location = new System.Drawing.Point(122, 18);
+            this.txtLeaveAppliedDate.Name = "txtLeaveAppliedDate";
+            this.txtLeaveAppliedDate.ReadOnly = true;
+            this.txtLeaveAppliedDate.Size = new System.Drawing.Size(192, 20);
+            this.txtLeaveAppliedDate.TabIndex = 22;
+            this.txtLeaveAppliedDate.TabStop = false;
+            this.txtLeaveAppliedDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label13
             // 
@@ -471,21 +479,31 @@
             // 
             // clmnTokenID
             // 
+            this.clmnTokenID.DataPropertyName = "TokenID";
             this.clmnTokenID.HeaderText = "Token ID";
             this.clmnTokenID.Name = "clmnTokenID";
             // 
             // clmnName
             // 
+            this.clmnName.DataPropertyName = "Name";
             this.clmnName.HeaderText = "Name";
             this.clmnName.Name = "clmnName";
             // 
+            // clmnDayOffID
+            // 
+            this.clmnDayOffID.DataPropertyName = "DayOffID";
+            this.clmnDayOffID.HeaderText = "Day Off ID";
+            this.clmnDayOffID.Name = "clmnDayOffID";
+            // 
             // clmnLeaveDate
             // 
+            this.clmnLeaveDate.DataPropertyName = "LeaveDate";
             this.clmnLeaveDate.HeaderText = "Leave Date";
             this.clmnLeaveDate.Name = "clmnLeaveDate";
             // 
             // clmnApprove
             // 
+            this.clmnApprove.DataPropertyName = "Approve";
             this.clmnApprove.HeaderText = "Approve";
             this.clmnApprove.Name = "clmnApprove";
             this.clmnApprove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -556,14 +574,15 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTokenNumber;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtNumberofdays;
+        private System.Windows.Forms.TextBox txtLeaveReason;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtLeaveto;
+        private System.Windows.Forms.TextBox txtLeaveDate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtLeavefrom;
+        private System.Windows.Forms.TextBox txtLeaveAppliedDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnTokenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnDayOffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnLeaveDate;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmnApprove;
     }

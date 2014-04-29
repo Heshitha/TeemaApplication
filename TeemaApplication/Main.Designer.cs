@@ -52,8 +52,9 @@
             this.btnLeaveApply = new System.Windows.Forms.Button();
             this.btnAddLeaves = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnFingerprintDevices = new System.Windows.Forms.Button();
             this.btnLoadAttendance = new System.Windows.Forms.Button();
+            this.btnFingerprintDevices = new System.Windows.Forms.Button();
+            this.btndayoffapprove = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
@@ -254,13 +255,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btndayoffapprove);
             this.groupBox2.Controls.Add(this.btnDayoffApply);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btnLeaveApply);
             this.groupBox2.Controls.Add(this.btnAddLeaves);
             this.groupBox2.Location = new System.Drawing.Point(12, 128);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(133, 140);
+            this.groupBox2.Size = new System.Drawing.Size(133, 168);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
@@ -316,6 +318,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Attendance Details";
             // 
+            // btnLoadAttendance
+            // 
+            this.btnLoadAttendance.Location = new System.Drawing.Point(6, 48);
+            this.btnLoadAttendance.Name = "btnLoadAttendance";
+            this.btnLoadAttendance.Size = new System.Drawing.Size(169, 23);
+            this.btnLoadAttendance.TabIndex = 1;
+            this.btnLoadAttendance.Text = "Load Attendace Details";
+            this.btnLoadAttendance.UseVisualStyleBackColor = true;
+            this.btnLoadAttendance.Click += new System.EventHandler(this.btnLoadAttendance_Click);
+            // 
             // btnFingerprintDevices
             // 
             this.btnFingerprintDevices.Location = new System.Drawing.Point(6, 19);
@@ -326,15 +338,15 @@
             this.btnFingerprintDevices.UseVisualStyleBackColor = true;
             this.btnFingerprintDevices.Click += new System.EventHandler(this.btnFingerprintDevices_Click);
             // 
-            // btnLoadAttendance
+            // btndayoffapprove
             // 
-            this.btnLoadAttendance.Location = new System.Drawing.Point(6, 48);
-            this.btnLoadAttendance.Name = "btnLoadAttendance";
-            this.btnLoadAttendance.Size = new System.Drawing.Size(169, 23);
-            this.btnLoadAttendance.TabIndex = 1;
-            this.btnLoadAttendance.Text = "Load Attendace Details";
-            this.btnLoadAttendance.UseVisualStyleBackColor = true;
-            this.btnLoadAttendance.Click += new System.EventHandler(this.btnLoadAttendance_Click);
+            this.btndayoffapprove.Location = new System.Drawing.Point(6, 135);
+            this.btndayoffapprove.Name = "btndayoffapprove";
+            this.btndayoffapprove.Size = new System.Drawing.Size(119, 23);
+            this.btndayoffapprove.TabIndex = 6;
+            this.btndayoffapprove.Text = "Day off approve";
+            this.btndayoffapprove.UseVisualStyleBackColor = true;
+            this.btndayoffapprove.Click += new System.EventHandler(this.btndayoffapprove_Click);
             // 
             // frmMain
             // 
@@ -387,5 +399,6 @@
         private System.Windows.Forms.Button btnFingerprintDevices;
         private System.Windows.Forms.Button btnDayoffApply;
         private System.Windows.Forms.Button btnLoadAttendance;
+        private System.Windows.Forms.Button btndayoffapprove;
     }
 }
