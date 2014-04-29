@@ -47,6 +47,7 @@
             this.btnVaribleIncentiveAllowance = new System.Windows.Forms.Button();
             this.btnFixedIncentiveAllowance = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btndayoffapprove = new System.Windows.Forms.Button();
             this.btnDayoffApply = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnLeaveApply = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLoadAttendance = new System.Windows.Forms.Button();
             this.btnFingerprintDevices = new System.Windows.Forms.Button();
-            this.btndayoffapprove = new System.Windows.Forms.Button();
+            this.btnManualAttendance = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxOverTime.SuspendLayout();
             this.gbxSalary.SuspendLayout();
@@ -267,6 +268,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leaves";
             // 
+            // btndayoffapprove
+            // 
+            this.btndayoffapprove.Location = new System.Drawing.Point(6, 135);
+            this.btndayoffapprove.Name = "btndayoffapprove";
+            this.btndayoffapprove.Size = new System.Drawing.Size(119, 23);
+            this.btndayoffapprove.TabIndex = 6;
+            this.btndayoffapprove.Text = "Day off approve";
+            this.btndayoffapprove.UseVisualStyleBackColor = true;
+            this.btndayoffapprove.Click += new System.EventHandler(this.btndayoffapprove_Click);
+            // 
             // btnDayoffApply
             // 
             this.btnDayoffApply.Location = new System.Drawing.Point(6, 106);
@@ -309,6 +320,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnManualAttendance);
             this.groupBox3.Controls.Add(this.btnLoadAttendance);
             this.groupBox3.Controls.Add(this.btnFingerprintDevices);
             this.groupBox3.Location = new System.Drawing.Point(461, 102);
@@ -338,15 +350,15 @@
             this.btnFingerprintDevices.UseVisualStyleBackColor = true;
             this.btnFingerprintDevices.Click += new System.EventHandler(this.btnFingerprintDevices_Click);
             // 
-            // btndayoffapprove
+            // btnManualAttendance
             // 
-            this.btndayoffapprove.Location = new System.Drawing.Point(6, 135);
-            this.btndayoffapprove.Name = "btndayoffapprove";
-            this.btndayoffapprove.Size = new System.Drawing.Size(119, 23);
-            this.btndayoffapprove.TabIndex = 6;
-            this.btndayoffapprove.Text = "Day off approve";
-            this.btndayoffapprove.UseVisualStyleBackColor = true;
-            this.btndayoffapprove.Click += new System.EventHandler(this.btndayoffapprove_Click);
+            this.btnManualAttendance.Location = new System.Drawing.Point(6, 77);
+            this.btnManualAttendance.Name = "btnManualAttendance";
+            this.btnManualAttendance.Size = new System.Drawing.Size(169, 23);
+            this.btnManualAttendance.TabIndex = 2;
+            this.btnManualAttendance.Text = "Manual Attendance";
+            this.btnManualAttendance.UseVisualStyleBackColor = true;
+            this.btnManualAttendance.Click += new System.EventHandler(this.btnManualAttendance_Click);
             // 
             // frmMain
             // 
@@ -400,5 +412,6 @@
         private System.Windows.Forms.Button btnDayoffApply;
         private System.Windows.Forms.Button btnLoadAttendance;
         private System.Windows.Forms.Button btndayoffapprove;
+        private System.Windows.Forms.Button btnManualAttendance;
     }
 }

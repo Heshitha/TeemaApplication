@@ -82,6 +82,21 @@ namespace TeemaApplication
 
             dateAndTime = new DateTime(dateAndTime.Year, dateAndTime.Month, dateAndTime.Day, hours, mins, 0);
             string mode = cmbMode.Text;
+
+            EmployeeAttendance empAtt = new EmployeeAttendance
+            {
+                Employee = emp,
+                DateAndTime = dateAndTime,
+                Mode = mode,
+                CreatedBy = 1,
+                CreatedDate = DateTime.Now,
+                ModifiedBy = 1,
+                ModifiedDate = DateTime.Now,
+            };
+
+            db.EmployeeAttendances.InsertOnSubmit(empAtt);
+            db.SubmitChanges();
+            ShowMessageBox.ShowSuccess("Information successfully saved.");
         }
     }
 }
