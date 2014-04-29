@@ -154,6 +154,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManualAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManualAttendance.Designer.cs">
+      <DependentUpon>ManualAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="OverTimeApprove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManualAttendance.resx">
+      <DependentUpon>ManualAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OverTimeApprove.resx">
       <DependentUpon>OverTimeApprove.cs</DependentUpon>
