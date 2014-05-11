@@ -546,7 +546,13 @@ namespace TeemaApplication
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            //DataSets.EmployeeDetailsRepoartDataset ds = new DataSets.EmployeeDetailsRepoartDataset();
+            //ds.EmployeeDetails.AddEmployeeDetailsRow("Kottawa", "Malapalla", "Pasal Sanwardhana Samithiya");
+
+            //Report.EmployeeDetails rpt = new Report.EmployeeDetails();
+            //rpt.SetDataSource(ds);
+
+            //rpt.PrintToPrinter(1, false, 1, 1);
         }
     }
 }
