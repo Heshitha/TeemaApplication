@@ -129,6 +129,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnprint = new System.Windows.Forms.Button();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxBasicDetails.SuspendLayout();
             this.gbxSalaryDetails.SuspendLayout();
@@ -1186,7 +1187,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(620, 624);
+            this.btnOK.Location = new System.Drawing.Point(539, 624);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 7;
@@ -1196,7 +1197,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(701, 624);
+            this.btnReset.Location = new System.Drawing.Point(620, 624);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 8;
@@ -1214,11 +1215,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnprint
+            // 
+            this.btnprint.Location = new System.Drawing.Point(701, 624);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(75, 23);
+            this.btnprint.TabIndex = 10;
+            this.btnprint.Text = "Print";
+            this.btnprint.UseVisualStyleBackColor = true;
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
+            // 
             // frmAddNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 656);
+            this.Controls.Add(this.btnprint);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnOK);
@@ -1360,5 +1372,6 @@
         private System.Windows.Forms.TextBox txtAchievingSalesTargetsPresentage;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button btnprint;
     }
 }

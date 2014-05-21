@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,17 @@ namespace TeemaApplication
         public frmReportView()
         {
             InitializeComponent();
+        }
+
+        public frmReportView(ReportClass report)
+        {
+            InitializeComponent();
+            crystalReportViewer1.ReportSource = report;
+        }
+
+        private void frmReportView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

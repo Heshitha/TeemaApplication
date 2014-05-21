@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TeemaApplication.Classes;
+using TeemaApplication.Report;
 
 namespace TeemaApplication
 {
@@ -18,7 +19,7 @@ namespace TeemaApplication
         public frmAddNewEmployee()
         {
             InitializeComponent();
-            
+
         }
 
         private void frmAddNewEmployee_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace TeemaApplication
 
         private void dgvFixedIncentives_SelectionChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgvFixedIncentives_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,7 +59,7 @@ namespace TeemaApplication
 
         private void dgvFixedIncentives_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgvFixedIncentives_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -99,7 +100,7 @@ namespace TeemaApplication
 
         private void cmbSubDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,7 +130,7 @@ namespace TeemaApplication
         private void btnOK_Click(object sender, EventArgs e)
         {
             string emptyInputs = getEmptyInputsBeforeSubmit();
-            
+
             if (emptyInputs != string.Empty)
             {
                 emptyInputs = emptyInputs.Remove(emptyInputs.Length - 2, 2);
@@ -380,17 +381,17 @@ namespace TeemaApplication
 
         private void txtDayWagesTotalEPFSalary_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtBasicSalary_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtBudgetAllowance_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtRecrumentTotalEPF_TextChanged(object sender, EventArgs e)
@@ -546,13 +547,21 @@ namespace TeemaApplication
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DataSets.EmployeeDetailsRepoartDataset ds = new DataSets.EmployeeDetailsRepoartDataset();
-            ds.EmployeeDetails.AddEmployeeDetailsRow("Kottawa", "Malapalla", "Pasal Sanwardhana Samithiya");
+            //DataSets.EmployeeDetailsRepoartDataset ds = new DataSets.EmployeeDetailsRepoartDataset();
+            //ds.EmployeeDetails.AddEmployeeDetailsRow("Kottawa", "Malapalla", "Pasal Sanwardhana Samithiya");
 
-            Report.EmployeeDetails rpt = new Report.EmployeeDetails();
-            rpt.SetDataSource(ds);
+            //Report.EmployeeDetails rpt = new Report.EmployeeDetails();
+            //rpt.SetDataSource(ds);
 
-            rpt.PrintToPrinter(1, false, 1, 1);
+            //rpt.PrintToPrinter(1, false, 1, 1);
+            this.Dispose();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            EmployeeDetailsReport rpt = new EmployeeDetailsReport();
+            frmReportView frm = new frmReportView(rpt);
+            frm.ShowDialog();
         }
     }
 }
