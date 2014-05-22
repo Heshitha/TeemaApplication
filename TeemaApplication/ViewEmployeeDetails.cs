@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TeemaApplication.Classes;
 using TeemaApplication.DataSets;
+using TeemaApplication.Report;
 
 namespace TeemaApplication
 {
@@ -533,6 +534,13 @@ namespace TeemaApplication
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            EmployeeDetailsReport rpt = new EmployeeDetailsReport();
+            frmReportView frm = new frmReportView(rpt);
+            frm.ShowDialog();
         }
     }
 }

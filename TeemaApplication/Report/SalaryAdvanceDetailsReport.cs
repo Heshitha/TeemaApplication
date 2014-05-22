@@ -16,14 +16,14 @@ namespace TeemaApplication.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class EmployeeDetailsReport : ReportClass {
+    public class SalaryAdvanceDetailsReport : ReportClass {
         
-        public EmployeeDetailsReport() {
+        public SalaryAdvanceDetailsReport() {
         }
         
         public override string ResourceName {
             get {
-                return "EmployeeDetailsReport.rpt";
+                return "SalaryAdvanceDetailsReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TeemaApplication.Report {
         
         public override string FullResourceName {
             get {
-                return "TeemaApplication.Report.EmployeeDetailsReport.rpt";
+                return "TeemaApplication.Report.SalaryAdvanceDetailsReport.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace TeemaApplication.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -90,9 +90,9 @@ namespace TeemaApplication.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEmployeeDetailsReport : Component, ICachedReport {
+    public class CachedSalaryAdvanceDetailsReport : Component, ICachedReport {
         
-        public CachedEmployeeDetailsReport() {
+        public CachedSalaryAdvanceDetailsReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace TeemaApplication.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            EmployeeDetailsReport rpt = new EmployeeDetailsReport();
+            SalaryAdvanceDetailsReport rpt = new SalaryAdvanceDetailsReport();
             rpt.Site = this.Site;
             return rpt;
         }

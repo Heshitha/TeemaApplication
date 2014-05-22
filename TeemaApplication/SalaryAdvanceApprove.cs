@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TeemaApplication.Classes;
+using TeemaApplication.DataSets;
+using TeemaApplication.Report;
 
 namespace TeemaApplication
 {
@@ -163,6 +165,13 @@ namespace TeemaApplication
             catch (Exception)
             {
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SalaryAdvanceDetailsReport rpt = new SalaryAdvanceDetailsReport();
+            frmReportView frm = new frmReportView(rpt);
+            frm.ShowDialog();
         }
 
        

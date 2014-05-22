@@ -266,6 +266,12 @@
       <DependentUpon>EmployeeDetailsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\SalaryAdvanceDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryAdvanceDetailsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SalaryAdvanceApprove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,10 @@
     <EmbeddedResource Include="Report\EmployeeDetailsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmployeeDetailsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SalaryAdvanceDetailsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalaryAdvanceDetailsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryAdvanceApprove.resx">
       <DependentUpon>SalaryAdvanceApprove.cs</DependentUpon>

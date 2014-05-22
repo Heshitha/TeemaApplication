@@ -79,6 +79,7 @@
             this.clmnAdvanceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnRequestedAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnApproved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxSalaryMonth.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
@@ -623,11 +624,22 @@
             this.clmnApproved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.clmnApproved.TrueValue = "True";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(731, 506);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(73, 23);
+            this.btnPrint.TabIndex = 37;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmSalary_Advance_Approve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 540);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.gdvSalaryAdvance);
             this.Controls.Add(this.gbxCreatedAdvance);
             this.Controls.Add(this.gbxEmployeeDetails);
@@ -713,5 +725,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnAdvanceId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnRequestedAmount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmnApproved;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
