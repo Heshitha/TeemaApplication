@@ -157,6 +157,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeDetailsRepoartDataset.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\SalaryAdvanceDetailsReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\TeemaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -449,6 +454,16 @@
     </None>
     <None Include="DataSets\EmployeeDetailsRepoartDataset.xss">
       <DependentUpon>EmployeeDetailsRepoartDataset.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xsc">
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalaryAdvanceDetailsReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xss">
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
     </None>
     <None Include="DataSets\TeemaDataSet.xsc">
       <DependentUpon>TeemaDataSet.xsd</DependentUpon>
