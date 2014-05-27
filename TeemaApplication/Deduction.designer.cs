@@ -106,6 +106,7 @@
             this.label47 = new System.Windows.Forms.Label();
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.gbxDeduction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvDeduction)).BeginInit();
             this.gbxSalary_Month.SuspendLayout();
@@ -466,7 +467,7 @@
             // 
             // btnUpsate
             // 
-            this.btnUpsate.Location = new System.Drawing.Point(638, 231);
+            this.btnUpsate.Location = new System.Drawing.Point(557, 231);
             this.btnUpsate.Name = "btnUpsate";
             this.btnUpsate.Size = new System.Drawing.Size(75, 23);
             this.btnUpsate.TabIndex = 6;
@@ -485,7 +486,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(719, 231);
+            this.btnReset.Location = new System.Drawing.Point(638, 231);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 10;
@@ -777,11 +778,21 @@
             this.label48.TabIndex = 8;
             this.label48.Text = "Employee Name";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(719, 231);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 37;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            // 
             // frmDeduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 548);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gbxEmployeeDetails);
             this.Controls.Add(this.gbxDepartmentDetails);
@@ -890,5 +901,6 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

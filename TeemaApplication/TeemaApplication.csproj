@@ -109,6 +109,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -155,6 +156,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeDetailsRepoartDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\SalaryAdvanceDetailsReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\TeemaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -253,10 +259,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\EmployeeDetails.cs">
+    <Compile Include="ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\EmployeeDetailsReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDetails.rpt</DependentUpon>
+      <DependentUpon>EmployeeDetailsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SalaryAdvanceDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryAdvanceDetailsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SalaryAdvanceApprove.cs">
@@ -385,9 +403,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report\EmployeeDetails.rpt">
+    <EmbeddedResource Include="ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\EmployeeDetailsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>EmployeeDetails.cs</LastGenOutput>
+      <LastGenOutput>EmployeeDetailsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SalaryAdvanceDetailsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalaryAdvanceDetailsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryAdvanceApprove.resx">
       <DependentUpon>SalaryAdvanceApprove.cs</DependentUpon>
@@ -416,7 +441,9 @@
     <EmbeddedResource Include="WorkInOtherLocationApply.resx">
       <DependentUpon>WorkInOtherLocationApply.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSets\EmployeeDetailsRepoartDataset.xsc">
       <DependentUpon>EmployeeDetailsRepoartDataset.xsd</DependentUpon>
     </None>
@@ -427,6 +454,16 @@
     </None>
     <None Include="DataSets\EmployeeDetailsRepoartDataset.xss">
       <DependentUpon>EmployeeDetailsRepoartDataset.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xsc">
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalaryAdvanceDetailsReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\SalaryAdvanceDetailsReportDataset.xss">
+      <DependentUpon>SalaryAdvanceDetailsReportDataset.xsd</DependentUpon>
     </None>
     <None Include="DataSets\TeemaDataSet.xsc">
       <DependentUpon>TeemaDataSet.xsd</DependentUpon>

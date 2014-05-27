@@ -36,6 +36,8 @@
             this.gbxCreateAddVariableIncentiveAll = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gdvVariableIncentive = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddVari_Incentive = new System.Windows.Forms.Button();
             this.txtIncentivePrecentage = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -72,6 +74,8 @@
             this.gbxCreateAddFixedIncentiveAll = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gdvFixedIncentives = new System.Windows.Forms.DataGridView();
+            this.clmnIncentiveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnIncentiveValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddFixedIncentive = new System.Windows.Forms.Button();
             this.txtFixedIncentiveValue = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -126,10 +130,7 @@
             this.lblWorkingBranch = new System.Windows.Forms.Label();
             this.lblFormTopic = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
-            this.clmnIncentiveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnIncentiveValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnprint = new System.Windows.Forms.Button();
             this.gbxSalaryDetails.SuspendLayout();
             this.gbxVariableIncentiveAllowance.SuspendLayout();
             this.gbxCreateAddVariableIncentiveAll.SuspendLayout();
@@ -157,7 +158,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(700, 620);
+            this.btnRemove.Location = new System.Drawing.Point(619, 620);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 15;
@@ -167,7 +168,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(538, 620);
+            this.btnEdit.Location = new System.Drawing.Point(457, 620);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 14;
@@ -268,6 +269,18 @@
             this.gdvVariableIncentive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdvVariableIncentive.Size = new System.Drawing.Size(236, 100);
             this.gdvVariableIncentive.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IncentiveType";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "IncentivePrecentage";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // btnAddVari_Incentive
             // 
@@ -628,6 +641,18 @@
             this.gdvFixedIncentives.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdvFixedIncentives.Size = new System.Drawing.Size(236, 176);
             this.gdvFixedIncentives.TabIndex = 0;
+            // 
+            // clmnIncentiveType
+            // 
+            this.clmnIncentiveType.DataPropertyName = "IncentiveType";
+            this.clmnIncentiveType.HeaderText = "Incentive Type";
+            this.clmnIncentiveType.Name = "clmnIncentiveType";
+            // 
+            // clmnIncentiveValue
+            // 
+            this.clmnIncentiveValue.DataPropertyName = "IncentiveValue";
+            this.clmnIncentiveValue.HeaderText = "Value";
+            this.clmnIncentiveValue.Name = "clmnIncentiveValue";
             // 
             // btnAddFixedIncentive
             // 
@@ -1167,7 +1192,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(619, 620);
+            this.btnReset.Location = new System.Drawing.Point(538, 620);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 18;
@@ -1175,35 +1200,22 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // clmnIncentiveType
+            // btnprint
             // 
-            this.clmnIncentiveType.DataPropertyName = "IncentiveType";
-            this.clmnIncentiveType.HeaderText = "Incentive Type";
-            this.clmnIncentiveType.Name = "clmnIncentiveType";
-            // 
-            // clmnIncentiveValue
-            // 
-            this.clmnIncentiveValue.DataPropertyName = "IncentiveValue";
-            this.clmnIncentiveValue.HeaderText = "Value";
-            this.clmnIncentiveValue.Name = "clmnIncentiveValue";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IncentiveType";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Incentive Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "IncentivePrecentage";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Precentage";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.btnprint.Location = new System.Drawing.Point(700, 620);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(75, 23);
+            this.btnprint.TabIndex = 19;
+            this.btnprint.Text = "Print";
+            this.btnprint.UseVisualStyleBackColor = true;
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // frmViewEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 656);
+            this.Controls.Add(this.btnprint);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRemove);
@@ -1347,5 +1359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnIncentiveValue;
+        private System.Windows.Forms.Button btnprint;
     }
 }
