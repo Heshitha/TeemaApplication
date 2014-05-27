@@ -129,6 +129,13 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtAchievingProductionTargetsValue = new System.Windows.Forms.TextBox();
+            this.txtMachievingMaintenanceValue = new System.Windows.Forms.TextBox();
+            this.txtDownTimeMatchineBreakDownValue = new System.Windows.Forms.TextBox();
+            this.txtAchievingSalesTargetsValue = new System.Windows.Forms.TextBox();
+            this.txtHawailSectionProductionValue = new System.Windows.Forms.TextBox();
+            this.txtMillSectionTargetsValue = new System.Windows.Forms.TextBox();
+            this.txtSecurityPerformanceIncentiveValue = new System.Windows.Forms.TextBox();
             this.gbxDepartmentDetails.SuspendLayout();
             this.gbxBasicDetails.SuspendLayout();
             this.gbxSalaryDetails.SuspendLayout();
@@ -497,6 +504,13 @@
             // 
             // gbxVariableIncentiveAllowance
             // 
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtSecurityPerformanceIncentiveValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtAchievingSalesTargetsValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtHawailSectionProductionValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtMillSectionTargetsValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtAchievingProductionTargetsValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtMachievingMaintenanceValue);
+            this.gbxVariableIncentiveAllowance.Controls.Add(this.txtDownTimeMatchineBreakDownValue);
             this.gbxVariableIncentiveAllowance.Controls.Add(this.gbxCreateAddVariableIncentiveAll);
             this.gbxVariableIncentiveAllowance.Controls.Add(this.txtSecurityPerformanceIncentivePresentage);
             this.gbxVariableIncentiveAllowance.Controls.Add(this.label34);
@@ -635,7 +649,7 @@
             // 
             // txtSecurityPerformanceIncentivePresentage
             // 
-            this.txtSecurityPerformanceIncentivePresentage.Location = new System.Drawing.Point(202, 305);
+            this.txtSecurityPerformanceIncentivePresentage.Location = new System.Drawing.Point(140, 309);
             this.txtSecurityPerformanceIncentivePresentage.Name = "txtSecurityPerformanceIncentivePresentage";
             this.txtSecurityPerformanceIncentivePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtSecurityPerformanceIncentivePresentage.TabIndex = 38;
@@ -648,13 +662,13 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(6, 308);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(155, 13);
+            this.label34.Size = new System.Drawing.Size(113, 13);
             this.label34.TabIndex = 55;
-            this.label34.Text = "Security Performance Incentive";
+            this.label34.Text = "Sec.. Perfo.. Incentive";
             // 
             // txtAchievingSalesTargetsPresentage
             // 
-            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(202, 279);
+            this.txtAchievingSalesTargetsPresentage.Location = new System.Drawing.Point(140, 283);
             this.txtAchievingSalesTargetsPresentage.Name = "txtAchievingSalesTargetsPresentage";
             this.txtAchievingSalesTargetsPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtAchievingSalesTargetsPresentage.TabIndex = 37;
@@ -673,7 +687,7 @@
             // 
             // txtHawailSectionProductionPresentage
             // 
-            this.txtHawailSectionProductionPresentage.Location = new System.Drawing.Point(202, 253);
+            this.txtHawailSectionProductionPresentage.Location = new System.Drawing.Point(140, 257);
             this.txtHawailSectionProductionPresentage.Name = "txtHawailSectionProductionPresentage";
             this.txtHawailSectionProductionPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtHawailSectionProductionPresentage.TabIndex = 36;
@@ -687,13 +701,13 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(6, 256);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(132, 13);
+            this.label24.Size = new System.Drawing.Size(117, 13);
             this.label24.TabIndex = 51;
-            this.label24.Text = "Hawail Section Production";
+            this.label24.Text = "Haw.. Sec.. Production";
             // 
             // txtMillSectionTargetsPresentage
             // 
-            this.txtMillSectionTargetsPresentage.Location = new System.Drawing.Point(202, 227);
+            this.txtMillSectionTargetsPresentage.Location = new System.Drawing.Point(140, 231);
             this.txtMillSectionTargetsPresentage.Name = "txtMillSectionTargetsPresentage";
             this.txtMillSectionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtMillSectionTargetsPresentage.TabIndex = 35;
@@ -712,7 +726,7 @@
             // 
             // txtAchievingProductionTargetsPresentage
             // 
-            this.txtAchievingProductionTargetsPresentage.Location = new System.Drawing.Point(202, 201);
+            this.txtAchievingProductionTargetsPresentage.Location = new System.Drawing.Point(140, 205);
             this.txtAchievingProductionTargetsPresentage.Name = "txtAchievingProductionTargetsPresentage";
             this.txtAchievingProductionTargetsPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtAchievingProductionTargetsPresentage.TabIndex = 34;
@@ -725,13 +739,13 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(6, 204);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(147, 13);
+            this.label32.Size = new System.Drawing.Size(104, 13);
             this.label32.TabIndex = 47;
-            this.label32.Text = "Achieving Production Targets";
+            this.label32.Text = "Achi.. Prod.. Targets";
             // 
             // txtMachievingMaintenancePresentage
             // 
-            this.txtMachievingMaintenancePresentage.Location = new System.Drawing.Point(202, 175);
+            this.txtMachievingMaintenancePresentage.Location = new System.Drawing.Point(140, 179);
             this.txtMachievingMaintenancePresentage.Name = "txtMachievingMaintenancePresentage";
             this.txtMachievingMaintenancePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtMachievingMaintenancePresentage.TabIndex = 33;
@@ -750,7 +764,7 @@
             // 
             // txtDownTimeMatchineBreakDownPresentage
             // 
-            this.txtDownTimeMatchineBreakDownPresentage.Location = new System.Drawing.Point(202, 149);
+            this.txtDownTimeMatchineBreakDownPresentage.Location = new System.Drawing.Point(140, 153);
             this.txtDownTimeMatchineBreakDownPresentage.Name = "txtDownTimeMatchineBreakDownPresentage";
             this.txtDownTimeMatchineBreakDownPresentage.Size = new System.Drawing.Size(56, 20);
             this.txtDownTimeMatchineBreakDownPresentage.TabIndex = 32;
@@ -763,18 +777,19 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(6, 152);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(172, 13);
+            this.label30.Size = new System.Drawing.Size(113, 13);
             this.label30.TabIndex = 43;
-            this.label30.Text = "Down Time Machine Break Downs";
+            this.label30.Text = "D. T. M. Break Downs";
             // 
             // txtWorkshopIncentivePresentage
             // 
-            this.txtWorkshopIncentivePresentage.Location = new System.Drawing.Point(202, 123);
+            this.txtWorkshopIncentivePresentage.Location = new System.Drawing.Point(140, 127);
             this.txtWorkshopIncentivePresentage.Name = "txtWorkshopIncentivePresentage";
             this.txtWorkshopIncentivePresentage.Size = new System.Drawing.Size(56, 20);
             this.txtWorkshopIncentivePresentage.TabIndex = 31;
             this.txtWorkshopIncentivePresentage.Text = "0";
             this.txtWorkshopIncentivePresentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtWorkshopIncentivePresentage.TextChanged += new System.EventHandler(this.txtWorkshopIncentivePresentage_TextChanged);
             this.txtWorkshopIncentivePresentage.Leave += new System.EventHandler(this.txtWorkshopIncentivePresentage_Leave);
             // 
             // label29
@@ -1214,6 +1229,83 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtAchievingProductionTargetsValue
+            // 
+            this.txtAchievingProductionTargetsValue.Location = new System.Drawing.Point(202, 205);
+            this.txtAchievingProductionTargetsValue.Name = "txtAchievingProductionTargetsValue";
+            this.txtAchievingProductionTargetsValue.ReadOnly = true;
+            this.txtAchievingProductionTargetsValue.Size = new System.Drawing.Size(56, 20);
+            this.txtAchievingProductionTargetsValue.TabIndex = 58;
+            this.txtAchievingProductionTargetsValue.TabStop = false;
+            this.txtAchievingProductionTargetsValue.Text = "0";
+            this.txtAchievingProductionTargetsValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtMachievingMaintenanceValue
+            // 
+            this.txtMachievingMaintenanceValue.Location = new System.Drawing.Point(202, 179);
+            this.txtMachievingMaintenanceValue.Name = "txtMachievingMaintenanceValue";
+            this.txtMachievingMaintenanceValue.ReadOnly = true;
+            this.txtMachievingMaintenanceValue.Size = new System.Drawing.Size(56, 20);
+            this.txtMachievingMaintenanceValue.TabIndex = 57;
+            this.txtMachievingMaintenanceValue.TabStop = false;
+            this.txtMachievingMaintenanceValue.Text = "0";
+            this.txtMachievingMaintenanceValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDownTimeMatchineBreakDownValue
+            // 
+            this.txtDownTimeMatchineBreakDownValue.Location = new System.Drawing.Point(202, 153);
+            this.txtDownTimeMatchineBreakDownValue.Name = "txtDownTimeMatchineBreakDownValue";
+            this.txtDownTimeMatchineBreakDownValue.ReadOnly = true;
+            this.txtDownTimeMatchineBreakDownValue.Size = new System.Drawing.Size(56, 20);
+            this.txtDownTimeMatchineBreakDownValue.TabIndex = 56;
+            this.txtDownTimeMatchineBreakDownValue.TabStop = false;
+            this.txtDownTimeMatchineBreakDownValue.Text = "0";
+            this.txtDownTimeMatchineBreakDownValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtAchievingSalesTargetsValue
+            // 
+            this.txtAchievingSalesTargetsValue.Location = new System.Drawing.Point(202, 282);
+            this.txtAchievingSalesTargetsValue.Name = "txtAchievingSalesTargetsValue";
+            this.txtAchievingSalesTargetsValue.ReadOnly = true;
+            this.txtAchievingSalesTargetsValue.Size = new System.Drawing.Size(56, 20);
+            this.txtAchievingSalesTargetsValue.TabIndex = 61;
+            this.txtAchievingSalesTargetsValue.TabStop = false;
+            this.txtAchievingSalesTargetsValue.Text = "0";
+            this.txtAchievingSalesTargetsValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtHawailSectionProductionValue
+            // 
+            this.txtHawailSectionProductionValue.Location = new System.Drawing.Point(202, 257);
+            this.txtHawailSectionProductionValue.Name = "txtHawailSectionProductionValue";
+            this.txtHawailSectionProductionValue.ReadOnly = true;
+            this.txtHawailSectionProductionValue.Size = new System.Drawing.Size(56, 20);
+            this.txtHawailSectionProductionValue.TabIndex = 60;
+            this.txtHawailSectionProductionValue.TabStop = false;
+            this.txtHawailSectionProductionValue.Text = "0";
+            this.txtHawailSectionProductionValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtMillSectionTargetsValue
+            // 
+            this.txtMillSectionTargetsValue.Location = new System.Drawing.Point(202, 231);
+            this.txtMillSectionTargetsValue.Name = "txtMillSectionTargetsValue";
+            this.txtMillSectionTargetsValue.ReadOnly = true;
+            this.txtMillSectionTargetsValue.Size = new System.Drawing.Size(56, 20);
+            this.txtMillSectionTargetsValue.TabIndex = 59;
+            this.txtMillSectionTargetsValue.TabStop = false;
+            this.txtMillSectionTargetsValue.Text = "0";
+            this.txtMillSectionTargetsValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtSecurityPerformanceIncentiveValue
+            // 
+            this.txtSecurityPerformanceIncentiveValue.Location = new System.Drawing.Point(202, 309);
+            this.txtSecurityPerformanceIncentiveValue.Name = "txtSecurityPerformanceIncentiveValue";
+            this.txtSecurityPerformanceIncentiveValue.ReadOnly = true;
+            this.txtSecurityPerformanceIncentiveValue.Size = new System.Drawing.Size(56, 20);
+            this.txtSecurityPerformanceIncentiveValue.TabIndex = 62;
+            this.txtSecurityPerformanceIncentiveValue.TabStop = false;
+            this.txtSecurityPerformanceIncentiveValue.Text = "0";
+            this.txtSecurityPerformanceIncentiveValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmAddNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1360,5 +1452,12 @@
         private System.Windows.Forms.TextBox txtAchievingSalesTargetsPresentage;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.TextBox txtSecurityPerformanceIncentiveValue;
+        private System.Windows.Forms.TextBox txtAchievingSalesTargetsValue;
+        private System.Windows.Forms.TextBox txtHawailSectionProductionValue;
+        private System.Windows.Forms.TextBox txtMillSectionTargetsValue;
+        private System.Windows.Forms.TextBox txtAchievingProductionTargetsValue;
+        private System.Windows.Forms.TextBox txtMachievingMaintenanceValue;
+        private System.Windows.Forms.TextBox txtDownTimeMatchineBreakDownValue;
     }
 }

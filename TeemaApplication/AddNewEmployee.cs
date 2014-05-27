@@ -554,5 +554,12 @@ namespace TeemaApplication
 
             rpt.PrintToPrinter(1, false, 1, 1);
         }
+
+        private void txtWorkshopIncentivePresentage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
